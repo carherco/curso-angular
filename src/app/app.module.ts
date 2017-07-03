@@ -4,17 +4,26 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { ClickMeComponent } from './click-me/click-me.component';
+import { KeyUpComponent } from './key-up/key-up.component';
+import { HeroFormComponent } from './hero-form/hero-form.component';
+import { HeroListComponent } from './hero-list/hero-list.component';
+import { HeroService } from 'app/hero.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ClickMeComponent,
+    KeyUpComponent,
+    HeroFormComponent,
+    HeroListComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [HeroService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
