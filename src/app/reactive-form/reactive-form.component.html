@@ -1,0 +1,19 @@
+<div class="container">
+    <h1>Hero Form</h1>
+
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" required name="name" [formControl]="myForm.controls.name">
+      </div>
+
+      <div class="form-group">
+        <label for="alterEgo">Alter Ego</label>
+        <input type="text" class="form-control" id="alterEgo" name="alterEgo" [formControl]="alterEgoControl">
+      </div>
+
+      <button type="submit" class="btn btn-success" [disabled]="!myForm.valid">Submit</button>
+
+    </form>
+</div>
+

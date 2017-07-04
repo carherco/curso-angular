@@ -12,6 +12,7 @@ import { HeroListComponent } from './hero-list/hero-list.component';
 import { HeroService } from 'app/hero.service';
 import { ColdObservablesComponent } from './cold-observables/cold-observables.component';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
+import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 
 @NgModule({
   declarations: [
@@ -21,12 +22,14 @@ import { HeroSearchComponent } from './hero-search/hero-search.component';
     HeroFormComponent,
     HeroListComponent,
     ColdObservablesComponent,
-    HeroSearchComponent
+    HeroSearchComponent,
+    ReactiveFormComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    ReactiveFormsModule
   ],
   providers: [HeroService],
   bootstrap: [AppComponent]
