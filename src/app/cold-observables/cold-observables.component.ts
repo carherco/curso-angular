@@ -49,9 +49,10 @@ export class ColdObservablesComponent implements OnInit {
       const subs3 = Obs2.subscribe(x => console.log('subs3:',x));
     }, 5000);
 
-    // Son observadores fríos:
+    // Son Observables fríos:
     // - Una instancia por cada subscripción
     // - El observable empieza en el momento de la subscripción
+    // - Desuscribirse del observable para liberar memoria
 
 
 

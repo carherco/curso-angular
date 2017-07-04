@@ -13,7 +13,7 @@ export class HeroService {
 
   constructor (private http: Http) {}
 
-  getHeroes(): Observable<Hero[]> {
+  getHeroes(filter?): Observable<Hero[]> {
   // getHeroes(): Observable<any> {
     return this.http.get(this.heroesUrl)
                     .map((x) => x.json());
