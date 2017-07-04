@@ -33,3 +33,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
  - [Directives](docs/directives.md)
  - Template-driven forms
  - Reactive forms
+ - [Observables](docs/observables.md)

@@ -9,6 +9,7 @@ import { KeyUpComponent } from './key-up/key-up.component';
 import { HeroFormComponent } from './hero-form/hero-form.component';
 import { HeroListComponent } from './hero-list/hero-list.component';
 import { HeroService } from 'app/hero.service';
+import { ColdObservablesComponent } from './cold-observables/cold-observables.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { HeroService } from 'app/hero.service';
     ClickMeComponent,
     KeyUpComponent,
     HeroFormComponent,
-    HeroListComponent
+    HeroListComponent,
+    ColdObservablesComponent
   ],
   imports: [
     BrowserModule,
