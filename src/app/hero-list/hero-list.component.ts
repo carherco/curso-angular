@@ -12,11 +12,12 @@ export class HeroListComponent implements OnInit {
 
   errorMessage: string;
   heroes: Hero[];
-  mode = 'Observable';
 
-  constructor (private heroService: HeroService) {}
+  constructor (private heroService: HeroService) {
+    this.getHeroes();
+  }
 
-  ngOnInit() { this.getHeroes(); }
+  ngOnInit() {  }
 
   getHeroes() {
     this.heroService.getHeroes()

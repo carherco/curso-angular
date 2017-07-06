@@ -13,9 +13,9 @@ export class HeroService {
 
   constructor (private http: Http) {}
 
-  getHeroes(filter?): Observable<Hero[]> {
+  getHeroes(filter = {}): Observable<Hero[]> {
   // getHeroes(): Observable<any> {
-    return this.http.get(this.heroesUrl)
+    return this.http.get(this.heroesUrl + '?' + filter)
                     .map((x) => x.json());
   }
 

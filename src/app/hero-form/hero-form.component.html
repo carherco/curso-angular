@@ -1,6 +1,6 @@
 <div class="container">
     <h1>Hero Form</h1>
-    {{diagnostic()}}
+    {{diagnostic() | json}}
     <form #heroForm="ngForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
         <label for="name">Name</label>
