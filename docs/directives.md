@@ -12,7 +12,7 @@ Repite una plantilla por cada elemento de una lista.
 
 Un conjunto de directivas que permiten cambiar entre vistas alternativas.
 
-```[html]
+```html
 
 <div *ngIf="hero" >{{hero.name}}</div>
 
@@ -33,7 +33,7 @@ Solamente se puede poner una directiva por elemento.
 
 Existe la etiqueta <ng-container> que no se introduce en el DOM.
 
-```[html]
+```html
 
 <div>
   Elige a tu héroe favorito
