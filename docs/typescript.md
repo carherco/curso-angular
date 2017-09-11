@@ -20,6 +20,7 @@ Se compila para generar código ES6 (también llamado ES2015) o ES5 (diciembre 2
 - Alternativa a var para declarar variables
 - Scope restringido al bloque
 
+```javascript
       for (var i = 0; i < 10; i++) {
           // algo
       }
@@ -29,6 +30,7 @@ Se compila para generar código ES6 (también llamado ES2015) o ES5 (diciembre 2
           // algo
       }
       console.log(j) // j is not defined
+```
 
 - No podemos usar una variable antes de definirla
 
@@ -38,11 +40,13 @@ Se compila para generar código ES6 (también llamado ES2015) o ES5 (diciembre 2
 
 - Funciones expresadas de forma compactas
 
+```javascript
   increment = function(x) {
         return x+1
   };
 
   increment = x => x+1;
+```
 
 - Con retorno implícito si sólo tienen 1 expresión (no hace falta el return ni las llaves)
 - No hace faltan los paréntesis en los parámetros si sólo tienen 1 (si no, () => 1 o (a,b)=>a+b )
@@ -58,9 +62,11 @@ Se compila para generar código ES6 (también llamado ES2015) o ES5 (diciembre 2
 
 Forma breve de definir objetos que usar como nombre de la variable el nombre de la propiedad.
 
+```javascript
     let name = 'Carlos';
     obj = {name: name} // antigua forma
     obj = {name} // nueva forma
+```
 
 ### Rest y spread
 
@@ -68,65 +74,76 @@ Operadores (¡diferentes!) con la misma sintaxis: … (3 puntos seguidos)
 
 Spread sirve para extraer valores de un array o un objeto:
 
+```javascript
     log(...[1, 2, 3]); // uso de spread operator
 
     function log(a, b, c) {
         console.log(`first value is ${a}, second is ${b} and third ${c}`)
     };
+```
 
 Rest para la operación inversa, de elementos a array:
 
+```javascript
     log(1, 2, 3); // uso de rest operator
 
     function log(... array) {
         console.log(array) // array [1, 2, 3]
     };
+```
 
 ### Valores por defecto
 
 En parámetros de una función
 
+```javascript
     function ejemplo(valor = 1) {
 
     }
+```
 
 ### Destructuring
 
 Descomponer arrays y objetos a variables
 
+```javascript
     let arr = [0, 1, 2];
 
     let [a, b, c] = arr;
 
     console.log(a, b, c) // 0, 1, 2
+```
 
 Se puede combinar con valores por defecto y operador rest.
 
+```javascript
     let arr = [0, 1, 2];
 
     let [a, ...b] = arr;
 
     console.log(a, b) // 0, [1, 2]
+```
 
-
-
+```javascript
     let [a, b, c, d = 3] = arr;
 
     console.log(a, b, c, d) // 0, 1, 2, 3
-
+```
 
 También podemos usarlo para invertir variables
 
+```javascript
     let a = 0;
     let b = 1;
 
     [b, a] = [a, b];
 
     console.log(a, b) // 1, 0
+````
 
 O para transformar parámetros de entrada de funciones
 
-
+```javascript
     let arr = [0, 1];
 
     log(arr);
@@ -134,7 +151,7 @@ O para transformar parámetros de entrada de funciones
     function log([a, b]) {
         console.log(a, b)
     }
-
+```
 
 ### Más características de ES2015/ES6
 
@@ -154,6 +171,7 @@ Soporte de:
 - Overrides de métodos a hijos ( super.metodo() )
 - Llamadas a constructores padre ( super() )
 
+```javascript
     class AppComponent {
 
     atributo;
@@ -163,7 +181,7 @@ Soporte de:
 
     constructor() { }
     }
-
+```
 
 ## Características de TypeScript
 
@@ -174,9 +192,11 @@ Diferencias de Typescript
 
 boolean | number | string | arrays | enum (enumerados) | Any (cualquiera) | Void (ninguno) | Object
 
+```javascript
       let cadena: string;
       cadena = 'Hola';
       cadena = 2: // ERROR!
+```
 
 Con tipado gradual. Podemos no escribir un tipo y el compilador intentará inferirlo y hacer comprobaciones en tiempo compilación.
 
@@ -184,13 +204,16 @@ Tipo any para saltarse las comprobaciones de tipos.
 
 La sintaxis en arrays es
 
+```javascript
     let array1: Array<number>;
     let array2: number[];
+```
 
 ### Interfaces
 
 No generan código en producción, sólo son comprobaciones en tiempo de ejecución
 
+```javascript
     interface Talk {
         name: String;
     }
@@ -202,6 +225,7 @@ No generan código en producción, sólo son comprobaciones en tiempo de ejecuci
     }
 
     let charla2 = new MyTalk(); //implementación explícita
+```
 
 ### Visibilidad
 
@@ -209,22 +233,27 @@ Public por defecto.
 
 Constructores breves
 
-    constructor(public name = 'Rx') {}
+```javascript
+    constructor(public name: string) {}
+```
 
 Equivale a definir un atributo y fijar su valor:
 
-    name;
+```javascript
+    public name: string;
 
-    constructor(name = 'Rx') {
+    constructor(name) {
     this.name = name;
     }
-
+```
 
 ### Tipos unión 
 
 La propiedad solamente podrá tomar uno de los valores definidos.
 
+```javascript
     pos: ‘North’ | ‘East’;
+```
 
 ### Tipos función en interfaces
 
@@ -237,4 +266,6 @@ La propiedad solamente podrá tomar uno de los valores definidos.
 
 Previene errores al recorrer un objeto con valores nulos
 
-{{objeto?.propiedad?.valor}}
+```
+    {{objeto?.propiedad?.valor}}
+```

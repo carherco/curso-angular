@@ -27,7 +27,7 @@ http://localhost:8888/carlos/curso_angular/spa.html
 
 Angular basa su funcionamiento SPA en utilizar la parte de las URLs denominada fragments (la parte de la URL que va después de #).
 
-Un elemento &lt;a href="#loquesea"> no recarga el navegador al hacer click, ya que se da por hecho que ese elemento un fragmento del documento que ya está en la pantalla.
+Un elemento &lt;a href="#loquesea"> no recarga el navegador al hacer click, ya que se da por hecho que ese elemento es un fragmento del documento que ya está en la pantalla.
 
 Todas las rutas de Angular son en realidad framentos de la misma URL. Angular actúa internamente sobre el evento *onhashchange Event* del DOM y realiza en ese evento las operaciones necesarias para crear, cambiar, destruir los componentes necesarios.
 
