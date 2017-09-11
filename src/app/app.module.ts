@@ -13,6 +13,7 @@ import { HeroService } from 'app/hero.service';
 import { ColdObservablesComponent } from './cold-observables/cold-observables.component';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
+import { CrudBasicoComponent } from './crud-basico/crud-basico.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
     HeroListComponent,
     ColdObservablesComponent,
     HeroSearchComponent,
-    ReactiveFormComponent
+    ReactiveFormComponent,
+    CrudBasicoComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,6 @@
-##Template syntax and data binding
+# Sintaxis de plantillas y data binding
 
-- One way data binding (from component to view)
+## One way data binding (del componente a la vista)
 
   - Interpolation
   - Property
@@ -9,33 +9,27 @@
   - Style
 
   ``` html
-
   <h1>{{expression}}</h1>
+  <img src="{{expression}}" />
   <img [src]="expression" />
   <img bind-src="expression" />
-
   ```
 
-
-- One way data binding (from view to component)
+## One way data binding (de la vista al componente)
 
   - Events
 
   ``` html
-
   <button (click)="statement">Hello</button>
   <button on-click="statement">Hello</button>
-
   ```
 
 
-- Two way data binding
+## Two way data binding
 
   ``` html
-
   <input [(ngModel)]="expression" />
   <input bindon-ngModel="expression" />
-
   ```
 
 

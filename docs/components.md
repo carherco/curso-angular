@@ -38,4 +38,23 @@ La función decorador @Component recibe un Objeto con las siguientes propiedades
 El template, los metadatos y el compenente, en conjunto, describen una **vista**.
 
 
+## Creación de un componente con angular cli
 
+```
+ng generate component nombre-componente
+```
+
+o bien 
+
+```
+ng g c nombre-componente
+```
+
+```
+installing component
+  create src/app/nombre-componente/nombre-componente.component.css
+  create src/app/nombre-componente/nombre-componente.component.html
+  create src/app/nombre-componente/nombre-componente.component.spec.ts
+  create src/app/nombre-componente/nombre-componente.component.ts
+  update src/app/app.module.ts
+```

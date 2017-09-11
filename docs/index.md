@@ -9,6 +9,7 @@
  - [Sintaxis de plantillas y data binding](data-binding.md)
  - [Directivas](directives.md)
  - [Pipes](pipes.md)
+ - [Ejemplo de CRUD simple](ejemplo-crud-basico.md)
  - Servicios
  - Providers
  - Inyección de dependencias
@@ -16,7 +17,7 @@
  - Formularios template-driven
  - Formularios model-driven (Reactive forms)
  - [Observables](observables.md)
- - Consumo de APIs Http-REST
+ - [Ejemplo de CRUD con API REST](ejemplo-crud-completo.md)
  - WebPack
  - WebWorkers
 
