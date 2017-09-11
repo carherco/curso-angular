@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Curso</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet"
+      href="https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+   <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <button id="btn_pag1" type="button" class="btn btn-default">Página 1</button>
+  <button id="btn_pag2" type="button" class="btn btn-primary">Página 2</button>
+  <button id="btn_pag3" type="button" class="btn btn-success">página 3</button>
+  <a href="/carlos/curso_angular/no-spa.html" id="btn_pag4" type="button" class="btn btn-default">Página 4</a>
+
+  <div id="pag1">
+    <h2>Esta es la página 1</h2>
+  </div>
+
+  <div id="pag2">
+    <h2>Aquí el contenido de la página 2</h2>
+  </div>
+
+  <div id="pag3">
+    <h2>Y esta última es la página 3</h2>
+  </div>
+
+  <script>
+
+    $( document ).ready(function() {
+
+        $('#pag1').show();
+        $('#pag2').hide();
+        $('#pag3').hide();
+
+        $('#btn_pag1').click(function(){
+          $('#pag1').show();
+          $('#pag2').hide();
+          $('#pag3').hide();
+        });
+
+        $('#btn_pag2').click(function(){
+          $('#pag1').hide();
+          $('#pag2').show();
+          $('#pag3').hide();
+        });
+
+        $('#btn_pag3').click(function(){
+          $('#pag1').hide();
+          $('#pag2').hide();
+          $('#pag3').show();
+        });
+    });
+
+  </script>
+
+
+
+</body>
+</html>
