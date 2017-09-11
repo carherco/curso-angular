@@ -14,6 +14,7 @@
  - Providers
  - Inyección de dependencias
  - Enrutamiento
+ - Paso de variables entre componentes
  - Formularios template-driven
  - Formularios model-driven (Reactive forms)
  - [Observables](observables.md)
@@ -21,4 +22,6 @@
  - WebPack
  - WebWorkers
 
+ - Ciclo de vida de un componente
+ - I18n
 

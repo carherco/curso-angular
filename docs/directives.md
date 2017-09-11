@@ -4,37 +4,38 @@
 
 Añade o elimina un elemento del DOM basándose en una condición.
 
+```html
+<div *ngIf="hero" >{{hero.name}}</div>
+```
+
 ## ngFor
 
 Repite una plantilla por cada elemento de una lista.
+
+```html
+<ul>
+  <li *ngFor="let hero of heroes">{{hero.name}}</li>
+</ul>
+```
 
 ## NgSwitch
 
 Un conjunto de directivas que permiten cambiar entre vistas alternativas.
 
 ```html
-
-<div *ngIf="hero" >{{hero.name}}</div>
-
-<ul>
-  <li *ngFor="let hero of heroes">{{hero.name}}</li>
-</ul>
-
 <div [ngSwitch]="hero.emotion">
   <happy-hero    *ngSwitchCase="'happy'"    [hero]="hero"></happy-hero>
   <sad-hero      *ngSwitchCase="'sad'"      [hero]="hero"></sad-hero>
   <confused-hero *ngSwitchCase="'confused'" [hero]="hero"></confused-hero>
   <unknown-hero  *ngSwitchDefault           [hero]="hero"></unknown-hero>
 </div>
-
 ```
 
-Solamente se puede poner una directiva por elemento.
+CUIDADO: Solamente se puede poner una directiva por elemento.
 
-Existe la etiqueta <ng-container> que no se introduce en el DOM.
+Existe la etiqueta &lt;ng-container> que no se introduce en el DOM.
 
 ```html
-
 <div>
   Elige a tu héroe favorito
   (<label><input type="checkbox" checked (change)="showSad = !showSad">ocultar héroes tristes</label>).
@@ -46,5 +47,4 @@ Existe la etiqueta <ng-container> que no se introduce en el DOM.
     </ng-container>
   </ng-container>
 </select>
-
 ```
