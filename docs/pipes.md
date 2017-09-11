@@ -8,24 +8,28 @@ Ejemplo
 
 Assuming dateObj is (year: 2015, month: 6, day: 15, hour: 21, minute: 43, second: 11) in the local time and locale is 'en-US':
 
+```html
     {{ dateObj | date }}               // output is 'Jun 15, 2015'
     {{ dateObj | date:'medium' }}      // output is 'Jun 15, 2015, 9:43:11 PM'
     {{ dateObj | date:'shortTime' }}   // output is '9:43 PM'
     {{ dateObj | date:'mmss' }}        // output is '43:11'
-
+```
 
 - Aceptan cualquier número de parámetros opcionales, separados con :
 
 Ejemplo:
 
+```html
   {{texto | slices:1:5}}
+```
 
 - Son concatenables
 
 Ejemplo: 
 
+```html
 {{  birthday | date:'fullDate' | uppercase}}
-
+```
 
 ## Built-in pipes
 
@@ -56,6 +60,7 @@ Es posible programar pipes personalizadas.
 
 Ejemplo:
 
+``` typescript
     import { Pipe, PipeTransform } from '@angular/core';
     /*
     * Raise the value exponentially
@@ -73,6 +78,7 @@ Ejemplo:
         return Math.pow(value, isNaN(exp) ? 1 : exp);
       }
     }
+```
 
 Características:
 

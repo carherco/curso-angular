@@ -8,7 +8,7 @@
   - Class
   - Style
 
-  ``` [html]
+  ``` html
 
   <h1>{{expression}}</h1>
   <img [src]="expression" />
@@ -21,7 +21,7 @@
 
   - Events
 
-  ``` [html]
+  ``` html
 
   <button (click)="statement">Hello</button>
   <button on-click="statement">Hello</button>
@@ -31,7 +31,7 @@
 
 - Two way data binding
 
-  ``` [html]
+  ``` html
 
   <input [(ngModel)]="expression" />
   <input bindon-ngModel="expression" />
