@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'click-me',
   template: `
+    <h2>{{title}}</h2>
+
     <div>El héroe se llama {{nombre}}</div>
 
     <button (click)="onClickMe()">Click me!</button>
@@ -12,6 +14,7 @@ import { Component, OnInit } from '@angular/core';
     `
 })
 export class ClickMeComponent {
+  title = 'Data binding';
   clickMessage = '';
   nombre = 'Carlos';
 

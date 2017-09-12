@@ -4,11 +4,11 @@ Un componente controla un trozo de la pantalla llamado *vista* (*view*)
 
 Por ejemplo, en un momento concreto, en el navegador:
 
-El componente raíz habría dibujado los links de navegación o menú de la aplicación.
+- El componente raíz habría dibujado los links de navegación o menú de la aplicación.
 
-Otro componente podría estar dibujando un listado ordenado y paginado de elementos de nuestro negocio.
+- Otro componente podría estar dibujando un listado ordenado y paginado de elementos de nuestro negocio.
 
-Otro compenente habría pintado un calendario del mes actual en el que están resaltados los días en los que el usuario tiene algún evento.
+- Otro compenente habría pintado un calendario del mes actual en el que están resaltados los días en los que el usuario tiene algún evento.
 
 Angular crea, actualiza y destryue componentes mientras el usuario se mueve por la aplicación.
 
@@ -36,7 +36,6 @@ La función decorador @Component recibe un Objeto con las siguientes propiedades
 - **providers:** array de proveedores de inyección de dependecias (dependency injection providers) para servicios que este componente necesite. Es una manera de informar a Angular que el constructor de este componente necestia una instacia de EventsService
 
 El template, los metadatos y el compenente, en conjunto, describen una **vista**.
-
 
 ## Creación de un componente con angular cli
 

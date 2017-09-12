@@ -11,9 +11,19 @@ Se compila para generar código ES6 (también llamado ES2015) o ES5 (diciembre 2
 
 ### Template literals
 
+```javascript
+template: `
+    <div>El héroe se llama {{nombre}}</div>
+
+    <button (click)="onClickMe()">Click me!</button>
+    <div>{{clickMessage}}</div>
+
+    <input [(ngModel)]="nombre" />
+    `
+````
+
 - Multilínea
 - Interpolación con sintaxis ${variable}
-- Permiten parseo de cada parte de la cadena, tagged template literals
 
 ### let/const
 
@@ -56,7 +66,19 @@ Se compila para generar código ES6 (también llamado ES2015) o ES5 (diciembre 2
 
 - Iteración mejorada (no recorre propiedades padre como for in)
 - Funciona con todos los iterables (como strings)
-- Combinable con destructuring
+
+```javascript
+    let iterable = [10, 20, 30];
+
+    for (let value of iterable) {
+      console.log(value);
+    }
+    // 10
+    // 20
+    // 30
+```
+
+Más ejemplos en: https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Sentencias/for...of
 
 ### Sintaxis corta de objetos
 
@@ -158,9 +180,20 @@ O para transformar parámetros de entrada de funciones
 - Soporte para Maps & Sets
 - Soporte nativo de promesas
 - Async/await
-- Módulos
 
-### Clases
+```javascript
+  async function getData () {
+    //HTTP GET/POST ..... 
+  }
+
+  var data = await getData();
+  var num_items = data.lenght;
+```
+
+- Módulos
+- Clases
+
+#### Clases
 
 Soporte de:
 
@@ -185,8 +218,9 @@ Soporte de:
 
 ## Características de TypeScript
 
-Diferencias de Typescript
-
+- No es ejecutable. Debe ser compilado primero a ES5 o a ES6.
+- Tiene las mismas características que ES5 + ES6 y aporta otras nuevas.
+- Tiene detección de fallos al compilar.
 
 ### Tipos
 

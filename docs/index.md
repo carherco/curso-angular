@@ -22,6 +22,7 @@
  - WebPack
  - WebWorkers
 
+ - Directivas de atributo (custom directives)
  - Ciclo de vida de un componente
  - I18n
 

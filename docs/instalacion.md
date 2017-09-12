@@ -2,8 +2,8 @@
 
 ## Requisitos para la instalación
 
-* Node.js
-* npm
+* Node.js: https://nodejs.org/es/download/
+* npm: En las distribuciones actuales de node.js viene integrado npm.
 
 ## Instalación
 
