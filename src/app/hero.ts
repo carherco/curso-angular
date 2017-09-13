@@ -5,6 +5,7 @@ export class Hero {
     public power?: string,
     public alterEgo?: string,
     public isSecret?: boolean,
+    public emotion?: 'happy'|'sad'|'confused'|'',
     public phone?: string,
     public email?: string
   ) {  }

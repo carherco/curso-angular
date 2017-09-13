@@ -10,6 +10,7 @@
  - [Directivas](directives.md)
  - [Pipes](pipes.md)
  - [Ejemplo de CRUD simple](ejemplo-crud-basico.md)
+ - [Paso de información entre componentes](input-binding.md)
  - Servicios
  - Providers
  - Inyección de dependencias
@@ -25,4 +26,5 @@
  - Directivas de atributo (custom directives)
  - Ciclo de vida de un componente
  - I18n
+ - Animations
 

@@ -1,0 +1,10 @@
+
+<div>
+  <button class="btn btn-primary" (click)="prev()">Anterior</button>
+  <img [src]="imagenActual" width="200px;"/>
+  <button class="btn btn-primary" (click)="next()">Siguiente</button>
+</div>
+
+<div style="margin-top: 50px;">
+  <img *ngFor="let img of imagenes" [src]="img" width="50px;" style="margin-left:20px;"/>
+</div>

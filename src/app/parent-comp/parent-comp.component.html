@@ -1,0 +1,38 @@
+<h2>{{title}}</h2>
+
+<h3>Añade un héroe a la lista</h3>
+<form class="form-inline">
+  <div class="form-group">
+    <label for="nombre">Nombre:</label>
+    <input type="text" class="form-control" id="nombre" name="name" [(ngModel)]="newHero.name" placeholder="Escribe el nombre...">
+  </div>
+  <button type="button" class="btn btn-primary" (click)="add()">Añadir</button>
+</form>
+
+
+
+<div class="row">
+
+  <div class="col-md-6">
+    <h3>Lista de héroes</h3>
+    <table class="table table-striped">
+      <tr *ngFor="let hero of heroes; let index=index; let odd=odd;" [class.selected]="hero === selectedHero" (click)="onSelect(hero)">
+        <td>{{hero.id}}</td>
+        <td>{{hero.name}}</td>
+        <td><button class="btn btn-danger" (click)="delete(index)">X</button></td>
+      </tr>
+    </table>
+  </div>
+
+  <div *ngIf="selectedHero" class="col-md-3">
+    <h3>Detalle de {{selectedHero.name}}</h3>
+    <div><label>Id: </label>{{selectedHero.id}}</div>
+    <div>
+      <label>Nombre: </label>
+      <input [(ngModel)]="selectedHero.name" placeholder="name"/>
+    </div>
+  </div>
+
+  <app-child-comp *ngIf="selectedHero" class="col-md-3" [variable_para_child]="selectedHero" (onChildDeleted)="onDeleted($event)"></app-child-comp>
+
+</div>

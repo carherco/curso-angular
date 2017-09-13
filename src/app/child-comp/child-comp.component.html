@@ -1,0 +1,9 @@
+
+    <h3>Detalle de {{hero.name}}</h3>
+    <div><label>Id: </label>{{hero.id}}</div>
+    <div>
+      <label>Nombre: </label>
+      <input [(ngModel)]="hero.name" placeholder="name"/>
+    </div>
+    <button class="btn btn-danger" (click)="delete()">Eliminar</button>
+

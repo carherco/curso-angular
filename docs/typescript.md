@@ -12,8 +12,9 @@ Se compila para generar código ES6 (también llamado ES2015) o ES5 (diciembre 2
 ### Template literals
 
 ```javascript
+var texto = "Superman";
 template: `
-    <div>El héroe se llama {{nombre}}</div>
+    <div>El héroe ${texto} se llama {{nombre}}</div>\n
 
     <button (click)="onClickMe()">Click me!</button>
     <div>{{clickMessage}}</div>
@@ -86,8 +87,9 @@ Forma breve de definir objetos que usar como nombre de la variable el nombre de 
 
 ```javascript
     let name = 'Carlos';
+    var sex = "varon";
     obj = {name: name} // antigua forma
-    obj = {name} // nueva forma
+    obj = {name, apellidos, edad, sexo: sex} // nueva forma
 ```
 
 ### Rest y spread
@@ -130,6 +132,10 @@ Descomponer arrays y objetos a variables
 
 ```javascript
     let arr = [0, 1, 2];
+
+    let a = arr[0];
+    let b = arr[1];
+    let c = arr[2];
 
     let [a, b, c] = arr;
 

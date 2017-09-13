@@ -14,6 +14,9 @@ import { ColdObservablesComponent } from './cold-observables/cold-observables.co
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { CrudBasicoComponent } from './crud-basico/crud-basico.component';
+import { ChildCompComponent } from './child-comp/child-comp.component';
+import { ParentCompComponent } from './parent-comp/parent-comp.component';
+import { GaleriaComponent } from './galeria/galeria.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,10 @@ import { CrudBasicoComponent } from './crud-basico/crud-basico.component';
     ColdObservablesComponent,
     HeroSearchComponent,
     ReactiveFormComponent,
-    CrudBasicoComponent
+    CrudBasicoComponent,
+    ChildCompComponent,
+    ParentCompComponent,
+    GaleriaComponent
   ],
   imports: [
     BrowserModule,
