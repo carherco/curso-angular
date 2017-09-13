@@ -16,6 +16,10 @@
   <div class="col-md-6">
     <h3>Lista de héroes</h3>
     <table class="table table-striped">
+      <tr>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th></th>
       <tr *ngFor="let hero of heroes; let index=index; let odd=odd;" [class.selected]="hero === selectedHero" (click)="onSelect(hero)">
         <td>{{hero.id}}</td>
         <td>{{hero.name}}</td>
@@ -23,6 +27,8 @@
       </tr>
     </table>
   </div>
+
+
 
   <div *ngIf="selectedHero" class="col-md-6">
     <h3>Detalle de {{selectedHero.name}}</h3>
