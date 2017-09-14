@@ -4,6 +4,14 @@
     {{ title }}
   </h1>
 
+<nav>
+  <a routerLink="/click-me" routerLinkActive="active">Click-me</a>
+  <a routerLink="/galeria" routerLinkActive="active">Galería</a>
+  <a routerLink="/heroes" routerLinkActive="active">Héroes</a>
+</nav>
+
+
+<router-outlet></router-outlet>
 
   <!-- Event binding -->
   <div>
@@ -18,7 +26,7 @@
 
   <!-- Crud básico -->
   <div>
-    <app-crud-basico></app-crud-basico>
+    <!--<app-crud-basico></app-crud-basico>-->
   </div>
 
   <!-- Paso de datos entre componentes -->

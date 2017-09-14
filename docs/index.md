@@ -9,12 +9,11 @@
  - [Sintaxis de plantillas y data binding](data-binding.md)
  - [Directivas](directives.md)
  - [Pipes](pipes.md)
- - [Ejercicio de CRUD simple](ejemplo-crud-basico.md)
+ - [Ejemplo de CRUD simple](ejemplo-crud-basico.md)
  - [Paso de variables entre componentes](input-binding.md)
- - Servicios
- - Providers
- - Inyección de dependencias
- - Enrutamiento
+ - [Servicios](services.md)
+ - [Inyección de dependencias](inyeccion-dependencias.md)
+ - [Enrutamiento](routing.md)
  - Formularios template-driven
  - Formularios model-driven (Reactive forms)
  - [Observables](observables.md)

@@ -43,7 +43,7 @@ export class ParentCompComponent implements OnInit {
   }
 
   delete(index) {
-    this.heroes.slice(index, 1);
+    this.heroes.splice(index, 1);
   }
 
   onDeleted(hero: Hero) {
