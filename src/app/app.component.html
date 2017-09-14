@@ -4,14 +4,15 @@
     {{ title }}
   </h1>
 
+<!--
 <nav>
   <a routerLink="/click-me" routerLinkActive="active">Click-me</a>
   <a routerLink="/galeria" routerLinkActive="active">Galería</a>
   <a routerLink="/heroes" routerLinkActive="active">Héroes</a>
 </nav>
 
-
 <router-outlet></router-outlet>
+-->
 
   <!-- Event binding -->
   <div>
@@ -34,6 +35,11 @@
     <!--<app-parent-comp></app-parent-comp>-->
   </div>
 
+  <!-- Formularios template driven -->
+  <div>
+    <app-hero-form></app-hero-form>
+  </div>
+
   <!-- Observables -->
   <div>
     <!--<app-key-up></app-key-up>-->
@@ -44,19 +50,14 @@
   </div>
 
   <div>
-    <!--<app-hero-form></app-hero-form>-->
-  </div>
-
-  <div>
     <!--<app-hero-list></app-hero-list>-->
   </div>
-
-
 
   <div>
     <!--<app-hero-search></app-hero-search>-->
   </div>
 
+  <!-- Formularios model-driven (Reactive forms)-->
   <div>
     <!--<app-reactive-form></app-reactive-form>-->
   </div>
