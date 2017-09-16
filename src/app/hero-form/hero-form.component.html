@@ -21,8 +21,7 @@
 
       <div class="form-group">
         <label for="power">Hero Power</label>
-        <select class="form-control" id="power"  name="power" required
-          [(ngModel)]="hero.power" name="power">
+        <select class="form-control" id="power" required>
           <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
         </select>
       </div>

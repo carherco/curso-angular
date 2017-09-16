@@ -20,9 +20,16 @@ export class HeroFormComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSubmit() { this.submitted = true; this.hero.name = "asdadsf"; }
+  onSubmit() {
+    this.submitted = true;
+    this.hero.name = '';
+    this.hero.power = this.powers[0];
+    this.hero.alterEgo = '';
+  }
 
   // TODO: Remove this when we're done
-  diagnostic() { return this.hero; }
+  diagnostic() {
+    return this.hero;
+  }
 
 }
