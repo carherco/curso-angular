@@ -19,10 +19,12 @@
       <tr>
         <th>Id</th>
         <th>Nombre</th>
+        <th>Estado de ánimo</th>
         <th></th>
-      <tr *ngFor="let hero of heroes; let index=index; let odd=odd;" [class.selected]="hero === selectedHero" (click)="onSelect(hero)">
+      <tr *ngFor="let hero of heroes; let index=index; let odd=odd;" [class.selected]="hero === selectedHero" class="heroe_{{hero.emotion}}" (click)="onSelect(hero)">
         <td>{{hero.id}}</td>
         <td>{{hero.name}}</td>
+        <td>{{hero.emotion}}</td>
         <td><button class="btn btn-danger" (click)="delete(index)">X</button></td>
       </tr>
     </table>
