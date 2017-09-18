@@ -16,14 +16,15 @@
  - [Enrutamiento](routing.md)
  - [Formularios](forms.md)
  - [Formularios template-driven](forms-template-driven.md)
- - Formularios model-driven (forms-model-driven.md)
+ - [Formularios model-driven](forms-model-driven.md)
  - [Observables](observables.md)
  - [Ejemplo de CRUD con API REST](ejemplo-crud-completo.md)
  - WebPack
  - WebWorkers
 
- - Directivas de atributo (custom directives)
  - Ciclo de vida de un componente
+ - Directivas de atributo (custom directives)
+ - Custom validators
  - I18n
  - Animations
 
