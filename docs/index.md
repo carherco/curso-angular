@@ -21,12 +21,11 @@
  - [Formularios model-driven](forms-model-driven.md)
  - [Ejemplo de CRUD con API REST](ejemplo-crud-completo.md)
  - [Ciclo de vida de un componente](lifecycle.md)
-
-
  - Separar app en Módulos
- - Lazy loading
+ - [Lazy loading](lazy-loading.md)
+ 
+ 
  - I18n
-
  - Directivas de atributo (custom directives)
  - Animations
  - Custom Validators
