@@ -1,4 +1,4 @@
-#Observables
+# Observables
 
 Los Observables se basan en dos patrones de programación bien conocidos que es el patrón “Observer” y el patrón “Iterator”. Son la base de la *Programación Reactiva*. Angular incluye la librería de JavaScript RxJS para la programación reactiva.
 
@@ -14,10 +14,10 @@ Luego creas de manera similar un Observador, ese es el elemento que mirará y re
 
 ```javascript
   let observador = Rx.Observer.create(
-  function onNext(x) { console.log('Next: ' + x); }, 
-  function onError(err) { console.log('Error: ' + err); }, 
-  function onCompleted() { console.log('Completed'); } 
-); 
+    function onNext(x) { console.log('Next: ' + x); }, 
+    function onError(err) { console.log('Error: ' + err); }, 
+    function onCompleted() { console.log('Completed'); } 
+  ); 
 ```
 
 Aquí tenemos a nuestro Observador. Es un poco raro porque en realidad solo se trata de un objeto con tres métodos que dicen que hacer en el caso de que el Observable (nuestro array, una llamada http... en definitiva cualquier flujo de datos) cambie (onNext), emita un error (onError) o se complete el flujo, terminando su emisión (onCompleted). 
@@ -36,19 +36,19 @@ En cualquier momento, podemos desuscribir al observador.
 
 Ya tenemos la base de la programación reactiva.
 
-## Observables caliente vs. observables fríos
+## Observables caliente vs. observables fríos
 
 Un observable caliente empieza a emitir items tan pronto como es creado. Si un observador se suscribe a mitad de secuencia, se habrá perdido parte de la emisión.
 
 Un observable frío esperaa que un observador se suscriba antes de empezar a emitir items. Garantizan que el observador verá toda la secuencia completa.
 
 
-## Ejemplos de Observable
+## Ejemplos de Observable
 
 Veamos un par de ejemplos prácticos: cold-observables, hero-list
 
 
-## Reactive extensions
+## Reactive extensions
 
 La verdadera potencia de los observables son las extensiones reactivas (ReactiveX): operadores que permiten transformar, combinar, manipular y trabajar con la secuencia de items emitida por los Observables.
 
@@ -61,9 +61,7 @@ Veamos algunos ejemplos con reactive extensions: hero-search
 
 
 
-
-
-##Observables fríos:
+## Observables fríos:
  - Una instancia por cada subscripción
  - El observable empieza en el momento de la subscripción
  - Desuscribirse del observable para liberar memoria

@@ -1,8 +1,8 @@
 # Formularios Template-driven 
 
-Es posible construir casi cualquier formualrio con plantillas de Angular. Se pueden colocar los elementos con libertad y creatividad, hacer binding de los controles con los datos, especificar reglas de validación y mostrar errores de validación, habilitar y deshabilitar controles según condiciones...
+Es posible construir casi cualquier formulario con plantillas de Angular. Se pueden colocar los elementos con libertad y creatividad, hacer binding de los controles con los datos, especificar reglas de validación y mostrar errores de validación, habilitar y deshabilitar controles según condiciones...
 
-Vamos a aplicar utilizar las potencia de los formularios de Angular al siguiente ejemplo: 
+Vamos a utilizar las potencia de los formularios de Angular al siguiente ejemplo: 
 
 ```html
   <div class="container">
@@ -49,7 +49,7 @@ Vamos a aplicar utilizar las potencia de los formularios de Angular al siguiente
 ```
 
 
-Existe un módulo en el @angular/forms llamado FormsModule que nos da acceso a los tipos (clases) ngForm y ngModel para tipar variables y a la directiva ngModel que ya hemos utilizado alguna vez para realizar el doble binding.
+Existe un módulo en el *@angular/forms* llamado *FormsModule* que nos da acceso a los tipos *ngForm* y *ngModel* para tipar variables y a la directiva *ngModel* que ya hemos utilizado alguna vez para realizar el doble binding.
 
 ```typescript
   imports: [
@@ -60,7 +60,7 @@ Existe un módulo en el @angular/forms llamado FormsModule que nos da acceso a l
 ```
 
 
-## Two way data binding con ngModel
+## Two way data binding con ngModel
 
 No vemos los datos del héroe en el formulario porque no hemos hecho binding todavía con el héroe.
 
@@ -98,13 +98,13 @@ También utilizaremos un *chivato* (diagnostic) para comprobar que efectivamente
 ```
 
 ```typescript
-  // TODO: Remove this when we're done
+  // TODO: Eliminar esta función al terminar
   get diagnostic() { 
     return JSON.stringify(this.hero);
   }
 ```
 
-## Marcar visualmente el estado de los controles 
+## Marcar visualmente el estado de los controles 
 
 Utilizar ngModel en un formulario proporciona mucho más que tan solo two-way data binding. También informa de si el usuario ha tocado el control, si el valor ha cambiado o si el valor es válido o no.
 
@@ -134,7 +134,7 @@ Gracias a estas clases podemos marcar visualmente mediante css el estado de los 
   }
 ```
 
-## Mostrar y ocultar mensajes de errores de validación
+## Mostrar y ocultar mensajes de errores de validación
 
 Vamos a poner otro template reference variable al control del nombre pero tipándolo al tipo ngModel
 
@@ -160,7 +160,7 @@ También añadiremos un mensaje de error, que aparecera cuando el nombre esté v
 ```
 
 
-## Hacer submit del formulario con el evento onSubmit
+## Hacer submit del formulario con el evento onSubmit
 
 ```html
   <form (ngSubmit)="onSubmit()">
@@ -181,7 +181,7 @@ También añadiremos un mensaje de error, que aparecera cuando el nombre esté v
 
 
 
-## Desactivar el botón de submit hasta que el formulario sea válido
+## Desactivar el botón de submit hasta que el formulario sea válido
 
 Vamos a poner otro template reference variable al formulario, ahora de tipo ngForm
 

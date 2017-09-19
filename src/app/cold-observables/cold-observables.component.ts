@@ -13,10 +13,10 @@ export class ColdObservablesComponent implements OnInit {
   ngOnInit() {
 
     // Creación de observable básico
-    const Obs1 = Observable.create(function (observer) {
-      observer.next('Hello');
-      observer.next('World');
-      observer.complete();
+    const Obs1 = Observable.create(function (emmiter) {
+      emmiter.next('Hello');
+      emmiter.next('World');
+      emmiter.complete();
     });
 
     Obs1.subscribe(
@@ -26,11 +26,11 @@ export class ColdObservablesComponent implements OnInit {
     );
 
     // Creación de observable "infinito"
-    const Obs2 = Observable.create(function(observer) {
+    const Obs2 = Observable.create(function(emmiter) {
       let value = 0;
       const interval = setInterval(() => {
         if (value % 2 === 0) {
-          observer.next(value);
+          emmiter.next(value);
         }
         value++;
       }, 1000);

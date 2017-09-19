@@ -1,4 +1,4 @@
-# Formularios
+# Template reference variables
 
 ## Event
 
@@ -11,7 +11,7 @@
 export class KeyUpComponent_v1 {
   values = '';
 
-  onKey(event: any) { // without type info
+  onKey(event: any) {
     this.values += event.target.value + ' | ';
   }
 }
@@ -21,13 +21,13 @@ export class KeyUpComponent_v1 {
 export class KeyUpComponent_v2 {
   values = '';
 
-  onKey(event: any) { // without type info
+  onKey(event: any) {
     this.values += event.key + ' | ';
   }
 }
 ```
 
-Pero pasar $event no es muy buena práctica porque hace que el componente tienen que conocer los detalles de la plantilla.
+Pero pasar $event no es muy buena práctica porque hace que el componente tenga que conocer los detalles de la plantilla.
 
 Una solución sería pasar $event.key al método. Otra solución son las *template reference variables*.
 

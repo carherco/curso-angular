@@ -21,7 +21,7 @@ export class ReactiveFormComponent implements OnInit {
     });
 
     // Validadores personalizados
-    // Observables: this.nameControl.valueChanges.subscribe(x => console.log(x));
+    // Observables: this.alterEgoControl.valueChanges.subscribe(x => console.log(x));
 
    }
 
