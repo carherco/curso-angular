@@ -10,6 +10,7 @@ import { Hero } from './hero';
 @Injectable()
 export class HeroService {
   private heroesUrl = 'https://jsonplaceholder.typicode.com/users';  // URL to web API
+  // https://reqres.in/
 
   constructor (private http: Http) {}
 
