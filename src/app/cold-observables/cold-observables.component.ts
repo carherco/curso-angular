@@ -37,7 +37,7 @@ export class ColdObservablesComponent implements OnInit {
 
       return () => clearInterval(interval);
     });
-/*
+
     const subs2 = Obs2.subscribe(x => console.log('subs2:',x));
 
     // unsubscribe after 10 seconds
@@ -48,7 +48,7 @@ export class ColdObservablesComponent implements OnInit {
     setTimeout(() => {
       const subs3 = Obs2.subscribe(x => console.log('subs3:',x));
     }, 5000);
-*/
+
     // Son Observables fríos:
     // - Una instancia por cada subscripción
     // - El observable empieza en el momento de la subscripción

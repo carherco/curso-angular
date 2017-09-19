@@ -4,7 +4,7 @@
       {{diagnostic() | json}}
       <div class="form-group">
         <label for="name">Name</label>
-        <input type="text" class="form-control" id="name" required [(ngModel)]="hero.name" name="name" #spy #name="ngModel">
+        <input type="text" class="form-control" id="name" required minlength="15" [(ngModel)]="hero.name" name="name" #spy #name="ngModel">
         {{spy.className}}
       </div>
       <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
@@ -23,7 +23,7 @@
         </select>
       </div>
 
-      <button type="submit" class="btn btn-success">Submit</button>
+      <button type="submit" class="btn btn-success" [disabled]="!heroForm.form.valid">Submit</button>
 
     </form>
 </div>

@@ -17,12 +17,12 @@
  - [Template Reference Variables](template-reference-variables.md)
  - [Formularios template-driven](forms-template-driven.md)
  - [Observables](observables.md)
+ - [Guards](guards.md)
  - [Formularios model-driven](forms-model-driven.md)
  - [Ejemplo de CRUD con API REST](ejemplo-crud-completo.md)
- - WebPack
- - WebWorkers
+ - [Ciclo de vida de un componente](lifecycle.md)
 
- - Ciclo de vida de un componente
+
  - Separar app en Módulos
  - Lazy loading
  - I18n
@@ -30,4 +30,6 @@
  - Directivas de atributo (custom directives)
  - Animations
  - Custom Validators
+ - WebPack
+ - WebWorkers
 

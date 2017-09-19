@@ -39,6 +39,7 @@ export class KeyUpComponent implements OnInit {
   }
 
   onKey(event: any) {
+    console.log(event);
     this.value += event.target.value + ' | ';
   }
 
