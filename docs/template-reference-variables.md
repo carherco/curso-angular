@@ -34,7 +34,7 @@ Pero pasar $event no es muy buena práctica porque hace que el componente tenga 
 Una solución sería pasar $event.key al método. Otra solución son las *template reference variables*.
 
 
-## Template reference variables
+## Template reference variables
 
 Para declarar una *template reference variable*, se utiliza la almohadilla seguida del identificador.
 
@@ -100,7 +100,7 @@ export class KeyUpComponent_v5 {
 }
 ```
 
-### Ejercicio
+### Ejercicio
 
 Utilizando *Template reference variables*, realizar un listado de Héroes y una caja de texto para añadir héroes con un botón de añadir.
 
@@ -128,7 +128,7 @@ export class EjercicioKeyUp {
 }
 ```
 
-#### Solución al ejercicio
+### Solución al ejercicio
 
 ```typescript
 @Component({
