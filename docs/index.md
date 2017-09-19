@@ -23,8 +23,11 @@
  - WebWorkers
 
  - Ciclo de vida de un componente
- - Directivas de atributo (custom directives)
- - Custom validators
+ - Separar app en Módulos
+ - Lazy loading
  - I18n
+
+ - Directivas de atributo (custom directives)
  - Animations
+ - Custom Validators
 

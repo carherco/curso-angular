@@ -1,6 +1,8 @@
 # Template reference variables
 
-## Event
+## La variable $event
+
+Recordemos que a cualquier evento que bindeamos le podemos pasar la variable $event, que contiene información específica del evento concreto.
 
 ```html
 <input (keyup)="onKey($event)">
