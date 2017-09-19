@@ -7,6 +7,8 @@ import { GaleriaComponent } from 'app/galeria/galeria.component';
 import { KeyUpComponent } from 'app/key-up/key-up.component';
 import { HeroFormComponent } from 'app/hero-form/hero-form.component';
 import { ReactiveFormComponent } from 'app/reactive-form/reactive-form.component';
+import { HeroListComponent } from 'app/hero-list/hero-list.component';
+import { HeroSearchComponent } from 'app/hero-search/hero-search.component';
 
 const appRoutes: Routes = [
       { path: 'click-me', component: ClickMeComponent },
@@ -14,6 +16,8 @@ const appRoutes: Routes = [
       { path: 'key-up', component: KeyUpComponent },
       { path: 'forms/template-driven', component: HeroFormComponent },
       { path: 'forms/model-driven', component: ReactiveFormComponent },
+      { path: 'heroes-api', component: HeroListComponent },
+      { path: 'search', component: HeroSearchComponent },
       { path: 'hero/:id',      component: ChildCompComponent },
       {
         path: 'heroes',
