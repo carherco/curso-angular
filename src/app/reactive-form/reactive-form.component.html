@@ -1,6 +1,9 @@
 <div class="container">
     <h1>Hero Form</h1>
 
+    <p>Form value: {{ myForm.value | json }}</p>
+    <p>Form status: {{ myForm.status | json }}</p>
+
     <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
         <label for="name">Name</label>
