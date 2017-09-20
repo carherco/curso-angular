@@ -22,4 +22,12 @@ Tendremos un servicio userService
 - edit
 - delete
 
- y otro servicio AuthService
+Un servicio AuthService con métodos:
+- login()
+- logOut()
+- isLogged()
+
+Un guard AuthGuard
+
+
+
