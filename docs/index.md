@@ -18,17 +18,18 @@
  - [Formularios template-driven](forms-template-driven.md)
  - [Observables](observables.md)
  - [Guards](guards.md)
+ - Autenticación en servidor
  - [Formularios model-driven](forms-model-driven.md)
  - [Ejemplo de CRUD con API REST](ejemplo-crud-completo.md)
+ - [Separar app en Módulos y Lazy loading](lazy-loading.md)
  - [Ciclo de vida de un componente](lifecycle.md)
- - Separar app en Módulos
- - [Lazy loading](lazy-loading.md)
- 
- 
  - I18n
+ 
+ 
+
  - Directivas de atributo (custom directives)
- - Animations
  - Custom Validators
+ - Animations
  - WebPack
  - WebWorkers
 

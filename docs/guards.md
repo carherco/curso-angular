@@ -1,5 +1,18 @@
 # Guards
 
+Cuando vimos el routing introdujimos los Guards. Eran los elementos que iban a decidir si podíamos o no entrar en una ruta o salir de ella.
+
+## Tipos de guards
+
+Hay 4 tipos de Guards diferentes que se pueden utilizar para proteger nuestras rutas:
+
+- **CanActivate:** Decide si una ruta puede ser activada.
+- **CanActivateChild:** Decide si las rutas hijas de una ruta pueden ser activadas.
+- **CanDeactivate:** Decide si una ruta puede ser desactivada.
+- **CanLoad:** Decide si un módulo puede ser cargado de forma lazy.
+
+Vamos a ver un ejemplo de una configuración de rutas con Guards:
+
 ```typescript
 const appRoutes: Routes = [
     {path: "login", component: LoginComponent},
@@ -12,24 +25,14 @@ const appRoutes: Routes = [
         children: [
             {path: "", redirectTo: "ts", pathMatch: "full"},
             {path: "ts", component: TimesheetComponent, canActivate: [TimesheetAccessGuard]},
-            {path: "projects", component: ProjectsComponent, canActivate: [AdminGuard]}
+            {path: "projects", component: ProjectsComponent, canActivate: [AdminGuard], canDeactivate: [ConfirmDeactivateGuard]}
         ]
     },
     {path: 'admin', loadChildren: 'app/admin/admin.module#AdminModule', canLoad: [AuthGuard]}
 ];
 ```
 
-
-
-
-## Tipos de guards
-
-Hay 4 tips de Guards diferentes que se pueden utilizar para proteger nuestras rutas:
-
-- **CanActivate:** Decide si una ruta puede ser activada.
-- **CanActivateChild:** Decide si las rutas hijas de una ruta pueden ser activadas.
-- **CanDeactivate:** Decide si una ruta puede ser desactivada.
-- **CanLoad:** Decide si un módulo puede ser cargado de forma lazy.
+Un guard debe devolver un booleano o un Observable/Promesa que se resuelva con un booleano.
 
 ## CanActivate
 
@@ -75,7 +78,7 @@ Hay 4 tips de Guards diferentes que se pueden utilizar para proteger nuestras ru
 
 CanDeactivate nos da la oportunidad de decidir si queremos navegar **fuera** de la ruta.
 
-The CanDeactivate guard also has access to the instance of the active component.
+CanDeactivate tiene acceso a la instancia del componente activo.
 
 ```typescript
   import { CanDeactivate } from '@angular/router';
@@ -108,5 +111,25 @@ The CanDeactivate guard also has access to the instance of the active component.
     path: '',
     component: SomeComponent,
     canDeactivate: ['ConfirmDeactivateGuard']
+  }
+```
+
+## CanActivateChild
+
+```typescript
+  class CanActivateChildGuard implements CanActivateChild {
+    canActivateChild() {
+      ...
+    }
+  }
+```
+
+## CanLoad
+
+```typescript
+  class CanLoadGuard implements CanLoad {
+    canLoad() {
+      ...
+    }
   }
 ```

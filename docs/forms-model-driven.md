@@ -1,4 +1,4 @@
-# Formularios model-driven (formularios reactivos)
+# Formularios model-driven (formularios reactivos)
 
 El módulo de formularios reactivos ofrecen facilidad de utilizar patrones, testeo y validaciones directamente desde el componente en lugar de hacerlo desde la plantilla.
 
@@ -30,6 +30,7 @@ Utilizaremos el mismo formulario de partida de antes:
       </form>
   </div>
 ```
+El mismo componete de partida,
 
 ```typescript
   import { Component } from '@angular/core';
@@ -39,7 +40,7 @@ Utilizaremos el mismo formulario de partida de antes:
     selector: 'hero-form',
     templateUrl: './hero-form.component.html'
   })
-  export class HeroFormComponent {
+  export class ReactiveFormComponent {
 
     powers = ['Really Smart', 'Super Flexible',
               'Super Hot', 'Weather Changer'];
@@ -48,7 +49,7 @@ Utilizaremos el mismo formulario de partida de antes:
   }
 ```
 
-Esta vez importamos el módulo ReactiveFormsModule de *@angular/forms*.
+Y esta vez importamos el módulo ReactiveFormsModule de *@angular/forms*.
 
 ```typescript
 import { ReactiveFormsModule } from '@angular/forms';
@@ -60,6 +61,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     ...
   ],
 ```
+
+Al contrario de lo que ocurría con los formularios *template-driven*, en esta ocasión prácticamente toda la programación estará en el componente.
 
 ## Clases esenciales
 
@@ -75,7 +78,6 @@ Conviene echar un vistazo a las clases que nos proporciona *ReactiveFormsModule*
 ```typescript
   export class ReactiveFormComponent {
     heroForm: FormGroup;
-    states = states;
 
     constructor(private fb: FormBuilder) {
       this.createForm();
@@ -94,6 +96,10 @@ Conviene echar un vistazo a las clases que nos proporciona *ReactiveFormsModule*
     }
   }
 ```
+
+En este ejemplo, el formulario heroForm consta de un FormGroup con 7 FormControls.
+
+Prácticamente lo único que tendremos que hacer en el html es asociar cada control HTML con su control correspondiente FormControl.
 
 ```html
   <input class="form-control" formControlName="name">
@@ -123,28 +129,30 @@ Y no hay que cambiar nada en el html
 ```typescript
   this.alterEgoControl = new FormControl('Alter Ego por defecto', Validators.required);
 
-  this.myForm = this.fb.group({
+  this.heroForm = this.fb.group({
       name: 'Nombre por defecto',
       alterEgo: this.alterEgoControl
   });
 ```
 
-## FormControl.get()
+## FormGroup.get()
 
-Con el método get de FormControl podemos acceder a un control concreto
+Con el método get de FormGroup podemos acceder a un control concreto
 
-<p>Name value: {{ heroForm.get('name').value }}</p>
-<p>Street value: {{ heroForm.get('address.street').value}}</p>
+```html
+  <p>Name value: {{ heroForm.get('name').value }}</p>
+  <p>Street value: {{ heroForm.get('address.street').value}}</p>
+```
 
 Las propiedades de un FormControl son
 
 ![Propiedades de FormControl](img/formcontrol_properties.png "Propiedades de FormControl")
 
-## Validadores
+## Validadores
 
 https://angular.io/api/forms/Validators
 
-## FormControl.setValue()
+## FormGroup.setValue()
 
 Podemos establecer valores en cualquier momento al formulario completo con setValue. Se pueden asociar los valores de un objeto completo si las propiedades del objeto y del formulario coinciden.
 
@@ -155,7 +163,7 @@ Podemos establecer valores en cualquier momento al formulario completo con setVa
   });
 ```
 
-## FormControl.reset()
+## FormGroup.reset()
 
 También podemos resetear el formulario
 
@@ -163,7 +171,7 @@ También podemos resetear el formulario
   this.heroForm.reset();
 ```
 
-## FormArray
+## FormArray
 
 ```typescript
 this.heroForm = this.fb.group({
@@ -198,7 +206,7 @@ addAddress() {
 
 ## Observar cambios en un control
 
-Los formularios reactivos tienen algunas características que funcionan con Observables. Por ejemplo la clase FormControl tiene un método valueChanges que devuelve un Observable cada vez que el valor cambia.
+Los formularios reactivos tienen algunas características que funcionan con Observables. Por ejemplo la clase FormControl tiene un método *valueChanges* que devuelve un Observable cada vez que el valor cambia.
 
 ```typescript
   nameChangeLog: string[] = [];

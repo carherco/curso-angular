@@ -61,11 +61,34 @@ Veamos algunos ejemplos con reactive extensions: hero-search
 
 
 
-## Observables fríos:
+## Cold Observables
  - Una instancia por cada subscripción
  - El observable empieza en el momento de la subscripción
  - Desuscribirse del observable para liberar memoria
 
+ ## Hot Observables
+
+ Un hot observable empieza a su emisión cuando se invoca su método connect():
+
+```javascript
+  const obsv = new Observable( o => {...});
+  ...
+  obsv.connect();
+```
+
+Pero los observables que creamos nosotros con los métodos de construcción de observables (new, create, from, of...) construyen observables fríos. 
+
+Para convertir un obserbable frío en caliente basta con invocar el método publish();
+
+```javascript
+  const obsv = new Observable( o => {...}).publish();
+  ...
+  obsv.connect();
+```
+
+Los suscriptores pueden suscribirse y desuscribirse sin problemas antes de invocar al connect() o depués de invocar a connect().
+
+Es como llegar a un concierto con antelación para coger un buen sitio, o llegar tarde y perderte parte del concierto. Pero el concierto no espera a los asistentes.
 
 
 http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html
