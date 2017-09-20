@@ -23,10 +23,12 @@
  - [Ejemplo de CRUD con API REST](ejemplo-crud-completo.md)
  - [Separar app en Módulos y Lazy loading](lazy-loading.md)
  - [Ciclo de vida de un componente](lifecycle.md)
+ 
+ 
+ 
+ 
+ 
  - I18n
- 
- 
-
  - Directivas de atributo (custom directives)
  - Custom Validators
  - Animations
