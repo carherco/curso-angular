@@ -27,7 +27,7 @@ Un servicio AuthService con métodos:
 - logOut()
 - isLogged()
 
-Un guard AuthGuard
+Un guard AuthGuard de tipo canActivate.
 
 
 

@@ -23,12 +23,12 @@
         </select>
       </div>
 
-      <button type="submit" class="btn btn-success" [disabled]="!heroForm.form.valid">Submit</button>
+      <button type="submit" class="btn btn-success" [disabled]="!heroForm.valid">Submit</button>
 
     </form>
 </div>
 
 
-<div [hidden]="!submitted">
+<div [hidden]="!heroForm.submitted">
   <h2>¡Gracias!</h2>
 </div>

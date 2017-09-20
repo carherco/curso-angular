@@ -25,6 +25,12 @@ import { HeroService } from 'app/hero.service';
 import { AuthenticationService } from 'app/authentication.service';
 import { UserService } from 'app/user.service';
 import { AuthGuard } from 'app/auth.guard';
+import { HomePageComponent } from './home-page/home-page.component';
+import { AdminHomeComponent } from './admin-home/admin-home.component';
+import { UserListComponent } from './user-list/user-list.component';
+import { UserEditComponent } from './user-edit/user-edit.component';
+import { UserAddComponent } from './user-add/user-add.component';
+import { AuthService } from "app/auth.service";
 
 
 @NgModule({
@@ -42,7 +48,12 @@ import { AuthGuard } from 'app/auth.guard';
     ParentCompComponent,
     GaleriaComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    HomePageComponent,
+    AdminHomeComponent,
+    UserListComponent,
+    UserEditComponent,
+    UserAddComponent
   ],
   imports: [
     BrowserModule,
@@ -55,6 +66,7 @@ import { AuthGuard } from 'app/auth.guard';
     MockHeroService,
     HeroService,
     AuthenticationService,
+    AuthService,
     AuthGuard
   ],
   bootstrap: [AppComponent]

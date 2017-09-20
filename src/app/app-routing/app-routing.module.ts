@@ -12,25 +12,42 @@ import { HeroSearchComponent } from 'app/hero-search/hero-search.component';
 import { LoginComponent } from 'app/login/login.component';
 import { HomeComponent } from 'app/home/home.component';
 import { AuthGuard } from 'app/auth.guard';
+import { AdminHomeComponent } from "app/admin-home/admin-home.component";
+import { UserListComponent } from "app/user-list/user-list.component";
+import { UserEditComponent } from "app/user-edit/user-edit.component";
+import { UserAddComponent } from "app/user-add/user-add.component";
+import { HomePageComponent } from "app/home-page/home-page.component";
 
-const appRoutes: Routes = [
-      // { path: 'click-me', component: ClickMeComponent },
-      // { path: 'galeria', component: GaleriaComponent },
-      // { path: 'key-up', component: KeyUpComponent },
-      // { path: 'forms/template-driven', component: HeroFormComponent },
-      // { path: 'forms/model-driven', component: ReactiveFormComponent },
-      // { path: 'heroes-api', component: HeroListComponent },
-      // { path: 'search', component: HeroSearchComponent },
-      // { path: 'hero/:id',      component: ChildCompComponent },
-      // {
-      //   path: 'heroes',
-      //   component: ParentCompComponent,
-      //   data: { title: 'Heroes List' }
-      // },
+
+const appRoutes2: Routes = [
+      { path: 'click-me', component: ClickMeComponent },
+      { path: 'galeria', component: GaleriaComponent },
+      { path: 'key-up', component: KeyUpComponent },
+      { path: 'forms/template-driven', component: HeroFormComponent },
+      { path: 'forms/model-driven', component: ReactiveFormComponent },
+      { path: 'heroes-api', component: HeroListComponent },
+      { path: 'search', component: HeroSearchComponent },
+      { path: 'hero/:id',      component: ChildCompComponent },
+      {
+        path: 'heroes',
+        component: ParentCompComponent,
+        data: { title: 'Heroes List' }
+      },
       { path: 'login', component: LoginComponent },
-      { path: '', component: HomeComponent, canActivate: [AuthGuard], pathMatch: 'full' },
+      { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: '**', redirectTo: '' }
     ];
+
+const appRoutes: Routes = [
+      { path: 'login', component: LoginComponent },
+      { path: 'admin', component: AdminHomeComponent },
+      { path: 'user', component: UserListComponent },
+      { path: 'user/:id', component: UserEditComponent },
+      { path: 'user/add', component: UserAddComponent },
+      { path: '', component: HomePageComponent, pathMatch: 'full' },
+      { path: '**', redirectTo: '' }
+    ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(appRoutes)],

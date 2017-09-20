@@ -1,21 +1,28 @@
 <div class="container">
     <h1>Hero Form</h1>
 
-    <p>Form value: {{ myForm.value | json }}</p>
-    <p>Form status: {{ myForm.status | json }}</p>
+    <p>Form value: {{ heroForm.value | json }}</p>
+    <p>Form status: {{ heroForm.status | json }}</p>
 
-    <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="heroForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
         <label for="name">Name</label>
-        <input type="text" class="form-control" id="name" required name="name" [formControl]="myForm.controls.name">
+        <input type="text" class="form-control" id="name" name="name" formControlName="name">
       </div>
 
       <div class="form-group">
         <label for="alterEgo">Alter Ego</label>
-        <input type="text" class="form-control" id="alterEgo" name="alterEgo" [formControl]="alterEgoControl">
+        <input type="text" class="form-control" id="alterEgo" name="alterEgo" formControlName="alterEgo">
       </div>
 
-      <button type="submit" class="btn btn-success" [disabled]="!myForm.valid">Submit</button>
+      <div class="form-group">
+        <label for="power">Hero Power</label>
+        <select class="form-control" id="power"  name="power" formControlName="power">
+          <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn btn-success" [disabled]="!heroForm.valid">Submit</button>
 
     </form>
 </div>
