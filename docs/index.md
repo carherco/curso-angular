@@ -25,13 +25,3 @@
  - [Ciclo de vida de un componente](lifecycle.md)
  
  
- 
- 
- 
- - I18n
- - Directivas de atributo (custom directives)
- - Custom Validators
- - Animations
- - WebPack
- - WebWorkers
-
