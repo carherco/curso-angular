@@ -25,3 +25,6 @@
  - [Ciclo de vida de un componente](lifecycle.md)
 
 Documentación oficial de Angular: https://angular.io/docs
+
+Mis datos de contacto:
+ - Email: carherco@gmail.com

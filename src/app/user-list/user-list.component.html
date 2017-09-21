@@ -1,4 +1,4 @@
-<a>Log out</a>
+<button class="btn btn-primary" (click)="logout()">Salir</button>
 
 <h2>
   Listado de usuarios
@@ -12,10 +12,27 @@
 </ul>
 
 
+
+<a routerLink="/user/add" class="btn btn-primary">Añadir usuario</a>
 <table class="table">
-  <tr *ngFor="let user of users">
-    <td>{{user.first_name}}</td>
-    <td>{{user.last_name}}</td>
-    <td><img [src]="user.avatar" /></td>
-  </tr>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Foto</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{user.first_name}}</td>
+      <td>{{user.last_name}}</td>
+      <td><img [src]="user.avatar" /></td>
+      <td>
+        <a routerLink="/user/{{user.id}}" class="btn btn-primary">Editar</a>
+        <button  class="btn btn-primary">Borrar</button>
+
+      </td>
+    </tr>
+  </tbody>
 </table>

@@ -40,10 +40,9 @@ const appRoutes2: Routes = [
 
 const appRoutes: Routes = [
       { path: 'login', component: LoginComponent },
-      { path: 'admin', component: AdminHomeComponent },
-      { path: 'user', component: UserListComponent },
-      { path: 'user/:id', component: UserEditComponent },
-      { path: 'user/add', component: UserAddComponent },
+      { path: 'admin', component: AdminHomeComponent, canActivateChild: [AuthGuard],
+          loadChildren: 'app/admin/admin.module#AdminModule'
+      },
       { path: '', component: HomePageComponent, pathMatch: 'full' },
       { path: '**', redirectTo: '' }
     ];

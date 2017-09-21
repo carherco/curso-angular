@@ -1,4 +1,4 @@
-# Ciclo de vida de un componente
+# Ciclo de vida de un componente
 
 Un componente tiene un ciclo de vida gestionado por Angular.
 
@@ -36,5 +36,4 @@ Respond after Angular checks the component's views and child views.
 Called after the ngAfterViewInit and every subsequent ngAfterContentChecked().
 Sólo disponible para componentes.
 - **ngOnDestroy():**
-Cleanup just before Angular destroys the directive/component. Unsubscribe Observables and detach event handlers to avoid memory leaks.
-Called just before Angular destroys the directive/component.
+Es llamado usto antes de que Angular destruya el componente. Se puede utilizar por ejemplo para desuscribirse de los observables.

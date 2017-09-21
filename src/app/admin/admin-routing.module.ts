@@ -4,12 +4,13 @@ import { AdminHomeComponent } from 'app/admin-home/admin-home.component';
 import { UserListComponent } from 'app/user-list/user-list.component';
 import { UserEditComponent } from 'app/user-edit/user-edit.component';
 import { UserAddComponent } from 'app/user-add/user-add.component';
+import { AuthGuard } from 'app/auth.guard';
 
 const routes: Routes = [
-  {path: 'home', component: AdminHomeComponent},
-  {path: 'users/list', component: UserListComponent},
-  {path: 'users/edit/:id', component: UserEditComponent},
-  {path: 'users/new', component: UserAddComponent},
+  { path: '', component: AdminHomeComponent},
+  { path: 'user', component: UserListComponent },
+  { path: 'user/add', component: UserAddComponent },
+  { path: 'user/:id', component: UserEditComponent },
 ];
 
 @NgModule({

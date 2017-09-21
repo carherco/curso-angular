@@ -11,23 +11,34 @@ export class AuthService {
 
     constructor(private http: Http) {
         // set token if saved in local storage
-        let currentUser = JSON.parse(localStorage.getItem('currentUser'));
-        // this.token = currentUser.token;
-        this.token = 'adfasdasdfads';
+        // let currentUser = JSON.parse(localStorage.getItem('user_token'));
+        // this.token = user_token.token;
+        // this.token = 'adfasdasdfads';
     }
 
     login(username: string, password: string): Observable<boolean> {
       if (username === 'test' && password === 'test') {
-        return Observable.of(true).delay(1000).do(val => this.token = 'savaosals09245valsfjga');
+        return Observable.of(true)
+                          .delay(1000)
+                          .do(val => {
+                            this.token = 'savaosals09245valsfjga';
+                            localStorage.setItem('user_token', this.token);
+                          });
       } else {
         return Observable.of(false).delay(1000).do(val => this.token = null);
       }
-
     }
 
     logout(): void {
-        // clear token remove user from local storage to log user out
         this.token = null;
-        localStorage.removeItem('currentUser');
+        localStorage.removeItem('user_token');
+    }
+
+    isLogged(): boolean {
+      if (localStorage.getItem('user_token')) {
+        return true;
+      } else {
+        return false;
+      }
     }
 }

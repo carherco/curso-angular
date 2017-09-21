@@ -26,12 +26,9 @@ import { AuthenticationService } from 'app/authentication.service';
 import { UserService } from 'app/user.service';
 import { AuthGuard } from 'app/auth.guard';
 import { HomePageComponent } from './home-page/home-page.component';
-import { AdminHomeComponent } from './admin-home/admin-home.component';
-import { UserListComponent } from './user-list/user-list.component';
-import { UserEditComponent } from './user-edit/user-edit.component';
-import { UserAddComponent } from './user-add/user-add.component';
 import { AuthService } from "app/auth.service";
 import { AdminModule } from "app/admin/admin.module";
+import { GuayComponent } from './micarpeta/guay/guay.component';
 
 
 @NgModule({
@@ -50,7 +47,8 @@ import { AdminModule } from "app/admin/admin.module";
     GaleriaComponent,
     LoginComponent,
     HomeComponent,
-    HomePageComponent
+    HomePageComponent,
+    GuayComponent
   ],
   imports: [
     BrowserModule,
