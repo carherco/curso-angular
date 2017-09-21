@@ -67,7 +67,8 @@ import { AuthService } from "app/auth.service";
     HeroService,
     AuthenticationService,
     AuthService,
-    AuthGuard
+    AuthGuard,
+    UserService
   ],
   bootstrap: [AppComponent]
 })

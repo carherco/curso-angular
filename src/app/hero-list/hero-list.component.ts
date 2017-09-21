@@ -17,7 +17,9 @@ export class HeroListComponent implements OnInit {
     this.getHeroes();
   }
 
-  ngOnInit() {  }
+  ngOnInit() {
+
+   }
 
   getHeroes() {
     this.heroService.getHeroes()

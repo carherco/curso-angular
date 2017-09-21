@@ -13,13 +13,19 @@ export class UserService {
         private authenticationService: AuthenticationService) {
     }
 
-    getUsers(): Observable<User[]> {
+
+
+    getAll(): Observable<User[]> {
         // add authorization header with jwt token
-        let headers = new Headers({ 'Authorization': 'Bearer ' + this.authenticationService.token });
-        let options = new RequestOptions({ headers: headers });
+        // let headers = new Headers({ 'Authorization': 'Bearer ' + this.authenticationService.token });
+        // let options = new RequestOptions({ headers: headers });
 
         // get users from api
-        return this.http.get('/api/users', options)
-            .map((response: Response) => response.json());
+        return this.http.get('https://reqres.in/api/users')
+            .map((response: Response) => response.json().data);
+    }
+
+    getUsers() {
+      return this.getAll();
     }
 }

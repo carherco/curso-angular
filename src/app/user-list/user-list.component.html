@@ -10,3 +10,12 @@
   <li role="presentation">Gestión de Roles</li>
   <li role="presentation">Gestión de Permisos</li>
 </ul>
+
+
+<table class="table">
+  <tr *ngFor="let user of users">
+    <td>{{user.first_name}}</td>
+    <td>{{user.last_name}}</td>
+    <td><img [src]="user.avatar" /></td>
+  </tr>
+</table>
