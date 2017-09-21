@@ -31,6 +31,7 @@ import { UserListComponent } from './user-list/user-list.component';
 import { UserEditComponent } from './user-edit/user-edit.component';
 import { UserAddComponent } from './user-add/user-add.component';
 import { AuthService } from "app/auth.service";
+import { AdminModule } from "app/admin/admin.module";
 
 
 @NgModule({
@@ -49,18 +50,15 @@ import { AuthService } from "app/auth.service";
     GaleriaComponent,
     LoginComponent,
     HomeComponent,
-    HomePageComponent,
-    AdminHomeComponent,
-    UserListComponent,
-    UserEditComponent,
-    UserAddComponent
+    HomePageComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AdminModule
   ],
   providers: [
     MockHeroService,
