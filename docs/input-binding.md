@@ -1,6 +1,6 @@
-# Paso de datos entre componentes 
+# Paso de datos entre componentes 
 
-## Input binding (del componente padre al hijo)
+## Input binding (del componente padre al hijo)
 
 En esta sección vamos a ver cómo pasar datos de un componente a otro.
 

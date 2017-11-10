@@ -6,11 +6,12 @@ Desde la plantilla se puede acceder a cualquier propiedad pública del component
 
 ## One way data binding (del componente a la template)
 
-  - Interpolation
-  - Property
-  - Attribute
-  - Class
-  - Style
+Se utiliza para:
+  - Interpolación
+  - Propiedades
+  - Atributos
+  - Clases
+  - Estilos
 
   ``` html
     <h1>{{expression}}</h1>
@@ -21,7 +22,8 @@ Desde la plantilla se puede acceder a cualquier propiedad pública del component
 
 ## One way data binding (de la template al componente)
 
-  - Events
+Se utiliza para:
+  - Eventos
 
   ``` html
     <button (click)="statement">Hello</button>
@@ -30,6 +32,8 @@ Desde la plantilla se puede acceder a cualquier propiedad pública del component
 
 
 ## Two way data binding
+
+Se utiliza en formularios template-driven
 
   ``` html
     <input [(ngModel)]="expression" />

@@ -1,4 +1,4 @@
-# Lazy loading
+# Lazy loading
 
 ```
 ng g m Admin  --routing

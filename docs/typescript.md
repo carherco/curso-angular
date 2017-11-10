@@ -1,4 +1,4 @@
-# TypeScript (Microsoft)
+# TypeScript (Microsoft)
 
 Desarrollado por Microsoft. 
 
@@ -222,7 +222,7 @@ Soporte de:
     }
 ```
 
-## Características de TypeScript
+## Características de TypeScript
 
 - No es ejecutable. Debe ser compilado primero a ES5 o a ES6.
 - Tiene las mismas características que ES5 + ES6 y aporta otras nuevas.

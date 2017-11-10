@@ -218,7 +218,7 @@ De esta forma, el componente no necesita ocuparse de esa tarea
 ```
 
 
-## Mostrar mensaje cuando se envíe el formulario
+## Mostrar mensaje cuando se envíe el formulario
 
 Ya no fomra parte de los formularios, pero es muy típico mostrar un mensaje al enviar el formulario.
 

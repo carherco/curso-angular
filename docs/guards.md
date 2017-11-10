@@ -34,7 +34,7 @@ const appRoutes: Routes = [
 
 Un guard debe devolver un booleano o un Observable/Promesa que se resuelva con un booleano.
 
-## CanActivate
+## CanActivate
 
 ```typescript
   import { Injectable } from '@angular/core';
@@ -124,7 +124,7 @@ CanDeactivate tiene acceso a la instancia del componente activo.
   }
 ```
 
-## CanLoad
+## CanLoad
 
 ```typescript
   class CanLoadGuard implements CanLoad {

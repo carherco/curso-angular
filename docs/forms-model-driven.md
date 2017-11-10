@@ -124,7 +124,7 @@ Prácticamente lo único que tendremos que hacer en el html es asociar cada cont
 
 Y no hay que cambiar nada en el html
 
-## FormControl
+## FormControl
 
 ```typescript
   this.alterEgoControl = new FormControl('Alter Ego por defecto', Validators.required);

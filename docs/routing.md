@@ -122,7 +122,7 @@ El base URL se utiliza para saber cuál es el prefijo de las URLs relativas cont
 Todo esto estaría ya hecho si hubiéramos creado el proyecto con --routing
 
 
-## Rutas
+## Rutas
 
 Veamos ahora el array de configuración de rutas
 
@@ -187,7 +187,7 @@ Dada la configuración anterior, cuando la url del navegador se convierta en /he
 ```
 
 
-## Router links
+## Router links
 
 Para navegar a un link cualquiera, se utiliza la directiva *routerLink*
 

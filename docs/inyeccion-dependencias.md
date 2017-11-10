@@ -19,7 +19,7 @@ export declare class Http {
     constructor(_backend: ConnectionBackend, _defaultOptions: RequestOptions);
 ```
 
-## Método tradicional
+## Método tradicional
 
 Sin el patrón de inyección de dependencias, si quiero una instancia de HeroService tengo que hacer lo siguiente:
 
@@ -42,7 +42,7 @@ Problemas de esto:
 - Hace falta conocimiento de las clases y de los constructores para poder instanciarlas todas.
 - Si modifico el constructor de HeroService (para añadir otro parámetro, o para cambiarlo por otro...) tengo que revisar TODA la aplicación para cambiar todos los new HeroService() que tenga.
 
-## Con inyección de dependencias
+## Con inyección de dependencias
 
 Si se utiliza el patrón de inyección de dependencias, es el *sistema* el que se encarga de suministrar los objetos correspondientes a cada clase.
 
