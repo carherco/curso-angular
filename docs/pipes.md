@@ -34,25 +34,31 @@ Ejemplo:
 ## Built-in pipes
 
 - AsyncPipe
+- CurrencyPipe
 - DatePipe
+- DecimalPipe
 - I18nPluralPipe
 - I18nSelectPipe
 - JsonPipe
 - LowerCasePipe
-- CurrencyPipe
-- DecimalPipe
 - PercentPipe
 - SlicePipe
-- UpperCasePipe
 - TitleCasePipe
+- UpperCasePipe
 
 Documentación: [https://angular.io/api?type=pipe]()
 
 Apunte: 
 
-Las pipes Date y Currency necesitan la API Internationalization de ECMAScript. Safari y algunos navegadores antiguos no soportan esta api. Se puede añadir soporte con polyfill.
+  Las pipes Date y Currency necesitan la API Internationalization de ECMAScript. Safari y algunos navegadores antiguos no soportan esta api. Se puede añadir soporte con polyfill.
 
-  <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Intl.~locale.en"></script>
+  ```html
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Intl.~locale.en"></script>
+  ```
+
+Apunte sobre el apunte:
+  
+  En Angular 5 ya las pipes Date y Currency ya no necesitan dicha librería.
 
 ## Custom pipes
 
@@ -93,3 +99,12 @@ Características:
 Las pipes puras detectan cambios en las variables pero no detectan cambios dentro de arrays u otros objetos compuestos.
 
 Las pipes impuras inspeccionan todo el contenido del array o de los objetos.
+
+Para crear una pipe impura hay que indicar en los metadatos del decorador *pure:false*
+```typescript
+@Pipe({
+  name: 'exponentialStrength',
+  pure: false
+})
+```
+
