@@ -6,7 +6,7 @@ Las pipes son como una especie de funciones de transformación de datos. Toman u
 
 Ejemplo
 
-Suponiendo que *dateObj* es un objeto de tipo fecha con valor (year: 2017, month: 11, day: 17, hour: 10, minute: 43, second: 11):
+Suponiendo que *dateObj* es un objeto de tipo fecha con valor (year: 2017, month: 11, day: 14, hour: 10, minute: 43, second: 11):
 
 ```html
     {{ dateObj | date }}               // output is 'Nov 14, 2017'
