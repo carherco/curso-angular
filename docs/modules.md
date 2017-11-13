@@ -7,7 +7,7 @@ En aplicaciones pequeñas, solamente existirá el módulo raíz. En aplicaciones
 Un módulo es una clase NgModule con un decorador @NgModule.
 
 ## El decorador @NgModule
-@NgModule es una función decorador que toma un único objeto de **metadatos** cuyas propiedades describen dicho módulo. 
+@NgModule es una *función decoradora* que toma un único objeto de **metadatos** cuyas propiedades describen dicho módulo. 
 
 Las propiedades más importantes del objeto de metadatos son::
 
@@ -20,8 +20,7 @@ Las propiedades más importantes del objeto de metadatos son::
 Aquí hay un pequeño ejemplo:
 
 ```typescript
-    src/app/app.module.ts
-    content_copy
+    //src/app/app.module.ts
     import { NgModule }      from '@angular/core';
     import { BrowserModule } from '@angular/platform-browser';
     @NgModule({
@@ -36,8 +35,10 @@ Aquí hay un pequeño ejemplo:
 
 La aplicación se lanza haciendo bootstrapping del módulo raíz. Normalmente está en *src/main.ts*
 
-src/main.ts
+
+
 ```typescript
+//src/main.ts
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppModule } from './app/app.module';
 

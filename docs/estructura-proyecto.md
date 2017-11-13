@@ -8,7 +8,7 @@ El directorio raíz de un proyecto angular contiene los siguientes elementos:
 * **node_modules/:** módulos de terceros listados en package.json.
 * **src/:** Directorio donde reside la aplicación
 * **.angular-cli.json:** Fichero de configuración de angular.
-* **.editorconfig:** Configuración para el editor (para intentar que todos el equipo de desarrollo utilice la misma configuración). (http://editorconfig.org)
+* **.editorconfig:** Configuración para el editor (para intentar que todo el equipo de desarrollo utilice la misma configuración). (http://editorconfig.org)
 * **.gitignore:** archivos a ignorar por Git
 * **karma.conf.js:** Configuración de Karma (para tests unitarios)
 * **package.json:** Lista de paquetes de terceros que usa el proyecto.

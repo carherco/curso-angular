@@ -40,4 +40,33 @@ Se utiliza en formularios template-driven
     <input bindon-ngModel="expression" />
   ```
 
+Nota: Para utilizar *ngModel* necesitamos importar FormsModule.
+
+```typescript
+//src/app/app.moudle.ts
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+...
+
+@NgModule({
+
+  declarations: [
+    AppComponent,
+    ...
+  ],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    ...
+  ],
+  providers: [
+    ...
+  ],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
+
+
 

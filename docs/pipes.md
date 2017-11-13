@@ -6,12 +6,12 @@ Las pipes son como una especie de funciones de transformación de datos. Toman u
 
 Ejemplo
 
-Assuming dateObj is (year: 2015, month: 6, day: 15, hour: 21, minute: 43, second: 11) in the local time and locale is 'en-US':
+Suponiendo que *dateObj* es un objeto de tipo fecha con valor (year: 2017, month: 11, day: 17, hour: 10, minute: 43, second: 11):
 
 ```html
-    {{ dateObj | date }}               // output is 'Jun 15, 2015'
-    {{ dateObj | date:'medium' }}      // output is 'Jun 15, 2015, 9:43:11 PM'
-    {{ dateObj | date:'shortTime' }}   // output is '9:43 PM'
+    {{ dateObj | date }}               // output is 'Nov 14, 2017'
+    {{ dateObj | date:'medium' }}      // output is 'Nov 14, 2017, 10:43:11 AM'
+    {{ dateObj | date:'shortTime' }}   // output is '10:43 AM'
     {{ dateObj | date:'mmss' }}        // output is '43:11'
 ```
 
@@ -54,7 +54,7 @@ Las pipes Date y Currency necesitan la API Internationalization de ECMAScript. S
 
   <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Intl.~locale.en"></script>
 
-## Custom pipes
+## Custom pipes
 
 Es posible programar pipes personalizadas.
 

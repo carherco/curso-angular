@@ -12,8 +12,8 @@ Se compila para generar código ES6 (también llamado ES2015) o ES5 (diciembre 2
 ### Template literals
 
 ```javascript
-var texto = "Superman";
-template: `
+var texto: "Superman";
+var template = `
     <div>El héroe ${texto} se llama {{nombre}}</div>\n
 
     <button (click)="onClickMe()">Click me!</button>
@@ -21,14 +21,14 @@ template: `
 
     <input [(ngModel)]="nombre" />
     `
-````
+```
 
 - Multilínea
 - Interpolación con sintaxis ${variable}
 
 ### let/const
 
-- Alternativa a var para declarar variables
+- Alternativas a *var* para declarar variables
 - Scope restringido al bloque
 
 ```javascript
@@ -60,12 +60,12 @@ template: `
 ```
 
 - Con retorno implícito si sólo tienen 1 expresión (no hace falta el return ni las llaves)
-- No hace faltan los paréntesis en los parámetros si sólo tienen 1 (si no, () => 1 o (a,b)=>a+b )
-- No bindean this, por lo que es más fácil definir event handlers en el DOM.
+- No hacen falta los paréntesis en los parámetros si sólo tienen 1 (si no, () => 1 o (a,b)=>a+b )
+- No bindean *this*, por lo que es más fácil definir *event handlers* en el DOM.
 
 ### for … of
 
-- Iteración mejorada (no recorre propiedades padre como for in)
+- Iteración mejorada (no recorre propiedades padre como *for ... in*)
 - Funciona con todos los iterables (como strings)
 
 ```javascript
@@ -86,10 +86,11 @@ Más ejemplos en: https://developer.mozilla.org/es/docs/Web/JavaScript/Referenci
 Forma breve de definir objetos que usar como nombre de la variable el nombre de la propiedad.
 
 ```javascript
-    let name = 'Carlos';
-    var sex = "varon";
-    obj = {name: name} // antigua forma
-    obj = {name, apellidos, edad, sexo: sex} // nueva forma
+    let nombre = 'Carlos';
+    var apellido = "Herrera";
+    obj = {nombre: nombre} // antigua forma
+    obj = {nombre, apellido} // nueva forma
+    obj = {nombre, apellido, edad, sexo: sex} // nueva forma
 ```
 
 ### Rest y spread
@@ -133,10 +134,12 @@ Descomponer arrays y objetos a variables
 ```javascript
     let arr = [0, 1, 2];
 
-    let a = arr[0];
-    let b = arr[1];
-    let c = arr[2];
+    //Antes
+    //let a = arr[0];
+    //let b = arr[1];
+    //let c = arr[2];
 
+    //Ahora
     let [a, b, c] = arr;
 
     console.log(a, b, c) // 0, 1, 2
@@ -240,7 +243,7 @@ boolean | number | string | arrays | enum (enumerados) | Any (cualquiera) | Void
 
 Con tipado gradual. Podemos no escribir un tipo y el compilador intentará inferirlo y hacer comprobaciones en tiempo compilación.
 
-Tipo any para saltarse las comprobaciones de tipos.
+Tipo *any* para saltarse las comprobaciones de tipos.
 
 La sintaxis en arrays es
 
@@ -267,11 +270,11 @@ No generan código en producción, sólo son comprobaciones en tiempo de ejecuci
     let charla2 = new MyTalk(); //implementación explícita
 ```
 
-### Visibilidad
+### Visibilidad de métodos y propiedades de las clases
 
-Public por defecto.
+La visibilidad es *public* por defecto.
 
-Constructores breves
+### Constructores breves
 
 ```javascript
     constructor(public name: string) {}

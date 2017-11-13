@@ -28,7 +28,7 @@ export class EventsListComponent implements OnInit {
 
 Un componente es una clase que implementa el método OnInit y decorada con el decorador @Component.
 
-La función decorador @Component recibe un Objeto con las siguientes propiedades:
+La función decoradora @Component recibe un Objeto con las siguientes propiedades:
 
 - **selector:** Selector CSS que le dice a Angular en qué lugar del HTML debe insertar este componente. En nuestro ejemplo, cada vez que angular encuentre la etiqueta &lt;events-list>&lt;/events-list>, insertará una instacia de la vista de EventsListComponent en esa etiqueta.
 - **template:** El código HTML del template de este componente.
@@ -57,3 +57,7 @@ installing component
   create src/app/nombre-componente/nombre-componente.component.ts
   update src/app/app.module.ts
 ```
+
+Ejercicio: Crear dos componentes distintos e insertarlos dentro de la vista/componente raíz.
+
+Ejercicio: Insertar uno de los componentes dentro del otro.
