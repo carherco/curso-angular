@@ -14,7 +14,18 @@ A) Indicarlo al crear el proyecto
 ng new nombre_proyecto --routing
 ```
 
-B) Configurar el servicio manualmente
+
+B) Si el proyecto ya está iniciado, crear un módulo de routing
+
+```
+ng g m app-routing --routing
+
+installing module
+  create src/app/app-routing/app-routing.module.ts
+```
+
+
+C) Configurar el servicio manualmente
 
 - Creamos un módulo nuevo
 
@@ -119,7 +130,7 @@ Se declara una constante que contendrá la configuración de las rutas
 El base URL se utiliza para saber cuál es el prefijo de las URLs relativas contenidas en CSS, scripts e imágenes.
 
 
-Todo esto estaría ya hecho si hubiéramos creado el proyecto con --routing
+Todo esto estaría ya hecho si hubiéramos creado el proyecto o un módulo con --routing
 
 
 ## Rutas
@@ -152,9 +163,9 @@ const appRoutes: Routes = [
 
 - Cada elemento del array (ruta) mapea una URL a un componente. 
 
-- El *:id* de la cuarta ruta indica un parámetor. Si la URL es /hero/42, "42" es el valor del parámetro *id*. El componente podrá utilizar este parámetro para encontrar y presentar el héroe cuyo id sea el 42. Más adelante aprenderemos más sobre los parámetros de ruta.
+- El *:id* de la cuarta ruta indica un parámetro. Si la URL es /hero/42, "42" es el valor del parámetro *id*. El componente podrá utilizar este parámetro para encontrar y presentar el héroe cuyo id sea el 42. Más adelante aprenderemos más sobre los parámetros de ruta.
 
-- La propiedad data es un lugar para almacenar información asociada a la ruta.
+- La propiedad *data* es un lugar para almacenar información asociada a la ruta.
 
 - Con el *redirectTo* del path vacío, conseguimos establecer cuál será la página incial. Si se usa redirectTo, es obligado utilizar *pathMatch*.
 
@@ -162,7 +173,7 @@ const appRoutes: Routes = [
 
 - El ** en la última ruta es un wildcard. Cualquier URL coincide con esta ruta.
 
-- El orden de las rutas en el array importa. El router utiliza una estrategia "first-match wins". Si pusiéramos la ruta con path ** la primera de todas, siempre sería esa ruta la que se ejecutaría.
+- **El orden de las rutas en el array importa.** El router utiliza una estrategia "first-match wins". Si pusiéramos la ruta con path ** la primera de todas, siempre sería esa ruta la que se ejecutaría.
 
 - Existe una opción **enableTracing** que se le puede pasar como segundo parámetro al método *RouterModule.forRoot()* para activar debugging en las rutas en caso de que lo necesitemos.
 
@@ -207,7 +218,7 @@ Se puede acceder a un objeto RouterState desde cualquier lugar de la aplicación
 
 Cada ActivatedRoute en el RouterState proporciona métodos para navegar por el árbol de rutas y obtener información sobre la ruta *padre*, la ruta *hija* y las rutas *hermanas".
 
-## Activated route
+## Activated route
 
 El path de la ruta y los parámetros están disponibles a través del servicio ActivatedRoute. Este servicio proporciona información muy útil:
 
@@ -305,3 +316,32 @@ export class HeroListComponent implements OnInit {
 ```
 
 Recordemos que ParamMap es un Observable. Todavía no sabemos qué son ni cómo utilizarlos, pero ya llegaremos a ellos en futuras lecciones. 
+
+### API de ParamMap
+
+- has(name): Devuleve true si el parámetro *name* existe	
+- get(name): Devuelve el valor (siempre un string) del parámetro *name* o *null* si el parámetro no existe. Si el parámetro es un array de valores, devuelve solamente el primer elemento.
+- getAll(name): Devuelve un array de strings con los valores del parámetro *name* o un array vacío si el parámetro no existe. Se usa getAll cuando un único parámetro puede tener múltiples valores.
+- keys: Devuelve un array de strings con todos los nombres de los parámetros.
+
+
+
+NOTA: se puede obtener también el parámetro sin utilizar observables:
+
+```typescript
+ngOnInit() {
+  let id = this.route.snapshot.paramMap.get('id');
+  this.hero$ = this.service.getHero(id);
+}
+```
+
+## Cómo obtener los parámetros extra
+
+```typescript
+ngOnInit() {
+  this.route.data
+    .subscribe((data) => {
+      this.title = data.title;
+    });
+}
+```
