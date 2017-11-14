@@ -6,7 +6,7 @@ En esta sección vamos a ver cómo pasar datos de un componente a otro.
 
 Partiendo del último ejemplo de crud básico, vamos a crear un componente que sea el encargado de presentar los detalles de cada héroe.
 
-Esta era la tabla en la template original (crud-basico.component.html):
+Esta era la capa que representaba al héroe en la template original (crud-basico.component.html):
 
 ```html
   <div *ngIf="selectedHero" class="col-md-6">
@@ -45,7 +45,7 @@ En crud-basico.component.html cambiamos todo el html anterior por simplemente el
 Para pasar el dato del héroe seleccionado al componente child-comp, ponemos lo siguiente:
 
 ```html
-  <app-child-comp *ngIf="selectedHero" class="col-md-3" [variable_para_child]="selectedHero" (onChildDeleted)="onDeleted($event)"></app-child-comp>
+  <app-child-comp *ngIf="selectedHero" class="col-md-3" [variable_para_child]="selectedHero"></app-child-comp>
 ```
 
 Y en child-comp.component.ts informamos de que tenemos una variable de entrada con el decorador @Input
