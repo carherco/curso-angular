@@ -52,6 +52,6 @@ import { MockHeroService } from './mock-hero.service';
 E inyectarlo en el constructor del componente
 
 ```typescript
-constructor(private heroService: HeroService) { }
+constructor(private heroService: MockHeroService) { }
 ```
 

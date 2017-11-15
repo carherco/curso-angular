@@ -317,7 +317,7 @@ export class HeroListComponent implements OnInit {
 
 Recordemos que ParamMap es un Observable. Todavía no sabemos qué son ni cómo utilizarlos, pero ya llegaremos a ellos en futuras lecciones. 
 
-### API de ParamMap
+### API de ParamMap
 
 - has(name): Devuleve true si el parámetro *name* existe	
 - get(name): Devuelve el valor (siempre un string) del parámetro *name* o *null* si el parámetro no existe. Si el parámetro es un array de valores, devuelve solamente el primer elemento.
