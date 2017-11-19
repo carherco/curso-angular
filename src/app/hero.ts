@@ -1,4 +1,5 @@
 export class Hero {
+
   constructor(
     public id: number,
     public name: string,
@@ -8,5 +9,5 @@ export class Hero {
     public emotion?: 'happy'|'sad'|'confused'|'',
     public phone?: string,
     public email?: string
-  ) {  }
+  ) { }
 }

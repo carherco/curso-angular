@@ -17,15 +17,17 @@ import { UserListComponent } from "app/user-list/user-list.component";
 import { UserEditComponent } from "app/user-edit/user-edit.component";
 import { UserAddComponent } from "app/user-add/user-add.component";
 import { HomePageComponent } from "app/home-page/home-page.component";
+import { LifecycleComponent } from "app/lifecycle/lifecycle.component";
 
 
-const appRoutes2: Routes = [
+const appRoutes: Routes = [
       { path: 'click-me', component: ClickMeComponent },
       { path: 'galeria', component: GaleriaComponent },
       { path: 'key-up', component: KeyUpComponent },
       { path: 'forms/template-driven', component: HeroFormComponent },
       { path: 'forms/model-driven', component: ReactiveFormComponent },
       { path: 'heroes-api', component: HeroListComponent },
+      { path: 'lifecycle', component: LifecycleComponent },
       { path: 'search', component: HeroSearchComponent },
       { path: 'hero/:id',      component: ChildCompComponent },
       {
@@ -38,7 +40,7 @@ const appRoutes2: Routes = [
       { path: '**', redirectTo: '' }
     ];
 
-const appRoutes: Routes = [
+const appRoutes2: Routes = [
       { path: 'login', component: LoginComponent },
       { path: 'admin', component: AdminHomeComponent, canActivateChild: [AuthGuard],
           loadChildren: 'app/admin/admin.module#AdminModule'

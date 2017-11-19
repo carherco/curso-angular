@@ -108,7 +108,7 @@ También utilizaremos un *chivato* (diagnostic) para comprobar que efectivamente
 
 Utilizar ngModel en un formulario proporciona mucho más que tan solo two-way data binding. También informa de si el usuario ha tocado el control, si el valor ha cambiado o si el valor es válido o no.
 
-La directiva ngModel actualiza el control con class CSS especiales de Angular que reflejan el estado del control. Esas clases se pueden utilizar para cambiar la apariencia del control.
+La directiva ngModel actualiza el control con clases CSS especiales de Angular que reflejan el estado del control. Esas clases se pueden utilizar para cambiar la apariencia del control.
 
 ![Clases ngModel](img/ngModel_clases.png "Clases ngModel")
 

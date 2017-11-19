@@ -28,6 +28,7 @@ import { AuthGuard } from 'app/auth.guard';
 import { HomePageComponent } from './home-page/home-page.component';
 import { AuthService } from 'app/auth.service';
 import { AdminModule } from 'app/admin/admin.module';
+import { LifecycleComponent } from './lifecycle/lifecycle.component';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { AdminModule } from 'app/admin/admin.module';
     GaleriaComponent,
     LoginComponent,
     HomeComponent,
-    HomePageComponent
+    HomePageComponent,
+    LifecycleComponent
   ],
   imports: [
     BrowserModule,

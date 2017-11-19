@@ -40,7 +40,7 @@ Ya tenemos la base de la programación reactiva.
 
 Un observable caliente empieza a emitir items tan pronto como es creado. Si un observador se suscribe a mitad de secuencia, se habrá perdido parte de la emisión.
 
-Un observable frío esperaa que un observador se suscriba antes de empezar a emitir items. Garantizan que el observador verá toda la secuencia completa.
+Un observable frío espera a que un observador se suscriba antes de empezar a emitir items. Garantizan que el observador verá toda la secuencia completa.
 
 
 ## Ejemplos de Observable

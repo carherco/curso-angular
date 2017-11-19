@@ -65,7 +65,7 @@ export class KeyUpComponent_v3 {
 }
 ```
 
-Existe un *pseudo evento* en angular *keyup.enter* que ocurre únicamente si el usuairo pulsa enter.
+Existe un *pseudo evento* en angular *keyup.enter* que ocurre únicamente si el usuario pulsa enter.
 
 ```typescript
 @Component({
@@ -135,7 +135,7 @@ export class EjercicioKeyUp {
   selector: 'little-tour',
   template: `
     <input #newHero
-      (keyup.enter)="addHero(newHero.value)"
+      (keyup.enter)="addHero(newHero.value); newHero.value='' "
       (blur)="addHero(newHero.value); newHero.value='' ">
 
     <button (click)="addHero(newHero.value)">Añadir</button>
