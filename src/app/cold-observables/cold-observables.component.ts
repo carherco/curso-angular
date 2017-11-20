@@ -55,6 +55,21 @@ export class ColdObservablesComponent implements OnInit {
     // - Desuscribirse del observable para liberar memoria
 
 
+    //Introducción a los operadores
+    // Obs1.map((x)=>x.toUpperCase())
+    //     .subscribe(
+    //   function (x) { console.log('Emisión:', x); },
+    //   function (e) { console.log('Error:', e); },
+    //   function () { console.log('Fin'); }
+    // );
+
+    // Obs1.map((x)=>x.toUpperCase())
+    //     .map((x)=>x.split("").reverse().join(""))
+    //     .subscribe(
+    //   function (x) { console.log('Emisión:', x); },
+    //   function (e) { console.log('Error:', e); },
+    //   function () { console.log('Fin'); }
+    // );
 
   }
 
