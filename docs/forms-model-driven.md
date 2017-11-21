@@ -99,7 +99,13 @@ Conviene echar un vistazo a las clases que nos proporciona *ReactiveFormsModule*
 
 En este ejemplo, el formulario heroForm consta de un FormGroup con 7 FormControls.
 
-Prácticamente lo único que tendremos que hacer en el html es asociar cada control HTML con su control correspondiente FormControl.
+Prácticamente lo único que tendremos que hacer en el html es asociar el form con el FormGroup heroForm
+
+```html
+  <form [formGroup]="heroForm">
+```
+
+y cada control HTML con su control correspondiente FormControl.
 
 ```html
   <input class="form-control" formControlName="name">
