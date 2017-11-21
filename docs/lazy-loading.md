@@ -1,13 +1,12 @@
 # Lazy loading
 
+
 ```
 ng g m Admin  --routing
 installing module
   create src/app/admin/admin-routing.module.ts
   create src/app/admin/admin.module.ts
 ```
-
-
 
 En admin.module.ts
 
@@ -50,6 +49,12 @@ export class AdminRoutingModule { }
 
 En app.component.html añadimos un enlace al componente exportado (AdminHomeComponent)
 
+
+Para activar lazy loading en un path necesitamos:
+- Cargar un módulo en el path, en vez de un componente
+- Definir una ruta por defecto en el módulo hijo
+- Configurar el routerModule (forChild)
+
 ```typescript
 <li><a class="nav-link" routerLink="/admin/home" routerLinkActive="active">Admin Home</a></li>
 ```
@@ -59,7 +64,6 @@ Y en el routing padre
 ```typescript
 {
     path: 'admin',
-    component: AdminHomeComponent
     loadChildren: 'app/admin/admin.module#AdminModule'
 },
 ```

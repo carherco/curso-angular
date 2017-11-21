@@ -36,15 +36,13 @@ const appRoutes: Routes = [
         data: { title: 'Heroes List' }
       },
       { path: 'login', component: LoginComponent },
+      { path: 'admin', loadChildren: 'app/admin/admin.module#AdminModule'},
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: '**', redirectTo: '' }
     ];
 
 const appRoutes2: Routes = [
       { path: 'login', component: LoginComponent },
-      { path: 'admin', component: AdminHomeComponent, canActivateChild: [AuthGuard],
-          loadChildren: 'app/admin/admin.module#AdminModule'
-      },
       { path: '', component: HomePageComponent, pathMatch: 'full' },
       { path: '**', redirectTo: '' }
     ];

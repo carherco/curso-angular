@@ -7,7 +7,7 @@ import { UserAddComponent } from 'app/user-add/user-add.component';
 import { AuthGuard } from 'app/auth.guard';
 
 const routes: Routes = [
-  { path: '', component: AdminHomeComponent},
+  { path: 'home', component: AdminHomeComponent},
   { path: 'user', component: UserListComponent },
   { path: 'user/add', component: UserAddComponent },
   { path: 'user/:id', component: UserEditComponent },

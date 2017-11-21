@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from 'app/app-routing/app-routing.module';
+import { AdminModule } from 'app/admin/admin.module';
 
 import { AppComponent } from './app.component';
 import { ClickMeComponent } from './click-me/click-me.component';
@@ -19,16 +20,15 @@ import { ParentCompComponent } from './parent-comp/parent-comp.component';
 import { GaleriaComponent } from './galeria/galeria.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
+import { HomePageComponent } from './home-page/home-page.component';
+import { LifecycleComponent } from './lifecycle/lifecycle.component';
 
 import { MockHeroService } from 'app/mock-hero.service';
 import { HeroService } from 'app/hero.service';
 import { AuthenticationService } from 'app/authentication.service';
 import { UserService } from 'app/user.service';
 import { AuthGuard } from 'app/auth.guard';
-import { HomePageComponent } from './home-page/home-page.component';
 import { AuthService } from 'app/auth.service';
-import { AdminModule } from 'app/admin/admin.module';
-import { LifecycleComponent } from './lifecycle/lifecycle.component';
 
 
 @NgModule({
@@ -55,8 +55,7 @@ import { LifecycleComponent } from './lifecycle/lifecycle.component';
     FormsModule,
     HttpModule,
     ReactiveFormsModule,
-    AppRoutingModule,
-    AdminModule
+    AppRoutingModule
   ],
   providers: [
     MockHeroService,

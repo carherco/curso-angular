@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'app-cold-observables',
@@ -25,29 +26,29 @@ export class ColdObservablesComponent implements OnInit {
       function () { console.log('Fin'); }
     );
 
-    // Creación de observable "infinito"
-    const Obs2 = Observable.create(function(emmiter) {
-      let value = 0;
-      const interval = setInterval(() => {
-        if (value % 2 === 0) {
-          emmiter.next(value);
-        }
-        value++;
-      }, 1000);
+    //Creación de observable "infinito"
+    // const Obs2 = Observable.create(function(emmiter) {
+    //   let value = 0;
+    //   const interval = setInterval(() => {
+    //     if (value % 2 === 0) {
+    //       emmiter.next(value);
+    //     }
+    //     value++;
+    //   }, 1000);
 
-      return () => clearInterval(interval);
-    });
+    //    return () => clearInterval(interval);
+    //  });
 
-    const subs2 = Obs2.subscribe(x => console.log('subs2:',x));
+    // const subs2 = Obs2.subscribe(x => console.log('subs2:',x));
 
     // unsubscribe after 10 seconds
-    setTimeout(() => {
-      subs2.unsubscribe();
-    }, 10000);
+    // setTimeout(() => {
+    //   subs2.unsubscribe();
+    // }, 10000);
 
-    setTimeout(() => {
-      const subs3 = Obs2.subscribe(x => console.log('subs3:',x));
-    }, 5000);
+    // setTimeout(() => {
+    //   const subs3 = Obs2.subscribe(x => console.log('subs3:',x));
+    // }, 5000);
 
     // Son Observables fríos:
     // - Una instancia por cada subscripción
@@ -63,7 +64,7 @@ export class ColdObservablesComponent implements OnInit {
     //   function () { console.log('Fin'); }
     // );
 
-    // Obs1.map((x)=>x.toUpperCase())
+    //  Obs1.map((x)=>x.toUpperCase())
     //     .map((x)=>x.split("").reverse().join(""))
     //     .subscribe(
     //   function (x) { console.log('Emisión:', x); },

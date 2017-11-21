@@ -8,6 +8,7 @@ import 'rxjs/add/operator/delay';
 @Injectable()
 export class AuthService {
     public token: string;
+    public roles = [];
 
     constructor(private http: Http) {
         // set token if saved in local storage
@@ -22,6 +23,7 @@ export class AuthService {
                           .delay(1000)
                           .do(val => {
                             this.token = 'savaosals09245valsfjga';
+                            this.roles = ['ROLE_ADMIN'];
                             localStorage.setItem('user_token', this.token);
                           });
       } else {
@@ -40,5 +42,17 @@ export class AuthService {
       } else {
         return false;
       }
+    }
+
+    getRoles() {
+      return localStorage.getItem('roles')
+    }
+
+    isAdmin() {
+      return this.roles.indexOf("ROLE_ADMIN") != -1;
+    }
+
+    isUser() {
+      return this.roles.indexOf('ROLE_USER') != -1;
     }
 }

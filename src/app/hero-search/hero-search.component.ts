@@ -26,20 +26,21 @@ export class HeroSearchComponent implements OnInit {
 
   ngOnInit() {
     Observable.fromEvent(this.email.nativeElement, 'keyup')
-       .do(x => console.log('Elemento original:', x))
-       .map((x: any) => x.target.value)
-       .do(x => console.log('Después de .map((x: any) => x.target.value):', x))
-       .filter(x => x.length > 3)
-       .do(x => console.log('Después de .filter(x => x.length > 3)', x))
-       .debounceTime(500)
-       .do(x => console.log('Después de .debounceTime(500)', x))
-       .distinctUntilChanged()
-       .do(x => console.log('Después de .distinctUntilChanged()', x))
-       .switchMap((x) => this.getHeroes(x))
-       .do(x => console.log('Después de .switchMap((x) => this.getHeroes(x))', x))
-       .subscribe(heroes => this.heroes = heroes,
-                  error =>  this.errorMessage = <any>error);
-
+       //.do(x => console.log('Elemento original:', x))
+       //.map((x: any) => x.target.value)
+       //.do(x => console.log('Después de .map((x: any) => x.target.value):', x))
+       //.filter(x => x.length > 3)
+       //.do(x => console.log('Después de .filter(x => x.length > 3)', x))
+       //.debounceTime(500)
+       //.do(x => console.log('Después de .debounceTime(500)', x))
+       //.distinctUntilChanged()
+       //.do(x => console.log('Después de .distinctUntilChanged()', x))
+       //.switchMap((x) => this.getHeroes(x))
+       //.do(x => console.log('Después de .switchMap((x) => this.getHeroes(x))', x))
+       .subscribe((x: any) => this.getHeroes(x.target.value)
+                              .subscribe(heroes => this.heroes = heroes,
+                                          error =>  this.errorMessage = <any>error)
+       )
       // http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-switchMap
   }
 
