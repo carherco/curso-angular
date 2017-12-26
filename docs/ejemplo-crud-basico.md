@@ -4,3 +4,5 @@ Se trata de hacer un listado de elementos, con posibilidad de añadir más eleme
 
 El ejemplo resuelto está en el componente crud-basico
 
+
+[Índice](index.md)

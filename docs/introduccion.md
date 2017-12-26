@@ -11,7 +11,7 @@ No existe la versión 3: https://www.infoq.com/news/2016/12/angular-4
 
 AngularJS:
 - Es una librería
-- EStructura basada en "Scopes"
+- Estructura basada en "Scopes"
 
 Angular
 - Es un framework
@@ -32,4 +32,4 @@ Ficheros spa.html y no-spa.html
 http://localhost:8888/carlos/curso_angular/spa.html
 
 
-[Índice](../index.md)
+[Índice](index.md)

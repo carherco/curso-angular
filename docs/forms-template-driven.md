@@ -250,3 +250,6 @@ export class HeroFormComponent implements OnInit {
 }
 
 Se podría haber hecho con la propiedad .submitted de ngForm
+
+
+[Índice](index.md)

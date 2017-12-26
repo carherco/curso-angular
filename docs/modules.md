@@ -46,3 +46,6 @@ platformBrowserDynamic().bootstrapModule(AppModule);
 ```
 
 Advertencia: En las características de ES6 veíamos que habían introducido el concepto de *Módulo* en JavaScript. Los módulos de Angular no tienen nada que ver con los módulos de JavaScript.
+
+
+[Índice](index.md)

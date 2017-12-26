@@ -37,3 +37,6 @@ Called after the ngAfterViewInit and every subsequent ngAfterContentChecked().
 Sólo disponible para componentes.
 - **ngOnDestroy():**
 Es llamado usto antes de que Angular destruya el componente. Se puede utilizar por ejemplo para desuscribirse de los observables.
+
+
+[Índice](index.md)

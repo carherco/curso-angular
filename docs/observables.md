@@ -97,3 +97,7 @@ http://rxmarbles.com/
 
 
 http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-switchMap
+
+
+
+[Índice](index.md)

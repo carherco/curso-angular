@@ -34,3 +34,6 @@ Cada navegador tiene diferente grado de soporte de los estándares web. Polyfill
 * **test.ts:** Punto de entrada principal a los tests unitarios.
 * **tsconfig.app.json:** Configuración del compilador TypeScript para la aplicación angular.
 * **tsconfig.spec.json:** Configuración del compilador TypeScript para los tests unitarios(tsconfig.spec.json).
+
+
+[Índice](index.md)

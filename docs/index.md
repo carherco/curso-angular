@@ -27,9 +27,14 @@
  - [Ejemplo de CRUD con API REST](ejemplo-crud-completo.md)
 
  - [Separar app en Módulos y Lazy loading](lazy-loading.md)
+ - [Deployment](deployment.md)
  - [Ciclo de vida de un componente](lifecycle.md)
+ - [Animaciones](animations.md)
 
 Documentación oficial de Angular: https://angular.io/docs
 
 Mis datos de contacto:
  - Email: carherco@gmail.com
+
+
+[Índice](index.md)

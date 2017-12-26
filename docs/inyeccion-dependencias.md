@@ -68,3 +68,6 @@ export class CrudBasicoComponent implements OnInit {
 ```
 
 Con este patrón, desparecen todos los problemas mencionados anteriormente.
+
+
+[Índice](index.md)

@@ -61,3 +61,6 @@ installing component
 Ejercicio: Crear dos componentes distintos e insertarlos dentro de la vista/componente raíz.
 
 Ejercicio: Insertar uno de los componentes dentro del otro.
+
+
+[Índice](index.md)

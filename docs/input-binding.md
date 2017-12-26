@@ -106,3 +106,6 @@ En *$event* recibirá lo que el child-comp haya metido como parámetro de entrad
     console.log('El child component quiere eliminar el item ' + hero.id);
   }
 ```
+
+
+[Índice](index.md)

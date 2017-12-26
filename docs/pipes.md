@@ -108,3 +108,5 @@ Para crear una pipe impura hay que indicar en los metadatos del decorador *pure:
 })
 ```
 
+
+[Índice](index.md)

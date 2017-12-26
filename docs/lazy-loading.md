@@ -67,3 +67,6 @@ Y en el routing padre
     loadChildren: 'app/admin/admin.module#AdminModule'
 },
 ```
+
+
+[Índice](index.md)
