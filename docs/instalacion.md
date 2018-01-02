@@ -7,7 +7,7 @@
 
 ## Instalación
 
-1. Instalar Angular cli
+1. Instalar Angular cli (https://github.com/angular/angular-cli)
 
 > npm install -g @angular/cli
 
@@ -32,6 +32,12 @@ ng serve lanza el servidor, construye la aplicación, vigila los archivos de la 
 La aplicación está servida en http://localhost:4200/
 
 Si se utiliza el modificador --open o -o, se abre automáticamete el navegador.
+
+El comando ng-serve permite cambiar el host y el puerto:
+
+> ng serve --host 0.0.0.0 --port 4201
+
+Al instalar una aplicación angular con *ng new*, se crea un fichero README.md con un recordatorio de los comandos principales de *angular cli*. 
 
 ## Instalación de un proyecto angular ya existente en un repositorio git
 

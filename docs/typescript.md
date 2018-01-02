@@ -14,7 +14,7 @@ Se compila para generar código ES6 (también llamado ES2015) o ES5 (diciembre 2
 ```javascript
 var texto: "Superman";
 var template = `
-    <div>El héroe ${texto} se llama {{nombre}}</div>\n
+    <div>El héroe ${texto} se llama {{nombre}}</div>
 
     <button (click)="onClickMe()">Click me!</button>
     <div>{{clickMessage}}</div>

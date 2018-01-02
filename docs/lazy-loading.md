@@ -68,5 +68,9 @@ Y en el routing padre
 },
 ```
 
+Angular-cli integra los componentes las directivas y las pipes que genera en app.module.ts. Si queremos que estén integrados en otro módulo distinto, debemos ejecutar el comando de la siguiente manera:
+
+> ng g component nombre-modulo/nombre-componente
+
 
 [Índice](index.md)

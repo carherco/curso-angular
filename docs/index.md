@@ -27,6 +27,7 @@
  - [Ejemplo de CRUD con API REST](ejemplo-crud-completo.md)
 
  - [Separar app en Módulos y Lazy loading](lazy-loading.md)
+ - [Angular CLI](angular-cli.md)
  - [Deployment](deployment.md)
  - [Ciclo de vida de un componente](lifecycle.md)
  - [Animaciones](animations.md)

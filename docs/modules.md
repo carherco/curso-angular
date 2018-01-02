@@ -1,15 +1,15 @@
 # Módulos
 
-Toda aplicación Angular tiene al menos una clase NgModule, el módulo raíz, convencionalmente llamado AppModule.
+Toda aplicación Angular tiene al menos una clase NgModule, **el módulo raíz**, convencionalmente llamado *AppModule*.
 
 En aplicaciones pequeñas, solamente existirá el módulo raíz. En aplicaciones grandes, es recomendable separar la misma en diferentes módulos según funcionalidades, flujo de trabajo, o alguna otra característica.
 
-Un módulo es una clase NgModule con un decorador @NgModule.
+Un módulo es una clase *NgModule* con un decorador *@NgModule*.
 
 ## El decorador @NgModule
 @NgModule es una *función decoradora* que toma un único objeto de **metadatos** cuyas propiedades describen dicho módulo. 
 
-Las propiedades más importantes del objeto de metadatos son::
+Las propiedades más importantes del objeto de metadatos son:
 
 - **declarations:** Las *view classes* que pertenecen a este módulo. Angular tiene 3 tipos de view classes: componentes, directivas, y pipes.
 - **exports:** El subconjunto de *declarations* que deben ser visibles y utilizables en las plantillas de componente (*component templates*) de otros módulos.
