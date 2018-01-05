@@ -29,6 +29,7 @@ import { AuthenticationService } from 'app/authentication.service';
 import { UserService } from 'app/user.service';
 import { AuthGuard } from 'app/auth.guard';
 import { AuthService } from 'app/auth.service';
+import { CalculadoraComponent } from './calculadora/calculadora.component';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { AuthService } from 'app/auth.service';
     LoginComponent,
     HomeComponent,
     HomePageComponent,
-    LifecycleComponent
+    LifecycleComponent,
+    CalculadoraComponent
   ],
   imports: [
     BrowserModule,

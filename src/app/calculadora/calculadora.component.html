@@ -1,0 +1,47 @@
+<h2>{{title}} con interpolación</h2>
+
+<div>
+  <div>A: <input type="number" value="{{varA}}"></div>
+  <div>B: <input type="number" value="{{varB}}"></div>
+</div>
+<div>
+  <div>El resultado de {{varA}} + {{varB}} es {{varA + varB}}</div>
+  <div>El resultado de {{varA}} + {{varB}} es {{suma1(varA,varB)}}</div>
+  <div>El resultado de {{varA}} + {{varB}} es {{suma2()}}</div>
+  <div>El resultado de {{varA}} - {{varB}} es {{resta()}}</div>
+  <div>El resultado de {{varA}} * {{varB}} es {{varA * varB}}</div>
+</div>
+
+
+
+<h2>{{title}} con evento</h2>
+
+<div>
+  <div>A: <input type="number" value="{{varA}}"><button (click)="incrementaA()">+1</button><button (click)="decrementaA()">-1</button></div>
+  <div>B: <input type="number" value="{{varB}}"><button (click)="incrementaB()">+1</button><button (click)="decrementaB()">-1</button></div>
+</div>
+<div>
+  <div>El resultado de {{varA}} + {{varB}} es {{varA + varB}}</div>
+  <div>El resultado de {{varA}} + {{varB}} es {{suma1(varA,varB)}}</div>
+  <div>El resultado de {{varA}} + {{varB}} es {{suma2()}}</div>
+  <div>El resultado de {{varA}} - {{varB}} es {{resta()}}</div>
+  <div>El resultado de {{varA}} * {{varB}} es {{varA * varB}}</div>
+</div>
+
+
+
+
+<h2>{{title}} con two way data binding</h2>
+
+<div>
+  <div>A: <input type="number" [(ngModel)]="varA"></div>
+  <div>B: <input type="number" [(ngModel)]="varB"></div>
+</div>
+<div>
+  <div>El resultado de {{varA}} + {{varB}} es {{varA + varB}}</div>
+  <div>El resultado de {{varA}} + {{varB}} es {{suma1(varA,varB)}}</div>
+  <div>El resultado de {{varA}} + {{varB}} es {{suma2()}}</div>
+  <div>El resultado de {{varA}} - {{varB}} es {{resta()}}</div>
+  <div>El resultado de {{varA}} * {{varB}} es {{varA * varB}}</div>
+</div>
+
