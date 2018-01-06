@@ -10,11 +10,18 @@ export class GaleriaComponent implements OnInit {
   imagenes = [
     'https://mmtstock.com/wp-content/uploads/2017/09/P7040338.jpg',
     'https://mmtstock.com/wp-content/uploads/2017/09/P6290012.jpg',
-    'https://mmtstock.com/wp-content/uploads/2015/08/IMG_0903150810.jpg'
+    'https://mmtstock.com/wp-content/uploads/2015/08/IMG_0903150810.jpg',
+    'https://mmtstock.com/wp-content/uploads/2017/12/P8310900.jpg',
+    'https://mmtstock.com/wp-content/uploads/2017/12/P8310865.jpg',
+    'https://mmtstock.com/wp-content/uploads/2017/12/P6290042.jpg',
+    'https://mmtstock.com/wp-content/uploads/2017/11/P9031121.jpg'
   ];
 
   index: number;
   imagenActual: string;
+  paginator_ini: number = 0;
+  paginator_fin: number = 3;
+  paginator_num: number = 3;
 
   constructor() {
     this.imagenActual = this.imagenes[0];
@@ -31,6 +38,11 @@ export class GaleriaComponent implements OnInit {
 
   prev() {
     this.index -= 1;
+    this.imagenActual = this.imagenes[this.index];
+  }
+
+  select(i) {
+    this.index = i;
     this.imagenActual = this.imagenes[this.index];
   }
 
