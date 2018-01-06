@@ -130,7 +130,7 @@ export class AppModule { }
 Ejemplos: 
  - click-me
  - calculadora
- - incluir <app-calculadora> varias veces
+ - incluir &lt;app-calculadora&gt; varias veces
 
 [Índice](index.md)
 
