@@ -10,7 +10,7 @@
 
 <div style="margin-top: 50px;">
   <span [hidden]="paginator_ini <= 0" (click)="paginator_ini = paginator_ini - paginator_num; paginator_fin = paginator_fin - paginator_num;">Anterior</span>
-  <img *ngFor="let img of imagenes | slice:paginator_ini:paginator_fin; let i=index" [src]="img" width="50px;" style="margin-left:20px;" (click)="select(i)"/>
+  <img *ngFor="let img of imagenes | slice:paginator_ini:paginator_fin; let i=index" [src]="img" width="50px;" style="margin-left:20px;" (click)="select(i+paginator_ini)"/>
   <span [hidden]="paginator_fin >= imagenes.length" (click)="paginator_ini = paginator_ini + paginator_num; paginator_fin = paginator_fin + paginator_num;">Siguiente</span>
 </div>
 
