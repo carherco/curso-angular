@@ -1,0 +1,10 @@
+<h1>Directiva personalizada</h1>
+
+<h4>Elige un color</h4>
+<div>
+  <input type="radio" name="colors" (click)="color='lightgreen'">Green
+  <input type="radio" name="colors" (click)="color='yellow'">Yellow
+  <input type="radio" name="colors" (click)="color='cyan'">Cyan
+  <input type="radio" name="colors" (click)="color='red'">Red
+</div>
+<p [appHighlight]="color">Pon el ratón aquí</p>

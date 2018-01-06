@@ -22,6 +22,7 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { LifecycleComponent } from './lifecycle/lifecycle.component';
+import { HighlightComponent } from './highlight/highlight.component';
 
 import { MockHeroService } from 'app/mock-hero.service';
 import { HeroService } from 'app/hero.service';
@@ -30,6 +31,8 @@ import { UserService } from 'app/user.service';
 import { AuthGuard } from 'app/auth.guard';
 import { AuthService } from 'app/auth.service';
 import { CalculadoraComponent } from './calculadora/calculadora.component';
+import { HighlightDirective } from './highlight.directive';
+
 
 
 @NgModule({
@@ -50,7 +53,9 @@ import { CalculadoraComponent } from './calculadora/calculadora.component';
     HomeComponent,
     HomePageComponent,
     LifecycleComponent,
-    CalculadoraComponent
+    CalculadoraComponent,
+    HighlightDirective,
+    HighlightComponent
   ],
   imports: [
     BrowserModule,
