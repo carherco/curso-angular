@@ -33,32 +33,32 @@ La interpolación se indica con {{}}:
 El binding en propiedades, atributos, clases, estilos... se realiza con [] o con el prefijo bind-:
 
   ``` html
-    <!-- Atributo -->
+    <!-- Atributo (HTML) -->
     <option [selected]="isCarSelected" value="BMW">BMW</option>
     <div [class]="miClase">Elemento con una clase dinámica</div>
-    <!-- Propiedad -->
+
+    <!-- Propiedad (DOM) -->
     <div [hidden]="isHidden">Este elemento puede estar o no estar</div>
+
     <!-- Clase -->
     <div [class.special]="isSpecial">Special</div>
+
     <!-- Estilos -->
     <p [style.color]=”miColor”>Párrafo de color dinámico</p>
   ```
 
-https://angular.io/guide/template-syntax#html-attribute-vs-dom-property
+NOTA: Atributos vs. Propiedades: https://angular.io/guide/template-syntax#html-attribute-vs-dom-property
 
-You write these template expressions in a language that looks like JavaScript. Many JavaScript expressions are legal template expressions, but not all.
+Las expresiones que tienen *efectos colaterales* están prohibidas como expresiones en las plantillas de angular: 
 
-JavaScript expressions that have or promote side effects are prohibited, including:
+- assignments (=, +=, -=, ...)
+- new
+- chaining expressions with ; or ,
+- increment and decrement operators (++ and --)
 
-assignments (=, +=, -=, ...)
-new
-chaining expressions with ; or ,
-increment and decrement operators (++ and --)
-Other notable differences from JavaScript syntax include:
+Tampoco son válidos en expresiones de plantilla de angular los operadores | y &.
 
-no support for the bitwise operators | and &
-new template expression operators, such as |, ?. and !.
-
+Por otro lado, angular tiene algunos operadores que no existen en JavaScript/TypeScript: |, ?, y !.
 
 
 ## One way data binding (de la template al componente)
@@ -127,7 +127,10 @@ export class AppModule { }
 ```
 
 
-
+Ejemplos: 
+ - click-me
+ - calculadora
+ - incluir <app-calculadora> varias veces
 
 [Índice](index.md)
 
