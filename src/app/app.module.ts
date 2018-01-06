@@ -32,6 +32,7 @@ import { AuthGuard } from 'app/auth.guard';
 import { AuthService } from 'app/auth.service';
 import { CalculadoraComponent } from './calculadora/calculadora.component';
 import { HighlightDirective } from './highlight.directive';
+import { PipesComponent } from './pipes/pipes.component';
 
 
 
@@ -55,7 +56,8 @@ import { HighlightDirective } from './highlight.directive';
     LifecycleComponent,
     CalculadoraComponent,
     HighlightDirective,
-    HighlightComponent
+    HighlightComponent,
+    PipesComponent
   ],
   imports: [
     BrowserModule,

@@ -58,7 +58,7 @@ Apunte:
 
 Apunte sobre el apunte:
   
-  En Angular 5 ya las pipes Date y Currency ya no necesitan dicha librería.
+  En Angular 5 las pipes Date y Currency ya no necesitan dicha librería.
 
 ## Custom pipes
 
