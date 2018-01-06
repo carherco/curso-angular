@@ -51,10 +51,10 @@ NOTA: Atributos vs. Propiedades: https://angular.io/guide/template-syntax#html-a
 
 Las expresiones que tienen *efectos colaterales* están prohibidas como expresiones en las plantillas de angular: 
 
-- assignments (=, +=, -=, ...)
+- asignaciones (=, +=, -=, ...)
 - new
-- chaining expressions with ; or ,
-- increment and decrement operators (++ and --)
+- encadenar expresiones con ; or ,
+- operadores de incremento o decremento (++ y --)
 
 Tampoco son válidos en expresiones de plantilla de angular los operadores | y &.
 
