@@ -22,6 +22,12 @@ import { Component, OnInit } from '@angular/core';
       (keyup.enter)="updateV5(box5.value)"
       (blur)="updateV5(box5.value)">
   <p>V5: {{value5}}</p>
+
+  <!-- mostrar el valor sin pasar por el componente -->
+  <input #box6
+      (keyup.enter)="value6 = box6.value"
+      (blur)="value6 = box6.value">
+  <p>V5: {{value6}}</p>
 `,
   styleUrls: ['./key-up.component.css']
 })
@@ -32,6 +38,7 @@ export class KeyUpComponent implements OnInit {
   value3 = '';
   value4 = '';
   value5 = '';
+  value6 = '';
 
   constructor() { }
 
