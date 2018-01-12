@@ -132,7 +132,7 @@ export class EjercicioKeyUp {
 
 ```typescript
 @Component({
-  selector: 'little-tour',
+  selector: 'app-ejercicio-key-up',
   template: `
     <input #newHero
       (keyup.enter)="addHero(newHero.value); newHero.value='' "

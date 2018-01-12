@@ -1,11 +1,6 @@
 
 
-## Compilador JIT (Just In Time)
-
-
-
-
-npm install my-application --production
+https://angular.io/guide/deployment
 
 
 [Índice](index.md)

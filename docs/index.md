@@ -31,6 +31,7 @@
  - [Deployment](deployment.md)
  - [Ciclo de vida de un componente](lifecycle.md)
  - [Animaciones](animations.md)
+ - Service Workers: https://angular.io/guide/service-worker-intro
  - Introducción a Ionic
 
 Documentación oficial de Angular: https://angular.io/docs

@@ -248,6 +248,7 @@ export class HeroFormComponent implements OnInit {
     this.submitted = true;
   }
 }
+```
 
 Se podría haber hecho con la propiedad .submitted de ngForm
 
