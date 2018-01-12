@@ -19,6 +19,7 @@ export class GaleriaComponent implements OnInit {
 
   index: number;
   imagenActual: string;
+  tamano:number;
   paginator_ini: number = 0;
   paginator_fin: number = 3;
   paginator_num: number = 3;
@@ -26,6 +27,7 @@ export class GaleriaComponent implements OnInit {
   constructor() {
     this.imagenActual = this.imagenes[0];
     this.index = 0;
+    this.tamano = 400;
    }
 
   ngOnInit() {
