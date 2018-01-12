@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HighlightComponent implements OnInit {
 
+  color: string;
   constructor() { }
 
   ngOnInit() {
