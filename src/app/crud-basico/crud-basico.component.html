@@ -6,6 +6,11 @@
     <label for="nombre">Nombre:</label>
     <input type="text" class="form-control" id="nombre" name="name" [(ngModel)]="newHero.name" placeholder="Escribe el nombre...">
   </div>
+  <div class="form-group">
+    <select [(ngModel)]="newHero.emotion">
+    <option *ngFor="let emotion of emotions" [value]="emotion">{{emotion}}</option>
+  </select>
+  </div>
   <button type="button" class="btn btn-primary" (click)="add()">Añadir</button>
 </form>
 
@@ -15,29 +20,42 @@
 
   <div class="col-md-6">
     <h3>Lista de héroes</h3>
+    <input type="checkbox" [(ngModel)]="hide_sad"> Ocultar héroes tristes
     <table class="table table-striped">
       <tr>
         <th>Id</th>
         <th>Nombre</th>
         <th>Estado de ánimo</th>
         <th></th>
-      <tr *ngFor="let hero of heroes; let index=index; let odd=odd;" [class.selected]="hero === selectedHero" class="heroe_{{hero.emotion}}" (click)="onSelect(hero)">
-        <td>{{hero.id}}</td>
-        <td>{{hero.name}}</td>
-        <td>{{hero.emotion}}</td>
-        <td><button class="btn btn-danger" (click)="delete(index)">X</button></td>
-      </tr>
+      <ng-container *ngFor="let hero of heroes; let index=index; let odd=odd;">
+        <tr *ngIf="!ocultar_tristes || (hide_sad && hero.emotion!='sad') "
+            [class.selected]="hero === selectedHero"
+            class="heroe_{{hero.emotion}}"
+            [ngClass]="{'seleccionado': selectedHero == hero}"
+            [style.font-size]="(selectedHero == hero)?'20px':''">
+            (click)="onSelect(hero)">
+          <td>{{hero.id}}</td>
+          <td>{{hero.name}}</td>
+          <td>{{hero.emotion}}</td>
+          <td><button class="btn btn-danger" (click)="delete(index)">X</button></td>
+        </tr>
+      </ng-container>
     </table>
   </div>
 
 
 
   <div *ngIf="selectedHero" class="col-md-6">
-    <h3>Detalle de {{selectedHero.name}}</h3>
+    <h3>Datos del héroe {{selectedHero.name}}</h3>
     <div><label>Id: </label>{{selectedHero.id}}</div>
     <div>
       <label>Nombre: </label>
       <input [(ngModel)]="selectedHero.name" placeholder="name"/>
+    </div>
+    <div>
+      <select [(ngModel)]="selectedHero.emotion">
+        <option *ngFor="let emotion of emotions">{{emotion}}</option>
+      </select>
     </div>
   </div>
 

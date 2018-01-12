@@ -11,7 +11,9 @@ export class CrudBasicoComponent implements OnInit {
 
   title = 'CRUD BÁSICO';
   heroes = HEROES;
+  emotions = ['','happy','sad','confused'];
   lastId = 20;
+  hide_sad: boolean = false;
   newHero: Hero;
   selectedHero: Hero;
 
