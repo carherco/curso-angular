@@ -7,10 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CalculadoraComponent implements OnInit {
 
-  private title = 'Calculadora';
+  title = 'Calculadora';
 
-  private varA: number = 4;
-  private varB: number = 7;
+  varA: number = 8;
+  varB: number = 7;
 
   constructor() { }
 
