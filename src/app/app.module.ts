@@ -34,6 +34,14 @@ import { CalculadoraComponent } from './calculadora/calculadora.component';
 import { HighlightDirective } from './highlight.directive';
 import { PipesComponent } from './pipes/pipes.component';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from "@angular/material/core";
+import {MatTableModule} from '@angular/material/table';
+import {MatListModule} from '@angular/material/list';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 
 @NgModule({
@@ -64,7 +72,15 @@ import { PipesComponent } from './pipes/pipes.component';
     FormsModule,
     HttpModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatMenuModule,
+    MatIconModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatTableModule,
+    MatListModule,
+    MatFormFieldModule
   ],
   providers: [
     MockHeroService,

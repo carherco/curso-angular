@@ -25,6 +25,10 @@
 
  - [Formularios model-driven](forms-model-driven.md)
  - [Ejemplo de CRUD con API REST](ejemplo-crud-completo.md)
+ - Testing
+ - [Angular Material](angular-material.md)
+ - [Actualización de la versión de Angular](https://angular-update-guide.firebaseapp.com/)
+ - [Deployment](deployment.md)
 
  - [Separar app en Módulos y Lazy loading](lazy-loading.md)
  - [Angular CLI](angular-cli.md)
