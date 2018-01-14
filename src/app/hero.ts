@@ -1,3 +1,5 @@
+import { Address } from "app/address";
+
 export class Hero {
 
   constructor(
@@ -8,6 +10,7 @@ export class Hero {
     public isSecret?: boolean,
     public emotion?: 'happy'|'sad'|'confused'|'',
     public phone?: string,
-    public email?: string
+    public email?: string,
+    public addresses?: Address[]
   ) { }
 }

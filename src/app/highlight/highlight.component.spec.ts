@@ -1,25 +1,25 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+// import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HighlightComponent } from './highlight.component';
+// import { HighlightComponent } from './highlight.component';
 
-describe('HighlightComponent', () => {
-  let component: HighlightComponent;
-  let fixture: ComponentFixture<HighlightComponent>;
+// describe('HighlightComponent', () => {
+//   let component: HighlightComponent;
+//   let fixture: ComponentFixture<HighlightComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ HighlightComponent ]
-    })
-    .compileComponents();
-  }));
+//   beforeEach(async(() => {
+//     TestBed.configureTestingModule({
+//       declarations: [ HighlightComponent ]
+//     })
+//     .compileComponents();
+//   }));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(HighlightComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+//   beforeEach(() => {
+//     fixture = TestBed.createComponent(HighlightComponent);
+//     component = fixture.componentInstance;
+//     fixture.detectChanges();
+//   });
 
-  it('should be created', () => {
-    expect(component).toBeTruthy();
-  });
-});
+//   it('should be created', () => {
+//     expect(component).toBeTruthy();
+//   });
+// });

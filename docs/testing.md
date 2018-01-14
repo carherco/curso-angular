@@ -87,6 +87,16 @@ Los matchers disponibles son:
 
 https://jasmine.github.io/2.4/introduction.html
 
+Todos los matchers adminten un segundo parámetro de tipo string que es el mensaje que Jasmine mostrará si la expectation no se cumple.
+
+```js
+it("esto es una spec", function() {
+    a = true;
+    expect(a).toBe(true,'mensaje si falla');
+  });
+```
+
+Esto permite localizar rápidamente la expectation fallida.
 
 ### Setup y Teardown
 
@@ -179,10 +189,10 @@ describe('GaleriaComponent (inline template)', () => {
   let el:      HTMLElement;
 
   // Creamos un módulo nuevo para cada spec
-  beforeEach(() => {  
+  beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ GaleriaComponent ], // declare the test component
-    });
+    }).compileComponents();  // compile template and css;
 
     fixture = TestBed.createComponent(GaleriaComponent);
 
@@ -211,11 +221,120 @@ describe('GaleriaComponent (inline template)', () => {
 });
 ```
 
+El método compileComponents de TestBed.configureTestingModule compila de forma asíncrona los componentes configurados en el módulo de testing.
+
+Por tanto, para llamar al método necesitamos añadir async en el beforeEach.
 
 
 
 
+### detectChanges
 
+En producción y en desarrollo, la detección de cambio se produce automáticamente cuando Angular crea un componente o el usuario pulsa una tecla cuando se completa alguna operación asíncrona... 
+
+Pero en los tests, no. Esto está hecho así de manera intencionada, para que el tester tenga la posibilidad de acceder al componente antes y después de que se produzcan cambios.
+
+Cada vez que se invoque a fixture.detectChanges() se ejecutará la detección de cambios.
+
+Sin embargo, algunos testers prefieren que el entorno de tests de Angular ejecute automáticamente la detección de cambios. Esto es posible configurando el TestBed con el provider ComponentFixtureAutoDetect.
+
+```typescript
+import { ComponentFixtureAutoDetect } from '@angular/core/testing';
+```
+
+```typescript
+TestBed.configureTestingModule({
+  declarations: [ GaleriaComponent ],
+  providers: [
+    { provide: ComponentFixtureAutoDetect, useValue: true }
+  ]
+})
+```
+
+Pero el ComponentFixtureAutoDetect service tiene una limitación: Responde a actividades asíncronas (observables, promesas), timers  y DOM events pero no a cambios directos en propiedades del componente.
+
+```typescript
+it('should display original title', () => {
+  // Hooray! No `fixture.detectChanges()` needed
+  expect(el.textContent).toContain(comp.title);
+});
+
+it('should still see original title after comp.title change', () => {
+  const oldTitle = comp.title;
+  comp.title = 'Test Title';
+  // Displayed title is old because Angular didn't hear the change :(
+  expect(el.textContent).toContain(oldTitle);
+});
+
+it('should display updated title after detectChanges', () => {
+  comp.title = 'Test Title';
+  fixture.detectChanges(); // detect changes explicitly
+  expect(el.textContent).toContain(comp.title);
+});
+```
+
+## Testeo de componentes con dependencias
+
+Si nuestro componente tiene dependencias de servicios, las declararemos en la sección providers.
+
+Lo ideal es que los servicios declarados fueran dobles (Mocks, Stubs...)
+
+```typescript
+TestBed.configureTestingModule({
+   declarations: [ CrudComponent ],
+// providers:    [ UserService ]  // NO! Don't provide the real service!
+                                  // Provide a test-double instead
+   providers:    [ {provide: HeroeService, useValue: MockHeroeService } ]
+});
+```
+
+```typescript
+beforeEach(async(() => {
+  // stub UserService for test purposes
+  userServiceStub = {
+    isLoggedIn: true,
+    user: { name: 'Test User'}
+  };
+
+  TestBed.configureTestingModule({
+     declarations: [ WelcomeComponent ],
+     providers:    [ {provide: UserService, useValue: userServiceStub } ]
+  }).compileComponents();
+
+  fixture = TestBed.createComponent(WelcomeComponent);
+  comp    = fixture.componentInstance;
+
+  // UserService from the root injector
+  userService = TestBed.get(UserService);
+
+  //  get the "welcome" element by CSS selector (e.g., by class name)
+  de = fixture.debugElement.query(By.css('.welcome'));
+  el = de.nativeElement;
+});
+```
+
+```typescript
+it('should welcome the user', () => {
+  fixture.detectChanges();
+  const content = el.textContent;
+  expect(content).toContain('Welcome', '"Welcome ..."');
+  expect(content).toContain('Test User', 'expected name');
+});
+
+it('should welcome "Bubba"', () => {
+  userService.user.name = 'Bubba'; // welcome message hasn't been shown yet
+  fixture.detectChanges();
+  expect(el.textContent).toContain('Bubba');
+});
+
+it('should request login if not logged in', () => {
+  userService.isLoggedIn = false; // welcome message hasn't been shown yet
+  fixture.detectChanges();
+  const content = el.textContent;
+  expect(content).not.toContain('Welcome', 'not welcomed');
+  expect(content).toMatch(/log in/i, '"log in"');
+});
+```
 
 
 

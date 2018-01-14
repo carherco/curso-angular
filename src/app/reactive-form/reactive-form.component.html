@@ -22,6 +22,40 @@
         </select>
       </div>
 
+      <div formArrayName="addresses" class="well well-lg">
+        <div *ngFor="let address of addresses.controls; let i=index" [formGroupName]="i" >
+          <!-- The repeated address template -->
+          <h4>Address #{{i + 1}}</h4>
+          <div style="margin-left: 1em;">
+            <div class="form-group">
+              <label class="center-block">Street:
+                <input class="form-control" formControlName="street">
+              </label>
+            </div>
+            <div class="form-group">
+              <label class="center-block">City:
+                <input class="form-control" formControlName="city">
+              </label>
+            </div>
+            <div class="form-group">
+              <label class="center-block">State:
+                <select class="form-control" formControlName="state">
+                  <option *ngFor="let state of states" [value]="state">{{state}}</option>
+                </select>
+              </label>
+            </div>
+            <div class="form-group">
+              <label class="center-block">Zip Code:
+                <input class="form-control" formControlName="zip">
+              </label>
+            </div>
+          </div>
+          <br>
+          <!-- End of the repeated address template -->
+        </div>
+      </div>
+      <button type="button" class="btn btn-primary" (click)="addAddress()">Añadir dirección</button>
+
       <button type="submit" class="btn btn-success" [disabled]="!heroForm.valid">Submit</button>
 
     </form>
