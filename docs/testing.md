@@ -288,6 +288,8 @@ TestBed.configureTestingModule({
 });
 ```
 
+Ejemplo: 
+
 ```typescript
 beforeEach(async(() => {
   // stub UserService for test purposes
@@ -306,6 +308,8 @@ beforeEach(async(() => {
 
   // UserService from the root injector
   userService = TestBed.get(UserService);
+  // Otra forma de inyectar el servicio
+  // userService = fixture.debugElement.injector.get(UserService);
 
   //  get the "welcome" element by CSS selector (e.g., by class name)
   de = fixture.debugElement.query(By.css('.welcome'));
