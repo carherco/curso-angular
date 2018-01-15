@@ -6,6 +6,10 @@ Requiere la versión 5.1.1 de Angular.
 
 > npm install --save @angular/material @angular/cdk
 
+2) Instalar @angular/animations (opcional)
+
+> npm install --save @angular/animations
+
 2) Incluir un tema. Podemos utilizar uno de los que vienen por defecto
 
 ```css
@@ -14,11 +18,9 @@ Requiere la versión 5.1.1 de Angular.
 
 3) Instalar soporte de gestos (opcional)
 
-To install via npm, use the following command:
-
 > npm install --save hammerjs
 
-After installing, import it on your app's entry point (e.g. src/main.ts).
+Después de instalar hammerjs, hay que importarlo en nuestro main.ts (e.g. src/main.ts).
 
 ```js
 import 'hammerjs';
