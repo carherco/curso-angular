@@ -26,12 +26,12 @@
  - [Formularios model-driven](forms-model-driven.md)
  - [Ejemplo de CRUD con API REST](ejemplo-crud-completo.md)
  - [Testeo con Karma](testing.md)
- - [Testeo con Protractor]()
+ - [Testeo con Protractor](testing-e2e)
  - [Angular Material](angular-material.md)
  - [Ciclo de vida de un componente](lifecycle.md)
  - [Actualización de la versión de Angular](https://angular-update-guide.firebaseapp.com/)
- - [Deployment](deployment.md)
  - [Separar app en Módulos y Lazy loading](lazy-loading.md)
+ - [Deployment](deployment.md)
  - [Angular CLI](angular-cli.md)
  - Introducción a Ionic
 
