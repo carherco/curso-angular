@@ -26,7 +26,7 @@
  - [Formularios model-driven](forms-model-driven.md)
  - [Ejemplo de CRUD con API REST](ejemplo-crud-completo.md)
  - [Testeo con Karma](testing.md)
- - [Testeo con Protactor]()
+ - [Testeo con Protractor]()
  - [Angular Material](angular-material.md)
  - [Ciclo de vida de un componente](lifecycle.md)
  - [Actualización de la versión de Angular](https://angular-update-guide.firebaseapp.com/)

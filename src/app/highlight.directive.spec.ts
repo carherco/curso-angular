@@ -5,8 +5,8 @@ import { By } from "@angular/platform-browser";
 
 @Component({
   template: `
-  <h2 appHighlight="yellow">Something Yellow</h2>
-  <h2 appHighlight>The Default (Gray)</h2>
+  <h2 appHighlight="red">Something Red</h2>
+  <h2 appHighlight>The Default (yellow)</h2>
   <h2>No Highlight</h2>`
 })
 class TestComponent { }
@@ -33,34 +33,33 @@ describe('TestComponent', () => {
   });
 
   // color tests
-  xit('should have 0 highlighted elements', () => {
-    expect(this.des.length).toBe(0);
+  it('should have 2 highlighted elements', () => {
+    expect(this.des.length).toBe(2);
   });
 
-  it('should color 1st <h2> background "yellow"', () => {
-    this.des[0].triggerEventHandler('mouseover', null);
+  it('should color 1st <h2> background be "red" on mouse enter', () => {
+    this.des[0].triggerEventHandler('mouseenter', null);
     this.fixture.detectChanges();
     const bgColor = this.des[0].nativeElement.style.backgroundColor;
-    expect(bgColor).toBe('yellow');
+    expect(bgColor).toBe('red');
   });
 
-  it('should color 2nd <h2> background w/ default color', () => {
+  it('should color 2nd <h2> background w/ default color on mouse enter', () => {
     const dir = this.des[1].injector.get(HighlightDirective) as HighlightDirective;
-    this.des[1].triggerEventHandler('mouseover', null);
+    this.des[1].triggerEventHandler('mouseenter', null);
     this.fixture.detectChanges();
     const bgColor = this.des[1].nativeElement.style.backgroundColor;
     expect(bgColor).toBe(dir.defaultColor);
   });
 
   it('hovering over input', () => {
-    this.des[0].triggerEventHandler('mouseover', null);
+    this.des[0].triggerEventHandler('mouseenter', null);
     this.fixture.detectChanges();
-    expect(this.des[0].nativeElement.style.backgroundColor).toBe('blue');
+    expect(this.des[0].nativeElement.style.backgroundColor).toBe('red');
 
-    this.des[0].triggerEventHandler('mouseout', null);
+    this.des[0].triggerEventHandler('mouseleave', null);
     this.fixture.detectChanges();
-    console.log(this.des[0].nativeElement.style.backgroundColor);
-    expect(this.des[0].nativeElement.style.backgroundColor).toBe('inherit');
+    expect(this.des[0].nativeElement.style.backgroundColor).toBe('');
 });
 
 });
