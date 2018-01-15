@@ -25,18 +25,20 @@
 
  - [Formularios model-driven](forms-model-driven.md)
  - [Ejemplo de CRUD con API REST](ejemplo-crud-completo.md)
- - Testing
+ - [Testeo con Karma](testing.md)
+ - [Testeo con Protactor]()
  - [Angular Material](angular-material.md)
+ - [Ciclo de vida de un componente](lifecycle.md)
  - [Actualización de la versión de Angular](https://angular-update-guide.firebaseapp.com/)
  - [Deployment](deployment.md)
-
  - [Separar app en Módulos y Lazy loading](lazy-loading.md)
  - [Angular CLI](angular-cli.md)
- - [Deployment](deployment.md)
- - [Ciclo de vida de un componente](lifecycle.md)
+ - Introducción a Ionic
+
+--------------------
  - [Animaciones](animations.md)
  - Service Workers: https://angular.io/guide/service-worker-intro
- - Introducción a Ionic
+
 
 Documentación oficial de Angular: https://angular.io/docs
 
