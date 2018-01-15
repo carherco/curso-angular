@@ -3,6 +3,7 @@ import { Http, Headers, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/delay';
 
 @Injectable()
@@ -10,7 +11,7 @@ export class AuthService {
     public token: string;
     public roles = [];
 
-    constructor(private http: Http) {
+    constructor() {
         // set token if saved in local storage
         // let currentUser = JSON.parse(localStorage.getItem('user_token'));
         // this.token = user_token.token;

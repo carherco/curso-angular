@@ -340,25 +340,80 @@ it('should request login if not logged in', () => {
 });
 ```
 
+## Testeo de servicios
+
+Para testear un servicio, crearemos un módulo de testing en el que proveeremos el servicio, para poder inyectarlo en los tests.
+
+```typescript
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      providers: [AuthService]
+    });
+  });
+
+  it('should be created', inject([AuthService], (service: AuthService) => {
+    expect(service).toBeTruthy();
+  }));
+```
+
+Gracias a la inyección de dependencias ya podemos testear los métodos del servicio, sus propiedades, etc.
 
 
+```typescript
+import { TestBed, inject } from '@angular/core/testing';
+
+import { AuthService } from './auth.service';
+
+describe('AuthService', () => {
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      providers: [AuthService]
+    });
+  });
+
+  afterEach(() => {
+    localStorage.removeItem('user_token');
+  });
+
+  it('should be created', inject([AuthService], (service: AuthService) => {
+    expect(service).toBeTruthy();
+  }));
+
+  it('isLogged() returns true when user logged', inject([AuthService], (service: AuthService) => {
+    localStorage.setItem('user_token', '1234');
+    expect(service.isLogged()).toBeTruthy();
+  }));
+
+  it('isLogged() returns false when user logged', inject([AuthService], (service: AuthService) => {
+    expect(service.isLogged()).toBeFalsy();
+  }));
+});
+```
+
+## Testeo de pipes
+
+Las pipes son los elementos más fáciles de testear en Angular. Al ser una clase con un método, la forma de testearla es como si fuera una clase normal y corriente.
+
+```typescript
+describe('Testeando una pipe', () => {
+  let pipe: MiPipe;
+
+  beforeEach(() => {
+    pipe = new MiPipe();
+  });
+
+  it('Al aplicarla a X devuelve Y', () => {
+    expect(pipe.transform('X')).toBe('Y');
+  });
+
+  it('Al aplicarla a J devuelve K', () => {
+    expect(pipe.transform('J')).toBe('K');
+  });
+});
+```
 
 
-
-
-
-
-You should write isolated unit tests for pipes and services.
-
-Pero para comonentes, Such tests require the Angular testing utilities. The Angular testing utilities include the TestBed class and several helper functions from @angular/core/testing. 
-
-Vamos primero a probar que nuestro entorno de testeo funciona.
-
-
-Tests written in Jasmine are called specs . The filename extension must be .spec.ts,
-
-
-> ng test
 
 
 
