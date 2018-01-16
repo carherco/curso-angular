@@ -30,15 +30,13 @@
  - [Angular Material](angular-material.md)
  - [Angular IDEs](ides.md)
  - [Ciclo de vida de un componente](lifecycle.md)
- - [Actualización de la versión de Angular](https://angular-update-guide.firebaseapp.com/)
  - [Separar app en Módulos y Lazy loading](lazy-loading.md)
  - [Deployment](deployment.md)
  - [Angular CLI](angular-cli.md)
+ - [Actualización de la versión de Angular](https://angular-update-guide.firebaseapp.com/)
  - Introducción a Ionic
 
---------------------
- - [Animaciones](animations.md)
- - Service Workers: https://angular.io/guide/service-worker-intro
+
 
 
 Documentación oficial de Angular: https://angular.io/docs
