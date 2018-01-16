@@ -1,4 +1,4 @@
-# Angular IDEs
+# Angular IDEs
 
 Algunos editores que tiene soporte para angular son:
 
