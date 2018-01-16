@@ -42,6 +42,7 @@ import { MatNativeDateModule } from "@angular/material/core";
 import {MatTableModule} from '@angular/material/table';
 import {MatListModule} from '@angular/material/list';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { ImagePipe } from './image.pipe';
 
 
 @NgModule({
@@ -65,7 +66,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     CalculadoraComponent,
     HighlightDirective,
     HighlightComponent,
-    PipesComponent
+    PipesComponent,
+    ImagePipe
   ],
   imports: [
     BrowserModule,

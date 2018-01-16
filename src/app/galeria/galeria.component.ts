@@ -17,6 +17,7 @@ export class GaleriaComponent implements OnInit {
     'https://mmtstock.com/wp-content/uploads/2017/11/P9031121.jpg'
   ];
 
+  title = "Galería";
   index: number;
   imagenActual: string;
   tamano:number;

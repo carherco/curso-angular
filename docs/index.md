@@ -28,6 +28,7 @@
  - [Testeo con Karma](testing.md)
  - [Testeo con Protractor](testing-e2e.md)
  - [Angular Material](angular-material.md)
+ - [Angular IDEs](ides.md)
  - [Ciclo de vida de un componente](lifecycle.md)
  - [Actualización de la versión de Angular](https://angular-update-guide.firebaseapp.com/)
  - [Separar app en Módulos y Lazy loading](lazy-loading.md)
