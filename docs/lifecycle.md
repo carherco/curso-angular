@@ -24,16 +24,16 @@ Para checkear cambios que Angular no sea capaz de detectar por sí mismo. Es lla
 Es llamado después de que Angular proyecte el contenido externo dentro de la vista del componente. Es llamado después del primer ngDoCheck().
 Sólo disponible para componentes.
 - **ngAfterContentChecked():**	
-Respond after Angular checks the content projected into the component.
-Called after the ngAfterContentInit() and every subsequent ngDoCheck().
+Responde después de que Angular compruebe el contenido proyectado en el componente.
+Es llamado después de cada  ngAfterContentInit() y de cada ngDoCheck().
 Sólo disponible para componentes.
 - **ngAfterViewInit():**	
-Respond after Angular initializes the component's views and child views.
-Called once after the first ngAfterContentChecked().
+Responde después de que Angular inicialice la vista del componente y las vistas hijas.
+Es llamado una sola vez después del primer ngAfterContentChecked().
 Sólo disponible para componentes.
 - **ngAfterViewChecked():**	
-Respond after Angular checks the component's views and child views.
-Called after the ngAfterViewInit and every subsequent ngAfterContentChecked().
+Responde después de que Angular compruebe la vista del componente y las vistas hijas.
+Es llamado después de ngAfterViewInit y de cada ngAfterContentChecked().
 Sólo disponible para componentes.
 - **ngOnDestroy():**
 Es llamado usto antes de que Angular destruya el componente. Se puede utilizar por ejemplo para desuscribirse de los observables.
