@@ -74,15 +74,7 @@ import { ImagePipe } from './image.pipe';
     FormsModule,
     HttpModule,
     ReactiveFormsModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatMenuModule,
-    MatIconModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatTableModule,
-    MatListModule,
-    MatFormFieldModule
+    AppRoutingModule
   ],
   providers: [
     MockHeroService,
