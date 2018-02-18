@@ -88,7 +88,7 @@ Forma breve de definir objetos que usar como nombre de la variable el nombre de 
 ```javascript
     let nombre = 'Carlos';
     var apellido = "Herrera";
-    obj = {nombre: nombre} // antigua forma
+    obj = {nombre: nombre, apellido: apellido} // antigua forma
     obj = {nombre, apellido} // nueva forma
     obj = {nombre, apellido, edad, sexo: sex} // nueva forma
 ```
@@ -100,7 +100,17 @@ Operadores (¡diferentes!) con la misma sintaxis: … (3 puntos seguidos)
 Spread sirve para extraer valores de un array o un objeto:
 
 ```javascript
-    log(...[1, 2, 3]); // uso de spread operator
+    data = [1, 2, 3];
+    log(data[0], data[1], data[2]);
+
+    function log(a, b, c) {
+        console.log(`first value is ${a}, second is ${b} and third ${c}`)
+    };
+```
+
+```javascript
+    data = [1, 2, 3];
+    log(... data); // uso de spread operator
 
     function log(a, b, c) {
         console.log(`first value is ${a}, second is ${b} and third ${c}`)
@@ -221,7 +231,7 @@ Soporte de:
     metodo() {
     }
 
-    constructor() { }
+    constructor() {
     }
 ```
 

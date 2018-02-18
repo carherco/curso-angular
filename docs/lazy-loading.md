@@ -51,6 +51,7 @@ En app.component.html añadimos un enlace al componente exportado (AdminHomeComp
 
 
 Para activar lazy loading en un path necesitamos:
+- NO incluir el módulo lazy en el módulo raíz
 - Cargar un módulo en el path, en vez de un componente
 - Definir una ruta por defecto en el módulo hijo
 - Configurar el routerModule (forChild)
