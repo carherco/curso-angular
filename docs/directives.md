@@ -1,6 +1,6 @@
 # Directivas
 
-Existen 3 tipos de directivas en anguar:
+Existen 3 tipos de directivas en angular:
 - Directivas de componente.
 - Directivas estructurales.
 - Directivas de atributo.

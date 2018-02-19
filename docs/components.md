@@ -10,7 +10,7 @@ Por ejemplo, en un momento concreto, en el navegador:
 
 - Otro compenente habría pintado un calendario del mes actual en el que están resaltados los días en los que el usuario tiene algún evento.
 
-Angular crea, actualiza y destryue componentes mientras el usuario se mueve por la aplicación.
+Angular crea, actualiza y destruye componentes mientras el usuario se mueve por la aplicación.
 
 
 Ejemplo de componente:
