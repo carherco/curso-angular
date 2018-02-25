@@ -1,25 +1,34 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
-import { AuthenticationService } from 'app/authentication.service';
+import { HttpClient } from "@angular/common/http";
 import { User } from 'app/user';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
-
+import { environment } from "environments/environment";
 
 @Injectable()
 export class UserService {
-  private url = 'https://reqres.in/api/';
 
-    constructor(private http: Http) {
-    }
+  url_api: string;
+  constructor(private http: HttpClient) { 
+    this.url_api = environment.api_url+'users';
+  }
 
-    getAll(): Observable<User[]> {
-        // get users from api
-        return this.http.get(this.url + 'users')
-            .map((response: Response) => response.json().data);
-    }
+  getAll() {
+    return this.http.get(this.url_api);
+  }
 
-    getUsers() {
-      return this.getAll();
-    }
+  getOne(id) {
+    return this.http.get(this.url_api+'/'+id);
+  }
+
+  add(user: User) {
+    return this.http.post(this.url_api, user);
+  }
+
+  edit(user: User) {
+    return this.http.put(this.url_api+'/'+user.id, user);
+  }
+
+  delete(id) {
+    return this.http.delete(this.url_api+'/'+id);
+  }
+
 }
