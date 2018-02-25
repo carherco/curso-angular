@@ -14,12 +14,12 @@ Se compila para generar código ES6 (también llamado ES2015) o ES5 (diciembre 2
 ```javascript
 var texto: "Superman";
 var template = `
-    <div>El héroe ${texto} se llama {{nombre}}</div>
+    <div>El héroe se llama ${texto} </div>
 
-    <button (click)="onClickMe()">Click me!</button>
-    <div>{{clickMessage}}</div>
+    <button>Click me!</button>
+    <div>Esto es una capa</div>
 
-    <input [(ngModel)]="nombre" />
+    <input type="text" value="nombre" />
     `
 ```
 
