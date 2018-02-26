@@ -21,23 +21,3 @@
 </div>
 
 
-
-<div class="img_grande">
-  <button (click)="anterior()"
-  [disabled]="indice <= 0"
-  class="btn btn-success">Anterior
-  </button>
-
-  <img [src]="imagen_actual" [width]="tamano">
-
-  <button (click)="siguiente()"
-  [disabled]="indice >= imagenes.length - 1"
-  class="btn btn-success">Siguiente
-  </button>
-
-  <button (click)="tamano = tamano + 50" class="btn btn-success">Aumentar</button>
-  <button (click)="tamano = tamano - 50" class="btn btn-success">Disminuir</button>
-
-</div>
-
-

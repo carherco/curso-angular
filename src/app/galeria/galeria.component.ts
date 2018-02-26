@@ -14,7 +14,8 @@ export class GaleriaComponent implements OnInit {
     'https://mmtstock.com/wp-content/uploads/2017/12/P8310900.jpg',
     'https://mmtstock.com/wp-content/uploads/2017/12/P8310865.jpg',
     'https://mmtstock.com/wp-content/uploads/2017/12/P6290042.jpg',
-    'https://mmtstock.com/wp-content/uploads/2017/11/P9031121.jpg'
+    'https://mmtstock.com/wp-content/uploads/2017/11/P9031121.jpg',
+    'https://mmtstock.com/wp-content/uploads/2018/02/P7041396.jpg'
   ];
 
   title = "Galería";

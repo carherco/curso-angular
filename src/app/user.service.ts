@@ -1,7 +1,8 @@
+import { Observable } from 'rxjs/Observable';
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
-import { User } from 'app/user';
 import { environment } from "environments/environment";
+import { User } from "app/user";
 
 @Injectable()
 export class UserService {
@@ -11,12 +12,12 @@ export class UserService {
     this.url_api = environment.api_url+'users';
   }
 
-  getAll() {
-    return this.http.get(this.url_api);
+  getAll(): Observable<User[]> {
+    return this.http.get<User[]>(this.url_api);
   }
 
-  getOne(id) {
-    return this.http.get(this.url_api+'/'+id);
+  getOne(id): Observable<any> {
+    return this.http.get<User>(this.url_api+'/'+id);
   }
 
   add(user: User) {
