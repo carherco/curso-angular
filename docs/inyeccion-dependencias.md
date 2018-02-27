@@ -194,6 +194,19 @@ export const APP_CONFIG = new InjectionToken<AppConfig>('app.config');
 ```
 
 ```
+export const HERO_DI_CONFIG: AppConfig = {
+  apiEndpoint: 'api.heroes.com',
+  title: 'Dependency Injection'
+};
+```
+
+```
+providers: [
+  { provide: APP_CONFIG, useValue: HERO_DI_CONFIG }
+]
+```
+
+```
 constructor(@Inject(APP_CONFIG) config: AppConfig) {
   this.title = config.title;
 }
