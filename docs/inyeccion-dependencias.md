@@ -96,6 +96,10 @@ providers: [
 ]
 ```
 
+En la propiedad *provide* se indica el *token* o identificador del proveedor. 
+
+En la propiedad *useClass* se indica la clase que corresponde al servicio. 
+
 - Configurar 2 instancias del mismo servicio:
 
 ```
@@ -109,16 +113,18 @@ Con esta configuración podemos inyectar HeroService o OtraInstanciaHeroService 
 
 - Configurar dos alias para la misma instancia
 
+```
 providers: [ 
   HeroService,
   { provide: MismoHeroService, useExisting: HeroService}
 ]
+```
 
 Con esta configuración tanto inyectando HeroService como MismoHeroService tendremos la misma instancia del servicio.
 
 - Utilizar un Factory
 
-A veces necesitamos "ayudar" a Angular a que construya el servicio. 
+A veces necesitamos "ayudar" a Angular a que construya el servicio. El siguiente es un ejemplo de un servicio que necesita una variable booleana para instanciarlo.
 
 ```
 export class HeroService {
@@ -140,7 +146,7 @@ providers: [
 ]
 ```
 
-La propiedad useFactory le dice a Angular que el proveedor en una función factoría cuya implementación es heroServiceFactory.
+La propiedad *useFactory* le dice a Angular que el proveedor es una función factoría cuya implementación es heroServiceFactory.
 
 ```
 let heroServiceFactory = (logger: Logger, userService: UserService) => {
@@ -193,7 +199,7 @@ constructor(@Inject(APP_CONFIG) config: AppConfig) {
 }
 ```
 
-- La directiva @Optional
+# La directiva @Optional
 
 ```
 import { Optional } from '@angular/core';
