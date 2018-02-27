@@ -73,7 +73,7 @@ Con este patrón, desparecen todos los problemas mencionados anteriormente.
 [Índice](index.md)
 
 
-# Formas de configurar los proveedores de servicios
+# Formas de configurar los proveedores de servicios
 
 - Utilizar el nombre de la clase como su propio proveedor
 
@@ -195,7 +195,7 @@ constructor(@Inject(APP_CONFIG) config: AppConfig) {
 
 - La directiva @Optional
 
-````
+```
 import { Optional } from '@angular/core';
 
 export class HeroService {
@@ -209,7 +209,6 @@ export class HeroService {
 
 # Proveer servicios en componentes
 
-```
 Los servicios también se pueden proveer en los componentes. 
 
 ```
