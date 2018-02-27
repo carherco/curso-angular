@@ -22,6 +22,12 @@ providers: [
   ],
 ```
 
+Podemos utilizar el modificador --module para indicar el módulo al que pertenece el elemento generado (el servicio en este caso). Utilizando dicho modificador, el cli sí que proveerá el servicio:
+
+```
+ng generate service hero --module=app
+```
+
 Un servicio es una clase decorada con @Injectable. Gracias a este decorador, Angular lo tendrá en cuenta en la inyección de dependencias. (Veremos la inyección de dependencias más adelante).
 
 Creamos al menos un método en en servicio. En este caso un método que nos devuelve la lista de héroes.
