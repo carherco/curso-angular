@@ -24,7 +24,7 @@ export class ReactiveFormComponent implements OnInit {
   constructor(private fb: FormBuilder) {
 
     this.alterEgoControl = new FormControl('Alter Ego por defecto', Validators.required);
-    this.createForm();
+    this.createForm();   
   }
 
   createForm() {
@@ -32,8 +32,7 @@ export class ReactiveFormComponent implements OnInit {
       name: ['Nombre por defecto', Validators.required ],
       alterEgo: this.alterEgoControl,
       power: '',
-      //addresses: this.fb.array([])
-      addresses: this.fb.array([new Address()])
+      addresses: this.fb.array([])
     });
     this.addresses = this.heroForm.get('addresses') as FormArray;
 
@@ -43,7 +42,7 @@ export class ReactiveFormComponent implements OnInit {
     // Observables: this.alterEgoControl.valueChanges.subscribe(x => console.log(x));
 
   addAddress() {
-
+    
     this.addresses.push(this.fb.group(new Address()));
   }
 
