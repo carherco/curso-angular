@@ -90,7 +90,7 @@ o bien
 
 # Lazy loading
 
-## Lazy loading bajo demanda:
+## Lazy loading bajo demanda:
 
 Para activar lazy loading en un path necesitamos:
 - Cargar un módulo en el path del routing padre
@@ -99,7 +99,7 @@ Para activar lazy loading en un path necesitamos:
 - NO incluir el módulo lazy en el módulo raíz
 
 
-## Lazy loading con preloading
+## Lazy loading con preloading
 
 La librería de routing ofrece dos estrategias de preloading:
 
