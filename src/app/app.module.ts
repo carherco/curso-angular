@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { HttpClientModule } from "@angular/common/http";
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from 'app/app-routing/app-routing.module';
 import { AdminModule } from 'app/admin/admin.module';
@@ -45,6 +46,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { ImagePipe } from './image.pipe';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -73,6 +75,7 @@ import { ImagePipe } from './image.pipe';
     BrowserModule,
     FormsModule,
     HttpModule,
+    HttpClientModule,
     ReactiveFormsModule,
     AppRoutingModule
   ],
