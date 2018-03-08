@@ -44,6 +44,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatListModule} from '@angular/material/list';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { ImagePipe } from './image.pipe';
+import { FacturasComponent } from './facturas/facturas.component';
 
 
 
@@ -69,7 +70,8 @@ import { ImagePipe } from './image.pipe';
     HighlightDirective,
     HighlightComponent,
     PipesComponent,
-    ImagePipe
+    ImagePipe,
+    FacturasComponent
   ],
   imports: [
     BrowserModule,

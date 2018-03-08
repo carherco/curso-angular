@@ -1,0 +1,41 @@
+
+
+<div id="factura">
+
+  <h3>Datos de la factura</h3>
+  <p>Número de factura: {{factura.id}}</p>
+  <p>Nombre del cliente: {{factura.cliente.nombre}}</p>
+  <p>Dirección del cliente: {{factura.cliente.direccion}}</p>
+  <p>Identificador del cliente: {{factura.cliente.id}}</p>
+
+  <h3>Detalle de la factura (<small>Total factura: {{factura.totalFactura | currency}}</small>)</h3>
+
+  <ul id="detallefactura">
+    <!-- pedidos de artículos -->
+    <li *ngFor="let pedido of factura.pedidos;">
+      <input type="checkbox" checked name="list" id="pedido-{{pedido.id}}">
+      <label for="nivel1-1">Pedido {{pedido.id}}</label>
+      <input type="checkbox" checked (click)="togglePedido(pedido,$event.target.checked)" >
+
+      <ul class="interior">
+        <li *ngFor="let articulo of pedido.articulos;">
+          <label for="nivel2-1">{{articulo.nombre}}</label>
+          <span>{{articulo.precio | currency}}</span>
+          <input type="checkbox" [(ngModel)]="articulo.seleccionado" name="articuloprecio-{{articulo.id}}" id="articuloprecio-{{articulo.id}}">
+        </li> 
+      </ul>
+    </li>
+
+    <!-- pedidos de papel -->
+    <li *ngFor="let pedidoPapel of factura.pedidosPapel;">   
+      <label for="nivel1-1">{{pedidoPapel.nombre}}</label>
+      <span>{{pedidoPapel.precio | currency}}</span>
+      <input type="checkbox" [(ngModel)]="pedidoPapel.seleccionado" name="pedidoPapelprecio-{{pedidoPapel.id}}" id="pedidoPapelprecio-{{pedidoPapel.id}}">
+    </li>
+
+
+  </ul>
+
+
+</div>
+
