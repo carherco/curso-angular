@@ -132,6 +132,9 @@ Ejemplos:
  - calculadora
  - incluir &lt;app-calculadora&gt; varias veces
 
+
+https://blog.angular-university.io/how-does-angular-2-change-detection-really-work/
+
 [Índice](index.md)
 
 

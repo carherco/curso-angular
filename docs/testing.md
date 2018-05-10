@@ -7,7 +7,7 @@
 - Karma
 - Protactor
 
-## Jasmine (versión 2.4)
+## Jasmine (versión 2.4)
 
 Jasmine es un framework de testeo para javascript.
 

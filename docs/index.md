@@ -37,6 +37,7 @@
  - Introducción a Ionic
 
 
+https://angular-2-training-book.rangle.io/handout/advanced-components/access_child_components.html
 
 
 Documentación oficial de Angular: https://angular.io/docs
