@@ -26,10 +26,5 @@ Angular
 - Se puede programar con ECMAScript 5 de toda la vida, ES6, TypeScript o incluso Dart (de Google).
 - Integrado con npm y node.
 
-### Ejemplo spa - no spa
-
-Ficheros spa.html y no-spa.html
-http://localhost:8888/carlos/curso_angular/spa.html
-
 
 [Índice](index.md)
