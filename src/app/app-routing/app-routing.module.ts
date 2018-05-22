@@ -40,7 +40,7 @@ const appRoutes: Routes = [
       { path: 'admin', loadChildren: 'app/admin/admin.module#AdminModule'},
       { path: 'lazy1', loadChildren: 'app/lazy1/lazy1.module#Lazy1Module'},
       { path: 'lazy2', loadChildren: 'app/lazy2/lazy2.module#Lazy2Module'},
-      { path: 'lazy3', loadChildren: 'app/lazy3/lazy3.module#Lazy3Module', data: {preload: true}},
+     // { path: 'lazy3', loadChildren: 'app/lazy3/lazy3.module#Lazy3Module', data: {preload: true}},
       { path: 'lazy4', loadChildren: 'app/lazy4/lazy4.module#Lazy4Module'},
       { path: 'lazy5', loadChildren: 'app/lazy5/lazy5.module#Lazy5Module'},
       { path: '', component: HomeComponent, pathMatch: 'full' },
