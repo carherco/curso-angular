@@ -1,13 +1,17 @@
 # Directivas
 
+Las templates de angular son dinámicas; cuando angular las renderiza se modifica
+el DOM de acuerdo a las instrucciones dadas en las Directivas. Una directiva es
+una clase decorada con el decorador @Directive.
+
 Existen 3 tipos de directivas en angular:
-- Directivas de componente.
+- Directivas de componente.  
 - Directivas estructurales.
 - Directivas de atributo.
 
 ## Directivas de componente.
 
-Las directivas de componente permiten incluir un componente en el HTML de otro componente.
+Las directivas de componente permiten incluir un componente en el HTML de otro componente. Llevan asociadas un template.
 
 ```html
 <div>
@@ -17,7 +21,8 @@ Las directivas de componente permiten incluir un componente en el HTML de otro c
 
 ## Directivas estructurales
 
-Las directivas estructurales alteran la estructura del DOM.
+Las directivas estructurales alteran la estructura del DOM, añadiendo o eliminando
+elementos del DOM.
 
 ### ngIf
 
@@ -94,6 +99,7 @@ Existe la etiqueta &lt;ng-container> que no se introduce en el DOM.
 
 ## Directivas de atributo
 
+Cambian el aspecto o el comportamiento de un elemento, componente u otra directiva.
 Las directivas de atributo se usan como si fueran atributos de los elementos HTML.
 
 Ejemplos de directivas de atributo de angular:
@@ -114,7 +120,10 @@ Iremos viendo muchas directivas de atributo durante el curso.
 
 ### Directivas de atributo personalizadas
 
-Una directiva de atributo es una clase decorada con el decorador *@Directive*:
+Construir una directiva de atributo es muy sencillo. Basta con crear una clase
+decorada con @Directive donde se especificará el selector que identifica a la
+directiva. Dicha clase definirá el comportamiento de la directiva.
+
 
 ```typescript
 import { Directive, ElementRef } from '@angular/core';
@@ -133,9 +142,10 @@ En vez de crearla a mano, podemos generarla con el CLI de Angular:
 
 > ng generate directive highlight
 
-Al constructor le llega un objeto *ElementRef* que es el elemento sobre el que se está aplicando la directiva.
+Cuando se haga uso de esta directiva, el framework angular construirá la clase
+asociada y le pasará al constructor un objeto *ElementRef* que es el elemento sobre el que se está aplicando la directiva. 
 
-Cuando angular encuentre *appHighlight* en un HTML, aplicará la directiva.
+Es decir, para el ejemplo anterior, cuando angular encuentre *appHighlight* en un HTML, aplicará la directiva definida en la clase *HighlightDirective*.
 
 Ejemplo:
 

@@ -18,11 +18,10 @@ export class ClickMeComponent {
   clickMessage = '';
   nombre = 'Carlos';
 
-  constructor() {
-    let that = this;
-    setTimeout(function(){
+  constructor() {    
+    setTimeout(() => {
       console.log('timeout');
-      that.nombre = 'Pedro';
+      this.nombre = 'Pedro';
     }, 5000);
   }
 
