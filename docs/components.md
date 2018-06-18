@@ -1,5 +1,8 @@
 # Components
 
+nota: leer esto https://www.webcomponents.org/introduction y tratar de
+ver la relación entre los componentes de angular y los web components
+
 Un componente controla un trozo de la pantalla llamado *vista* (*view*).
 
 Por ejemplo, en un momento concreto, en el navegador:

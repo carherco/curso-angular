@@ -100,6 +100,30 @@ export class KeyUpComponent_v5 {
 }
 ```
 
+### Acceso a las variables de plantilla en el componente
+
+Si queremos acceder desde el código del componente a la variable de plantilla,
+crearemos un atributo de la clase anotado con ``@ViewChild``:
+
+```typescript
+@Component({
+  selector: 'key-up5',
+  template: `
+    <input #box
+      (keyup.enter)="update(box.value)"
+      (blur)="update(box.value)">
+
+    <p>{{value}}</p>
+  `
+})
+export class KeyUpComponent_v5 {
+  @ViewChild('box') box: ElementRef
+  
+  ...
+  
+}
+```
+
 ### Ejercicio
 
 Utilizando *Template reference variables*, realizar un listado de Héroes y una caja de texto para añadir héroes con un botón de añadir.

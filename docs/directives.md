@@ -1,8 +1,7 @@
 # Directivas
 
-Las templates de angular son dinámicas; cuando angular las renderiza se modifica
-el DOM de acuerdo a las instrucciones dadas en las Directivas. Una directiva es
-una clase decorada con el decorador @Directive.
+Las templates de angular son dinámicas; cuando angular las renderiza 
+se modifica el DOM de acuerdo a las instrucciones dadas en ellas. Una directiva es una clase decorada con @Directive.
 
 Existen 3 tipos de directivas en angular:
 - Directivas de componente.  
@@ -10,8 +9,11 @@ Existen 3 tipos de directivas en angular:
 - Directivas de atributo.
 
 ## Directivas de componente.
+Los componentes de angular son  directivas especializadas 
+que usan el decorador @Component, el cual deriva del decorador @Directive. Los componentes tienen asociados una template y una hoja de estilos.
+Las directivas de componente permiten incluir un componente en el HTML (plantilla) de otro componente.
 
-Las directivas de componente permiten incluir un componente en el HTML de otro componente. Llevan asociadas un template.
+Podemos decir que un componente es una directiva con un template.
 
 ```html
 <div>
@@ -21,8 +23,11 @@ Las directivas de componente permiten incluir un componente en el HTML de otro c
 
 ## Directivas estructurales
 
-Las directivas estructurales alteran la estructura del DOM, añadiendo o eliminando
-elementos del DOM.
+Las directivas estructurales alteran la estructura del DOM, añadiendo,
+eliminando o manipulando elementos del DOM. Son fáciles de reconocer, un
+asterisco (*) precede el nombre de atributo de la directiva.
+
+Es importante tener en cuenta que a un elemento solo se puede aplicar una directiva estructural.
 
 ### ngIf
 
@@ -100,7 +105,10 @@ Existe la etiqueta &lt;ng-container> que no se introduce en el DOM.
 ## Directivas de atributo
 
 Cambian el aspecto o el comportamiento de un elemento, componente u otra directiva.
+
 Las directivas de atributo se usan como si fueran atributos de los elementos HTML.
+
+Se pueden aplicar varias directivas de atributo a un mismo elemento.
 
 Ejemplos de directivas de atributo de angular:
 - NgClass
