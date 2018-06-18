@@ -3,6 +3,7 @@
 Las templates de angular son dinámicas; cuando angular las renderiza 
 se modifica el DOM de acuerdo a las instrucciones dadas en ellas. Una directiva es una clase decorada con @Directive.
 
+
 Existen 3 tipos de directivas en angular:
 - Directivas de componente.  
 - Directivas estructurales.
@@ -13,7 +14,7 @@ Los componentes de angular son  directivas especializadas
 que usan el decorador @Component, el cual deriva del decorador @Directive. Los componentes tienen asociados una template y una hoja de estilos.
 Las directivas de componente permiten incluir un componente en el HTML (plantilla) de otro componente.
 
-Podemos decir que un componente es una directiva con un template.
+Las directivas de componente permiten incluir un componente en el HTML de otro componente. Llevan asociadas un template. Podemos decir que un componente es una directiva con un template.
 
 ```html
 <div>
@@ -270,11 +271,5 @@ export class HighlightDirective {
   }
 }
 ```
-
-
-
-
-
-
 
 [Índice](index.md)
