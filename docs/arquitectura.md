@@ -20,7 +20,7 @@ Los componentes llevan asociado una plantilla (template, HTML) y al conjunto com
 
 Cuando se crea un componente, este es asociado directamente a una vista simple, llamada la vista host. La vista host puede ser la raíz de una jerarquía de vistas, la cual puede contener vistas embebidas, que son las vistas hosts de otros componentes. Esos componentes pueden estar en el mismo módulo o importados de otros módulos. Las vistas pueden ser anidadas hasta cualquier profundidad.
 
-La siguiente imagen, tomada de la documentación oficial de Angular muestra esta idea.
+La siguiente imagen, tomada de la documentación oficial de Angular, muestra esta idea.
 
 ![Jerarquía de componentes 1](https://angular.io/generated/images/guide/architecture/compilation-context.png)
 
@@ -28,6 +28,6 @@ La siguiente imagen, tomada de la documentación oficial de Angular muestra esta
 
 Angular se distribuye como un conjunto de módulos que pueden ser vistos como liberías de módulos. Cada uno de estos módulos comienza con el prefijo `@angular`. Por ejemplo
 
-  import { BrowserModule } from '@angular/platform-browser';
+    import { BrowserModule } from '@angular/platform-browser';
 
   En las secciones siguientes estudiaremos en detalle cada uno de estos elementos que conforman una aplicación Angular: módulos, componentes (vistas), servicios, directivas y pipes.
