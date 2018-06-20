@@ -31,3 +31,5 @@ Angular se distribuye como un conjunto de módulos que pueden ser vistos como li
     import { BrowserModule } from '@angular/platform-browser';
 
   En las secciones siguientes estudiaremos en detalle cada uno de estos elementos que conforman una aplicación Angular: módulos, componentes (vistas), servicios, directivas y pipes.
+
+  [Índice](index.md)
