@@ -4,6 +4,7 @@
  - [Introducción a typescript](typescript.md)
  - [Instalación](instalacion.md)
  - [Estructura de un proyecto angular](estructura-proyecto.md)
+ - [Arquitectura](arquitectura.md)
  - [Módulos](modules.md)
  - [Componentes](components.md)
  - [Sintaxis de plantillas y data binding](data-binding.md)
