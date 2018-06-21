@@ -8,7 +8,7 @@
  - [Módulos](modules.md)
  - [Componentes](components.md)
  - [Sintaxis de plantillas y data binding](data-binding.md)
-
+ - [Ejercicio 1](ejercicio_1.md)
  - [Directivas](directives.md)
  - [Pipes](pipes.md)
  - [Ejemplo de CRUD simple](ejemplo-crud-basico.md)

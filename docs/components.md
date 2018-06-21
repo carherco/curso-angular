@@ -1,6 +1,6 @@
 # Components
 
-Probablemente el elemento más importante en toda la arquitectura de Angular sea el componente. La idea de componente es bien conocida en la ingeniería del software y que lleva asociada como principal idea la de ser un elemento reutilizable.
+Probablemente el elemento más importante en toda la arquitectura de Angular sea el componente. El concepto de componente es bien conocido en la ingeniería del software y lleva asociado como principal idea la de ser un elemento reutilizable.
 
 En el mundo web, desde hace algún tiempo, existe una especificación denominada Web Compontents (https://www.w3.org/wiki/WebComponents/, https://www.webcomponents.org/introduction),que propone una solución basada en componentes para el desarrollo de aplicaciones web.
 
