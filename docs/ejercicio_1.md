@@ -1,46 +1,62 @@
 # Ejercicio 1
 
-1. Crea un proyecto Angular
-2. Crea dos componentes denominados `imagen` y `texto`
-3. Añadelos a la vista raíz (componente AppComponent) y comprueba que todo va bien
-4. Añade estilos a las css's de ambos componentes para que se muestre un border 
-   sólido que marque los límites del componente. Pon distintos colores a los marcos de cada componente para distinguirlos. El siguiente código CSS te puede
-   ayudar.
+1.  Crea un proyecto Angular
+2.  Crea dos componentes denominados `imagen` y `texto`
+3.  Añadelos a la vista raíz (componente AppComponent) y comprueba que todo va bien
+4.  Añade estilos a las css's de ambos componentes para que se muestre un border
+    sólido que marque los límites del componente. Pon distintos colores a los marcos de cada componente para distinguirlos. El siguiente código CSS te puede
+    ayudar.
+
 ```css
 .border {
-    border-style: solid;
-    border-color: aquamarine;
-    float: left;
+  border-style: solid;
+  border-color: aquamarine;
+  float: left;
 }
-``` 
+```
 
-5. Prueba a añadir varias veces el mismo componente.
-6. Prueba a insertar uno o varios componentes `texto` dentro del componente `imagen`
-7. Prueba a insertar uno o varios componentes `imagen` dentro del componente `texto`
-8. Ahora vamos a añadir funcionalidad al componente `imagen`. Haz que el
-   componente muestre una imagen aleatoria de entre las siguientes:
+5.  Prueba a añadir varias veces el mismo componente.
+6.  Prueba a insertar uno o varios componentes `texto` dentro del componente `imagen`
+7.  Prueba a insertar uno o varios componentes `imagen` dentro del componente `texto`
+8.  Ahora vamos a añadir funcionalidad al componente `imagen`. Haz que el
+    componente muestre una imagen aleatoria de entre las siguientes:
 
-   - "https://image.freepik.com/free-vector/vector-illustration-cosmonaut_1441-11.jpg"
-   - "https://image.freepik.com/free-vector/polygonal-lion-head_23-2147495868.jpg"
-   - "https://image.freepik.com/free-vector/hand-painted-steampunk-man-illustration_23-2147537528.jpg"
-   - "https://image.freepik.com/free-vector/analytical-and-creative-brain_23-2147506845.jpg"
-   - "https://image.freepik.com/free-vector/abstract-floral-background_1005-10.jpg"
-   - "https://image.freepik.com/free-vector/thank-you-composition-in-comic-style_23-2147831785.jpg"
-   - "https://media.giphy.com/media/3ornk2zKMUgETO4aMo/giphy.gif"
-9. Haz que cuando se haga click en el componente imagen se cambie aleatoriamente la imagen mostrada
+    - "https://image.freepik.com/free-vector/vector-illustration-cosmonaut_1441-11.jpg"
+    - "https://image.freepik.com/free-vector/polygonal-lion-head_23-2147495868.jpg"
+    - "https://image.freepik.com/free-vector/hand-painted-steampunk-man-illustration_23-2147537528.jpg"
+    - "https://image.freepik.com/free-vector/analytical-and-creative-brain_23-2147506845.jpg"
+    - "https://image.freepik.com/free-vector/abstract-floral-background_1005-10.jpg"
+    - "https://image.freepik.com/free-vector/thank-you-composition-in-comic-style_23-2147831785.jpg"
+    - "https://media.giphy.com/media/3ornk2zKMUgETO4aMo/giphy.gif"
+
+9.  Haz que cuando se haga click en el componente imagen se cambie aleatoriamente la imagen mostrada
 10. Ahora vamos a añadir funcionalidad al componente `texto`. Añade dos textos que pillen su contenido
     mediante interpolación de dos atributos del componente.
 11. Aplica la CSS que incluimos al final del ejercicio que da un efecto de NEON al texto
-12. Añade dos cajas de texto (elemento `<input />`) para editar cada uno de los dos textos anteriores 
-13. Crea un nuevo módulo denominado `FractalModule` y un componente denominado `TreeComponent`` que 
+12. Añade dos cajas de texto (elemento `<input />`) para editar cada uno de los dos textos anteriores
+13. Crea un nuevo módulo denominado `FractalModule` y un componente denominado `TreeComponent`` que
     pertenezca a dicho módulo.
-14. Define los metadatos del módulo principal ``AppModule`` y del módulo recien creado ``FractalModule``
+14. Define los metadatos del módulo principal `AppModule` y del módulo recien creado `FractalModule`
     para que aquel importe a este y pueda utilizar el componente `TreeComponent`. Añade este componente al
-    componente raíz `AppComponent` y comprueba que funciona. 
-15. Ahora usa el código que incluimos más abajo (tree)
+    componente raíz `AppComponent` y comprueba que funciona.
+15. Ahora añade el código necesario para que el componente dibuje un árbol fractal en un elemento canvas.     Usa el código que mostramos más abajo.
+16. Añade dos cajas de texto para que el usuario pueda cambiar interactivamente los valores de los 
+    parámetros que aparecen en las líneas:
+```javascript
+    this.draw(0, -len, len*0.8, -15);
+    this.draw(0, -len, len*0.8, 15);
+```
+  de la función draw. Haz que se repinte el árbol únicamente cuando el usuario presiona la tecla 
+  `enter`. Ten en cuenta que:
+  - el evento `keyup` envía en su atributo `key` el valor de la tecla pulsada, que en el caso de  
+    `enter` es "Enter"
+  - que el canvas se borra con la instrucción: 
+```javascript
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+```
+  `ctx` es el contexto 2D del canvas
 
 [Índice](index.md)
-
 
 # CSS texto NEON
 
@@ -66,18 +82,18 @@
 
 .neon {
   font-family: neon;
-  color: #FB4264;
+  color: #fb4264;
   font-size: 9vw;
   line-height: 9vw;
-  text-shadow: 0 0 3vw #F40A35;
+  text-shadow: 0 0 3vw #f40a35;
 }
 
 .flux {
   font-family: neon;
-  color: #426DFB;
+  color: #426dfb;
   font-size: 9vw;
   line-height: 9vw;
-  text-shadow: 0 0 3vw #2356FF;
+  text-shadow: 0 0 3vw #2356ff;
 }
 
 .neon {
@@ -88,12 +104,14 @@
 @keyframes neon {
   0%,
   100% {
-    text-shadow: 0 0 1vw #FA1C16, 0 0 3vw #FA1C16, 0 0 10vw #FA1C16, 0 0 10vw #FA1C16, 0 0 .4vw #FED128, .5vw .5vw .1vw #806914;
-    color: #FED128;
+    text-shadow: 0 0 1vw #fa1c16, 0 0 3vw #fa1c16, 0 0 10vw #fa1c16, 0 0 10vw
+        #fa1c16, 0 0 0.4vw #fed128, 0.5vw 0.5vw 0.1vw #806914;
+    color: #fed128;
   }
 
   50% {
-    text-shadow: 0 0 .5vw #800E0B, 0 0 1.5vw #800E0B, 0 0 5vw #800E0B, 0 0 5vw #800E0B, 0 0 .2vw #800E0B, .5vw .5vw .1vw #40340A;
+    text-shadow: 0 0 0.5vw #800e0b, 0 0 1.5vw #800e0b, 0 0 5vw #800e0b, 0 0 5vw
+        #800e0b, 0 0 0.2vw #800e0b, 0.5vw 0.5vw 0.1vw #40340a;
     color: #806914;
   }
 }
@@ -107,13 +125,15 @@
 @keyframes flux {
   0%,
   100% {
-    text-shadow: 0 0 1vw #1041FF, 0 0 3vw #1041FF, 0 0 10vw #1041FF, 0 0 10vw #1041FF, 0 0 .4vw #8BFDFE, .5vw .5vw .1vw #147280;
-    color: #28D7FE;
+    text-shadow: 0 0 1vw #1041ff, 0 0 3vw #1041ff, 0 0 10vw #1041ff, 0 0 10vw
+        #1041ff, 0 0 0.4vw #8bfdfe, 0.5vw 0.5vw 0.1vw #147280;
+    color: #28d7fe;
   }
 
   50% {
-    text-shadow: 0 0 .5vw #082180, 0 0 1.5vw #082180, 0 0 5vw #082180, 0 0 5vw #082180, 0 0 .2vw #082180, .5vw .5vw .1vw #0A3940;
-    color: #146C80;
+    text-shadow: 0 0 0.5vw #082180, 0 0 1.5vw #082180, 0 0 5vw #082180, 0 0 5vw
+        #082180, 0 0 0.2vw #082180, 0.5vw 0.5vw 0.1vw #0a3940;
+    color: #146c80;
   }
 }
 ```
@@ -125,4 +145,29 @@ Y se aplica así:
     <div class="flux"> Hola</div>
     <div class="neon">Mundo</div>
 </div>
+```
+
+# Código para árbol fractal
+
+```javascript
+draw(startX, startY, len, angle) {
+    this.ctx.beginPath();
+    this.ctx.save();
+
+    this.ctx.translate(startX, startY);
+    this.ctx.rotate(angle * Math.PI/180);
+    this.ctx.moveTo(0, 0);
+    this.ctx.lineTo(0, -len);
+    this.ctx.stroke();
+
+    if(len < 10) {
+      this.ctx.restore();
+      return;
+    }
+
+    this.draw(0, -len, len*0.8, -15);
+    this.draw(0, -len, len*0.8, 15);
+
+    this.ctx.restore();
+  }
 ```
