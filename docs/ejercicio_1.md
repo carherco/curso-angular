@@ -56,7 +56,6 @@
 ```
   `ctx` es el contexto 2D del canvas
 
-[Índice](index.md)
 
 # CSS texto NEON
 
@@ -171,3 +170,4 @@ draw(startX, startY, len, angle) {
     this.ctx.restore();
   }
 ```
+[Índice](index.md)

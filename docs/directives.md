@@ -1,20 +1,19 @@
 # Directivas
 
-Las templates de angular son dinámicas; cuando angular las renderiza 
+Las templates de angular son dinámicas; cuando angular las renderiza
 se modifica el DOM de acuerdo a las instrucciones dadas en ellas. Una directiva es una clase decorada con @Directive.
 
-
 Existen 3 tipos de directivas en angular:
-- Directivas de componente.  
+
+- Directivas de componente.
 - Directivas estructurales.
 - Directivas de atributo.
 
 ## Directivas de componente.
-Los componentes de angular son  directivas especializadas 
-que usan el decorador @Component, el cual deriva del decorador @Directive. Los componentes tienen asociados una template y una hoja de estilos.
-Las directivas de componente permiten incluir un componente en el HTML (plantilla) de otro componente.
 
-Las directivas de componente permiten incluir un componente en el HTML de otro componente. Llevan asociadas un template. Podemos decir que un componente es una directiva con un template.
+Los componentes de angular son directivas especializadas que usan el decorador @Component, el cual
+deriva del decorador @Directive. Los componentes tienen asociados una template y una hoja de estilos.
+Las directivas de componente permiten incluir un componente en el HTML (plantilla) de otro componente. Podemos decir que un componente es una directiva con un template.
 
 ```html
 <div>
@@ -26,7 +25,7 @@ Las directivas de componente permiten incluir un componente en el HTML de otro c
 
 Las directivas estructurales alteran la estructura del DOM, añadiendo,
 eliminando o manipulando elementos del DOM. Son fáciles de reconocer, un
-asterisco (*) precede el nombre de atributo de la directiva.
+asterisco (\*) precede el nombre de atributo de la directiva.
 
 Es importante tener en cuenta que a un elemento solo se puede aplicar una directiva estructural.
 
@@ -35,7 +34,7 @@ Es importante tener en cuenta que a un elemento solo se puede aplicar una direct
 Añade o elimina un elemento del DOM basándose en una condición.
 
 ```html
-<div *ngIf="hero" >{{hero.name}}</div>
+<div *ngIf="hero" class="name">{{hero.name}}</div>
 ```
 
 ### ngFor
@@ -48,7 +47,8 @@ Repite una plantilla por cada elemento de una lista.
 </ul>
 ```
 
-Dentro del *ngFor existen 5 variables locales:
+Dentro del \*ngFor existen 5 variables locales:
+
 - index: number: El índice del elemento actual.
 - first: boolean: True cuando el item actual es el primero.
 - last: boolean: True cuando el item actual es el último.
@@ -63,7 +63,7 @@ Forma de uso:
 </div>
 ```
 
-Además existe la posibilidad de "cachear" elementos del array con trackBy. 
+Además existe la posibilidad de "cachear" elementos del array con trackBy.
 
 ```html
 <div *ngFor="let hero of heroes; let i=index; let odd=odd; trackBy: trackById" [class.odd]="odd">
@@ -71,23 +71,23 @@ Además existe la posibilidad de "cachear" elementos del array con trackBy.
 </div>
 ```
 
-
 ### NgSwitch
 
 Un conjunto de directivas que permiten cambiar entre vistas alternativas.
 
 ```html
-<div [ngSwitch]="hero.emotion">
-  <happy-hero    *ngSwitchCase="'happy'"    [hero]="hero"></happy-hero>
-  <sad-hero      *ngSwitchCase="'sad'"      [hero]="hero"></sad-hero>
-  <confused-hero *ngSwitchCase="'confused'" [hero]="hero"></confused-hero>
-  <unknown-hero  *ngSwitchDefault           [hero]="hero"></unknown-hero>
-</div>
+<div [ngSwitch]="componente">
+    <app-texto *ngSwitchCase="'texto'" ></app-texto>
+    <app-imagen *ngSwitchCase="'imagen'"></app-imagen>
+    <app-tree *ngSwitchCase="'tree'"></app-tree>
+</div>  
 ```
 
 CUIDADO: Solamente se puede poner una directiva por elemento.
 
-Existe la etiqueta &lt;ng-container> que no se introduce en el DOM.
+Existe la etiqueta &lt;ng-container> que no se introduce en el DOM y que puede resultar útil cuando
+deseamos aplicar más de una directiva estructural sobre un mismo elemento como en el siguiente 
+ejemplo.
 
 ```html
 <div>
@@ -103,6 +103,26 @@ Existe la etiqueta &lt;ng-container> que no se introduce en el DOM.
 </select>
 ```
 
+### Ng-Template
+
+Esta notación de las directivas estructurales consistente en usar el asterisco es distinta a lo que
+hasta ahora hemos visto sobre el data binding de Angular. En realidad se trata de un "sintactic sugar"
+que simplifica la sintaxis real de la directiva estructural. Internamente Angular convierte la expresión
+anterior en algo más complejo que tiene esta pinta:
+
+```html
+<ng-template [ngIf]="hero">
+  <div class="name">{{hero.name}}</div>
+</ng-template>
+```
+
+Es decir usa un elemento `ng-template`. Cada directiva estructural hace algo diferente con el
+código contenido en este `ng-template`.
+
+### Directivas estructurales personalizadas
+
+Ver [ejercicio 2](ejercicio_2.md)
+
 ## Directivas de atributo
 
 Cambian el aspecto o el comportamiento de un elemento, componente u otra directiva.
@@ -112,11 +132,12 @@ Las directivas de atributo se usan como si fueran atributos de los elementos HTM
 Se pueden aplicar varias directivas de atributo a un mismo elemento.
 
 Ejemplos de directivas de atributo de angular:
+
 - NgClass
 - NgModel
 - NgForm
 
-Ejemplo: 
+Ejemplo:
 
 ```html
 <div [class.my-class1]="step==1" [class.my-class2]="step==2"></div>
@@ -133,28 +154,27 @@ Construir una directiva de atributo es muy sencillo. Basta con crear una clase
 decorada con @Directive donde se especificará el selector que identifica a la
 directiva. Dicha clase definirá el comportamiento de la directiva.
 
-
 ```typescript
-import { Directive, ElementRef } from '@angular/core';
+import { Directive, ElementRef } from "@angular/core";
 
 @Directive({
-  selector: '[appHighlight]'
+  selector: "[appHighlight]"
 })
 export class HighlightDirective {
-  constructor(el: ElementRef) { }
+  constructor(el: ElementRef) {}
 }
 ```
 
-No hay que olvidarse de declarar la directiva en el *declarations* del módulo.
+No hay que olvidarse de declarar la directiva en el _declarations_ del módulo.
 
 En vez de crearla a mano, podemos generarla con el CLI de Angular:
 
 > ng generate directive highlight
 
 Cuando se haga uso de esta directiva, el framework angular construirá la clase
-asociada y le pasará al constructor un objeto *ElementRef* que es el elemento sobre el que se está aplicando la directiva. 
+asociada y le pasará al constructor un objeto _ElementRef_ que es el elemento sobre el que se está aplicando la directiva.
 
-Es decir, para el ejemplo anterior, cuando angular encuentre *appHighlight* en un HTML, aplicará la directiva definida en la clase *HighlightDirective*.
+Es decir, para el ejemplo anterior, cuando angular encuentre _appHighlight_ en un HTML, aplicará la directiva definida en la clase _HighlightDirective_.
 
 Ejemplo:
 
@@ -163,14 +183,14 @@ Ejemplo:
 ```
 
 ```typescript
-import { Directive, ElementRef } from '@angular/core';
+import { Directive, ElementRef } from "@angular/core";
 
 @Directive({
-  selector: '[appHighlight]'
+  selector: "[appHighlight]"
 })
 export class HighlightDirective {
   constructor(el: ElementRef) {
-    el.nativeElement.style.backgroundColor = 'yellow';
+    el.nativeElement.style.backgroundColor = "yellow";
   }
 }
 ```
@@ -182,22 +202,24 @@ Esto hace que el elemento sobre el que se aplica la directiva tenga color de fon
 El decorador @HostListener permite que la directiva responda a eventos que ocurran en el elemento:
 
 ```typescript
-import { Directive, ElementRef, HostListener } from '@angular/core';
- 
+import { Directive, ElementRef, HostListener } from "@angular/core";
+
 @Directive({
-  selector: '[appHighlight]'
+  selector: "[appHighlight]"
 })
 export class HighlightDirective {
-  constructor(private el: ElementRef) { }
- 
-  @HostListener('mouseenter') onMouseEnter() {
-    this.highlight('yellow');
+  constructor(private el: ElementRef) {}
+
+  @HostListener("mouseenter")
+  onMouseEnter() {
+    this.highlight("yellow");
   }
- 
-  @HostListener('mouseleave') onMouseLeave() {
+
+  @HostListener("mouseleave")
+  onMouseLeave() {
     this.highlight(null);
   }
- 
+
   private highlight(color: string) {
     this.el.nativeElement.style.backgroundColor = color;
   }
@@ -208,29 +230,30 @@ export class HighlightDirective {
 
 El decorador @Input permite pasar variables a la directiva.
 
-Hagamos un ejemplo en el que al aplicar la directiva *appHighlight* a un elemento, tengamos la posibilidad de elegir el color
+Hagamos un ejemplo en el que al aplicar la directiva _appHighlight_ a un elemento, tengamos la posibilidad de elegir el color
 
 ```html
 <p appHighlight [highlightColor]="color">Texto del párrafo</p>
 ```
 
 ```typescript
-import { Directive, ElementRef, HostListener, Input } from '@angular/core';
+import { Directive, ElementRef, HostListener, Input } from "@angular/core";
 
 @Directive({
-  selector: '[appHighlight]'
+  selector: "[appHighlight]"
 })
 export class HighlightDirective {
-
-  constructor(private el: ElementRef) { }
+  constructor(private el: ElementRef) {}
 
   @Input() highlightColor: string;
 
-  @HostListener('mouseenter') onMouseEnter() {
-    this.highlight(this.highlightColor || 'red');
+  @HostListener("mouseenter")
+  onMouseEnter() {
+    this.highlight(this.highlightColor || "red");
   }
 
-  @HostListener('mouseleave') onMouseLeave() {
+  @HostListener("mouseleave")
+  onMouseLeave() {
     this.highlight(null);
   }
 
@@ -247,22 +270,23 @@ Se puede abreviar la directiva si se utiliza el alias de @Input.
 ```
 
 ```typescript
-import { Directive, ElementRef, HostListener, Input } from '@angular/core';
+import { Directive, ElementRef, HostListener, Input } from "@angular/core";
 
 @Directive({
-  selector: '[appHighlight]'
+  selector: "[appHighlight]"
 })
 export class HighlightDirective {
+  constructor(private el: ElementRef) {}
 
-  constructor(private el: ElementRef) { }
+  @Input("appHighlight") highlightColor: string;
 
-  @Input('appHighlight') highlightColor: string;
-
-  @HostListener('mouseenter') onMouseEnter() {
-    this.highlight(this.highlightColor || 'red');
+  @HostListener("mouseenter")
+  onMouseEnter() {
+    this.highlight(this.highlightColor || "red");
   }
 
-  @HostListener('mouseleave') onMouseLeave() {
+  @HostListener("mouseleave")
+  onMouseLeave() {
     this.highlight(null);
   }
 
