@@ -11,6 +11,7 @@
  - [Ejercicio 1](ejercicio_1.md)
  - [Directivas](directives.md)
  - [Pipes](pipes.md)
+ - [Ejercicio 2](ejercicio_2.md)
  - [Ejemplo de CRUD simple](ejemplo-crud-basico.md)
 
  - [Paso de variables entre componentes](input-binding.md)

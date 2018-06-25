@@ -113,4 +113,45 @@ la que se aplica.
 
   Y con esto ya tenemos la directiva lista. Pruébala sobre el componente `imagen`, por ejemplo.
 
+
+## 3 Pipes
+
+Por defecto, las Pipes por cuestiones de eficiencia solo se actualizan cuando la
+variable sobre la que se aplica es de tipo primitivo (number, string, boolean) o,
+en el caso de ser array u objetos, cuando cambia la referencia a la que apuntan, es
+decir, cuando se cambia el array o el objeto completamente. A este tipo de pipe se
+le denomina pura.
+
+Cuando definimos una nueva pipe, si no indicamos nada se comportará como acabamos 
+de contar. En el caso de que deseemos cambiar el comportamiento por defecto de 
+manera que la pipe también funcione ante cambios en los elementos del array u 
+objeto sobre el que opera, indicaremos en sus metadatos que se trata de una pipe
+impura:
+
+```javascript
+  @Pipe({
+    name: 'myPipe',
+    pure: false
+  })
+```
+
+1. Comprueba que las pipes `JsonPipe` y `slicePipe` son impuras.
+
+2. Define una Pipe pura que ordene de mayor a menor o de menor a mayor, según
+   se indique en un único argumento, un array de números. Utilizala en combinación 
+   con la pipe JsonPipe (que es impura) para mostrar el resultado:
+
+   ```html
+   {{ arr | sort:'desc' | json }}
+   ```
+   
+3. Haz que a los 2 segundos la variable `arr` tenga como referencia un nuevo array
+   y comprueba si se actualiza la plantilla.
+
+4. A los 2 segundos añade un nuevo elemento al array y comprueba si se actualiza 
+   la plantilla.
+
+5. Ahora define como 'impuro' la pipe que acabas de crear y vuelve a comprobar 
+   si se actualiza la plantilla.
+
 [Índice](index.md)
