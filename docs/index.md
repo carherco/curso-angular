@@ -13,18 +13,16 @@
  - [Pipes](pipes.md)
  - [Ejercicio 2](ejercicio_2.md)
  - [Ejemplo de CRUD simple](ejemplo-crud-basico.md)
-
  - [Paso de variables entre componentes](input-binding.md)
+ - [Ejercicio 2](ejercicio_2.md)
  - [Servicios](services.md)
  - [Inyección de dependencias](inyeccion-dependencias.md)
  - [Enrutamiento](routing.md)
- 
  - [Template Reference Variables](template-reference-variables.md)
  - [Formularios template-driven](forms-template-driven.md)
 
  - [Observables](observables.md)
  - [Guards](guards.md)
-
  - [Formularios model-driven](forms-model-driven.md)
  - [Ejemplo de CRUD con API REST](ejemplo-crud-completo.md)
  - [Testeo con Karma](testing.md)

@@ -39,25 +39,23 @@
 14. Define los metadatos del módulo principal `AppModule` y del módulo recien creado `FractalModule`
     para que aquel importe a este y pueda utilizar el componente `TreeComponent`. Añade este componente al
     componente raíz `AppComponent` y comprueba que funciona.
-15. Ahora añade el código necesario para que el componente dibuje un árbol fractal en un elemento canvas.     Usa el código que mostramos más abajo.
-16. Añade dos cajas de texto para que el usuario pueda cambiar interactivamente los valores de los 
-    parámetros que aparecen en las líneas:
-```javascript
-    this.draw(0, -len, len*0.8, -15);
-    this.draw(0, -len, len*0.8, 15);
-```
-  de la función draw. Haz que se repinte el árbol únicamente cuando el usuario presiona la tecla 
-  `enter`. Ten en cuenta que:
-  - el evento `keyup` envía en su atributo `key` el valor de la tecla pulsada, que en el caso de  
-    `enter` es "Enter"
-  - que el canvas se borra con la instrucción: 
-```javascript
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-```
-  `ctx` es el contexto 2D del canvas
+15. Ahora añade el código necesario para que el componente dibuje un árbol fractal      en un elemento canvas. Usa el código que mostramos más abajo.
+16. Añade dos cajas de texto para que el usuario pueda cambiar interactivamente los     valores de los parámetros que aparecen en las líneas:
+    ```javascript
+        this.draw(0, -len, len*0.8, -15);
+        this.draw(0, -len, len*0.8, 15);
+    ```
+    de la función draw. Haz que se repinte el árbol únicamente cuando el usuario presiona la tecla  `enter`. Ten en cuenta que:
+    - el evento `keyup` envía en su atributo `key` el valor de la tecla pulsada,
+    que en el caso de `enter` es "Enter"
+    - que el canvas se borra con la instrucción: 
+    ```javascript
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ```
+    `ctx` es el contexto 2D del canvas
 
 
-# CSS texto NEON
+## CSS texto NEON
 
 ```css
 .body {
@@ -146,7 +144,7 @@ Y se aplica así:
 </div>
 ```
 
-# Código para árbol fractal
+## Código para árbol fractal
 
 ```javascript
 draw(startX, startY, len, angle) {
@@ -170,4 +168,26 @@ draw(startX, startY, len, angle) {
     this.ctx.restore();
   }
 ```
+
+## Código para obtener una referencia al contexto 2D de un canvas
+
+En el componente:
+
+```javascript
+  ngOnInit() {
+      this.canvas = document.createElement("canvas");
+      this.canvas.width = 700;
+      this.canvas.height = 600;
+      document.getElementById("canvas").appendChild(this.canvas);
+      this.ctx = this.canvas.getContext("2d");
+      this.draw(350, 600, 120, 0);
+    }
+```
+Y en la plantilla:
+
+```html
+<div id="canvas"></div>
+```
+
+
 [Índice](index.md)
