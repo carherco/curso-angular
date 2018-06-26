@@ -14,7 +14,7 @@
  - [Ejercicio 2](ejercicio_2.md)
  - [Ejemplo de CRUD simple](ejemplo-crud-basico.md)
  - [Paso de variables entre componentes](input-binding.md)
- - [Ejercicio 2](ejercicio_2.md)
+ - [Ejercicio 3](ejercicio_3.md)
  - [Servicios](services.md)
  - [Inyección de dependencias](inyeccion-dependencias.md)
  - [Enrutamiento](routing.md)
