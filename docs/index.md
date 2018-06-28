@@ -19,6 +19,7 @@
  - [Inyección de dependencias](inyeccion-dependencias.md)
  - [Ejercicio 4](ejercicio_4.md)
  - [Enrutamiento](routing.md)
+ - [Ejercicio 5](ejercicio_5.md)
  - [Template Reference Variables](template-reference-variables.md)
  - [Formularios template-driven](forms-template-driven.md)
 
