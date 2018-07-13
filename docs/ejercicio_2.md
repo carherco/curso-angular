@@ -1,6 +1,6 @@
 # Ejercicio 2
 
-En este ejercicio crearemos algunas directivas y pipes obre el proyecto del ejercicio 1
+En este ejercicio crearemos algunas directivas y pipes sobre el proyecto del ejercicio 1
 
 ## 1. Directiva de atributo
 
@@ -138,11 +138,12 @@ impura:
 1. Comprueba que las pipes `JsonPipe` y `slicePipe` son impuras.
 
 2. Define una Pipe pura que ordene de mayor a menor o de menor a mayor, según
-   se indique en un único argumento, un array de números. Utilizala en combinación 
-   con la pipe JsonPipe (que es impura) para mostrar el resultado:
+   se indique en un único argumento, un array de números:
 
    ```html
-   {{ arr | sort:'desc' | json }}
+   <ul>
+      <li *ngFor="let i of (arr | sort:'desc')">{{i}}</li>
+    </ul>
    ```
    
 3. Haz que a los 2 segundos la variable `arr` tenga como referencia un nuevo array

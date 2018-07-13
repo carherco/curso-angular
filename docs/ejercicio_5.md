@@ -9,7 +9,8 @@
    para hacerlo es en el método `ngAfterViewInit()`. Así que puedes probar todos los
    ejemplo en este último método.
 
-2. Crea un componente llamado `httpclient` y prueba en él todo lo que se cuenta en la  
-   sección [httpclient](httpclient.md) del curso.
+2. Analiza el componente `tareas` del código del curso para estudiar el funcionamiento
+   del servicio httpclient. Construye uno componente análogo para gestionar alguno de
+   los objetos que ofrece la API de pruebas `https://jsonplaceholder.typicode.com`
 
 [Índice](index.md)

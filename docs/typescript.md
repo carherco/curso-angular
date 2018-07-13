@@ -1,6 +1,11 @@
-# TypeScript (Microsoft)
+# Introducción a ES6 y  TypeScript (Microsoft)
 
-Desarrollado por Microsoft. 
+Typescript es un lenguaje de programación que añade tipos a javascript. Suele
+describirse como un superset de javascript ya que todo código válido javascript
+es también un código válido typescript.
+
+Se distribuye con una licencia abierta (Apache Licences 2.0) y es desarrollado
+y mantenido por Microsoft. 
 
 Se compila para generar código ES6 (también llamado ES2015) o ES5 (diciembre 2009).
 
@@ -194,25 +199,7 @@ O para transformar parámetros de entrada de funciones
     }
 ```
 
-### Más características de ES2015/ES6
-
-- Soporte para Maps & Sets
-- Soporte nativo de promesas
-- Async/await
-
-```javascript
-  async function getData () {
-    //HTTP GET/POST ..... 
-  }
-
-  var data = await getData();
-  var num_items = data.lenght;
-```
-
-- Módulos
-- Clases
-
-#### Clases
+### Clases
 
 Soporte de:
 
@@ -235,11 +222,90 @@ Soporte de:
     }
 ```
 
+### Módulos
+
+Podemos crear ficheros javascript en los que exportemos clases, 
+funciones, variables o constantes con el keyword `export`:
+
+Archivo `miModulo.js`
+```javascript
+export function diHola(){
+    return "hola"
+}
+
+export let pi = 3.14
+```
+
+A los archivos que exportan cosas se les denomina módulos.
+
+Después podemos importar dichos módulos desde otros archivos
+para usar sus elementos exportados:
+
+```javascript
+import { pi, diHola } from './miModulo.js'
+```
+
+### Más características de ES2015/ES6
+
+- Soporte para Maps & Sets
+- Soporte nativo de promesas
+- Async/await
+
+```javascript
+  function resolveAfterTime(t){
+    let promesa = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve("vamooooooooooo!!")
+        }, t)
+    })
+
+    return promesa
+}
+
+async function asincrona(){
+    console.log('calling')
+    var result = await resolveAfterTime(1000)
+    console.log(result)
+    console.log("fin")
+}
+```
+
 ## Características de TypeScript
 
 - No es ejecutable. Debe ser compilado primero a ES5 o a ES6.
 - Tiene las mismas características que ES5 + ES6 y aporta otras nuevas.
 - Tiene detección de fallos al compilar.
+
+### Instalación
+
+```bash
+# npm install -g typescript
+```
+
+### Compilación (transpilación)
+
+```bash
+# tsc index.ts
+```
+
+Se crea un archivo `index.js` que ya se puede ejecutar en un 
+entorno javascript (navegador o node).
+
+La compilación se puede afinar mediante modificadores para tener en cuenta 
+muchas [opciones](https://www.typescriptlang.org/docs/handbook/compiler-options.html). 
+
+Probablemente dos de las más prácticas son `--lib` y `--target`. La primera
+indica las librerías de javascript que se deben usar para realizar la compilación,
+mientras que la segunda indica qué versión de javascript deseamos utilizar en la
+generación del código javascript.
+
+Si por ejemplo queremos usar características de ES2018 (la última versión de
+Ecmascript) y crear archivos de javascript ES5 (la versión más soportada en
+los navegadores actuales), la compilación se llevaría a cabo así;
+
+```bash
+# tsc --lib ES2018 --target ES5 index.ts
+```
 
 ### Tipos
 
@@ -308,20 +374,26 @@ La propiedad solamente podrá tomar uno de los valores definidos.
     pos: ‘North’ | ‘East’;
 ```
 
-### Tipos función en interfaces
+### Definición de tipos
 
-### Generics y constraints
+Podemos definir nuevos tipos con `type`
 
-### Mixins y merging
+```javascript
+    type PuntoCardinal: 'Norte' | 'Sur' | 'Este' | 'Oeste'
 
-
-### Operador Elvis (NO es de Typescript, es sintaxis de templates de angular)
-
-Previene errores al recorrer un objeto con valores nulos
-
-```
-    {{objeto?.propiedad?.valor}}
+    let p: PuntoCardinal
 ```
 
+### Generics
+
+Hay funciones o clases que pueden generalizarse sobre cualquier tipo de 
+dato o sobre un conjunto de tipos. En typescript podemos definir dichas 
+funciones o clase haciendo uso de los genéricos.
+
+```javascript
+function identity<T>(arg: T): T {
+    return arg
+}
+```
 
 [Índice](index.md)

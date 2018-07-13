@@ -15,7 +15,7 @@ Se utiliza para:
 - Estilos
 
 
-```html
+```jinja+html
   <h1>{{expression}}</h1>
   <img src="{{expression}}" />
   <img [src]="expression" />
@@ -26,7 +26,7 @@ Las expresiones pueden ser una variable a secas, una operación, una llamada a u
 
 La interpolación se indica con {{}}:
 
-```html
+```jinja+html
   <div>El resultado de {{varA}} + {{varB}} es {{varA + varB}}</div>
   <div>El resultado de {{varA}} + {{varB}} es {{suma1(varA,varB)}}</div>
   <div>La persona se llama {{persona.nombre}}</div>
@@ -34,7 +34,7 @@ La interpolación se indica con {{}}:
 
 El binding en propiedades, atributos, clases, estilos... se realiza con [] o con el prefijo bind-:
 
-```html
+```jinja+html
   <!-- Atributo (HTML) -->
   <option [selected]="isCarSelected" value="BMW">BMW</option>
   <div [class]="miClase">Elemento con una clase dinámica</div>
@@ -69,21 +69,21 @@ Se utiliza para:
 - Eventos
 
 
-```html
+```jinja+html
   <button (click)="statement">Hello</button>
   <button on-click="statement">Hello</button>
 ```
 
 Un statement puede ser una llamada a una función, una asignación...
 
-```html
+```jinja+html
   <button (click)="enviar()">Hello</button>
   <button (click)="resultado = var1 + var2; mostrarResultado();">Hello</button>
 ```
 
 En el contexto del evento, se crea una variable $event con información del mismo.
 
-```html
+```jinja+html
   <input (keyUp)="onKeyUp($event)">
 ```
 
@@ -95,7 +95,7 @@ desde el componente a la template y viceversa. El caso típico es el de los elem
 En este código, cuando el usuario escribe en el input, aunque se actualiza la
 variable persona.nombre, no se actualiza su valor interpolado.
 
-```html
+```jinja+html
   <input  [value]="persona.nombre"/>
 
 <p>{{persona.nombre}}</p>
@@ -103,7 +103,7 @@ variable persona.nombre, no se actualiza su valor interpolado.
 
 Una solución para que también se actualize la variable interpolada sería la siguiente:
 
-```html
+```jinja+html
   <input  [value]="persona.nombre" (keyup)="updateInput($event.target.value)"/>
 
 <p>{{persona.nombre}}</p>
@@ -124,7 +124,7 @@ la vinculación de datos en los dos sentidos (two way data binding)
 
 Se utiliza en formularios template-driven
 
-```html
+```jinja+html
   <input [(ngModel)]="variable" />
   <input bindon-ngModel="variable" />
 ```
@@ -133,7 +133,7 @@ Nota: Para utilizar _ngModel_ necesitamos importar FormsModule.
 
 [()] es una "abreviatura" de:
 
-```html
+```jinja+html
   <input [ngModel]="variable" (ngModel)="variable=$event"/>
 ```
 

@@ -15,7 +15,7 @@ Los componentes de angular son directivas especializadas que usan el decorador @
 deriva del decorador @Directive. Los componentes tienen asociados una template y una hoja de estilos.
 Las directivas de componente permiten incluir un componente en el HTML (plantilla) de otro componente. Podemos decir que un componente es una directiva con un template.
 
-```html
+```jinja+html
 <div>
     <app-calculadora></app-calculadora>
 </div>
@@ -33,7 +33,7 @@ Es importante tener en cuenta que a un elemento solo se puede aplicar una direct
 
 Añade o elimina un elemento del DOM basándose en una condición.
 
-```html
+```jinja+html
 <div *ngIf="hero" class="name">{{hero.name}}</div>
 ```
 
@@ -41,7 +41,7 @@ Añade o elimina un elemento del DOM basándose en una condición.
 
 Repite una plantilla por cada elemento de una lista.
 
-```html
+```jinja+html
 <ul>
   <li *ngFor="let hero of heroes">{{hero.name}}</li>
 </ul>
@@ -57,16 +57,8 @@ Dentro del \*ngFor existen 5 variables locales:
 
 Forma de uso:
 
-```html
+```jinja+html
 <div *ngFor="let hero of heroes; let i=index; let odd=odd" [class.odd]="odd">
-  ({{i}}) {{hero.name}}
-</div>
-```
-
-Además existe la posibilidad de "cachear" elementos del array con trackBy.
-
-```html
-<div *ngFor="let hero of heroes; let i=index; let odd=odd; trackBy: trackById" [class.odd]="odd">
   ({{i}}) {{hero.name}}
 </div>
 ```
@@ -75,7 +67,7 @@ Además existe la posibilidad de "cachear" elementos del array con trackBy.
 
 Un conjunto de directivas que permiten cambiar entre vistas alternativas.
 
-```html
+```jinja+html
 <div [ngSwitch]="componente">
     <app-texto *ngSwitchCase="'texto'" ></app-texto>
     <app-imagen *ngSwitchCase="'imagen'"></app-imagen>
@@ -89,7 +81,7 @@ Existe la etiqueta &lt;ng-container> que no se introduce en el DOM y que puede r
 deseamos aplicar más de una directiva estructural sobre un mismo elemento como en el siguiente 
 ejemplo.
 
-```html
+```jinja+html
 <div>
   Elige a tu héroe favorito
   (<label><input type="checkbox" checked (change)="showSad = !showSad">ocultar héroes tristes</label>).
@@ -110,7 +102,7 @@ hasta ahora hemos visto sobre el data binding de Angular. En realidad se trata d
 que simplifica la sintaxis real de la directiva estructural. Internamente Angular convierte la expresión
 anterior en algo más complejo que tiene esta pinta:
 
-```html
+```jinja+html
 <ng-template [ngIf]="hero">
   <div class="name">{{hero.name}}</div>
 </ng-template>
@@ -139,7 +131,7 @@ Ejemplos de directivas de atributo de angular:
 
 Ejemplo:
 
-```html
+```jinja+html
 <div [class.my-class1]="step==1" [class.my-class2]="step==2"></div>
 <div [ngClass]="{'my-class1': step==1,'my-class2': step==2}"></div>
 <div [ngClass]="{1:'my-class1',2:'my-class2',3:'my-class3'}[step]"></div>
@@ -178,7 +170,7 @@ Es decir, para el ejemplo anterior, cuando angular encuentre _appHighlight_ en u
 
 Ejemplo:
 
-```html
+```jinja+html
 <p appHighlight>Highlight me!</p>
 ```
 
@@ -232,7 +224,7 @@ El decorador @Input permite pasar variables a la directiva.
 
 Hagamos un ejemplo en el que al aplicar la directiva _appHighlight_ a un elemento, tengamos la posibilidad de elegir el color
 
-```html
+```jinja+html
 <p appHighlight [highlightColor]="color">Texto del párrafo</p>
 ```
 
@@ -265,7 +257,7 @@ export class HighlightDirective {
 
 Se puede abreviar la directiva si se utiliza el alias de @Input.
 
-```html
+```jinja+html
 <p [appHighlight]="color">Texto del párrafo</p>
 ```
 

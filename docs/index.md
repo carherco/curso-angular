@@ -1,7 +1,7 @@
 # Índice del curso
 
  - [Introducción](introduccion.md)
- - [Introducción a typescript](typescript.md)
+ - [Introducción a ES6 y typescript](typescript.md)
  - [Instalación](instalacion.md)
  - [Estructura de un proyecto angular](estructura-proyecto.md)
  - [Arquitectura](arquitectura.md)
@@ -24,7 +24,6 @@
  - [Enrutamiento](routing.md)
  - [Template Reference Variables](template-reference-variables.md)
  - [Formularios template-driven](forms-template-driven.md)
-
  - [Guards](guards.md)
  - [Formularios model-driven](forms-model-driven.md)
  - [Ejemplo de CRUD con API REST](ejemplo-crud-completo.md)
@@ -39,14 +38,12 @@
  - [Actualización de la versión de Angular](https://angular-update-guide.firebaseapp.com/)
  - Introducción a Ionic
 
-
-https://angular-2-training-book.rangle.io/handout/advanced-components/access_child_components.html
-
-
 Documentación oficial de Angular: https://angular.io/docs
 
 Mis datos de contacto:
- - Email: carherco@gmail.com
+ - Email: juanda@juandarodriguez.com
 
+Este curso es un fork del curso de Carlos Herrera (carherco@gmail.com)
+que ha sido ligeramente modificado por Juanda Rodríguez (juanda@juandarodriguez.com)
 
 [Índice](index.md)

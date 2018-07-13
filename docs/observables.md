@@ -116,6 +116,16 @@ let o1 = Observable.create((observer) => {
   ```javascript
   let observer = observable.subscribe(v => { /* procesamiento de v */})
   ```
+  
+  O también:
+  
+  ```javascript
+  let observer = observable.subscribe(
+    v => { /* procesamiento de v */}
+    e => { /* procesamiento del error */},
+    () => { /* completado*/ }
+  )
+  ```
 
 Es importante saber que, por defecto, un observable crea una ejecución nueva e 
 independiente por cada observador subscrito. Este comportamiento puede cambiarse

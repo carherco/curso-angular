@@ -3,17 +3,21 @@
 1.  Crea un proyecto Angular
 2.  Crea dos componentes denominados `imagen` y `texto`
 3.  Añadelos a la vista raíz (componente AppComponent) y comprueba que todo va bien
-4.  Añade estilos a las css's de ambos componentes para que se muestre un border
-    sólido que marque los límites del componente. Pon distintos colores a los marcos de cada componente para distinguirlos. El siguiente código CSS te puede
-    ayudar.
+4.  Añade estilos a las css's de ambos componentes para que se muestre un borde
+    sólido que marque los límites del componente. Usa el mismo nombre de clase en los dos componentes,
+    por ejemplo `border` pero usa distintos colores para distinguir cada componentes.
+    Observa como las css de cada componente solo afectan al componente en cuestión. Es una
+    prueba de como funciona el shadow DOM.
 
-```css
-.border {
-  border-style: solid;
-  border-color: aquamarine;
-  float: left;
-}
-```
+    Código de ayuda:
+
+    ```css
+    .border {
+      border-style: solid;
+      border-color: aquamarine;
+      float: left;
+    }
+    ```
 
 5.  Prueba a añadir varias veces el mismo componente.
 6.  Prueba a insertar uno o varios componentes `texto` dentro del componente `imagen`
@@ -21,13 +25,13 @@
 8.  Ahora vamos a añadir funcionalidad al componente `imagen`. Haz que el
     componente muestre una imagen aleatoria de entre las siguientes:
 
-    - "https://image.freepik.com/free-vector/vector-illustration-cosmonaut_1441-11.jpg"
-    - "https://image.freepik.com/free-vector/polygonal-lion-head_23-2147495868.jpg"
-    - "https://image.freepik.com/free-vector/hand-painted-steampunk-man-illustration_23-2147537528.jpg"
-    - "https://image.freepik.com/free-vector/analytical-and-creative-brain_23-2147506845.jpg"
-    - "https://image.freepik.com/free-vector/abstract-floral-background_1005-10.jpg"
-    - "https://image.freepik.com/free-vector/thank-you-composition-in-comic-style_23-2147831785.jpg"
-    - "https://media.giphy.com/media/3ornk2zKMUgETO4aMo/giphy.gif"
+        - "https://image.freepik.com/free-vector/vector-illustration-cosmonaut_1441-11.jpg"
+        - "https://image.freepik.com/free-vector/polygonal-lion-head_23-2147495868.jpg"
+        - "https://image.freepik.com/free-vector/hand-painted-steampunk-man-illustration_23-2147537528.jpg"
+        - "https://image.freepik.com/free-vector/analytical-and-creative-brain_23-2147506845.jpg"
+        - "https://image.freepik.com/free-vector/abstract-floral-background_1005-10.jpg"
+        - "https://image.freepik.com/free-vector/thank-you-composition-in-comic-style_23-2147831785.jpg"
+        - "https://media.giphy.com/media/3ornk2zKMUgETO4aMo/giphy.gif"
 
 9.  Haz que cuando se haga click en el componente imagen se cambie aleatoriamente la imagen mostrada
 10. Ahora vamos a añadir funcionalidad al componente `texto`. Añade dos textos que pillen su contenido
