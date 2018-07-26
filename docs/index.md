@@ -41,9 +41,9 @@
 Documentación oficial de Angular: https://angular.io/docs
 
 Mis datos de contacto:
- - Email: juanda@juandarodriguez.com
+ - Email: carherco@gmail.com
 
-Este curso es un fork del curso de Carlos Herrera (carherco@gmail.com)
-que ha sido ligeramente modificado por Juanda Rodríguez (juanda@juandarodriguez.com)
+Colaboradores en la elaboración del curso:
+ - Juanda Rodríguez (juanda@juandarodriguez.com)
 
 [Índice](index.md)
