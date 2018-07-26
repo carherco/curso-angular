@@ -43,7 +43,7 @@ Al instalar una aplicación angular con *ng new*, se crea un fichero README.md c
 
 1. Obtener el código
 
-> git checkout url_código
+> git clone url_código
 
 2. Instalar dependencias
 

@@ -1,3 +1,22 @@
+# Introducción
+
+Angular-cli (`ng`) es una aplicación que sirve para:
+
+- Generar la estructura completa de un proyecto angular (scaffolding).
+- Generar nuevos módulos, componentes y servicios a un proyecto angular.
+- Arrancar un servidor de desarrollo que automáticamente recompila la aplicación y refresca el browser cuando guardamos los cambios que realizamos en el código.
+- Revisa la corrección del código que escribimos (lint)
+- Lanza los test
+- Construye la aplicación lista para su distribución en producción.
+- Y más cosas ...
+
+En defininiva, proporciona un entorno de desarrollo completo que facilita muchísimo la construcción de aplicaciones con angular.
+
+En esta sección veremos la estructura que genera el comando 
+
+    ng new [nombre aplicación]
+
+
 # Directorio raíz
 
 El directorio raíz de un proyecto angular contiene los siguientes elementos:
@@ -34,6 +53,55 @@ Cada navegador tiene diferente grado de soporte de los estándares web. Polyfill
 * **test.ts:** Punto de entrada principal a los tests unitarios.
 * **tsconfig.app.json:** Configuración del compilador TypeScript para la aplicación angular.
 * **tsconfig.spec.json:** Configuración del compilador TypeScript para los tests unitarios(tsconfig.spec.json).
+
+
+## Añadir librería externa a un proyecto Angular. Ejemplo JQuery
+
+Supongamos que deseamos añadir jquery a nuestro proyecto. La forma más correcta
+de hacerlo es indicándolo en la sección `build/scripts` del archivo de 
+configuración `angular.json`:
+
+`angular.json`
+```javascript
+...
+"projects": {
+    ...
+    "nombre_proyecto": {
+        ...
+        "architect": {
+            ...
+            "build": {
+                ...
+                "options": {
+                    ...
+                    "scripts": ["node_modules/jquery/dist/jquery.min.js"]
+                }
+            }
+        }
+    }
+}
+```
+
+Para que esto funcione debemos instalar jquery:
+
+```bash
+> npm install --save jquery
+```
+
+Si además queremos tener disponibles los tipos para typescript:
+
+```javascript
+> npm install --save-dev @types/jquery
+```
+
+Por último, en el componente que deseemos utilizar jquery:
+
+```javascript
+import * as $ from 'jquery'
+```
+
+Y ya podemos usar la librería en nuestro código.
+
 
 
 [Índice](index.md)

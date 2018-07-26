@@ -13,7 +13,7 @@ export class HeroService {
 Http es una clase que para instanciarla necesita 2 objetos.
 
 ```typescript
-export declare class Http {
+export class Http {
     protected _backend: ConnectionBackend;
     protected _defaultOptions: RequestOptions;
     constructor(_backend: ConnectionBackend, _defaultOptions: RequestOptions);

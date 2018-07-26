@@ -19,19 +19,19 @@ export class FacturasComponent implements OnInit {
 
   ngDoCheck() {
     let total = 0;
-    for (let p of factura.pedidosPapel) {
+    for (let p of this.factura.pedidosPapel) {
       if(p.seleccionado) {
         total += p.precio;
       }  
     }
-    for (let p of factura.pedidos) {
+    for (let p of this.factura.pedidos) {
       for (let a of p.articulos) {
         if(a.seleccionado) {
           total += a.precio;
         }  
       }
     }
-    factura.totalFactura = total;
+    this.factura.totalFactura = total;
   }
 
   togglePedido(pedido, value) {

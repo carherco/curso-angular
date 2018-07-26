@@ -1,5 +1,12 @@
 # Components
 
+Probablemente el elemento más importante en toda la arquitectura de Angular sea el componente. El concepto de componente es bien conocido en la ingeniería del software y lleva asociado como principal idea la de ser un elemento reutilizable.
+
+En el mundo web, desde hace algún tiempo, existe una especificación denominada Web Compontents (https://www.w3.org/wiki/WebComponents/, https://www.webcomponents.org/introduction),que propone una solución basada en componentes para el desarrollo de aplicaciones web.
+
+Los componentes de Angular son muy similares a los componentes de la especificación Web Component. Incluso existen herramientas para convertir los componentes de Angular en Web Components y también se pueden usar Web Components en aplicaciones Angular.
+
+
 Un componente controla un trozo de la pantalla llamado *vista* (*view*).
 
 Por ejemplo, en un momento concreto, en el navegador:
@@ -30,7 +37,7 @@ Un componente es una clase que implementa el método OnInit y decorada con el de
 
 La función decoradora @Component recibe un Objeto con las siguientes propiedades:
 
-- **selector:** Selector CSS que le dice a Angular en qué lugar del HTML debe insertar este componente. En nuestro ejemplo, cada vez que angular encuentre la etiqueta &lt;events-list>&lt;/events-list>, insertará una instacia de la vista de EventsListComponent en esa etiqueta.
+- **selector:** Es el selector CSS que se utiliza en las plantillas para indicar a Angular donde debe crear e insertar una instancia del componente. En nuestro ejemplo, cada vez que angular encuentre la etiqueta &lt;events-list>&lt;/events-list>, insertará una instacia de la vista de EventsListComponent en esa etiqueta.
 - **template:** El código HTML del template de este componente.
 - **templateUrl:** La ruta relativa al componente del archivo donde se encuenta el HTML del template de este componente. Si se utiliza *templateUrl* NO se utiliza *template*
 - **providers:** array de proveedores de inyección de dependecias (dependency injection providers) para servicios que este componente necesite. Es una de las maneras de informar a Angular que el constructor de este componente necesita una instancia de un servicio concreto. No obstante durante el curso utilizaremos inyección de dependencias directamente en los constructores del componente.
@@ -178,6 +185,32 @@ Si el proyecto está configurado para trabajar con .scss, .less o .styl, aplican
 ```
 
 En el proceso de compilación, angular compilará las CSS automáticamente.
+
+## Shadow DOM
+
+Angular es un framework web orientado a componentes. Existe una especificación oficial del consorcio W3 denominada Web Components (https://www.w3.org/TR/components-intro/) y angular utiliza el mismo concepto para sus componente. Incluso se pueden exportar los componentes de angular como elementos de web components (https://medium.com/vincent-ogloblinsky/export-angular-components-as-custom-elements-with-angular-elements-a2a0bfcd7f8a)
+
+Shadow DOM forma parte de la especificación Web Components. Es una forma de establecer contornos funcionales entre distintos árboles DOM. Proporciona una encapsulación del DOM dentro del DOM. Con Shadow DOM se consigue una encapsulación verdadera con componentes scoped, es decir cada componente define su propio DOM de manera que, por ejemplo, las clases CSS’s y el código javascript que se defina en un componente  afecta sólo a dicho componente.
+
+Los componentes de angular se comportan según este principio. Como no todos los navegadores soportan aún la especificación Web Components y Shadow DOM, por defecto angular realiza la encapsulación de los componentes mediante emulación. No obstante se puede indicar explícitamente que se use Shadow DOM nativo.
+
+```javascript
+
+@Component({
+ selector: 'app-naranja',
+ encapsulation: ViewEncapsulation.Native,
+ templateUrl: './naranja.component.html',
+ styleUrls: ['./naranja.component.css']
+})
+```
+
+El siguiente artículo explica bastante bien el concepto de shadow dom.
+
+https://toddmotto.com/web-components-concepts-shadow-dom-imports-templates-custom-elements/
+
+Y este otro la relación de shadow dom com angular >2.
+
+https://toddmotto.com/emulated-native-shadow-dom-angular-2-view-encapsulation
 
 
 

@@ -12,10 +12,10 @@ Un módulo es una clase *NgModule* con un decorador *@NgModule*.
 Las propiedades más importantes del objeto de metadatos son:
 
 - **declarations:** Las *view classes* que pertenecen a este módulo. Angular tiene 3 tipos de view classes: componentes, directivas, y pipes.
-- **exports:** El subconjunto de *declarations* que deben ser visibles y utilizables en las plantillas de componente (*component templates*) de otros módulos.
+- **exports:** El subconjunto de *declarations* que deben ser visibles y utilizables en las plantillas de componente (*component templates*) de otros módulos que lo importen.
 - **imports:** Lista de módulos de los que necesitamos alguna clase para que este componente acceda.
 - **providers:** Creadores de servicios (*services*) con los que este módulo contribuye en la colección global de servicios. Son accesibles en cualquier parte de la aplicación.
-- **bootstrap:** La vista de aplicación principal (el componente raíz) que alberga al resto de vistas. Solametne el módulo raíz utilizará la propiedad bootstrap.
+- **bootstrap:** La vista de aplicación principal (el componente raíz) que alberga al resto de vistas. Solamente el módulo raíz utilizará la propiedad bootstrap.
 
 Aquí hay un pequeño ejemplo:
 
