@@ -125,7 +125,7 @@ Ya tenemos la base de la programación reactiva.
   sea:
 
   ```javascript
-  let observer = observable.subscribe({
+  let suscripcion = observable.subscribe({
     next(v){ /* procesamiento de v */},
     error(e){ /* procesamiento de e */ },
     complete(){/* completado el observable */}
@@ -142,13 +142,13 @@ Ya tenemos la base de la programación reactiva.
   `complete`.
 
   ```javascript
-  let observer = observable.subscribe(v => { /* procesamiento de v */})
+  let suscripcion = observable.subscribe(v => { /* procesamiento de v */})
   ```
   
   O también:
   
   ```javascript
-  let observer = observable.subscribe(
+  let suscripcion = observable.subscribe(
     v => { /* procesamiento de v */}
     e => { /* procesamiento del error */},
     () => { /* completado*/ }
