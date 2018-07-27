@@ -82,6 +82,34 @@ let o1 = Observable.create((observer) => {
   cuyo argumento es el `observer` que se haya suscrito a ella. Todo lo que tenemos que
   hacer es usar los métodos del `observer` (`next`, `error`, `complete`) para pasarle
   los datos que deseemos.
+  
+  ### Observadores
+  
+  Luego creas de manera similar un Observador, ese es el elemento que mirará y reaccionara a los cambios que sucedan. 
+
+```javascript
+  let observador = Rx.Observer.create(
+    function onNext(x) { console.log('Next: ' + x); }, 
+    function onError(err) { console.log('Error: ' + err); }, 
+    function onCompleted() { console.log('Completed'); } 
+  ); 
+```
+
+Aquí tenemos a nuestro Observador. Es un poco raro porque en realidad solo se trata de un objeto con tres métodos que dicen que hacer en el caso de que el Observable (nuestro array, una llamada http... en definitiva cualquier flujo de datos) cambie (onNext), emita un error (onError) o se complete el flujo, terminando su emisión (onCompleted). 
+
+Claro que todo esto no funcionará si no suscribimos a nuestro Observador a nuestro Observable y de esta forma el Observable comunique al Observador sus cambios.
+
+```javascript
+  let suscripcion = observable.suscribe(observador);
+```
+
+En cualquier momento, podemos desuscribir al observador.
+
+```javascript
+  suscripcion.unsuscribe();
+```
+
+Ya tenemos la base de la programación reactiva.
 
   Hasta aquí solo hemos **declarado** observables. Esto es importante, los observables se definen declarativamente, lo que significa que **no se ejecutan** en el momento
   de definirlos. La ejecución se lleva a cabo solo cuando se realiza una subscripción.
