@@ -45,7 +45,6 @@ import {MatListModule} from '@angular/material/list';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { ImagePipe } from './image.pipe';
 import { FacturasComponent } from './facturas/facturas.component';
-import { TareasComponent } from './tareas/tareas.component';
 
 
 
@@ -72,8 +71,7 @@ import { TareasComponent } from './tareas/tareas.component';
     HighlightComponent,
     PipesComponent,
     ImagePipe,
-    FacturasComponent,
-    TareasComponent
+    FacturasComponent
   ],
   imports: [
     BrowserModule,

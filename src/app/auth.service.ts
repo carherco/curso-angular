@@ -1,10 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers, Response } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/do';
-import 'rxjs/add/operator/delay';
+import { Observable, of } from 'rxjs';
+import { tap, delay } from 'rxjs/operators';
 
 @Injectable()
 export class AuthService {
@@ -20,15 +16,16 @@ export class AuthService {
 
     login(username: string, password: string): Observable<boolean> {
       if (username === 'test' && password === 'test') {
-        return Observable.of(true)
-                          .delay(1000)
-                          .do(val => {
+        return of(true).pipe(
+                          delay(1000),
+                          tap(val => {
                             this.token = 'savaosals09245valsfjga';
                             this.roles = ['ROLE_ADMIN'];
                             localStorage.setItem('user_token', this.token);
-                          });
+                          })
+                        )
       } else {
-        return Observable.of(false).delay(1000).do(val => this.token = null);
+        return of(false).pipe(delay(1000),tap(val => this.token = null));
       }
     }
 

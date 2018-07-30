@@ -1,9 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Hero } from 'app/hero';
 import { HeroService } from 'app/hero.service';
-
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import 'rxjs/add/operator/switchMap';
+//import {switchMap} 'rxjs/operators';
 
 @Component({
   selector: 'app-child-comp',

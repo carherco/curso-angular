@@ -1,4 +1,4 @@
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { environment } from "environments/environment";
@@ -8,7 +8,7 @@ import { User } from "app/user";
 export class UserService {
 
   url_api: string;
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient) {
     this.url_api = environment.api_url+'users';
   }
 

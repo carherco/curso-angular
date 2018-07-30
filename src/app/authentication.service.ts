@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/delay';
+import { Observable, of } from 'rxjs';
+import { delay, tap } from 'rxjs/operators';
 
 @Injectable()
 export class AuthenticationService {
@@ -17,7 +15,7 @@ export class AuthenticationService {
     }
 
     login(username: string, password: string): Observable<boolean> {
-        return Observable.of(true).delay(1000).do(val => this.token = 'savaosals09245valsfjga');
+        return of(true).pipe(delay(1000),tap(val => this.token = 'savaosals09245valsfjga'));
         // return this.http.post('/api/login', JSON.stringify({ username: username, password: password }))
         //     .map((response: Response) => {
         //         // login successful if there's a jwt token in the response

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Hero } from 'app/hero';
 import { HeroService } from 'app/hero.service';
-import 'rxjs/add/operator/filter';
 
 @Component({
   selector: 'app-hero-list',

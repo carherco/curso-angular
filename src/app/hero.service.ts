@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/retry';
+import { Observable } from 'rxjs';
+import { map, retry } from 'rxjs/operators';
 
 import { Hero } from './hero';
 
@@ -17,8 +15,10 @@ export class HeroService {
 
   getHeroes(filter = {}): Observable<Hero[]> {
   // getHeroes(): Observable<any> {
-    return this.http.get(this.heroesUrl + '?' + filter).retry(1)
-                    .map((x) => x.json());
+    return this.http.get(this.heroesUrl + '?' + filter).pipe(
+                    retry(1),
+                    map((x) => x.json())
+    );
   }
 
 }
