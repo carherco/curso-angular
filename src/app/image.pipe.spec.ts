@@ -14,7 +14,7 @@ describe('ImagePipe', () => {
 
   it('directorio por defecto debe ser assets/img/', () => {
     // imagen = 'barco.png'
-    // <img src="{{imagen.src | image }}"
+    // <img src="{{imagen | image }}"
     let imagen = 'barco.png';
     expect(pipe.transform(imagen)).toEqual('assets/img/barco.png');
   });

@@ -47,6 +47,14 @@ export class CrudBasicoComponent implements OnInit {
 
   delete(index) {
     this.heroes.splice(index, 1);
+
+    // let nuevoArray = [];
+    // for (let h of this.heroes) {
+    //   if(h.id !== heroe.id) {
+    //     nuevoArray.push(h);
+    //   }
+    // }
+    // this.heroes = nuevoArray;
   }
 
 }

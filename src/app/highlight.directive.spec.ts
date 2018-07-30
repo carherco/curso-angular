@@ -5,7 +5,7 @@ import { By } from "@angular/platform-browser";
 
 @Component({
   template: `
-  <h2 appHighlight="red">Something Red</h2>
+  <h2 appHighlight="'red'">Something Red</h2>
   <h2 appHighlight>The Default (yellow)</h2>
   <h2>No Highlight</h2>`
 })
