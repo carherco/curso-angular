@@ -40,6 +40,7 @@ Ejemplo:
 - I18nPluralPipe
 - I18nSelectPipe
 - JsonPipe
+- Keyvalue
 - LowerCasePipe
 - PercentPipe
 - SlicePipe
@@ -48,17 +49,7 @@ Ejemplo:
 
 [Documentación pipe]: (https://angular.io/api?type=pipe)
 
-Apunte: 
-
-  Las pipes Date y Currency necesitan la API Internationalization de ECMAScript. Safari y algunos navegadores antiguos no soportan esta api. Se puede añadir soporte con polyfill.
-
-  ```html
-    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Intl.~locale.en"></script>
-  ```
-
-Apunte sobre el apunte:
-  
-  En Angular 5 las pipes Date y Currency ya no necesitan dicha librería.
+https://www.angularjswiki.com/angular/angular-keyvalue-pipe-loop-object-key-values-using-ngfor/
 
 ## Custom pipes
 

@@ -15,6 +15,8 @@ Los componentes de angular son directivas especializadas que usan el decorador @
 deriva del decorador @Directive. Los componentes tienen asociados una template y una hoja de estilos.
 Las directivas de componente permiten incluir un componente en el HTML (plantilla) de otro componente. Podemos decir que un componente es una directiva con un template.
 
+Un componente añade HTML al DOM, una directiva modifica el DOM de un elemento.
+
 ```jinja+html
 <div>
     <app-calculadora></app-calculadora>
@@ -96,6 +98,8 @@ ejemplo.
 ```
 
 ### Ng-Template
+
+https://www.angularjswiki.com/angular/what-is-ng-template-in-angular/
 
 Esta notación de las directivas estructurales consistente en usar el asterisco es distinta a lo que
 hasta ahora hemos visto sobre el data binding de Angular. En realidad se trata de un "sintactic sugar"
