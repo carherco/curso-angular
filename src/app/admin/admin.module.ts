@@ -1,27 +1,32 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Routes, RouterModule } from '@angular/router';
+import { UserListComponent } from './components/user-list/user-list.component';
+import { UserAddComponent } from './components/user-add/user-add.component';
+import { UserEditComponent } from './components/user-edit/user-edit.component';
+import { AdminHomeComponent } from './components/admin-home/admin-home.component';
+import { ClientesComponent } from './components/clientes/clientes.component';
+import { ProveedoresComponent } from './components/proveedores/proveedores.component';
 
-import { AdminRoutingModule } from './admin-routing.module';
-import { AdminHomeComponent } from "app/admin-home/admin-home.component";
-import { UserListComponent } from "app/user-list/user-list.component";
-import { UserEditComponent } from "app/user-edit/user-edit.component";
-import { UserAddComponent } from "app/user-add/user-add.component";
-import { FormsModule } from "@angular/forms";
+const routes: Routes = [
+  { path: 'home', component: AdminHomeComponent},
+  { path: 'user', component: UserListComponent },
+  { path: 'user/add', component: UserAddComponent },
+  { path: 'user/:id', component: UserEditComponent },
+];
 
 @NgModule({
+  imports: [
+    CommonModule,
+    RouterModule.forChild(routes)
+  ],
   declarations: [
     AdminHomeComponent,
     UserListComponent,
+    UserAddComponent,
     UserEditComponent,
-    UserAddComponent
-  ],
-  imports: [
-    CommonModule,
-    FormsModule,
-    AdminRoutingModule
-  ],
-  exports:[
-    AdminHomeComponent
+    ClientesComponent,
+    ProveedoresComponent
   ]
 })
 export class AdminModule { }

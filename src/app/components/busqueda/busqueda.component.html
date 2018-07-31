@@ -1,0 +1,21 @@
+<div>
+  <h3>Lista de usuarios</h3>
+
+  Búsqueda por email: 
+  <input type="text" #email />
+
+  <table>
+    <tr>
+      <th>Id</th>
+      <th>Nombre</th>
+      <th>Email</th>
+    </tr>
+
+    <tr *ngFor="let usuario of usuarios">
+      <td>{{usuario.id}}</td>
+      <td>{{usuario.name}}</td>
+      <td>{{usuario.email}}</td>
+    </tr>
+
+  </table>
+</div>

@@ -1,52 +1,35 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { UserService } from './services/user.service';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
-import { HttpClientModule } from "@angular/common/http";
-import { ReactiveFormsModule } from '@angular/forms';
-import { AppRoutingModule } from 'app/app-routing/app-routing.module';
-import { AdminModule } from 'app/admin/admin.module';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ClickMeComponent } from './click-me/click-me.component';
-import { KeyUpComponent } from './key-up/key-up.component';
-import { HeroFormComponent } from './hero-form/hero-form.component';
-import { HeroListComponent } from './hero-list/hero-list.component';
-import { ColdObservablesComponent } from './cold-observables/cold-observables.component';
-import { HeroSearchComponent } from './hero-search/hero-search.component';
-import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
-import { CrudBasicoComponent } from './crud-basico/crud-basico.component';
-import { ChildCompComponent } from './child-comp/child-comp.component';
-import { ParentCompComponent } from './parent-comp/parent-comp.component';
-import { GaleriaComponent } from './galeria/galeria.component';
-import { LoginComponent } from './login/login.component';
-import { HomeComponent } from './home/home.component';
-import { HomePageComponent } from './home-page/home-page.component';
-import { LifecycleComponent } from './lifecycle/lifecycle.component';
-import { HighlightComponent } from './highlight/highlight.component';
-
-import { MockHeroService } from 'app/mock-hero.service';
-import { HeroService } from 'app/hero.service';
-import { AuthenticationService } from 'app/authentication.service';
-import { UserService } from 'app/user.service';
-import { AuthGuard } from 'app/auth.guard';
-import { AuthService } from 'app/auth.service';
-import { CalculadoraComponent } from './calculadora/calculadora.component';
-import { HighlightDirective } from './highlight.directive';
-import { PipesComponent } from './pipes/pipes.component';
-
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatIconModule } from '@angular/material/icon';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule } from "@angular/material/core";
-import {MatTableModule} from '@angular/material/table';
-import {MatListModule} from '@angular/material/list';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import { ImagePipe } from './image.pipe';
-import { FacturasComponent } from './facturas/facturas.component';
-
-
+import { GaleriaComponent } from './components/galeria/galeria.component';
+import { HeroSearchComponent } from './components/hero-search/hero-search.component';
+import { LoginComponent } from './components/login/login.component';
+import { ReactiveFormComponent } from './components/reactive-form/reactive-form.component';
+import { AuthGuard } from './guards/auth.guard';
+import { ConfimarGuard } from './guards/confimar.guard';
+import { PruebaGuard } from './guards/prueba.guard';
+import { AuthService } from './services/auth.service';
+import { HeroeService } from './services/heroe.service';
+import { MockHeroeService } from './services/mock-heroe.service';
+import { UsuarioService } from './services/usuario.service';
+import { HeroService } from './services/hero.service';
+import { ClickMeComponent } from './components/click-me/click-me.component';
+import { KeyUpComponent } from './components/key-up/key-up.component';
+import { HeroFormComponent } from './components/hero-form/hero-form.component';
+import { HeroListComponent } from './components/hero-list/hero-list.component';
+import { ColdObservablesComponent } from './components/cold-observables/cold-observables.component';
+import { CrudBasicoComponent } from './components/crud-basico/crud-basico.component';
+import { ChildCompComponent } from './components/child-comp/child-comp.component';
+import { ParentCompComponent } from './components/parent-comp/parent-comp.component';
+import { HomeComponent } from './components/home/home.component';
+import { HomePageComponent } from './components/home-page/home-page.component';
+import { LifecycleComponent } from './components/lifecycle/lifecycle.component';
+import { HighlightComponent } from './components/highlight/highlight.component';
+import { HighlightDirective } from './directives/highlight.directive';
 
 @NgModule({
   declarations: [
@@ -66,28 +49,26 @@ import { FacturasComponent } from './facturas/facturas.component';
     HomeComponent,
     HomePageComponent,
     LifecycleComponent,
-    CalculadoraComponent,
     HighlightDirective,
-    HighlightComponent,
-    PipesComponent,
-    ImagePipe,
-    FacturasComponent
+    HighlightComponent
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
     FormsModule,
-    HttpModule,
-    HttpClientModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    HttpClientModule
   ],
   providers: [
-    MockHeroService,
+    MockHeroeService,
+    HeroeService,
     HeroService,
-    AuthenticationService,
+    UsuarioService,
+    UserService,
     AuthService,
-    AuthGuard,
-    UserService
+    PruebaGuard,
+    ConfimarGuard,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

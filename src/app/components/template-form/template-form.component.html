@@ -1,0 +1,31 @@
+<div class="container">
+    <h1>Edición del héroe con id: {{ id }}</h1>
+    {{hero | json}}
+    <form (ngSubmit)="onSubmit()" #heroForm="ngForm" >
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" [(ngModel)]="hero.name" name="name" required #spy #name="ngModel">
+        <div *ngIf="name.invalid">El nombre es obligatorio</div>
+      </div>
+
+      <div class="form-group">
+        <label for="alterEgo">Alter Ego</label>
+        <input type="text" class="form-control" id="alterEgo" [(ngModel)]="hero.alterEgo" name="alterEgo" #alterEgo="ngModel">
+      </div>
+
+      <div class="form-group">
+        <label for="power">Hero Power</label>
+        <select class="form-control" id="power"  name="power" [(ngModel)]="hero.power" required>
+          <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn btn-success" [disabled]="heroForm.invalid">Submit</button>
+
+    </form>
+</div>
+
+
+<div [hidden]="!heroForm.submitted">
+  <h2>¡Gracias!</h2>
+</div>

@@ -1,0 +1,22 @@
+
+
+<div>
+  <button [disabled]="indice<=0" (click)="anteriorImagen()">Anterior</button>
+  <img class="img_grande" [src]="imagenActual" [width]="tamano">
+  <button [disabled]="indice>=imagenes.length-1"  (click)="siguienteImagen()">Siguiente</button>
+
+  <button (click)="tamano = tamano + 50">Aumentar</button>
+
+  <button (click)="play()">Play</button>
+</div>
+
+<div>
+  <span>Anterior</span>
+  <img *ngFor="let imagen of imagenes | slice:ini:fin; let i=index;" 
+       [src]="imagen" 
+       (click)="seleccionarImagen(i+ini)"
+       class="img_pequena" 
+       [class.seleccionada]="imagenActual == imagen"
+       width="80">
+  <span *ngIf="fin < imagenes.length -1" (click)="siguienteGrupo()">Siguiente</span>
+</div>

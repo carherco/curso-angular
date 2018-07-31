@@ -1,0 +1,17 @@
+
+<h3>Detalle del héroe</h3>
+<div *ngIf="heroe" class="col-md-6">
+  <h3>Datos del héroe {{heroe.name}}</h3>
+  <div><label>Id: </label>{{heroe.id}}</div>
+  <div>
+    <label>Nombre: </label>
+    <input [(ngModel)]="heroe.name" placeholder="name"/>
+  </div>
+  <div>
+    <select [(ngModel)]="heroe.emotion">
+      <option *ngFor="let emocion of emociones">{{emocion}}</option>
+    </select>
+  </div>
+
+  <button (click)="eliminar()">Eliminar</button>
+</div>

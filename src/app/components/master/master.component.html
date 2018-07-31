@@ -1,0 +1,50 @@
+<h2>Listado de Héroes Master - Detalle</h2>
+
+<h3>Añade un héroe a la lista</h3>
+<form class="form-inline">
+  <div class="form-group">
+    <label for="nombre">Nombre:</label>
+    <input type="text" class="form-control" id="nombre" name="name" [(ngModel)]="nuevoHeroe.name" placeholder="Escribe el nombre...">
+  </div>
+  <div class="form-group">
+    <select [(ngModel)]="nuevoHeroe.emotion" name="emotion">
+    <option *ngFor="let emocion of emociones" [value]="emocion">{{emocion}}</option>
+  </select>
+  </div>
+  <button type="button" class="btn btn-primary" (click)="addHeroe()">Añadir</button>
+</form>
+
+
+
+<div class="row">
+
+  <div class="col-md-6">
+    <h3>Lista de héroes</h3>
+
+    <table class="table table-striped">
+      <tr>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Estado de ánimo</th>
+        <th></th>
+      </tr>
+
+      <tr id=fila_{{heroe.id}} *ngFor="let heroe of heroes; let index=index; let odd=odd;"
+          [class.seleccionado]="heroe === heroeSeleccionado"
+          (click)="heroeSeleccionado = heroe;">
+        <td>{{heroe.id}}</td>
+        <td>{{heroe.name}}</td>
+        <td>{{heroe.emotion}}</td>
+        <td><button class="btn btn-danger" (click)="deleteHeroe(index)">X</button></td>
+      </tr>
+
+    </table>
+  </div>
+
+
+<exce-detalle *ngIf="heroeSeleccionado" 
+              [heroe]="heroeSeleccionado"
+              (onEliminarEvento)="deleteDesdeDetalle($event)"></exce-detalle>
+  
+
+</div>
