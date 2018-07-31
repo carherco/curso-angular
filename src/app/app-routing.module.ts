@@ -1,3 +1,5 @@
+import { CrudBasicoComponent } from './components/crud-basico/crud-basico.component';
+import { CalculadoraComponent } from './components/calculadora/calculadora.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
@@ -15,13 +17,22 @@ import { HomeComponent } from './components/home/home.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { SelectivePreloadingStrategy } from './selective-preloading-strategy';
 import { LifecycleComponent } from './components/lifecycle/lifecycle.component';
+import { HighlightComponent } from './components/highlight/highlight.component';
+import { PipesComponent } from './components/pipes/pipes.component';
+import { ColdObservablesComponent } from './components/cold-observables/cold-observables.component';
 
 
 const appRoutes: Routes = [
       { path: 'click-me', component: ClickMeComponent },
+      { path: 'calculadora', component: CalculadoraComponent },
+      { path: 'highlight', component: HighlightComponent },
+      { path: 'pipes', component: PipesComponent },
       { path: 'galeria', component: GaleriaComponent },
+      { path: 'crud-basico', component: CrudBasicoComponent },
+      { path: 'parent-child', component: ParentCompComponent },
       { path: 'key-up', component: KeyUpComponent },
       { path: 'forms/template-driven', component: HeroFormComponent },
+      { path: 'observables', component: ColdObservablesComponent },
       { path: 'forms/model-driven', component: ReactiveFormComponent },
       { path: 'heroes-api', component: HeroListComponent },
       { path: 'lifecycle', component: LifecycleComponent },

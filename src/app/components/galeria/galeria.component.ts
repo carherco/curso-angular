@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { _MatButtonToggleGroupMixinBase } from '@angular/material';
 
 @Component({
-  selector: 'exce-galeria',
+  selector: 'app-galeria',
   templateUrl: './galeria.component.html',
   styleUrls: ['./galeria.component.css']
 })
@@ -25,14 +26,16 @@ export class GaleriaComponent implements OnInit {
   fin:number = 3;
   num:number = 3;
 
-  tamano = 300;
+  tamano = 500;
   interval: any;
+  playing: boolean;
 
   constructor() {
     this.imagenActual = this.imagenes[this.indice];
   }
 
   ngOnInit() {
+    this.playing = false;
   }
 
   anteriorImagen(){
@@ -65,10 +68,13 @@ export class GaleriaComponent implements OnInit {
       }
       that.imagenActual = that.imagenes[that.indice];
     },1000);
+
+    this.playing = true;
   }
 
   stop() {
     clearInterval(this.interval);
+    this.playing = false;
   }
 
 

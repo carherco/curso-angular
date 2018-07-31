@@ -3,11 +3,11 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'click-me',
   template: `
-    <h2>{{title}}</h2>
+    <h1>{{title}}</h1>
 
     <div>El héroe se llama {{nombre}}</div>
 
-    <button (click)="onClickMe()">Click me!</button>
+    <button mat-raised-button color="primary" (click)="onClickMe()">Click me!</button>
     <div>{{clickMessage}}</div>
 
     <input [(ngModel)]="nombre" />
@@ -18,7 +18,7 @@ export class ClickMeComponent {
   clickMessage = '';
   nombre = 'Carlos';
 
-  constructor() {    
+  constructor() {
     setTimeout(() => {
       console.log('timeout');
       this.nombre = 'Pedro';

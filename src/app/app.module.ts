@@ -39,11 +39,15 @@ import { UsuarioService } from './services/usuario.service';
 import { NavComponent } from './components/nav/nav.component';
 
 import { LayoutModule } from '@angular/cdk/layout';
+import { PipesComponent } from './components/pipes/pipes.component';
+import { CalculadoraComponent } from './components/calculadora/calculadora.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ClickMeComponent,
+    PipesComponent,
+    CalculadoraComponent,
     KeyUpComponent,
     HeroFormComponent,
     HeroListComponent,

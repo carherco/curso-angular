@@ -1,22 +1,27 @@
+<div id="galeria">
 
+    <h1>Galería</h1>
+    <div>
+      <img class="img_grande" [src]="imagenActual" [width]="tamano">
+      <div class="button-row">
+          <button mat-raised-button color="primary" [disabled]="indice<=0" (click)="anteriorImagen()">Anterior</button>
+          <button mat-raised-button color="primary" [disabled]="indice>=imagenes.length-1"  (click)="siguienteImagen()">Siguiente</button>
+          <button mat-raised-button color="accent" (click)="tamano = tamano + 50">Aumentar</button>
+          <button mat-raised-button color="accent" (click)="tamano = tamano - 50">Disminuir</button>
+          <button mat-raised-button color="warn" *ngIf="!playing" (click)="play()">Play</button>
+          <button mat-raised-button color="warn" *ngIf="playing" (click)="stop()">Stop</button>
+      </div>
+    </div>
 
-<div>
-  <button [disabled]="indice<=0" (click)="anteriorImagen()">Anterior</button>
-  <img class="img_grande" [src]="imagenActual" [width]="tamano">
-  <button [disabled]="indice>=imagenes.length-1"  (click)="siguienteImagen()">Siguiente</button>
+    <div id="lista_imagenes">
+      <span>Anterior</span>
+      <img *ngFor="let imagen of imagenes | slice:ini:fin; let i=index;"
+           [src]="imagen"
+           (click)="seleccionarImagen(i+ini)"
+           class="img_pequena"
+           [class.seleccionada]="imagenActual == imagen"
+           width="80">
+      <span *ngIf="fin < imagenes.length -1" (click)="siguienteGrupo()">Siguiente</span>
+    </div>
 
-  <button (click)="tamano = tamano + 50">Aumentar</button>
-
-  <button (click)="play()">Play</button>
-</div>
-
-<div>
-  <span>Anterior</span>
-  <img *ngFor="let imagen of imagenes | slice:ini:fin; let i=index;" 
-       [src]="imagen" 
-       (click)="seleccionarImagen(i+ini)"
-       class="img_pequena" 
-       [class.seleccionada]="imagenActual == imagen"
-       width="80">
-  <span *ngIf="fin < imagenes.length -1" (click)="siguienteGrupo()">Siguiente</span>
 </div>

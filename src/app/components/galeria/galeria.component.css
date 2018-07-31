@@ -1,7 +1,19 @@
+#galeria {
+  margin-left: 20px;
+}
+
 .img_pequena {
   margin-left: 20px;
 }
 
 .seleccionada {
   border-bottom: 2px solid red;
+}
+
+.button-row button {
+  margin-right: 8px;
+}
+
+#lista_imagenes {
+  margin-top: 20px;
 }
