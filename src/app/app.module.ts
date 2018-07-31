@@ -36,7 +36,9 @@ import { HeroeService } from './services/heroe.service';
 import { MockHeroeService } from './services/mock-heroe.service';
 import { UserService } from './services/user.service';
 import { UsuarioService } from './services/usuario.service';
+import { NavComponent } from './components/nav/nav.component';
 
+import { LayoutModule } from '@angular/cdk/layout';
 
 @NgModule({
   declarations: [
@@ -57,16 +59,18 @@ import { UsuarioService } from './services/usuario.service';
     HomePageComponent,
     LifecycleComponent,
     HighlightDirective,
-    HighlightComponent
+    HighlightComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
+    LayoutModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [
     MockHeroeService,

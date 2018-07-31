@@ -1,0 +1,35 @@
+<mat-toolbar color="primary" class="toolbar">
+  <button mat-icon-button (click)="sidenav.toggle()"><mat-icon>menu</mat-icon></button>
+  <h1 class="example-app-name">Curso Angular 6</h1>
+</mat-toolbar>
+
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #sidenav
+    class="sidenav"
+    fixedInViewport="false"
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="!(isHandset$ | async)">
+
+    <mat-nav-list>
+      <a mat-list-item routerLink="/click-me" routerLinkActive="active">Click-me</a>
+      <a mat-list-item routerLink="/galeria" routerLinkActive="active">Galería</a>
+      <a mat-list-item routerLink="/heroes" routerLinkActive="active">Héroes</a>
+      <a mat-list-item routerLink="/key-up" routerLinkActive="active">Key Up</a>
+      <a mat-list-item routerLink="/forms/template-driven" routerLinkActive="active">Template driven</a>
+      <a mat-list-item routerLink="/heroes-api" routerLinkActive="active">Listado de héroes</a>
+      <a mat-list-item routerLink="/search" routerLinkActive="active">Listado con búsqueda</a>
+      <a mat-list-item routerLink="/forms/model-driven" routerLinkActive="active">Model driven</a>
+      <a mat-list-item routerLink="/admin/users" routerLinkActive="active">Admin (lazy loading)</a>
+    </mat-nav-list>
+
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
+
+
