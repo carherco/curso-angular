@@ -1,35 +1,42 @@
-import { UserService } from './services/user.service';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from 'app/material/material.module';
 import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
+import { ChildCompComponent } from './components/child-comp/child-comp.component';
+import { ClickMeComponent } from './components/click-me/click-me.component';
+import { ColdObservablesComponent } from './components/cold-observables/cold-observables.component';
+import { CrudBasicoComponent } from './components/crud-basico/crud-basico.component';
 import { GaleriaComponent } from './components/galeria/galeria.component';
+import { HeroFormComponent } from './components/hero-form/hero-form.component';
+import { HeroListComponent } from './components/hero-list/hero-list.component';
 import { HeroSearchComponent } from './components/hero-search/hero-search.component';
+import { HighlightComponent } from './components/highlight/highlight.component';
+import { HomePageComponent } from './components/home-page/home-page.component';
+import { HomeComponent } from './components/home/home.component';
+import { KeyUpComponent } from './components/key-up/key-up.component';
+import { LifecycleComponent } from './components/lifecycle/lifecycle.component';
 import { LoginComponent } from './components/login/login.component';
+import { ParentCompComponent } from './components/parent-comp/parent-comp.component';
 import { ReactiveFormComponent } from './components/reactive-form/reactive-form.component';
+
+import { HighlightDirective } from './directives/highlight.directive';
+
 import { AuthGuard } from './guards/auth.guard';
 import { ConfimarGuard } from './guards/confimar.guard';
 import { PruebaGuard } from './guards/prueba.guard';
+
 import { AuthService } from './services/auth.service';
+import { HeroService } from './services/hero.service';
 import { HeroeService } from './services/heroe.service';
 import { MockHeroeService } from './services/mock-heroe.service';
+import { UserService } from './services/user.service';
 import { UsuarioService } from './services/usuario.service';
-import { HeroService } from './services/hero.service';
-import { ClickMeComponent } from './components/click-me/click-me.component';
-import { KeyUpComponent } from './components/key-up/key-up.component';
-import { HeroFormComponent } from './components/hero-form/hero-form.component';
-import { HeroListComponent } from './components/hero-list/hero-list.component';
-import { ColdObservablesComponent } from './components/cold-observables/cold-observables.component';
-import { CrudBasicoComponent } from './components/crud-basico/crud-basico.component';
-import { ChildCompComponent } from './components/child-comp/child-comp.component';
-import { ParentCompComponent } from './components/parent-comp/parent-comp.component';
-import { HomeComponent } from './components/home/home.component';
-import { HomePageComponent } from './components/home-page/home-page.component';
-import { LifecycleComponent } from './components/lifecycle/lifecycle.component';
-import { HighlightComponent } from './components/highlight/highlight.component';
-import { HighlightDirective } from './directives/highlight.directive';
+
 
 @NgModule({
   declarations: [
@@ -54,6 +61,8 @@ import { HighlightDirective } from './directives/highlight.directive';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    MaterialModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
