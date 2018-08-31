@@ -1,4 +1,5 @@
 .container {
+  height: 100%;
   display: flex;
   flex-direction: column;
   position: absolute;
@@ -6,5 +7,9 @@
   bottom: 0;
   left: 0;
   right: 0;
+}
+
+app-nav {
+  height: 100%;
 }
 

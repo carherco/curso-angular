@@ -1,3 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 /* Material themes: deeppurple-amber.css, indigo-pink.css, pink-bluegrey.css, purple-green.css */
 @import "~@angular/material/prebuilt-themes/purple-green.css";
+
+html, body{
+  width: 100%;
+  margin:0;
+  padding:0;
+}

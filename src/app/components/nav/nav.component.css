@@ -8,9 +8,10 @@
 .sidenav-container {
   /* Misma altura que la toolbar para que el contenido empiece justo debajo */
   margin-top: 64px;
+  height: 100%;
 }
 
 .sidenav-content {
-  margin-left: 20px;
+  padding-left: 20px;
 }
 
