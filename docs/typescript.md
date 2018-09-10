@@ -9,6 +9,8 @@ y mantenido por Microsoft.
 
 Se compila para generar código ES6 (también llamado ES2015) o ES5 (diciembre 2009).
 
+Versiones de JavaScript: https://www.w3schools.com/js/js_versions.asp
+
 ![Diagrama de TypeScript](img/typescript.png "Diagrama de TypeScript")
 
 
