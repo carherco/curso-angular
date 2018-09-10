@@ -228,6 +228,7 @@ Podemos crear ficheros javascript en los que exportemos clases,
 funciones, variables o constantes con el keyword `export`:
 
 Archivo `miModulo.js`
+
 ```javascript
 export function diHola(){
     return "hola"
@@ -255,20 +256,193 @@ import { pi, diHola } from './miModulo.js'
   function resolveAfterTime(t){
     let promesa = new Promise((resolve, reject) => {
         setTimeout(() => {
-            resolve("vamooooooooooo!!")
+            resolve("¡Promesa resuelta!");
         }, t)
     })
 
-    return promesa
+    return promesa;
 }
 
 async function asincrona(){
-    console.log('calling')
-    var result = await resolveAfterTime(1000)
-    console.log(result)
-    console.log("fin")
+    console.log('calling');
+    var result = await resolveAfterTime(1000);
+    console.log(result);
+    console.log("fin");
 }
 ```
+
+Con **async** le decimos a JavaScript que trate nuestra función de forma diferente: cuando encuentre un **await**, se detendrá y esperará a la resolución de la operación asícrona antes de continuar con el resto del código.
+
+
+## Características de ES2016/ES7
+
+### Array.prototype.includes
+
+Devuelve *true* si el array contiene el elemento indicado.
+
+```js
+const arr = [1, 2, 3, 4, Nan];
+
+//Antes
+if(arr.indexOf(3) >= 0) {
+  ...
+}
+
+//Con includes
+if(arr.includes(3)) {
+  ...
+}
+```
+
+Includes también funciona para NaN, mientras que indexOf no.
+
+```js
+arr.includes(NaN); //true
+arr.indexOf(NaN); //-1
+```
+
+### Exponentiation infix operator
+
+```js
+//Antes
+Math.pow(7, 2); //49
+
+//Ahora
+7**2; //49
+```
+
+## Características de ES2017/ES8
+
+### Object.values()
+
+Devuelve todos los valores de las propiedades del objeto, excluyendo las encadenadas mediante prototype.
+
+```js
+const cars = { BMW: 3, Tesla: 2, Toyota: 1};
+
+//Antes
+const vals = Object.keys(cars).map(key => cars[key]);
+console.log(vals); // [3, 2, 1]
+
+//Ahora
+const vals = Object.values(cars);
+console.log(vals); // [3, 2, 1]
+```
+
+### Object.entries()
+
+Devuelve en forma de arrray las *keys* y los *values*
+
+```js
+const cars = { BMW: 3, Tesla: 2, Toyota: 1};
+
+//Antes
+Object.keys(cars).forEach(function(key) {
+  console.log('key: ' + key + ' value: ' + cars[key]);
+});
+
+//Ahora
+for(let[key, value] of Object.entries(cars)) {
+  console.log(`key:  ${key} value: ${value}`);
+}
+```
+
+
+```js
+const cars = { BMW: 3, Tesla: 2, Toyota: 1};
+
+//Antes
+const map1 = new Map();
+Object.keys(cars).forEach(function(key) {
+  map1.set(key, cars[key]);
+});
+console.log(map1); // Map { BMW: 3, Tesla: 2, Toyota: 1}
+
+//Ahora
+const map = new Map(Object.entries(cars));
+console.log(map1); // Map { BMW: 3, Tesla: 2, Toyota: 1}
+```
+
+### String padding
+
+Dos nuevos métodos en el objeto String para rellenar cadenas de texto.
+
+- padStart
+- padEnd
+
+```js
+// 'someString'.padStart(numberOfCharcters [,stringForPadding]); 
+'5'.padStart(10) // '          5'
+'5'.padStart(10, '=*') //'=*=*=*=*=5'
+'5'.padEnd(10) // '5         '
+'5'.padEnd(10, '=*') //'5=*=*=*=*='
+```
+
+## Características de ES2018
+
+### Mejoras en operador rest 
+
+Utilización de rest para extraer solamente una parte de las propiedades
+
+```js
+let { firstName, age, ...remaining } = {
+  firstName: 'john',
+  lastName: 'smith',
+  age: 20,
+  height: '5.10',
+  race: 'martian',
+};
+firstName; // john
+age; // 20
+remaining; // { lastName: 'smith', height: '5.10', race: 'martian' }
+```
+
+### Mejoras en operador spread
+
+```js
+const person = { firstName: 'john', age: 20 };
+const account = { EAN: 'xxx-5455-9246', amount: 500 };
+
+const personAndAccount = { ...person, ...account };
+personAndAccount; // { firstName: 'john', age: 20, EAN: 'xxx-5455-9246', amount: 500 }
+```
+
+### Promise.prototype.finally()
+
+Se incorpora el método **finally()** en las promesas. EL método *finally* se ejecutará siempre. No recibe ningún parámetro.
+
+```js
+let started = true;
+
+let myPromise = new Promise(function(resolve, reject) {
+  resolve('Promesa resuelta');
+})
+.then( val => console.log(val) )
+.catch( error => console.log(error) )
+.finally( () => started = false )
+```
+
+### for-await-of Asynchronous Iteration
+
+Permite crear bucles de códigos asíncronos.
+
+```js
+const promises = [
+  new Promise(resolve => resolve(1)),
+  new Promise(resolve => resolve(2)),
+  new Promise(resolve => resolve(3)),
+];
+
+async function test() {
+  for await (const obj of promises) {
+    console.log(obj);
+  }
+}
+
+test(); //prints: 1  2  3
+```
+
+
 
 ## Características de TypeScript
 
@@ -288,11 +462,9 @@ async function asincrona(){
 # tsc index.ts
 ```
 
-Se crea un archivo `index.js` que ya se puede ejecutar en un 
-entorno javascript (navegador o node).
+Se crea un archivo `index.js` que ya se puede ejecutar en un entorno javascript (navegador o node).
 
-La compilación se puede afinar mediante modificadores para tener en cuenta 
-muchas [opciones](https://www.typescriptlang.org/docs/handbook/compiler-options.html). 
+La compilación se puede afinar mediante modificadores para tener en cuenta muchas [opciones](https://www.typescriptlang.org/docs/handbook/compiler-options.html).
 
 Probablemente dos de las más prácticas son `--lib` y `--target`. La primera
 indica las librerías de javascript que se deben usar para realizar la compilación,

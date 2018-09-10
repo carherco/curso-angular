@@ -1,11 +1,11 @@
 # Introducción
 
-Angular es un framework de JavaScript de código abierto, mantenido por Google, que se utiliza para crear y mantener aplicaciones web de una sola página (*single page applications*)
+Angular es un framework de JavaScript de código abierto, mantenido por Google, que se utiliza para crear y mantener aplicaciones web de una sola página (*single page applications*).
 
 ## Versiones
 
-AngularJS (v1)
-Angular (v2, v4, v5 y v6)
+- AngularJS (v1)
+- Angular (v2, v4, v5 y v6)
 
 No existe la versión 3: https://www.infoq.com/news/2016/12/angular-4
 
