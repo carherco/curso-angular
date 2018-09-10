@@ -1,0 +1,51 @@
+
+
+.tanteo {
+  font-size: 4em;
+}
+
+mat-card{
+  position:relative;
+  text-align: center;
+}
+
+mat-card	img {
+  height: 280px;
+  object-fit: cover;
+  margin:auto;
+}
+
+.card-title {
+  position: absolute;
+  top: 42%;
+  left: 0%;
+  font-size: 2.8em;
+  width: 100%;
+  font-family: 'Theo Ballmer Narrow';
+  font-weight: 600;
+}
+
+.shirt-team {
+  position:absolute;
+  top: 5px;
+  left: 5px;
+  color: #fff;
+  opacity: 0.5;
+  -webkit-transform: rotate(-30deg);
+     -moz-transform: rotate(-30deg);
+      -ms-transform: rotate(-30deg);
+       -o-transform: rotate(-30deg);
+          transform: rotate(-30deg);
+}
+
+.shirt-team:before {
+  font-size:100px;
+}
+
+.btn-control-chrono {
+  margin-bottom: 20px;
+}
+
+
+
+

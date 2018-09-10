@@ -1,3 +1,4 @@
+import { FractalModule } from './fractal/fractal.module';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -41,6 +42,9 @@ import { NavComponent } from './components/nav/nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { PipesComponent } from './components/pipes/pipes.component';
 import { CalculadoraComponent } from './components/calculadora/calculadora.component';
+import { RotateDirective } from './directives/rotate.directive';
+import { RotateComponent } from './components/rotate/rotate.component';
+import { CronoComponent } from './components/crono/crono.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +68,10 @@ import { CalculadoraComponent } from './components/calculadora/calculadora.compo
     LifecycleComponent,
     HighlightDirective,
     HighlightComponent,
-    NavComponent
+    NavComponent,
+    RotateDirective,
+    RotateComponent,
+    CronoComponent
   ],
   imports: [
     BrowserModule,
@@ -75,6 +82,7 @@ import { CalculadoraComponent } from './components/calculadora/calculadora.compo
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    FractalModule
   ],
   providers: [
     MockHeroeService,

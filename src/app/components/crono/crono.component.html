@@ -1,0 +1,81 @@
+
+<mat-card class="marcador">
+  <mat-grid-list cols="5">
+
+    <mat-grid-tile [colspan]="2">
+      <div class="tanteo">{{partido.marcador_local}}</div>
+      <mat-icon name="shirt" class="shirt-team" item-start [style.color]='partido.color_local'></mat-icon>
+    </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
+      <div class="vs">VS</div>
+    </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="2">
+      <div class="tanteo">{{partido.marcador_visitante}}</div>
+      <mat-icon name="shirt" class="shirt-team equipo-visitante" item-start [style.color]='partido.color_visitante'></mat-icon>
+    </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="2">
+      <div class="team-title">{{partido.equipo_local}}</div>
+    </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="1" [rowspan]="1"></mat-grid-tile>
+
+    <mat-grid-tile [colspan]="2">
+        <div class="team-title">{{partido.equipo_visitante}}</div>
+      </mat-grid-tile>
+
+  </mat-grid-list>
+</mat-card>
+
+	    <mat-card class="control-chrono">
+
+        <mat-card-content>
+		    <img src="assets/img/chrono.png"/>
+		    <div class="card-title">{{cronoService.crono.horas}}:{{cronoService.crono.minutos|number:'2.0-0'}}:{{cronoService.crono.segundos|number:'2.0-0'}}</div>
+      </mat-card-content>
+
+      <mat-card-actions>
+        <button mat-button *ngIf="!cronoService.iniciado" (click)="iniciarcrono()" class="btn-control-chrono">Iniciar</button>
+		    <button mat-button *ngIf="!cronoService.pausado"  (click)="detenercrono()" color="secondary" class="btn-control-chrono">Pausar</button>
+		    <button mat-button *ngIf="cronoService.iniciado && cronoService.pausado" (click)="reanudarcrono()" color="secondary" class="btn-control-chrono">Reanudar</button>
+        <button mat-button *ngIf="cronoService.iniciado" (click)="detenercrono()" color="secondary" class="btn-control-chrono">Finalizar</button>
+        </mat-card-actions>
+      </mat-card>
+
+
+	    <mat-card>
+		    <mat-card-header class="team" [style.background]='partido.color_visitante'>
+			    <h2>{{partido.equipo_visitante}}</h2>
+			    <mat-icon name="ow-shirt" class="shirt-team" item-start></mat-icon>
+			  </mat-card-header>
+			  <mat-list>
+			    <button mat-list-item (click)="openAnotarGol(partido.equipo_visitante,partido.equipo_local)">
+			      <mat-icon name="ow-football" class="icon-owqlo" item-start></mat-icon>
+			      Goles
+			      <mat-icon name="add-circle" item-end></mat-icon>
+			    </button>
+
+			    <button mat-list-item (click)="openAnotarTarjetaAmarilla(partido.equipo_visitante)">
+			      <mat-icon name="ow-yellow-card" class="icon-owqlo" item-start color="warning"></mat-icon>
+			      Tarjeta amarilla
+			      <mat-icon name="add-circle" item-end></mat-icon>
+			    </button>
+
+			    <button mat-list-item (click)="openAnotarTarjetaRoja(partido.equipo_visitante)">
+			      <mat-icon name="ow-red-card" class="icon-owqlo" item-start color="danger"></mat-icon>
+			      Tarjeta roja
+			      <mat-icon name="add-circle" item-end></mat-icon>
+			    </button>
+
+			    <button mat-list-item disabled>
+			      <mat-icon name="repeat" item-start></mat-icon>
+			      Sustituciones
+			      <mat-icon name="add-circle" item-end></mat-icon>
+			    </button>
+			  </mat-list>
+		</mat-card>
+
+
+

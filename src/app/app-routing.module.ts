@@ -20,6 +20,8 @@ import { LifecycleComponent } from './components/lifecycle/lifecycle.component';
 import { HighlightComponent } from './components/highlight/highlight.component';
 import { PipesComponent } from './components/pipes/pipes.component';
 import { ColdObservablesComponent } from './components/cold-observables/cold-observables.component';
+import { RotateComponent } from './components/rotate/rotate.component';
+import { CronoComponent } from './components/crono/crono.component';
 
 
 const appRoutes: Routes = [
@@ -45,6 +47,9 @@ const appRoutes: Routes = [
       },
       { path: 'login', component: LoginComponent },
       { path: 'admin', loadChildren: 'app/admin/admin.module#AdminModule'},
+      { path: 'fractal', loadChildren: 'app/fractal/fractal.module#FractalModule'},
+      { path: 'rotate', component: RotateComponent },
+      { path: 'crono', component: CronoComponent },
       { path: 'lazy1', loadChildren: 'app/lazy1/lazy1.module#Lazy1Module'},
       { path: 'lazy2', loadChildren: 'app/lazy2/lazy2.module#Lazy2Module'},
      // { path: 'lazy3', loadChildren: 'app/lazy3/lazy3.module#Lazy3Module', data: {preload: true}},
