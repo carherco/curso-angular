@@ -11,6 +11,24 @@
 
 > npm install -g @angular/cli
 
+Podemos comprobar que está instalado ejecutando
+
+> ng -v
+
+Angular-cli (`ng`) es una aplicación que sirve para:
+
+* Generar la estructura completa de un proyecto angular (scaffolding).
+* Generar nuevos módulos, componentes y servicios a un proyecto angular.
+* Arrancar un servidor de desarrollo que automáticamente recompila la aplicación y refresca el browser cuando guardamos los cambios que realizamos en el código.
+* Revisa la corrección del código que escribimos (lint)
+* Lanza los test
+* Construye la aplicación lista para su distribución en producción.
+* Y más cosas ...
+
+En defininiva, proporciona un entorno de desarrollo completo que facilita muchísimo la construcción de aplicaciones con angular.
+
+Más información sobre angular-cli: [angular-cli](angular-cli.md)
+
 2. Crear un proyecto
 
 > ng new miApp
@@ -19,7 +37,11 @@ Se creará un directorio miApp/ con la estructura que veremos más adelante.
 
 Con el modificador --style se puede configurar para usar sass en vez de css
 
+> ng new miApp --style=sass
+
 Con el modificador --routing se puede generar el proyecto con un módulo de routing
+
+> ng new miApp --routing
 
 3. Servir la aplicación
 
