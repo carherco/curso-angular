@@ -1,12 +1,12 @@
-# Detección de cambios
+# Detección de cambios
 
-## Detección de cambios por defecto
+## Detección de cambios por defecto
 
 Por defecto angular sigue una estrategia dirty-checking en la que cada vez que ocurre algo susceptible de provocar un cambio (eventos, timers, promesas, observables...) comprueba dato a dato y en profundidad (propiedad de cada objeto de cada array...) si los valores actuales son iguales que los anteriores. Si detecta un cambio, re-renderiza las vistas.
 
 Se le suele llamar también "pulling" porque se está continuamente (eventos, timers...) pidiendo a Angular que haga comprobaciones de cambios.
 
-## ChangeDetectionStrategy.onPush
+## ChangeDetectionStrategy.onPush
 
 Angular espera a que el programador le diga que tiene que detectar cambios.
 
@@ -26,7 +26,19 @@ La detección del cambio manual se lanza:
 Implicaciones:
 - Hay que pasarle a los componentes hijos nuevas referencias (nuevos objetos)
 
-ChangeDetectionStrategy.onPush se pone como metadato de un componente. El componente que lo lleve hace que él y sus hijos (excepto los router-outlet) funcionen con la misma estrategia.
+ChangeDetectionStrategy.onPush se pone como metadato de un componente. 
+
+```ts
+@Component({
+  // ...
+  changeDetection: ChangeDetectionStrategy.OnPush
+})
+export class MovieComponent {
+  // ...
+}
+```
+
+El componente que lo lleve hace que él y sus hijos (excepto los router-outlet) funcionen con la misma estrategia.
 
 
 ## Técnicas de clonado
