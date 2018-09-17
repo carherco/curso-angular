@@ -36,18 +36,20 @@ export class CarEffects {
 
 ### Acciones e interface
 
+```ts
 export enum CarActionTypes {
-Brake = '[Car] Brake',
-Throttle = '[Car] Throttle',
-Save = '[Car] Save',
-Saved = '[Car] Saved',
-NotSaved = '[Car] Not Save'
+  Brake = '[Car] Brake',
+  Throttle = '[Car] Throttle',
+  Save = '[Car] Save',
+  Saved = '[Car] Saved',
+  NotSaved = '[Car] Not Save'
 }
 export interface CarState {
-speed: number;
-_id?: string; // para identificar en servidor
-message?: string; // para notificar incidencias
+  speed: number;
+  _id?: string; // para identificar en servidor
+  message?: string; // para notificar incidencias
 }
+```
 
 
 
