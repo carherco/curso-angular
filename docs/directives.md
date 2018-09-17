@@ -79,6 +79,8 @@ Un conjunto de directivas que permiten cambiar entre vistas alternativas.
 
 CUIDADO: Solamente se puede poner una directiva por elemento.
 
+### Ng-Container
+
 Existe la etiqueta &lt;ng-container> que no se introduce en el DOM y que puede resultar útil cuando
 deseamos aplicar más de una directiva estructural sobre un mismo elemento como en el siguiente 
 ejemplo.
@@ -96,24 +98,6 @@ ejemplo.
   </ng-container>
 </select>
 ```
-
-### Ng-Template
-
-https://www.angularjswiki.com/angular/what-is-ng-template-in-angular/
-
-Esta notación de las directivas estructurales consistente en usar el asterisco es distinta a lo que
-hasta ahora hemos visto sobre el data binding de Angular. En realidad se trata de un "sintactic sugar"
-que simplifica la sintaxis real de la directiva estructural. Internamente Angular convierte la expresión
-anterior en algo más complejo que tiene esta pinta:
-
-```jinja+html
-<ng-template [ngIf]="hero">
-  <div class="name">{{hero.name}}</div>
-</ng-template>
-```
-
-Es decir usa un elemento `ng-template`. Cada directiva estructural hace algo diferente con el
-código contenido en este `ng-template`.
 
 ## Directivas de atributo
 
