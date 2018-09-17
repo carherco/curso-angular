@@ -13,7 +13,7 @@ Las propiedades más importantes del objeto de metadatos son:
 
 - **declarations:** Las *view classes* que pertenecen a este módulo. Angular tiene 3 tipos de view classes: componentes, directivas, y pipes.
 - **exports:** El subconjunto de *declarations* que deben ser visibles y utilizables en las plantillas de componente (*component templates*) de otros módulos que lo importen.
-- **imports:** Lista de módulos de los que necesitamos alguna clase para que este componente acceda.
+- **imports:** Lista de módulos importados. Tendremos acceso a los elementos incluidos en el *exports* del módulo importado.
 - **providers:** Creadores de servicios (*services*) con los que este módulo contribuye en la colección global de servicios. Son accesibles en cualquier parte de la aplicación.
 - **bootstrap:** La vista de aplicación principal (el componente raíz) que alberga al resto de vistas. Solamente el módulo raíz utilizará la propiedad bootstrap.
 
@@ -35,17 +35,18 @@ Aquí hay un pequeño ejemplo:
 
 La aplicación se lanza haciendo bootstrapping del módulo raíz. Normalmente está en *src/main.ts*
 
-
-
 ```typescript
 //src/main.ts
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppModule } from './app/app.module';
 
+//...
+
 platformBrowserDynamic().bootstrapModule(AppModule);
 ```
 
-Advertencia: En las características de ES6 veíamos que habían introducido el concepto de *Módulo* en JavaScript. Los módulos de Angular no tienen nada que ver con los módulos de JavaScript.
+En el siguiente enlace, se puede consultar la lista de todas las propiedades de @Component:
 
+[Propiedades de @Module](https://angular.io/api/core/NgModule)
 
 [Índice](index.md)

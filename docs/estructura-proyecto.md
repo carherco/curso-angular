@@ -39,4 +39,6 @@ Cada navegador tiene diferente grado de soporte de los estándares web. Polyfill
 * **tslint.json:** Configuración para el TSLint y Codelyzer, utilizados al ejecutar el comando ng lint.
 
 
+Nota: Las dos imágenes de esta sección son capturas de pantalla de la documentación oficial de Angular.
+
 [Índice](index.md)

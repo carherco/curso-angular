@@ -8,7 +8,6 @@ Brevemente y yendo al grano: La programación reactiva trata de la programación
 
  Cuando queremos trabajar utilizando programación reactiva con un tipo de dato concreto (por ejemplo, un array), habrá un método para poder transformar dicho dato en Observable y poder trabajar con él de esta manera.
 
-
 ## Uso básico y terminología.
 
 Un *observable* es un objeto que publica datos y ofrece una función `subscribe()` que
@@ -53,6 +52,7 @@ let observable = fromEvent(document.getElementById('box'), "mousemove")
 ```
 
 Desde una petición *ajax*
+
 ```javascript
 import { ajax } from 'rxjs/ajax';
 let o1 = ajax('https://jsonplaceholder.typicode.com/albums')
@@ -83,7 +83,7 @@ let o1 = Observable.create((observer) => {
   hacer es usar los métodos del `observer` (`next`, `error`, `complete`) para pasarle
   los datos que deseemos.
   
-  ### Observadores
+  ### Observadores
   
   Luego creas de manera similar un Observador, ese es el elemento que mirará y reaccionara a los cambios que sucedan. 
 

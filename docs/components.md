@@ -1,11 +1,10 @@
-# Components
+# Componentes
 
 Probablemente el elemento más importante en toda la arquitectura de Angular sea el componente. El concepto de componente es bien conocido en la ingeniería del software y lleva asociado como principal idea la de ser un elemento reutilizable.
 
 En el mundo web, desde hace algún tiempo, existe una especificación denominada Web Compontents (https://www.w3.org/wiki/WebComponents/, https://www.webcomponents.org/introduction),que propone una solución basada en componentes para el desarrollo de aplicaciones web.
 
 Los componentes de Angular son muy similares a los componentes de la especificación Web Component. Incluso existen herramientas para convertir los componentes de Angular en Web Components y también se pueden usar Web Components en aplicaciones Angular.
-
 
 Un componente controla un trozo de la pantalla llamado *vista* (*view*).
 
@@ -18,7 +17,6 @@ Por ejemplo, en un momento concreto, en el navegador:
 - Otro compenente habría pintado un calendario del mes actual en el que están resaltados los días en los que el usuario tiene algún evento.
 
 Angular crea, actualiza y destruye componentes mientras el usuario se mueve por la aplicación.
-
 
 Ejemplo de componente:
 
@@ -35,7 +33,7 @@ export class EventsListComponent implements OnInit {
 
 Un componente es una clase que implementa el método OnInit y decorada con el decorador @Component.
 
-La función decoradora @Component recibe un Objeto con las siguientes propiedades:
+La función decoradora @Component recibe un Objeto cuyas propiedades más importantes son las siguientes:
 
 - **selector:** Es el selector CSS que se utiliza en las plantillas para indicar a Angular donde debe crear e insertar una instancia del componente. En nuestro ejemplo, cada vez que angular encuentre la etiqueta &lt;events-list>&lt;/events-list>, insertará una instacia de la vista de EventsListComponent en esa etiqueta.
 - **template:** El código HTML del template de este componente.
@@ -45,6 +43,13 @@ La función decoradora @Component recibe un Objeto con las siguientes propiedade
 - **styleUrls:** array de ficheros css exclusivos para este componente.
 
 El template, los metadatos y el compenente, en conjunto, describen una **vista**.
+
+
+En el siguiente enlace, se puede consultar la lista de todas las propiedades de @Component:
+
+[Propiedades de @Component](https://angular.io/api/core/Directive)
+
+
 
 ## Creación de un componente con angular cli
 

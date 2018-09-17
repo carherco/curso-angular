@@ -115,10 +115,6 @@ anterior en algo más complejo que tiene esta pinta:
 Es decir usa un elemento `ng-template`. Cada directiva estructural hace algo diferente con el
 código contenido en este `ng-template`.
 
-### Directivas estructurales personalizadas
-
-Ver [ejercicio 2](ejercicio_2.md)
-
 ## Directivas de atributo
 
 Cambian el aspecto o el comportamiento de un elemento, componente u otra directiva.

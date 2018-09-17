@@ -348,7 +348,7 @@ ngOnInit() {
 
 
 
-## Outlets
+## Outlets
 
 ```
 <router-outlet></router-outlet>
