@@ -27,28 +27,31 @@ export class ColdObservablesComponent implements OnInit {
     );
 
     //Creación de observable "infinito"
-    // const Obs2 = Observable.create(function(emmiter) {
-    //   let value = 0;
-    //   const interval = setInterval(() => {
-    //     if (value % 2 === 0) {
-    //       emmiter.next(value);
-    //     }
-    //     value++;
-    //   }, 1000);
+    const Obs2 = Observable.create(function(emmiter) {
+      let value = 0;
+      const interval = setInterval(() => {
+        if (value % 2 === 0) {
+          emmiter.next(value);
+        }
+        value++;
+      }, 1000);
 
-    //    return () => clearInterval(interval);
-    //  });
+      return () => {
+         clearInterval(interval);
+          console.log('Me he quedado sin observador');
+       }
+     });
 
-    // const subs2 = Obs2.subscribe(x => console.log('subs2:',x));
+    const subs2 = Obs2.subscribe(x => console.log('subs2:',x));
 
     // unsubscribe after 10 seconds
-    // setTimeout(() => {
-    //   subs2.unsubscribe();
-    // }, 10000);
+    setTimeout(() => {
+      subs2.unsubscribe();
+    }, 10000);
 
-    // setTimeout(() => {
-    //   const subs3 = Obs2.subscribe(x => console.log('subs3:',x));
-    // }, 5000);
+    setTimeout(() => {
+      const subs3 = Obs2.subscribe(x => console.log('subs3:',x));
+    }, 5000);
 
     // Son Observables fríos:
     // - Una instancia por cada subscripción
