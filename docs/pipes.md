@@ -47,9 +47,8 @@ Ejemplo:
 - TitleCasePipe
 - UpperCasePipe
 
-[Documentación pipe]: (https://angular.io/api?type=pipe)
+[Documentación pipe] (https://angular.io/api?type=pipe)
 
-https://www.angularjswiki.com/angular/angular-keyvalue-pipe-loop-object-key-values-using-ngfor/
 
 ## Custom pipes
 
