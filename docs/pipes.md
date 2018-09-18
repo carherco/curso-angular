@@ -47,7 +47,7 @@ Ejemplo:
 - TitleCasePipe
 - UpperCasePipe
 
-[Documentación pipe] (https://angular.io/api?type=pipe)
+[Documentación pipes](https://angular.io/api?type=pipe)
 
 
 ## Custom pipes
