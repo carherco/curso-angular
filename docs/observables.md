@@ -106,9 +106,9 @@ Pero los observables que creamos nosotros con los métodos de construcción de o
 Para convertir un obserbable frío en caliente basta con invocar el método publish();
  	 
 ```javascript
-  const obsv = new Observable( o => {...}).publish();	   const obsv = new Observable( o => {...}).publish();
-  ...	   ...
-  obsv.connect();	   obsv.connect();
+  const obsv = new Observable( o => {...}).publish();
+  ...
+  obsv.connect();
 ```
   
 Los suscriptores pueden suscribirse y desuscribirse sin problemas antes de invocar al connect() o depués de invocar a connect().
