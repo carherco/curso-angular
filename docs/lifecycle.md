@@ -14,12 +14,11 @@ Una directiva tiene el mismo conjunto de *lifecycle hooks* excepto aquellos espe
 
 - **ngOnChanges():** 
 Es llamado cuando Angular establece datos asociados a propiedades asociadas a @Input. El método recibe un objetco SimpleChanges con el valor actual y el valor anterior.
-Es llamado antes de ngOnInit() y cuando uno o más @Input variables cambie.
+Es llamado antes de ngOnInit() y cuando una o más variables @Input cambie.
 - **ngOnInit():**	
-Initialize the directive/component after Angular first displays the data-bound properties and sets the directive/component's input properties.
-Called once, after the first ngOnChanges().
+Es llamado una única vez, después del primer ngOnChanges() cuando Angular ha renderizado las propiedades bindeadas y ha seteado las propiedades decoradas con @Input. En este momento es cuando se puede dar por **inicializado** el componente/directiva.
 - **ngDoCheck():**
-Para checkear cambios que Angular no sea capaz de detectar por sí mismo. Es llamado después de cada ngOnChanges() y ngOnInit().
+Es llamado durante cada ciclo de detección de cambios, después de cada ngOnChanges() y después de ngOnInit(). Puede servir para gestionar cambios que Angular no sea capaz de tratar por sí mismo.
 - **ngAfterContentInit():**
 Es llamado después de que Angular proyecte el contenido externo dentro de la vista del componente. Es llamado después del primer ngDoCheck().
 Sólo disponible para componentes.
@@ -37,6 +36,43 @@ Es llamado después de ngAfterViewInit y de cada ngAfterContentChecked().
 Sólo disponible para componentes.
 - **ngOnDestroy():**
 Es llamado usto antes de que Angular destruya el componente. Se puede utilizar por ejemplo para desuscribirse de los observables.
+
+
+Ejercicio: Poner console.log() en todos los métodos del ciclo de vida de un componente y observar las llamadas en la consola.
+
+```ts
+ngOnInit() {
+  console.log('ngOnInit');
+}
+
+ngOnChanges() {
+  console.log('ngOnChanges');
+}
+
+ngDoCheck() {
+  console.log('ngDoCheck');
+}
+
+ngAfterContentInit() {
+  console.log('ngAfterContentInit');
+}
+
+ngAfterContentChecked() {
+  console.log('ngAfterContentChecked');
+}
+
+ngAfterViewInit() {
+  console.log('ngAfterViewInit');
+}
+
+ngAfterViewChecked() {
+  console.log('ngAfterViewChecked');
+}
+
+ngOnDestroy() {
+  console.log('ngOnDestroy');
+}
+```
 
 
 [Índice](index.md)
