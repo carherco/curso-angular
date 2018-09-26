@@ -115,6 +115,12 @@ Programar un servicio de autenticación AuthService con las siguientes especific
   - logOut(): boolean
   - isLogged(): boolean
 
+El servicio de login dará por válidas las credenciales "test" / "test" y por inválidas el resto de combinaciones de usuario y password. 
 
+Si las credenciales son válidas, se almacenará la información del login y del usuario en el *localstorage*.
+
+Programar además un componente loginComponent, que se mostrará cuando el usuario NO esté logueado y que permita al usuario hacer login.
+
+Programar un componente loggedComponent, que se mostrará cuando el usuario SÍ esté loguedado. Este componente mostrará el username del usuario y un botón para desloguearse.
 
 [Índice](index.md)
