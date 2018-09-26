@@ -10,7 +10,8 @@ import { map, retry } from 'rxjs/operators';
 export class HeroeService {
 
   private heroesUrl = 'https://jsonplaceholder.typicode.com/users';
-  //private heroesUrl2 = 'https://reqres.in/users';
+  //Url con filtro: https://jsonplaceholder.typicode.com/users?email=Sincere@april.biz
+  //private heroesUrl = 'https://reqres.in/users';
   constructor(private http: HttpClient) { }
 
   get(filter = ''): Observable<any> {

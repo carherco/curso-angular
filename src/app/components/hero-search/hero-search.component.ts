@@ -35,7 +35,7 @@ export class HeroSearchComponent implements OnInit {
        switchMap((x) => this.getHeroes(x))
        //.do(x => console.log('Después de .switchMap((x) => this.getHeroes(x))', x))
       )
-      .subscribe(heroes => this.heroes = heroes,
+      .subscribe(heroes => {this.heroes = heroes; console.log(heroes)},
                   error =>  this.errorMessage = <any>error
       )
 
