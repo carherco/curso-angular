@@ -323,4 +323,12 @@ let o1 = from([0,1,2,3,4,5,6,7,8,9]).pipe(
 ```
 
 
+## Ejercicio
+
+- Cambiar los métodos logIn y logOut de AuthService para que devuelvan un Observable que emita un booleano en lugar de devolver directamente un booleano.
+
+- Simular que el proceso de login tarda 1 segundo en comprobar la validez de las credenciales aplicando el operador **delay** al observable.
+
+
+
 [Índice](index.md)
