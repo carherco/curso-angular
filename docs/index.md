@@ -48,6 +48,7 @@ Bloque 4
 Bloque 5
  - Introducción a Ionic
  - Introducción a las PWA
+ - [Añadir librería JQuery a un proyecto Angular](jquery.md)
 
 Documentación oficial de Angular: https://angular.io/docs
 

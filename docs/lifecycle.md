@@ -38,7 +38,7 @@ Sólo disponible para componentes.
 Es llamado usto antes de que Angular destruya el componente. Se puede utilizar por ejemplo para desuscribirse de los observables.
 
 
-Ejercicio: Poner console.log() en todos los métodos del ciclo de vida de un componente y observar las llamadas en la consola.
+Ejercicio: Poner console.log() en todos los métodos del ciclo de vida de los componentes ParentComponent y ChildComponent y observar cuándo se ejecutan.
 
 ```ts
 ngOnInit() {
