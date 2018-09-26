@@ -10,14 +10,133 @@ Brevemente y yendo al grano: La programación reactiva trata de la programación
 
 ## Uso básico y terminología.
 
-Un *observable* es un objeto que publica datos y ofrece una función `subscribe()` que
-es utilizada para crear *observadores*. Cuando el observable tiene los datos listos
-para ser consumidos los pasa a los observadores subscritos a él para que los procesen.
-Todo el procedimiento es asíncrono, es decir, la obtención del stream de datos se 
-produce en un segundo plano. Solo cuando están listo se ejecutan las funciones 
-asociadas a los observadores.
+### Observables
+
+Un *observable* es un objeto que publica datos y ofrece una función `subscribe()` que es utilizada para poner *observadores* a *observar*. Cuando el observable tiene los datos listos para ser consumidos los pasa a los observadores subscritos a él para que los procesen.
+
+Todo el procedimiento es asíncrono, es decir, la obtención del stream de datos se produce en un segundo plano. Solo cuando están listo se ejecutan las funciones asociadas a los observadores.
 
 Los siguientes ejemplos ilustran y ayudan a coprender lo anterior.
+
+- Ejemplo: ObservablesComponent
+- Ejemplo: obtener usuarios con HttpClient
+
+
+### Observadores
+
+Luego creas de manera similar un Observador, ese es el elemento que mirará y reaccionara a los cambios que sucedan.
+
+```javascript
+  let observador = Rx.Observer.create(
+    function onNext(x) { console.log('Next: ' + x); }, 
+    function onError(err) { console.log('Error: ' + err); }, 
+    function onCompleted() { console.log('Completed'); } 
+  ); 
+```
+
+Aquí tenemos a nuestro Observador. Es un poco raro porque en realidad solo se trata de un objeto con tres métodos que dicen que hacer en el caso de que el Observable (nuestro array, una llamada http... en definitiva cualquier flujo de datos) cambie (onNext), emita un error (onError) o se complete el flujo, terminando su emisión (onCompleted). 
+
+Solamente es obligatoria la primera de las funciones. Las otras dos son opcionales.
+
+### Subscripción a observables
+
+Claro que todo esto no funcionará si no suscribimos a nuestro Observador a nuestro Observable y de esta forma el Observable comunique al Observador sus cambios.
+
+```javascript
+  let suscripcion = observable.suscribe(observador);
+```
+
+En cualquier momento, podemos desuscribir al observador.
+
+```javascript
+  suscripcion.unsuscribe();
+```
+
+En lugar de pasar un argumento con un objeto *Observer* al método subscribe() podemos pasarle un argumento con un objeto con tres funciones
+
+```javascript
+let suscripcion = observable.subscribe({
+  next(v){ /* procesamiento de v */},
+  error(e){ /* procesamiento de e */ },
+  complete(){/* completado el observable */}
+  },
+})
+```
+
+O tres argumentos con las tres funciones:
+
+```javascript
+let suscripcion = observable.subscribe(
+  v => { /* procesamiento de v */}
+  e => { /* procesamiento del error */},
+  () => { /* completado*/ }
+)
+```
+
+Como un observador solamente está obligado a tener la primera función, nos encontraremos muy frecuentemente llamadas al método subscribe pasando únicamente un argumento con la función next().
+
+```javascript
+let suscripcion = observable.subscribe(v => { /* ... */})
+```
+  
+Ya tenemos la base de la programación reactiva.
+
+
+### Observables caliente vs. observables fríos
+
+
+#### Observables fríos
+
+  - Una instancia por cada subscripción.
+  - El observable empieza en el momento de la subscripción. 
+  - Desuscribirse del observable para liberar memoria.
+ 	 
+#### Observables calientes
+ 	 
+Un hot observable empieza a su emisión cuando se invoca su método connect():
+  
+```javascript
+  const obsv = new Observable( o => {...});
+  ...
+  obsv.connect();
+```
+  
+Pero los observables que creamos nosotros con los métodos de construcción de observables (new, create, from, of...) construyen observables fríos.
+  
+Para convertir un obserbable frío en caliente basta con invocar el método publish();
+ 	 
+```javascript
+  const obsv = new Observable( o => {...}).publish();
+  ...
+  obsv.connect();
+```
+  
+Los suscriptores pueden suscribirse y desuscribirse sin problemas antes de invocar al connect() o depués de invocar a connect().
+  
+Es como llegar a un concierto con antelación para coger un buen sitio, o llegar tarde y perderte parte del concierto. Pero el concierto no espera a los asistentes.	 Es como llegar a un concierto con antelación para coger un buen sitio, o llegar tarde y perderte parte del concierto. Pero el concierto no espera a los asistentes.
+  
+  
+http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html	 
+http://rxmarbles.com/
+
+### Operadores
+
+La verdadera potencia de los Observables es que los valores que producen pueden ser transformados mediante operadores reactivos que operan sobre los data stream. Estos operadores son **funciones puras** que posibilitan un estilo de programación funcional sin efectos colaterales con operaciones como map, filter, concat, etc.
+
+## Los observables en Angular
+
+Angular utilizar los observables de la librería RxJs para el tratamiento
+de varias operaciones asíncronas.
+
+- EventEmiter en la comunicación desde el componente hijo al padre (@Output)
+- HttpClient
+- Async Pipe, que se subscribe a un observable y va actualizando el valor en 
+  la plantilla a medida que le llegan datos.
+- Router events
+- Formularios reactivos
+
+
+## Ejemplos
 
 ### Creación de observables
 
@@ -72,107 +191,17 @@ let o1 = Observable.create((observer) => {
           }else{
             observer.next('Hola caracola ' + n)
           }
-          
         }, 1000)
     })
   ```
 
-  Esta última manera nos permite crear un observable a partir de cualquier cosa que 
-  se nos ocurra. La función `create()` tiene como argumento una función de callback 
-  cuyo argumento es el `observer` que se haya suscrito a ella. Todo lo que tenemos que
-  hacer es usar los métodos del `observer` (`next`, `error`, `complete`) para pasarle
-  los datos que deseemos.
+Esta última manera nos permite crear un observable a partir de cualquier cosa que se nos ocurra. La función `create()` tiene como argumento una función de callback cuyo argumento es el `observer` que se haya suscrito a ella. Todo lo que tenemos que hacer es usar los métodos del `observer` (`next`, `error`, `complete`) para pasarle los datos que deseemos.
   
-  ### Observadores
-  
-  Luego creas de manera similar un Observador, ese es el elemento que mirará y reaccionara a los cambios que sucedan. 
-
-```javascript
-  let observador = Rx.Observer.create(
-    function onNext(x) { console.log('Next: ' + x); }, 
-    function onError(err) { console.log('Error: ' + err); }, 
-    function onCompleted() { console.log('Completed'); } 
-  ); 
-```
-
-Aquí tenemos a nuestro Observador. Es un poco raro porque en realidad solo se trata de un objeto con tres métodos que dicen que hacer en el caso de que el Observable (nuestro array, una llamada http... en definitiva cualquier flujo de datos) cambie (onNext), emita un error (onError) o se complete el flujo, terminando su emisión (onCompleted). 
-
-Claro que todo esto no funcionará si no suscribimos a nuestro Observador a nuestro Observable y de esta forma el Observable comunique al Observador sus cambios.
-
-```javascript
-  let suscripcion = observable.suscribe(observador);
-```
-
-En cualquier momento, podemos desuscribir al observador.
-
-```javascript
-  suscripcion.unsuscribe();
-```
-
-Ya tenemos la base de la programación reactiva.
-
-  Hasta aquí solo hemos **declarado** observables. Esto es importante, los observables se definen declarativamente, lo que significa que **no se ejecutan** en el momento
-  de definirlos. La ejecución se lleva a cabo solo cuando se realiza una subscripción.
-  Este comportamiento, denominado "cold observable", se puede cambiar usando el método
-  `publish` del observable, convirtiendolo en un "hot observable", que comienza a 
-  ejecutarse en el momento en que se declara. El problema es que los subscriptores que
-  se enganchen a un hot observable pueden no pillar todos los datos emitidos por dicho
-  observable. Todo depende del momento en que realicen la subscripción.
-
-  ### Subscripción a observables
-
-  Siempre se hace de la misma manera, se haya declarado el observable de la manera que
-  sea:
-
-  ```javascript
-  let suscripcion = observable.subscribe({
-    next(v){ /* procesamiento de v */},
-    error(e){ /* procesamiento de e */ },
-    complete(){/* completado el observable */}
-    },
-  })
-  ```
-  Cada vez que llegue un nuevo valor desde el observable se ejecutará `next()`, si 
-  hay un error se ejecutará `error()` y cuando el observable ya no tenga más datos se
-  ejecutará `complete()`.
-
-  Si se recibe un error el observable libera la subscripción y deja de producir valores.
-
-  También se puede realizar una subscripción más sencilla si no se requiere `error` o 
-  `complete`.
-
-  ```javascript
-  let suscripcion = observable.subscribe(v => { /* procesamiento de v */})
-  ```
-  
-  O también:
-  
-  ```javascript
-  let suscripcion = observable.subscribe(
-    v => { /* procesamiento de v */}
-    e => { /* procesamiento del error */},
-    () => { /* completado*/ }
-  )
-  ```
-
-### Observables caliente vs. observables fríos
-
-Un observable caliente empieza a emitir items tan pronto como es creado. Si un observador se suscribe a mitad de secuencia, se habrá perdido parte de la emisión.
-
-Un observable frío espera a que un observador se suscriba antes de empezar a emitir items. Garantizan que el observador verá toda la secuencia completa.
-
-Es importante saber que, por defecto, un observable es frío, es decir, crea una ejecución nueva e 
-independiente por cada observador subscrito. Este comportamiento puede cambiarse
-mediante tecnicas de [multicasting](https://angular.io/guide/observables#multicasting)
+Hasta aquí solo hemos **declarado** observables. Esto es importante, los observables se definen declarativamente, lo que significa que **no se ejecutan** en el momento de definirlos.
 
 ### Operadores
 
-Una de las ventajas de usar Observables es que los valores que producen pueden ser
-transformados mediante operadores reactivos que operan sobre los data stream. Estos
-operadores son **funciones puras** que posibilitan un estilo de programación funcional
-sin efectos colaterales con operaciones como map, filter, concat, etc.
-
-Veamos algunos ejemplos.
+Veamos algunos ejemplos:
 
 Comenzamos con uno muy sencillo. Vamos a crear un observable a partir de un array
 con los números del 0 al 9. Y comenzamos convirtiendo los valores en sus cuadrados:
@@ -185,11 +214,7 @@ let o1 = from([1,2,3,4,5,6,7,8,9]).pipe(
     )
 ```
 
-Las tranformaciones de los operadores se hacen a través de una `pipe`, la cual es 
-una función que tiene un número ilimitado de argumentos, cada uno de los cuales es
-un operador reactivo que actúa sobre los valores que va generando el observable. La
-salida de cada uno de estos operadores es la entrada del siguiente operador y la salida
-final constituye el data stream que se pasará a los observadores subscritos.
+Las tranformaciones de los operadores se hacen a través de una `pipe`, la cual es una función que tiene un número ilimitado de argumentos, cada uno de los cuales es un operador reactivo que actúa sobre los valores que va generando el observable. La salida de cada uno de estos operadores es la entrada del siguiente operador y la salida final constituye el data stream que se pasará a los observadores subscritos.
 
 La siguiente suscripción mostraría en consola los cuadrados de los 10 primeros números:
 
@@ -208,8 +233,7 @@ let o1 = from([1,2,3,4,5,6,7,8,9]).pipe(
     )
 ```
 
-Vamos a por otro ejemplo más interesante. Recordemos el observable creado a partir 
-de un evento del DOM que hemos puesto más arriba:
+Vamos a por otro ejemplo más interesante. Recordemos el observable creado a partir de un evento del DOM que hemos puesto más arriba:
 
 ```javascript
 import { fromEvent } from "rxjs";
@@ -229,9 +253,7 @@ let o1 = fromEvent(document.getElementById('box'), "mousemove").pipe(
 ```
 
 Y ahora vamos a ir un poco más allá. Supongamos que solo nos interesa conocer
-la posición del ratón cuando este se encuentra en una zona determinada del elemento
-HTML, por ejemplo en el cuarto inferior derecho. Podemos aplicar un nuevo operador
-`filter` sobre el resultado anterior.
+la posición del ratón cuando este se encuentra en una zona determinada del elemento HTML, por ejemplo en el cuarto inferior derecho. Podemos aplicar un nuevo operador `filter` sobre el resultado anterior.
 
 ```javascript
   let o1 = fromEvent(document.getElementById('box'), "mousemove").pipe(
@@ -299,16 +321,6 @@ let o1 = from([0,1,2,3,4,5,6,7,8,9]).pipe(
       catchError(err => of("cambio el 5 por este mensaje"))
     )
 ```
-## Los observables en Angular
 
-Angular utilizar los observables de la librería RxJs para el tratamiento
-de varias operaciones asíncronas.
-
-- EventEmiter en la comunicación desde el componente hijo al padre (@Output)
-- HttpClient
-- Async Pipe, que se subscribe a un observable y va actualizando el valor en 
-  la plantilla a medida que le llegan datos.
-- Router events
-- Formularios reactivos
 
 [Índice](index.md)

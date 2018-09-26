@@ -191,32 +191,6 @@ Si el proyecto está configurado para trabajar con .scss, .less o .styl, aplican
 
 En el proceso de compilación, angular compilará las CSS automáticamente.
 
-## Shadow DOM
-
-Angular es un framework web orientado a componentes. Existe una especificación oficial del consorcio W3 denominada Web Components (https://www.w3.org/TR/components-intro/) y angular utiliza el mismo concepto para sus componente. Incluso se pueden exportar los componentes de angular como elementos de web components (https://medium.com/vincent-ogloblinsky/export-angular-components-as-custom-elements-with-angular-elements-a2a0bfcd7f8a)
-
-Shadow DOM forma parte de la especificación Web Components. Es una forma de establecer contornos funcionales entre distintos árboles DOM. Proporciona una encapsulación del DOM dentro del DOM. Con Shadow DOM se consigue una encapsulación verdadera con componentes scoped, es decir cada componente define su propio DOM de manera que, por ejemplo, las clases CSS’s y el código javascript que se defina en un componente  afecta sólo a dicho componente.
-
-Los componentes de angular se comportan según este principio. Como no todos los navegadores soportan aún la especificación Web Components y Shadow DOM, por defecto angular realiza la encapsulación de los componentes mediante emulación. No obstante se puede indicar explícitamente que se use Shadow DOM nativo.
-
-```javascript
-
-@Component({
- selector: 'app-naranja',
- encapsulation: ViewEncapsulation.Native,
- templateUrl: './naranja.component.html',
- styleUrls: ['./naranja.component.css']
-})
-```
-
-El siguiente artículo explica bastante bien el concepto de shadow dom.
-
-https://toddmotto.com/web-components-concepts-shadow-dom-imports-templates-custom-elements/
-
-Y este otro la relación de shadow dom com angular >2.
-
-https://toddmotto.com/emulated-native-shadow-dom-angular-2-view-encapsulation
-
 
 
 [Índice](index.md)

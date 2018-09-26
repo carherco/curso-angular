@@ -62,4 +62,59 @@ constructor(private heroService: MockHeroService) { }
 ```
 
 
+## Provisión de servicios en Angular 6
+
+En Angular 6 exisite una propiedad nueva **providedIn** en los metadatos del decorador @Injectable:
+
+```ts
+import { Injectable } from '@angular/core';
+import { UserModule } from './user.module';
+
+@Injectable({
+  providedIn: UserModule,
+})
+export class UserService {
+}
+```
+
+Esta propiedad es una alternativa a incluir el servicio en la propiedad **providers** del módulo deseado:
+
+```ts
+import { NgModule } from '@angular/core';
+
+import { UserService } from './user.service';
+
+@NgModule({
+  providers: [UserService],
+})
+export class UserModule {
+}
+```
+
+Por defecto, angular provee lo servicios en **root** que equivale a estar provisto en el módulo raíz.
+
+```ts
+import { Injectable } from '@angular/core';
+import { UserModule } from './user.module';
+
+@Injectable({
+  providedIn: root,
+})
+export class UserService {
+}
+```
+
+
+
+## Ejercicio
+
+Programar un servicio de autenticación AuthService con las siguientes especificaciones:
+
+- 3 métodos:
+  - logIn(username: string, password: string): boolean
+  - logOut(): boolean
+  - isLogged(): boolean
+
+
+
 [Índice](index.md)

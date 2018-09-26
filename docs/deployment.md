@@ -18,22 +18,69 @@ Podemos crear builds del entorno de desarrollo o del entorno de producción:
 
 ```
 # Estas son equivalentes
-ng build --target=production --environment=prod
-ng build --prod --env=prod
+ng build --configuration=production
+ng build --c=production
 ng build --prod
 
 # y estas también
-ng build --target=development --environment=dev
-ng build --dev --e=dev
-ng build --dev
 ng build
 ```
 
 Podemos crear otros entornos siguiendo estos 2 pasos:
 
-- Crear un fichero: src/environments/environment.NAME.ts
+1) Crear un fichero: src/environments/environment.test.ts
 
-- Añadir { "NAME": 'src/environments/environment.NAME.ts' } al objeto apps[0].environments en .angular-cli.json
+2) Añadir una entrada nueva en la sección **configurations** del fichero angular.json
+
+```json
+"configurations": {
+  "production": {
+    "fileReplacements": [
+      {
+        "replace": "src/environments/environment.ts",
+        "with": "src/environments/environment.prod.ts"
+      }
+    ],
+    "optimization": true,
+    "outputHashing": "all",
+    "sourceMap": false,
+    "extractCss": true,
+    "namedChunks": false,
+    "aot": true,
+    "extractLicenses": true,
+    "vendorChunk": false,
+    "buildOptimizer": true
+  },
+  "test": {
+    "fileReplacements": [
+      {
+        "replace": "src/environments/environment.ts",
+        "with": "src/environments/environment.test.ts"
+      }
+    ]
+  }
+}
+```
+
+Este cambio afecta únicamente al comando *ng build*. Si queremos tener el entorno también en *ng serve*, tenemos que modificar la sección **serve**.
+
+```json
+"serve": {
+  "builder": "@angular-devkit/build-angular:dev-server",
+  "options": {
+    "browserTarget": "ng-configuration:build"
+  },
+  "configurations": {
+    "production": {
+      "browserTarget": "ng-configuration:build:production"
+    },
+    "test": {
+      "browserTarget": "ng-configuration:build:test"
+    }
+  }
+},
+```
+
 
 Y ya podemos usar el nuevo entorno con nuestros comandos *ng build* y *ng serve*.
 

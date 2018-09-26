@@ -57,9 +57,26 @@ http.delete('http://la.url/4', httpOptions)
 
 En  lugar de usar `HttpClient` directamente en un componente, es aconsejable crear un servicio
 que dependa de `HttpClient` para realizar las operaciones sobre la API y usarlo en el 
-componente que lo requiera. La idea, como siempre, es ocultar los detalles de implementación 
-que pueden llegar a ser muy farragosos en el servicio, y construir componentes fáciles de leer
+componente que lo requiera. La idea, como siempre, es ocultar en el servicio los detalles de implementación, 
+que pueden llegar a ser muy farragosos, y construir componentes fáciles de leer
 y mantener. Además se gana en reutilización.
+
+## Ejercicio: 
+
+Programar un CRUD de usuarios con las siguientes especificaciones:
+
+- Una clase User con la definición de nuestro modelo
+- Un componente para el listado: UserList
+- Un componente para editar usuarios: UserEdit
+- Un componente para añadir usuarios: UserAdd
+- Un servicio UserService con los métodos:
+  - getAll()
+  - getOne(id: number)
+  - edit(id: number, user: User)
+  - add(user: User)
+  - delete(id: number)
+
+- Los componetes NO utilizarán directamente el servicio HttpClient
 
 
 [Índice](index.md)

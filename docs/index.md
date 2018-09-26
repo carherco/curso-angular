@@ -1,52 +1,58 @@
 # Índice del curso
 
+Bloque 1
  - [Introducción](introduccion.md)
  - [Introducción a ES6 y typescript](typescript.md)
  - [Instalación](instalacion.md)
  - [Estructura de un proyecto angular](estructura-proyecto.md)
- - [Arquitectura](arquitectura.md)
  - [Módulos](modules.md)
  - [Componentes](components.md)
  - [Sintaxis de plantillas y data binding](data-binding.md)
- - [Ejercicio 1](ejercicio_1.md)
  - [Directivas](directives.md)
  - [Pipes](pipes.md)
- - [Ejercicio 2](ejercicio_2.md)
- - [Ejemplo de CRUD simple](ejemplo-crud-basico.md)
+ - Ejemplo: Galería de fotos
+ - [Ejercicio: CRUD simple](ejemplo-crud-basico.md)
+
+Bloque 2
  - [Paso de variables entre componentes](input-binding.md)
- - [Ejercicio 3](ejercicio_3.md)
  - [Servicios](services.md)
  - [Inyección de dependencias](inyeccion-dependencias.md)
- - [Ejercicio 4](ejercicio_4.md)
- - [Observables](observables.md)
- - [HttpClient](httpclient.md)
- - [Ejercicio 5](ejercicio_5.md)
- - [Enrutamiento](routing.md)
+ - [El servicio HTTP](httpclient.md)
  - [Template Reference Variables](template-reference-variables.md)
  - [Formularios template-driven](forms-template-driven.md)
+ - [Observables (RxJS)](observables.md)
+ - [Enrutamiento](routing.md)
  - [Guards](guards.md)
  - [Formularios model-driven](forms-model-driven.md)
  - [Ejemplo de CRUD con API REST](ejemplo-crud-completo.md)
 
- ## Contenidos extra
- 
+Bloque 3
+ - [Dynamic Component Loading](dynamic-components.md)
+ - [Ciclo de vida de un componente](lifecycle.md)
+ - [Detección de cambios]
+ - Stores, actions y reducers
+ - Effects
+ - Librería NgRx
+ - Ejercicio: CRUD con API REST, pantalla de login y menú utilizando el patrón Redux en toda la
+aplicación.
+
+Bloque 4
+ - [Angular Material](angular-material.md)
  - [Testeo con Karma](testing.md)
  - [Testeo con Protractor](testing-e2e.md)
- - [Angular Material](angular-material.md)
- - [Angular IDEs](ides.md)
- - [Ciclo de vida de un componente](lifecycle.md)
  - [Separar app en Módulos y Lazy loading](lazy-loading.md)
  - [Deployment](deployment.md)
  - [Angular CLI](angular-cli.md)
- - [Actualización de la versión de Angular](https://angular-update-guide.firebaseapp.com/)
+ - [Server Side Rendering]()
+
+Bloque 5
  - Introducción a Ionic
+ - Introducción a las PWA
 
 Documentación oficial de Angular: https://angular.io/docs
 
 Mis datos de contacto:
  - Email: carherco@gmail.com
 
-Colaboradores en la elaboración del curso:
+Con la colaboración de:
  - Juanda Rodríguez (juanda@juandarodriguez.com)
-
-[Índice](index.md)
