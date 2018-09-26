@@ -62,6 +62,12 @@ Tampoco son válidos en expresiones de plantilla de angular los operadores | y &
 
 Por otro lado, angular tiene algunos operadores que no existen en JavaScript/TypeScript: |, ?, y !.
 
+Las expresiones en las plantillas pueden crear una gran aplicación, o romperla. LAs recomendaciones para generar expresiones son:
+  - No provoquen efectos colaterales
+  - Rápidas de evaluar
+  - Simples
+  - Idempotentes
+
 ## One way data binding (de la template al componente)
 
 Se utiliza para:
@@ -97,28 +103,17 @@ variable persona.nombre, no se actualiza su valor interpolado.
 
 ```jinja+html
   <input  [value]="persona.nombre"/>
-
-<p>{{persona.nombre}}</p>
+  <p>{{persona.nombre}}</p>
 ```
 
 Una solución para que también se actualize la variable interpolada sería la siguiente:
 
 ```jinja+html
-  <input  [value]="persona.nombre" (keyup)="updateInput($event.target.value)"/>
-
-<p>{{persona.nombre}}</p>
+  <input [value]="persona.nombre" (keyup)="persona.nombre = $event.target.value"/>
+  <p>{{persona.nombre}}</p>
 ```
 
-Y en el componente añadimos la función `updateInput()`:
-
-```typescript
-   updateInput(value){
-    this.persona.nombre = value
-  }
-```
-
-Pero, como puedes comprobar, es bastanye engorroso. Por ello Angular incorpora 
-la vinculación de datos en los dos sentidos (two way data binding)
+Pero, esta operación en doble sentido (two-way binding) es muy frecuente, angular tiene una forma más sencilla de realizarlo.
 
 ## Two way data binding
 
@@ -129,13 +124,20 @@ Se utiliza en formularios template-driven
   <input bindon-ngModel="variable" />
 ```
 
-Nota: Para utilizar _ngModel_ necesitamos importar FormsModule.
-
 [()] es una "abreviatura" de:
 
 ```jinja+html
-  <input [ngModel]="variable" (ngModel)="variable=$event"/>
+  <input [ngModel]="variable" (ngModel)="variable=$event.target.value"/>
 ```
+
+que internamente equivaldría más o menos a:
+
+```jinja+html
+  <input [value]="variable" (keyup)="variable=$event.target.value"/>
+```
+
+
+Nota: Para utilizar _ngModel_ necesitamos importar FormsModule.
 
 ```typescript
 //src/app/app.moudle.ts

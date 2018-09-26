@@ -47,7 +47,7 @@ El template, los metadatos y el compenente, en conjunto, describen una **vista**
 
 En el siguiente enlace, se puede consultar la lista de todas las propiedades de @Component:
 
-[Propiedades de @Component](https://angular.io/api/core/Directive)
+[Propiedades de @Component](https://angular.io/api/core/Component)
 
 
 

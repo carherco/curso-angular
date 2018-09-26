@@ -1,6 +1,6 @@
 # Angular Material
 
-Requiere la versión 5.1.1 de Angular.
+Requiere al menos la versión 5.1.1 de Angular.
 
 1) Instalar @angular/material y @angular/cdk
 
@@ -31,5 +31,14 @@ import 'hammerjs';
 ```html
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 ```
+
+
+
+## Ejercicios:
+
+1) Poner Angular Material en el componente GaleriaComponent.
+
+2) Poner Angular Material en algún CRUD.
+
 
 https://material.angular.io/components/categories
