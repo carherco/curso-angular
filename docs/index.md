@@ -1,6 +1,5 @@
 # Índice del curso
 
-Bloque 1
  - [Introducción](introduccion.md)
  - [Introducción a ES6 y typescript](typescript.md)
  - [Instalación](instalacion.md)
@@ -12,31 +11,27 @@ Bloque 1
  - [Pipes](pipes.md)
  - Ejemplo: Galería de fotos
  - [Ejercicio: CRUD simple](ejemplo-crud-basico.md)
-
-Bloque 2
  - [Paso de variables entre componentes](input-binding.md)
  - [Servicios](services.md)
  - [Inyección de dependencias](inyeccion-dependencias.md)
- - [El servicio HTTP](httpclient.md)
  - [Template Reference Variables](template-reference-variables.md)
  - [Formularios template-driven](forms-template-driven.md)
  - [Observables (RxJS)](observables.md)
+ - [El servicio HTTP](httpclient.md)
  - [Enrutamiento](routing.md)
  - [Guards](guards.md)
  - [Formularios model-driven](forms-model-driven.md)
  - [Ejemplo de CRUD con API REST](ejemplo-crud-completo.md)
 
-Bloque 3
  - [Dynamic Component Loading](dynamic-components.md)
  - [Ciclo de vida de un componente](lifecycle.md)
- - [Detección de cambios]
- - Stores, actions y reducers
- - Effects
- - Librería NgRx
+ - [Detección de cambios](deteccion-cambios.md)
+ - [Patrón redux: Stores, actions y reducers](redux.md)
+ - [Patrón redux: Librería NgRx]
+ - [Patrón redux: Effects]
  - Ejercicio: CRUD con API REST, pantalla de login y menú utilizando el patrón Redux en toda la
 aplicación.
 
-Bloque 4
  - [Angular Material](angular-material.md)
  - [Testeo con Karma](testing.md)
  - [Testeo con Protractor](testing-e2e.md)
@@ -44,8 +39,6 @@ Bloque 4
  - [Deployment](deployment.md)
  - [Angular CLI](angular-cli.md)
  - [Server Side Rendering]()
-
-Bloque 5
  - Introducción a Ionic
  - Introducción a las PWA
  - [Añadir librería JQuery a un proyecto Angular](jquery.md)
