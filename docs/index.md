@@ -26,6 +26,7 @@
  - [Dynamic Component Loading](dynamic-components.md)
  - [Ciclo de vida de un componente](lifecycle.md)
  - [Detección de cambios](deteccion-cambios.md)
+ - [Subjects](subjects.md)
  - [Patrón redux: Stores, actions y reducers](redux.md)
  - [Patrón redux: Librería NgRx]
  - [Patrón redux: Effects]

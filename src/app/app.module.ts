@@ -45,6 +45,7 @@ import { CalculadoraComponent } from './components/calculadora/calculadora.compo
 import { RotateDirective } from './directives/rotate.directive';
 import { RotateComponent } from './components/rotate/rotate.component';
 import { CronoComponent } from './components/crono/crono.component';
+import { AnimationComponent } from './components/animation/animation.component';
 
 @NgModule({
   declarations: [
@@ -71,7 +72,8 @@ import { CronoComponent } from './components/crono/crono.component';
     NavComponent,
     RotateDirective,
     RotateComponent,
-    CronoComponent
+    CronoComponent,
+    AnimationComponent
   ],
   imports: [
     BrowserModule,

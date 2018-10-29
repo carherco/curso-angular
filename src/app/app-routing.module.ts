@@ -22,6 +22,7 @@ import { PipesComponent } from './components/pipes/pipes.component';
 import { ColdObservablesComponent } from './components/cold-observables/cold-observables.component';
 import { RotateComponent } from './components/rotate/rotate.component';
 import { CronoComponent } from './components/crono/crono.component';
+import { AnimationComponent } from 'app/components/animation/animation.component';
 
 
 const appRoutes: Routes = [
@@ -50,6 +51,7 @@ const appRoutes: Routes = [
       { path: 'fractal', loadChildren: 'app/fractal/fractal.module#FractalModule'},
       { path: 'rotate', component: RotateComponent },
       { path: 'crono', component: CronoComponent },
+      { path: 'animation', component: AnimationComponent },
       { path: 'lazy1', loadChildren: 'app/lazy1/lazy1.module#Lazy1Module'},
       { path: 'lazy2', loadChildren: 'app/lazy2/lazy2.module#Lazy2Module'},
      // { path: 'lazy3', loadChildren: 'app/lazy3/lazy3.module#Lazy3Module', data: {preload: true}},
