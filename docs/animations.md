@@ -21,7 +21,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 export class AppModule { }
 ```
 
-
 ## Incluir animaciones en un componente
 
 Las animaciones se configuran en la propiedad **animations** de los metadatos del componente.
@@ -67,6 +66,49 @@ transition('open => closed', [
 transition('closed => open', [
   animate('0.5s')
 ]),
+```
+
+Se puede utilizar el wildcard * al denifir transiciones
+
+```ts
+transition('* => closed', [
+  animate('1s')
+]),
+transition('* => open', [
+  animate('0.5s')
+]),
+transition('* => *', [
+  animate('1.5s')
+]),
+```
+
+```ts
+transition('open <=> closed', [
+  animate('0.5s')
+]),
+```
+
+También admiten sintaxis de flecha doble para indicar bidireccionalidad.
+
+Las transiciones son 'matcheadas' en el orden en el que se hayan definido.
+
+### El estado void
+
+Se pueden combinar wildcards con estados *void*. Los estdos void indicar transiciones al entrar y al salir de la página.
+
+- La transición * => void aplica cuando el elemento deja la vista.
+
+- La transición void => * aplica cuando el elemento entra en la vista.
+
+- El estado *void* se incluye en el wildcard *
+
+### :enter y :leave
+
+:enter y :leave son alias de void => * y * => void respectivamente
+
+```ts
+transition ( ':enter', [ ... ] );  // alias for void => *
+transition ( ':leave', [ ... ] );  // alias for * => void
 ```
 
 ### La función animate()
@@ -117,13 +159,13 @@ https://easings.net/es
 
 Las animaciones se asocian a elementos de la plantilla con la directiva **@triggerName**.
 
-```ts
+```html
 <div [@triggerName]="state">...</div>;
 ```
 
 Con esta directiva asociamos un estado al elemento. Si el estado cambia, se dispara la transición correspondiente.
 
-```ts
+```html
 <div [@openClose]="isOpen ? 'open' : 'closed'">
   <p>The box is now {{ isOpen ? 'Open' : 'Closed' }}!</p>
 </div>
@@ -131,7 +173,7 @@ Con esta directiva asociamos un estado al elemento. Si el estado cambia, se disp
 
 Podemos poner un botón que cambie el valor de *isOpen*.
 
-```ts
+```html
 <div [@openClose]="isOpen ? 'open' : 'closed'">
   <p>The box is now {{ isOpen ? 'Open' : 'Closed' }}!</p>
 </div>
@@ -182,6 +224,95 @@ export class OpenCloseComponent {
 }
 ```
 
+## Animation callbacks
 
+The animation trigger() function emits callbacks when it starts and when it finishes. In the example below we have a component that contains an openClose trigger.
 
+```html
+<div [@openClose]="isOpen ? 'open' : 'closed'"
+    (@openClose.start)="onAnimationEvent($event)"
+    (@openClose.done)="onAnimationEvent($event)"
+    class="open-close-container">
+</div>
+```
 
+## Keyframes
+
+Los Keyframes permiten realiar varios cambios de estilo en la misma transición.
+
+```ts
+transition('* => active', [
+  animate('2s', keyframes([
+    style({ backgroundColor: 'blue' }),
+    style({ backgroundColor: 'red' }),
+    style({ backgroundColor: 'orange' })
+  ]))
+])
+```
+
+En los keyframes se pueden definir offsets
+
+```ts
+transition('* => active', [
+  animate('2s', keyframes([
+    style({ backgroundColor: 'blue', offset: 0}),
+    style({ backgroundColor: 'red', offset: 0.8}),
+    style({ backgroundColor: 'orange', offset: 1.0})
+  ])),
+]),
+transition('* => inactive', [
+  animate('2s', keyframes([
+    style({ backgroundColor: 'orange', offset: 0}),
+    style({ backgroundColor: 'red', offset: 0.2}),
+    style({ backgroundColor: 'blue', offset: 1.0})
+  ]))
+]),
+```
+
+## Animaciones reutilizables
+
+Para definir una animación reutilizable, se utiliza la función **animation()** y se define la animación en un fichero .ts separado.
+
+```ts
+import {
+  animation, trigger, animateChild, group,
+  transition, animate, style, query
+} from '@angular/animations';
+
+export const transAnimation = animation([
+  style({
+    height: '{{ height }}',
+    opacity: '{{ opacity }}',
+    backgroundColor: '{{ backgroundColor }}'
+  }),
+  animate('{{ time }}')
+]);
+```
+
+Se puede utilizar ahora la animación en cualquier componente con la función useAnimation().
+
+```ts
+import { Component } from '@angular/core';
+import { useAnimation, transition, trigger, style, animate } from '@angular/animations';
+import { transAnimation } from './animations';
+
+@Component({
+    trigger('openClose', [
+      transition('open => closed', [
+        useAnimation(transAnimation, {
+          params: {
+            height: 0,
+            opacity: 1,
+            backgroundColor: 'red',
+            time: '1s'
+          }
+        })
+      ])
+    ])
+  ],
+})
+```
+
+## Animaciones de routing
+
+https://angular.io/guide/route-animations
