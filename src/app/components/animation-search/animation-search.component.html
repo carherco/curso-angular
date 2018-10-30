@@ -1,0 +1,13 @@
+<h3>Búsqueda de héroes con animación</h3>
+
+<label for="search">Búsqueda por email</label>
+<input type="text" id="search" #email >
+{{heroTotal}}
+
+<table class="table" [@filterAnimation]="heroTotal">
+  <tr *ngFor="let hero of heroes">
+    <td>{{hero.name}}</td>
+    <td>{{hero?.email}}</td>
+    <td>{{hero?.phone}}</td>
+  </tr>
+</table>

@@ -5,5 +5,8 @@
 
 export const environment = {
   production: false,
-  api_url: 'https://reqres.in/api/'
+  //api_url: 'https://reqres.in/api',
+  api_url: 'https://jsonplaceholder.typicode.com'
+  //Url con filtro: https://jsonplaceholder.typicode.com/users?email=Sincere@april.biz
+  //private heroesUrl = 'https://reqres.in/users';
 };

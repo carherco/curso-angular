@@ -1,3 +1,4 @@
+import { AnimationQueryStagerComponent } from './components/animation-query-stager/animation-query-stager.component';
 import { CrudBasicoComponent } from './components/crud-basico/crud-basico.component';
 import { CalculadoraComponent } from './components/calculadora/calculadora.component';
 import { NgModule } from '@angular/core';
@@ -23,6 +24,7 @@ import { ColdObservablesComponent } from './components/cold-observables/cold-obs
 import { RotateComponent } from './components/rotate/rotate.component';
 import { CronoComponent } from './components/crono/crono.component';
 import { AnimationComponent } from 'app/components/animation/animation.component';
+import { AnimationSearchComponent } from 'app/components/animation-search/animation-search.component';
 
 
 const appRoutes: Routes = [
@@ -52,6 +54,8 @@ const appRoutes: Routes = [
       { path: 'rotate', component: RotateComponent },
       { path: 'crono', component: CronoComponent },
       { path: 'animation', component: AnimationComponent },
+      { path: 'animation2', component: AnimationQueryStagerComponent },
+      { path: 'animation-search', component: AnimationSearchComponent },
       { path: 'lazy1', loadChildren: 'app/lazy1/lazy1.module#Lazy1Module'},
       { path: 'lazy2', loadChildren: 'app/lazy2/lazy2.module#Lazy2Module'},
      // { path: 'lazy3', loadChildren: 'app/lazy3/lazy3.module#Lazy3Module', data: {preload: true}},

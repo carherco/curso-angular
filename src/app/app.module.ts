@@ -46,6 +46,8 @@ import { RotateDirective } from './directives/rotate.directive';
 import { RotateComponent } from './components/rotate/rotate.component';
 import { CronoComponent } from './components/crono/crono.component';
 import { AnimationComponent } from './components/animation/animation.component';
+import { AnimationQueryStagerComponent } from './components/animation-query-stager/animation-query-stager.component';
+import { AnimationSearchComponent } from './components/animation-search/animation-search.component';
 
 @NgModule({
   declarations: [
@@ -73,7 +75,9 @@ import { AnimationComponent } from './components/animation/animation.component';
     RotateDirective,
     RotateComponent,
     CronoComponent,
-    AnimationComponent
+    AnimationComponent,
+    AnimationQueryStagerComponent,
+    AnimationSearchComponent
   ],
   imports: [
     BrowserModule,

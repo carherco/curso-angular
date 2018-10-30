@@ -70,6 +70,7 @@ it("and can have a negative case", function() {
 ```
 
 Los matchers disponibles son:
+
 - toBe
 - toEqual
 - toMatch
@@ -102,10 +103,10 @@ Esto permite localizar rápidamente la expectation fallida.
 
 Para el setup y el teardown, Jasmine nos proporciona las siguientes 4 funciones autoexplicativas:
 
- - beforeEach
- - afterEach
- - beforeAll
- - afterAll
+- beforeEach
+- afterEach
+- beforeAll
+- afterAll
 
 ```js
 describe("A spec using beforeEach and afterEach", function() {
@@ -162,17 +163,13 @@ Para integrar Karma con Jenkins hay que seguir las instrucciones que hay en la m
 
 https://karma-runner.github.io/1.0/plus/jenkins.html
 
-
-
 ## Testeo de componentes
 
 Angular proporciona algunas herramientas muy útiles para el testeo:
 
 - TestBed: Crea un módulo de angular para el testeo, en el que podemos configurar un entorno con lo mínimo necesario para el test utilizando los mismos atributos de metadatos que @ngModule (declarations, providers...).
-- Component Fixture: un manejador del entorno del test. Proporciona acceso a la instancia del componente y al DebugElement.
+- ComponentFixture: un manejador del entorno del test. Proporciona acceso a la instancia del componente y al DebugElement.
 - DebugElement: Es un manejador del HTML DOM del componente.
-
-
 
 ```typescript
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
@@ -225,12 +222,9 @@ El método compileComponents de TestBed.configureTestingModule compila de forma 
 
 Por tanto, para llamar al método necesitamos añadir async en el beforeEach.
 
-
-
-
 ### detectChanges
 
-En producción y en desarrollo, la detección de cambio se produce automáticamente cuando Angular crea un componente o el usuario pulsa una tecla cuando se completa alguna operación asíncrona... 
+En producción y en desarrollo, la detección de cambios se produce automáticamente cuando Angular crea un componente o el usuario pulsa una tecla cuando se completa alguna operación asíncrona... 
 
 Pero en los tests, no. Esto está hecho así de manera intencionada, para que el tester tenga la posibilidad de acceder al componente antes y después de que se produzcan cambios.
 
@@ -288,7 +282,7 @@ TestBed.configureTestingModule({
 });
 ```
 
-Ejemplo: 
+Ejemplo:
 
 ```typescript
 beforeEach(async(() => {
@@ -358,7 +352,6 @@ Para testear un servicio, crearemos un módulo de testing en el que proveeremos 
 
 Gracias a la inyección de dependencias ya podemos testear los métodos del servicio, sus propiedades, etc.
 
-
 ```typescript
 import { TestBed, inject } from '@angular/core/testing';
 
@@ -413,11 +406,10 @@ describe('Testeando una pipe', () => {
 });
 ```
 
+## Testeo de directivas
 
 
 
-
-
-Configurar jenkins con karma:
+## Configurar jenkins con karma:
 
 https://karma-runner.github.io/1.0/plus/jenkins.html
