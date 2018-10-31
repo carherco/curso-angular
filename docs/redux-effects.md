@@ -7,19 +7,17 @@ Redux está muy bien pero nos complica el trabajo cuando realizamos operaciones 
 - ¿Cuándo modifican el store?
 - ¿Quién modifica el store?
 
-Como el reductor no puede tener efectos secundarios, necesitamos otro
-lugar dónde realizarlos. Son los llamados **effects** por el concepto de *efectos secundarios*.
-
+En el reductor no podemos tener acciones asíncronas por lo que necesitamos otro lugar o elemento donde realizarlas. Son los llamados **effects** por el concepto de *efectos secundarios*.
 
 ## Instalación
 
 Instalamos la librería de **Effects** con npm: 
 
-> npm install @ngrx/effects ‐‐save
+> npm install @ngrx/effects --save
 
 Y ya podemos crear efectos con angular cli:
 
-> ng g ef Car ‐‐root ‐m ../app.module.ts ‐‐spec false
+> ng g ef Hero ‐‐root ‐m ../app.module.ts ‐‐spec false
 
 
 

@@ -1,3 +1,4 @@
+import { ReduxEffectsHeroesContainerComponent } from './redux-effects/components/redux-heroes-container/redux-heroes-container.component';
 import { AnimationQueryStagerComponent } from './components/animation-query-stager/animation-query-stager.component';
 import { CrudBasicoComponent } from './components/crud-basico/crud-basico.component';
 import { CalculadoraComponent } from './components/calculadora/calculadora.component';
@@ -65,6 +66,7 @@ const appRoutes: Routes = [
       { path: 'lazy5', loadChildren: 'app/lazy5/lazy5.module#Lazy5Module'},
       { path: 'redux', component: ReduxHeroesContainerComponent },
       { path: 'redux-ngrx', component: ReduxNgrxHeroesContainerComponent },
+      { path: 'redux-effects', component: ReduxEffectsHeroesContainerComponent },
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: '**', redirectTo: '' }
     ];

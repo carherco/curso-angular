@@ -18,7 +18,6 @@ Para utilizar NgRx, necesitamos isntalar las propias librerías más algunas her
 
 > npm install @ngrx/router-store --save
 
-
 ## Comandos
 
 Ahora con el CLI de Angular podemos hacer más cosas: 
@@ -27,7 +26,6 @@ Ahora con el CLI de Angular podemos hacer más cosas:
 
 > ng g st RootState ‐‐root ‐m app.module.ts ‐‐spec false
 
-
 - Generar el reductor y las acciones y el interface para una funcionalidad concreta: 
 
 > cd .\src\app\reducers\
@@ -35,7 +33,6 @@ Ahora con el CLI de Angular podemos hacer más cosas:
 > ng g r Hero ‐‐spec false ‐r index.ts 
 
 > ng g a Hero ‐‐spec false
-
 
 ## Adaptación a la librería
 
@@ -116,8 +113,6 @@ export class SendUserMesage implements Action {
 export type GlobalActions = SendUserMesage | IsLoginNeeded | StoreToken;
 ```
 
-
-
 ### Index y reducers
 
 ```ts
@@ -131,8 +126,6 @@ export const reducers: ActionReducerMap<State> = {
 };
 export const metaReducers: MetaReducer<State>[] = !environment.production ? [] : [];
 ```
-
-
 
 ### Feature
 
@@ -203,7 +196,6 @@ export class CarContainerComponent implements OnInit {
 }
 ```
 
-
 ### Redux DevTools
 
 http://extension.remotedev.io/
@@ -211,7 +203,6 @@ http://extension.remotedev.io/
 ```ts
 StoreDevtoolsModule.instrument()
 ```
-
 
 ## Ejercicio
 

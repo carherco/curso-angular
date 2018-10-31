@@ -9,11 +9,11 @@ import { Store } from '@ngrx/store';
 import { State } from './../../reducers/index';
 
 @Component({
-  selector: 'app-redux-ngrx-heroes-container',
+  selector: 'app-redux-effects-heroes-container',
   templateUrl: './redux-heroes-container.component.html',
   styleUrls: ['./redux-heroes-container.component.css']
 })
-export class ReduxNgrxHeroesContainerComponent implements OnInit {
+export class ReduxEffectsHeroesContainerComponent implements OnInit {
 
   heroes$: Observable<any>;
   heroes: Hero[] = [];
