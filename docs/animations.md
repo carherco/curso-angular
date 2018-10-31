@@ -1,7 +1,6 @@
 # Introducción
 
-Angular animations are based on CSS web transition functionality, so anything that can be styled or transformed in CSS can be animated the same way in Angular. Angular animations allow you to: Set animation timings, styles, keyframes, and transitions. Animate HTML elements in complex sequences and choreographies.
-
+Las animaciones de angular están basadas en la funcionalidad de las transiciones CSS, por lo que cualquier cosa que pueda ser transformado con CSS puede ser animado de la misma manera en Angular.
 
 Para tener animaciones hay que importar el módulo **BrowserAnimationsModule**
 
@@ -31,7 +30,7 @@ Las animaciones se configuran en la propiedad **animations** de los metadatos de
   templateUrl: 'open-close.component.html',
   styleUrls: ['open-close.component.css']
   animations: [
-    // animation triggers go here
+    // ...
   ]
 })
 ```
@@ -52,6 +51,8 @@ state('closed', style({
   backgroundColor: 'green'
 })),
 ```
+
+Los identificadores de estado pueden ser también booleanos y numéricos.
 
 ## Transiciones
 
@@ -115,7 +116,6 @@ transition ( ':leave', [ ... ] );  // alias for * => void
 
 Si los estados son numéricos, podemos utilizar :increment y :decrement para hacer referencia a cuando un estado incrementa o decrementa su valor.
 
-
 ### La función animate()
 
 La función *animate()* aceptan el timing y el delay de la animación.
@@ -148,27 +148,44 @@ animate('0.1s 200ms ease-out')
 animate('0.1s 200ms ease-in-out')
 ```
 
+https://easings.net/es
+
 ## Triggers
 
-An animation requires a trigger, so that it knows when to start. The trigger() function collects the states and transitions, and gives the animation a name, so that you can attach it to the triggering element in the HTML template.
+Una animación requiere de un disparador (trigger) para que Angular sepa en qué momento empezar la animación. La función **trigger()** recoge los estados y las transiciones, dándole un nombre a la animación para poder asociarla en la plantilla HTML.
 
-The trigger() function describes the property name to watch for changes. When a change occurs, the trigger initiates the actions included in its definition. These actions can be transitions or other functions, as we'll see later on.
-
-In this example, we'll name the trigger openClose, and attach it to the button element. The trigger describes the open and closed states, and the timings for the two transitions.
-
-Note: Within each trigger() function call, an element can only be in one state at any given time. However, it's possible for multiple triggers to be active at once.
-
-https://easings.net/es
+```ts
+animations: [
+  trigger('openClose', [
+    state('open', style({
+      height: '200px',
+      opacity: 1,
+      backgroundColor: 'yellow'
+    })),
+    state('closed', style({
+      height: '100px',
+      opacity: 0.5,
+      backgroundColor: 'green'
+    })),
+    transition('open => closed', [
+      animate('1s')
+    ]),
+    transition('closed => open', [
+      animate('0.5s')
+    ]),
+  ]),
+],
+```
 
 ## Cómo utilizar las animaciones
 
-Las animaciones se asocian a elementos de la plantilla con la directiva **@triggerName**.
+Las animaciones se asocian a elementos de la plantilla con binding de atributo de la siguiente forma:
 
 ```html
 <div [@triggerName]="state">...</div>;
 ```
 
-Con esta directiva asociamos un estado al elemento. Si el estado cambia, se dispara la transición correspondiente.
+Por ejemplo:
 
 ```html
 <div [@openClose]="isOpen ? 'open' : 'closed'">
@@ -231,7 +248,7 @@ export class OpenCloseComponent {
 
 ## Animation callbacks
 
-The animation trigger() function emits callbacks when it starts and when it finishes. In the example below we have a component that contains an openClose trigger.
+La función trigger() emite callbacks cuando la animación empieza y cuando termina. Podemos por lo tanto hacer binding con dichos eventos y ejecutar el código que queramos.
 
 ```html
 <div [@openClose]="isOpen ? 'open' : 'closed'"
@@ -320,4 +337,58 @@ import { transAnimation } from './animations';
 
 ## Animaciones de routing
 
-https://angular.io/guide/route-animations
+Poner animaciones al routing es fácil. En el componente que aloja al router-outlet, ponemos un trigger y nos aseguramos de alguna forma que su valor cambia en cada navegación.
+
+```ts
+<div [@routeAnimations]="outlet.activatedRouteData" >
+  <router-outlet #outlet="outlet"></router-outlet>
+</div>
+```
+
+y en el componente definimos la animación que deseemos. Por ejemplo:
+
+```ts
+export const slideInAnimation =
+  trigger('routeAnimations', [
+    transition('* <=> *', [
+      style({ position: 'relative' }),
+      query(':enter, :leave', [
+        style({
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%'
+        })
+      ], { optional: true } ),
+      query(':enter', [
+        style({ left: '-100%'})
+      ], { optional: true } ),
+      query(':leave', animateChild(), { optional: true }),
+      group([
+        query(':leave', [
+          animate('300ms ease-out', style({ left: '100%'}))
+        ], { optional: true } ),
+        query(':enter', [
+          animate('300ms ease-out', style({ left: '0%'}))
+        ], { optional: true })
+      ]),
+      query(':enter', animateChild(), { optional: true }),
+    ]),
+  ]);
+```
+
+El código anterior realiza lo siguiente:
+
+- Pone el elemento div con position: 'relative' y los elementos entrantes y salientes (el router-outlet) con position: 'absolute', top: 0, left: 0, width: '100%'.
+
+- Posiciona la vista entrante un 100% a la izquierda (left: '-100%') de forma que al comienzo de la animación NO será visible.
+
+- Llama a animateChild() en la vista saliente, para ejecutar las animaciones que tenga dicha vista.
+
+- Utiliza la función group() para que las animaciones tengan lugar en paralelo. Dentro del group():
+
+  - Anima la vista saliente para que se desplace a la derecha hasta que desaparezca por completo ( left: '+100%')
+
+  - Anima la vista entrante para que se desplace desde el -100% al 0.
+
+- Llama a la función animateChild() en la nueva vista para ejecutar sus animaciones cuando el desplazamiento termine.
