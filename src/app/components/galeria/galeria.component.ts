@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { _MatButtonToggleGroupMixinBase } from '@angular/material';
 
 @Component({
   selector: 'app-galeria',

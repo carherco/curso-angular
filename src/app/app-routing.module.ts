@@ -26,6 +26,7 @@ import { CronoComponent } from './components/crono/crono.component';
 import { AnimationComponent } from 'app/components/animation/animation.component';
 import { AnimationSearchComponent } from 'app/components/animation-search/animation-search.component';
 import { ReduxHeroesContainerComponent } from './redux/components/redux-heroes-container/redux-heroes-container.component';
+import { ReduxNgrxHeroesContainerComponent } from './redux-ng-rx/components/redux-heroes-container/redux-heroes-container.component';
 
 
 const appRoutes: Routes = [
@@ -63,6 +64,7 @@ const appRoutes: Routes = [
       { path: 'lazy4', loadChildren: 'app/lazy4/lazy4.module#Lazy4Module'},
       { path: 'lazy5', loadChildren: 'app/lazy5/lazy5.module#Lazy5Module'},
       { path: 'redux', component: ReduxHeroesContainerComponent },
+      { path: 'redux-ngrx', component: ReduxNgrxHeroesContainerComponent },
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: '**', redirectTo: '' }
     ];
