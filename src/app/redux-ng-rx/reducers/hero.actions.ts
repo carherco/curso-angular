@@ -3,6 +3,7 @@ import { Hero } from "app/model/hero";
 // export enum HeroActionTypes {
 //   LoadHeroes = '[HERO]_Load',
 //   AddHero = '[HERO]_Add',
+//   DeleteHero = '[HERO]_Delete'
 // }
 
 export interface HeroAction {
@@ -26,5 +27,3 @@ export class DeleteHero implements HeroAction {
 }
 
 export type HeroActions = LoadHeroes | AddHero | DeleteHero;
-
-

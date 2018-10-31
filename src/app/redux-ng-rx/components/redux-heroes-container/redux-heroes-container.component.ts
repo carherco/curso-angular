@@ -5,7 +5,8 @@ import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import { HeroState } from '../../reducers/hero.store';
 import { LoadHeroes, DeleteHero, AddHero } from '../../reducers/hero.actions';
-import { ReduxHeroStateService } from '../../services/hero-state.service';
+import { Store } from '@ngrx/store';
+import { State } from './../../reducers/index';
 
 @Component({
   selector: 'app-redux-ngrx-heroes-container',
@@ -20,7 +21,7 @@ export class ReduxNgrxHeroesContainerComponent implements OnInit {
   newHero: Hero;
   selectedHero: Hero;
 
-  constructor(private heroStateService: ReduxHeroStateService) {
+  constructor(private store: Store<State>) {
     this.newHero = {
       id: this.lastId + 1,
       name: ''
@@ -28,13 +29,15 @@ export class ReduxNgrxHeroesContainerComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.heroes$ = this.heroStateService.select$();
+    this.heroes$ = this.store.select('hero');
+    //this.heroes$ = this.store.select('hero', 'items')
+
     this.heroes$.subscribe( (state: HeroState) => {
       this.heroes = state.items;
       this.lastId = state.lastId;
     });
 
-    this.heroStateService.dispatch(new LoadHeroes(HEROES));
+    this.store.dispatch(new LoadHeroes(HEROES));
   }
 
   onSelect(hero: Hero): void {
@@ -44,7 +47,7 @@ export class ReduxNgrxHeroesContainerComponent implements OnInit {
   add(newHero): void {
     //console.log(newHero);
     //this.heroes.push(newHero);
-    this.heroStateService.dispatch(new AddHero(newHero));
+    this.store.dispatch(new AddHero(newHero));
     //this.lastId = this.lastId +1;
     this.resetNewHero();
   }
@@ -58,12 +61,12 @@ export class ReduxNgrxHeroesContainerComponent implements OnInit {
 
   delete(hero: Hero) {
     //this.heroes = this.heroes.filter(function(el) { return el.id != hero.id; });
-    this.heroStateService.dispatch(new DeleteHero(hero));
+    this.store.dispatch(new DeleteHero(hero));
   }
 
   onDelete(hero: Hero) {
     //console.log('List component wants to delete the item ' + hero.id);
     //this.heroes = this.heroes.filter(function(el) { return el.id != hero.id; });
-    this.heroStateService.dispatch(new DeleteHero(hero));
+    this.store.dispatch(new DeleteHero(hero));
   }
 }

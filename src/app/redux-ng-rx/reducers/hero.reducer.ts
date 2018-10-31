@@ -1,3 +1,4 @@
+import { GlobalState } from './index';
 import { HeroState } from "./hero.store";
 import { HeroAction } from "./hero.actions";
 
@@ -6,7 +7,7 @@ export const initialHeroState: HeroState = {
   lastId: 20
 };
 
-export function reducer(state = initialHeroState, action: HeroAction): HeroState {
+export function heroreducer(state = initialHeroState, action: HeroAction): HeroState {
   let newstate = {...state};
   switch (action.type) {
     case '[HERO]_Load':
@@ -18,10 +19,21 @@ export function reducer(state = initialHeroState, action: HeroAction): HeroState
     break;
     case '[HERO]_Delete':
       let hero = action.payload;
-      newstate.items = newstate.items.filter(function(el) { return el.id != hero.id; }); 
+      newstate.items = newstate.items.filter(function(el) { return el.id != hero.id; });
     break;
     default:
       return state;
   }
+  return newstate;
+}
+
+export const initialGlobalState: GlobalState = {
+  username: '',
+  isLogged: false
+};
+
+export function globalreducer(state: GlobalState = initialGlobalState, action: any): GlobalState {
+  let newstate = {...state};
+  //...
   return newstate;
 }
