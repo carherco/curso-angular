@@ -1,6 +1,6 @@
 # Complex animation sequences
 
-## query
+## query
 
 Permite seleccionar elementos (selectores CSS) dentro del elemento animado y aplicarles animaciones individualmente.
 

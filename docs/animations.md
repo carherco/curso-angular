@@ -36,7 +36,7 @@ Las animaciones se configuran en la propiedad **animations** de los metadatos de
 })
 ```
 
-## Estados
+## Estados
 
 Las animaciones son transiciones entre **estados**. Para definir un estado, simplemente le ponemos un identificador, y le asociamos los estilos que deseemos. Por ejemplo:
 
@@ -53,7 +53,7 @@ state('closed', style({
 })),
 ```
 
-## Transiciones
+## Transiciones
 
 Para hacer que el cambio de un elemento entre dos estados sea menos abrupto, podemos definir **transiciones**.
 
@@ -111,7 +111,12 @@ transition ( ':enter', [ ... ] );  // alias for void => *
 transition ( ':leave', [ ... ] );  // alias for * => void
 ```
 
-### La función animate()
+### :increment y :decrement
+
+Si los estados son numéricos, podemos utilizar :increment y :decrement para hacer referencia a cuando un estado incrementa o decrementa su valor.
+
+
+### La función animate()
 
 La función *animate()* aceptan el timing y el delay de la animación.
 
@@ -143,7 +148,7 @@ animate('0.1s 200ms ease-out')
 animate('0.1s 200ms ease-in-out')
 ```
 
-## Triggers
+## Triggers
 
 An animation requires a trigger, so that it knows when to start. The trigger() function collects the states and transitions, and gives the animation a name, so that you can attach it to the triggering element in the HTML template.
 
@@ -224,7 +229,7 @@ export class OpenCloseComponent {
 }
 ```
 
-## Animation callbacks
+## Animation callbacks
 
 The animation trigger() function emits callbacks when it starts and when it finishes. In the example below we have a component that contains an openClose trigger.
 
@@ -236,7 +241,7 @@ The animation trigger() function emits callbacks when it starts and when it fini
 </div>
 ```
 
-## Keyframes
+## Keyframes
 
 Los Keyframes permiten realiar varios cambios de estilo en la misma transición.
 
@@ -269,7 +274,7 @@ transition('* => inactive', [
 ]),
 ```
 
-## Animaciones reutilizables
+## Animaciones reutilizables
 
 Para definir una animación reutilizable, se utiliza la función **animation()** y se define la animación en un fichero .ts separado.
 
@@ -313,6 +318,6 @@ import { transAnimation } from './animations';
 })
 ```
 
-## Animaciones de routing
+## Animaciones de routing
 
 https://angular.io/guide/route-animations

@@ -18,7 +18,7 @@ import {
   styleUrls: ['./animation-search.component.css'],
   animations: [
     trigger('filterAnimation', [
-      transition(':enter, * => 0, * => -1', []),
+      transition(':enter, * => -1', []),
       transition(':increment', [
         query(':enter', [
           style({ opacity: 0, width: '0px' }),
@@ -58,7 +58,7 @@ export class AnimationSearchComponent implements OnInit {
        //.do(x => console.log('Elemento original:', x)),
        map((x: any) => x.target.value),
        //.do(x => console.log('Después de .map((x: any) => x.target.value):', x)),
-       filter(x => x.length > 3),
+       filter(x => x.length > 3 || x.length == 0),
        tap(x => console.log('Después de .filter(x => x.length > 3)', x)),
        debounceTime(500),
        tap(x => console.log('Después de .debounceTime(500)', x)),
