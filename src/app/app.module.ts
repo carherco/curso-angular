@@ -1,3 +1,4 @@
+import { ReduxModule } from './redux/redux.module';
 import { FractalModule } from './fractal/fractal.module';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
@@ -88,7 +89,8 @@ import { AnimationSearchComponent } from './components/animation-search/animatio
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FractalModule
+    FractalModule,
+    ReduxModule
   ],
   providers: [
     MockHeroeService,

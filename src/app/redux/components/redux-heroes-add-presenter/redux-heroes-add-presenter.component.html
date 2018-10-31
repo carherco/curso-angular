@@ -1,0 +1,8 @@
+<h3>Add Hero to the list</h3>
+<form class="form-inline">
+  <div class="form-group">
+    <label for="nombre">Nombre:</label>
+    <input type="text" class="form-control" id="nombre" name="name" [(ngModel)]="hero.name" placeholder="Escribe el nombre...">
+  </div>
+  <button type="button" class="btn btn-primary" (click)="add()">Añadir</button>
+</form>
