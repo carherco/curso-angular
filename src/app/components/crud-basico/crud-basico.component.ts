@@ -45,9 +45,19 @@ export class CrudBasicoComponent implements OnInit {
     };
   }
 
+  /**
+   * Función delete recibiendo el índice del héroe que se quiere eliminar
+   * @param index
+   */
   delete(index) {
     this.heroes.splice(index, 1);
+  }
 
+  /**
+   * Función delete recibiendo el héroe que se quiere eliminar
+   * @param heroe
+   */
+  delete2(heroe: Hero) {
     // let nuevoArray = [];
     // for (let h of this.heroes) {
     //   if(h.id !== heroe.id) {
@@ -55,6 +65,9 @@ export class CrudBasicoComponent implements OnInit {
     //   }
     // }
     // this.heroes = nuevoArray;
+
+    this.heroes = this.heroes.filter(function(el) { return el.id != heroe.id; });
+    this.heroes = this.heroes.filter( el => el.id != heroe.id );
   }
 
 }

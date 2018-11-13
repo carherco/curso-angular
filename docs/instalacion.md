@@ -13,7 +13,7 @@
 
 Podemos comprobar que está instalado ejecutando
 
-> ng -v
+> ng version
 
 Angular-cli (`ng`) es una aplicación que sirve para:
 
