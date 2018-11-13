@@ -34,8 +34,8 @@ export class CrudBasicoComponent implements OnInit {
   add(): void {
     console.log(this.newHero);
     this.heroes.push(this.newHero);
-    this.resetNewHero();
     this.lastId = this.lastId +1;
+    this.resetNewHero();
   }
 
   resetNewHero() {
