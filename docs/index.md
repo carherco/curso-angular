@@ -1,5 +1,7 @@
 # Índice del curso
 
+Primer bloque:
+
 - [Introducción](introduccion.md)
 - [Introducción a ES6 y typescript](typescript.md)
 - [Instalación](instalacion.md)
@@ -11,6 +13,9 @@
 - [Pipes](pipes.md)
 - Ejemplo: Galería de fotos
 - [Ejercicio: CRUD simple](ejemplo-crud-basico.md)
+
+Segundo Bloque:
+
 - [Paso de variables entre componentes](input-binding.md)
 - [Servicios](services.md)
 - [Inyección de dependencias](inyeccion-dependencias.md)
@@ -23,6 +28,8 @@
 - [Formularios model-driven](forms-model-driven.md)
 - [Ejemplo de CRUD con API REST, pantalla de login y menú](ejemplo-crud-completo.md)
 
+Tercer bloque:
+
 - [Dynamic Component Loading](dynamic-components.md)
 - [Ciclo de vida de un componente](lifecycle.md)
 - [Detección de cambios](deteccion-cambios.md)
@@ -30,8 +37,9 @@
 - [Patrón redux: Stores, actions y reducers](redux.md)
 - [Patrón redux: Librería NgRx]
 - [Patrón redux: Effects]
-- Ejercicio: CRUD con API REST, pantalla de login y menú utilizando el patrón Redux en toda la
-aplicación.
+- Ejercicio: CRUD con API REST, pantalla de login y menú utilizando el patrón Redux en toda la aplicación.
+
+Cuarto bloque:
 
 - [Angular Material](angular-material.md)
 - [Testeo con Karma](testing.md)
