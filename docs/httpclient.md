@@ -58,17 +58,15 @@ que dependa de `HttpClient` para realizar las operaciones sobre la API y usarlo 
 ## Cómo tipar la respuesta
 
 ```ts
-configUrl = 'assets/config.json';
-
 getConfig() {
-  return this.http.get(this.configUrl);
+  return this.http.get('http://.....');
 }
 ```
 
 ```ts
 showConfig() {
   this.configService.getConfig()
-    .subscribe((data: Config) => this.config = {
+    .subscribe( data => this.config = {
         heroesUrl: data['heroesUrl'],
         textfile:  data['textfile']
     });
@@ -89,7 +87,7 @@ export interface Config {
 ```ts
 getConfig() {
   // now returns an Observable of Config
-  return this.http.get<Config>(this.configUrl);
+  return this.http.get<Config>('http://.....');
 }
 ```
 
@@ -98,7 +96,16 @@ config: Config;
 
 showConfig() {
   this.configService.getConfig()
-    // clone the data object, using its known Config shape
+    .subscribe((data: Config) => this.config = data );
+}
+```
+
+```ts
+config: Config;
+
+showConfig() {
+  this.configService.getConfig()
+    // o clonando el objeto
     .subscribe((data: Config) => this.config = { ...data });
 }
 ```
@@ -228,8 +235,6 @@ All observables returned from HttpClient methods are cold by design. Execution o
 
 Calling subscribe(...) triggers execution of the observable and causes HttpClient to compose and send the HTTP request to the server.
 
-
-
 ## Advanced usage
 
 https://angular.io/guide/http#advanced-usage
@@ -238,8 +243,7 @@ https://angular.io/guide/http#advanced-usage
 
 https://angular.io/guide/http#intercepting-requests-and-responses
 
-
-## Ejercicio:
+## Ejercicio
 
 Programar un CRUD de usuarios con las siguientes especificaciones:
 
@@ -255,6 +259,5 @@ Programar un CRUD de usuarios con las siguientes especificaciones:
   - delete(id: number)
 
 - Los componetes NO utilizarán directamente el servicio HttpClient
-
 
 [Índice](index.md)
