@@ -9,7 +9,7 @@ Existen 3 tipos de directivas en angular:
 - Directivas estructurales.
 - Directivas de atributo.
 
-## Directivas de componente.
+## Directivas de componente
 
 Los componentes de angular son directivas especializadas que usan el decorador @Component, el cual
 deriva del decorador @Directive. Los componentes tienen asociados una template y una hoja de estilos.
@@ -98,21 +98,6 @@ ejemplo.
   </ng-container>
 </select>
 ```
-
-### Ng-Template	
-
- https://www.angularjswiki.com/angular/what-is-ng-template-in-angular/	
- Esta notación de las directivas estructurales consistente en usar el asterisco es distinta a lo que	
-hasta ahora hemos visto sobre el data binding de Angular. En realidad se trata de un "sintactic sugar"	
-que simplifica la sintaxis real de la directiva estructural. Internamente Angular convierte la expresión	
-anterior en algo más complejo que tiene esta pinta:	
- ```jinja+html	
-<ng-template [ngIf]="hero">	
-  <div class="name">{{hero.name}}</div>	
-</ng-template>	
-```	
- Es decir usa un elemento `ng-template`. Cada directiva estructural hace algo diferente con el	
-código contenido en este `ng-template`.
 
 ## Directivas de atributo
 
