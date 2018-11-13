@@ -1,8 +1,6 @@
 # Servicios
 
-```
-ng g s MockHero
-```
+> ng g s MockHero
 
 ```
 installing service
@@ -24,9 +22,7 @@ providers: [
 
 Podemos utilizar el modificador --module para indicar el módulo al que pertenece el elemento generado (el servicio en este caso). Utilizando dicho modificador, el cli sí que proveerá el servicio:
 
-```
-ng generate service hero --module=app
-```
+> ng generate service hero --module=app
 
 Un servicio es una clase decorada con @Injectable. Gracias a este decorador, Angular lo tendrá en cuenta en la inyección de dependencias. (Veremos la inyección de dependencias más adelante).
 
@@ -61,8 +57,7 @@ E inyectarlo en el constructor del componente
 constructor(private heroService: MockHeroService) { }
 ```
 
-
-## Provisión de servicios en Angular 6
+## Provisión de servicios a partir de Angular 6
 
 En Angular 6 exisite una propiedad nueva **providedIn** en los metadatos del decorador @Injectable:
 
@@ -103,8 +98,6 @@ import { UserModule } from './user.module';
 export class UserService {
 }
 ```
-
-
 
 ## Ejercicio
 
