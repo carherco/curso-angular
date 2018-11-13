@@ -100,6 +100,8 @@ showConfig() {
 }
 ```
 
+O la versión clonando la respuesta
+
 ```ts
 config: Config;
 
@@ -110,7 +112,7 @@ showConfig() {
 }
 ```
 
-## Cómo leer la respuesta completa
+## Cómo leer la respuesta completa
 
 ```ts
 getConfigResponse(): Observable<HttpResponse<Config>> {
@@ -135,7 +137,7 @@ showConfigResponse() {
 }
 ```
 
-## Manejo de errores
+## Manejo de errores
 
 HttpClient emite un error en caso de mala conexión o de error en el servidor
 
@@ -143,15 +145,16 @@ HttpClient emite un error en caso de mala conexión o de error en el servidor
 showConfig() {
   this.configService.getConfig()
     .subscribe(
-      (data: Config) => this.config = { ...data }, // success path
-      error => this.error = error // error path
+      (data: Config) => this.config = { ...data },
+      error => this.error = error
     );
 }
 ```
 
-## Getting error details
+## Cómo cambiar el error por una emisión
 
-La mejor forma de manejar errores es 
+La mejor forma de manejar errores es crear una función manejadora del error
+
 ```ts
 private handleError(error: HttpErrorResponse) {
   if (error.error instanceof ErrorEvent) {
@@ -170,7 +173,7 @@ private handleError(error: HttpErrorResponse) {
 };
 ```
 
-this handler returns an RxJS ErrorObservable with a user-friendly error message. Consumers of the service expect service methods to return an Observable of some kind, even a "bad" one.
+Esta función devuelve un ErrorObservable con un mensaje.
 
 ```ts
 getConfig() {
@@ -193,16 +196,13 @@ getConfig() {
 }
 ```
 
-## Requesting non-JSON data
+## Leer respuestas con contenido que no sea JSON
 
 ```ts
 getTextFile(filename: string) {
-  // The Observable returned by get() is of type Observable<string>
-  // because a text response was specified.
-  // There's no need to pass a <string> type parameter to get().
   return this.http.get(filename, {responseType: 'text'})
     .pipe(
-      tap( // Log the result or error
+      tap( 
         data => this.log(filename, data),
         error => this.logError(filename, error)
       )
@@ -217,10 +217,9 @@ download() {
 }
 ```
 
-## POST, PUT o DELETE
+## POST, PUT o DELETE
 
 ```ts
-/** POST: add a new hero to the database */
 addHero (hero: Hero): Observable<Hero> {
   return this.http.post<Hero>(this.heroesUrl, hero, httpOptions)
     .pipe(
@@ -229,13 +228,13 @@ addHero (hero: Hero): Observable<Hero> {
 }
 ```
 
-## Los observables de HttpClient son fríos
+## Los observables de HttpClient son fríos
 
-All observables returned from HttpClient methods are cold by design. Execution of the HTTP request is deferred, allowing you to extend the observable with additional operations such as tap and catchError before anything actually happens.
+Los observables devueltos por los métodos del servicio HttpClient son fríos. Esto permite que le podamos añadir operadores como tap, catchError, delay... y que podamos suscribirnos antes de que la llamada a la api se produzca.
 
-Calling subscribe(...) triggers execution of the observable and causes HttpClient to compose and send the HTTP request to the server.
+Al llamar a subscribe es cuando el observable compone y envía la petición al servidor.
 
-## Advanced usage
+## Uso Avanzado
 
 https://angular.io/guide/http#advanced-usage
 
