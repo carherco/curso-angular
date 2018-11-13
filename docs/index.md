@@ -21,7 +21,7 @@
 - [Enrutamiento](routing.md)
 - [Guards](guards.md)
 - [Formularios model-driven](forms-model-driven.md)
-- [Ejemplo de CRUD con API REST](ejemplo-crud-completo.md)
+- [Ejemplo de CRUD con API REST, pantalla de login y menú](ejemplo-crud-completo.md)
 
 - [Dynamic Component Loading](dynamic-components.md)
 - [Ciclo de vida de un componente](lifecycle.md)
@@ -39,8 +39,7 @@ aplicación.
 - [Separar app en Módulos y Lazy loading](lazy-loading.md)
 - [Deployment](deployment.md)
 - [Angular CLI](angular-cli.md)
-- [Server Side Rendering]()
-- Introducción a Ionic
+- Introducción a Ionic - nativeScript
 - Introducción a las PWA
 - [Añadir librería JQuery a un proyecto Angular](jquery.md)
 

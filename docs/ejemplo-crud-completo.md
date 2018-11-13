@@ -10,6 +10,7 @@
 - Usaremos la API https://reqres.in/
 
 Tendremos un servicio userService
+
 - getAll
 - getOne
 - add
@@ -17,15 +18,14 @@ Tendremos un servicio userService
 - delete
 
 Un servicio AuthService con métodos:
+
 - login()
 - logOut()
 - isLogged()
 
 Un guard AuthGuard de tipo canActivate.
 
-
-
-## Código de ayuda:
+## Código de ayuda
 
 ### Servicio Auth
 
@@ -103,14 +103,4 @@ export class AuthService {
 }
 ```
 
-
-
-
-
-
-
-
-
-
 [Índice](index.md)
-
