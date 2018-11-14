@@ -66,14 +66,14 @@ No vemos los datos del héroe en el formulario porque no hemos hecho binding tod
 
 Utilizamos *ngModel* para asociar cada control del formulario a una propiedad del héroe. Recordemos que para utilizar *ngModel* es necesario declarar el atributo *name*.
 
-También utilizaremos un *chivato* (diagnostic) para comprobar que efectivamente se realiza el binding.
+También interpolaremos el objeto hero en la plantilla para comprobar que efectivamente se realiza el binding.
 
 
 ```html
   <div class="container">
       <h1>Hero Form</h1>
       <form>
-        {{diagnostic() | json}}
+        {{hero | json}}
         <div class="form-group">
           <label for="name">Name</label>
           <input type="text" class="form-control" id="name" required [(ngModel)]="hero.name" name="name">
@@ -95,13 +95,6 @@ También utilizaremos un *chivato* (diagnostic) para comprobar que efectivamente
 
       </form>
   </div>
-```
-
-```typescript
-  // TODO: Eliminar esta función al terminar
-  get diagnostic() { 
-    return JSON.stringify(this.hero);
-  }
 ```
 
 ## Marcar visualmente el estado de los controles 
