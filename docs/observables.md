@@ -87,35 +87,30 @@ Ya tenemos la base de la programación reactiva.
 
 #### Observables fríos
 
-  - Una instancia por cada subscripción.
-  - El observable empieza en el momento de la subscripción. 
-  - Desuscribirse del observable para liberar memoria.
- 	 
+- Una instancia por cada subscripción.
+- El observable empieza en el momento de la subscripción. 
+- Desuscribirse del observable para liberar memoria.
+
 #### Observables calientes
- 	 
-Un hot observable empieza a su emisión cuando se invoca su método connect():
-  
-```javascript
-  const obsv = new Observable( o => {...});
-  ...
-  obsv.connect();
-```
+
+Desde rxjs v6 (Angular v6)
+
+- Un hot observable también empieza a su emisión cuando se suscribe un observador.
+
+- Todos los suscriptores (observadores) observan la misma instancia del observable.
+
+- Solamente cuando el observable se queda sin ningún suscriptor, se ejecuta el return del observable.
   
 Pero los observables que creamos nosotros con los métodos de construcción de observables (new, create, from, of...) construyen observables fríos.
   
-Para convertir un obserbable frío en caliente basta con invocar el método publish();
- 	 
+Para convertir un obserbable frío en caliente hay que aplicar el operador **share()**;
+
 ```javascript
-  const obsv = new Observable( o => {...}).publish();
-  ...
-  obsv.connect();
+  const obsv = new Observable( o => {...}).pipe(
+    share()
+  );
 ```
-  
-Los suscriptores pueden suscribirse y desuscribirse sin problemas antes de invocar al connect() o depués de invocar a connect().
-  
-Es como llegar a un concierto con antelación para coger un buen sitio, o llegar tarde y perderte parte del concierto. Pero el concierto no espera a los asistentes.	 Es como llegar a un concierto con antelación para coger un buen sitio, o llegar tarde y perderte parte del concierto. Pero el concierto no espera a los asistentes.
-  
-  
+
 http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html	 
 http://rxmarbles.com/
 
@@ -181,15 +176,15 @@ Definiendolo de manera personalizada
 
 ```javascript
 import { Observable } from "rxjs"
-let o1 = Observable.create((observer) => {
+let o1 = Observable.create((emmiter) => {
       let n = 0
       setInterval(
         () => {
           n++
           if(n > 5){
-            observer.complete()
+            emmiter.complete()
           }else{
-            observer.next('Hola caracola ' + n)
+            emmiter.next('Hola caracola ' + n)
           }
         }, 1000)
     })
