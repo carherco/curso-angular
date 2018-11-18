@@ -109,6 +109,10 @@ Este componente, cada 3 segundos, selecciona un componente y utiliza el servicio
 
 Obtenemos una referencia al **viewContainerRef** gracias al conocido decorador @ViewChild y llamamos al método **createComponent()**.
 
+https://angular.io/api/core/ViewChild
+
+https://angular.io/api/core/ViewContainerRef
+
 El método createComponent() devuelve una referencia al componente recién cargado. Gracias a esa referencia, podemos acceder a las propiedades y métodos del componente.
 
 

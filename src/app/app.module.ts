@@ -1,3 +1,4 @@
+import { DeteccionCambiosModule } from './deteccion-cambios/deteccion-cambios.module';
 import { DynamicFormModule } from './dynamic-form/dynamic-form.module';
 import { ReduxEffectsModule } from './redux-effects/redux-effects.module';
 import { ReduxNgRxModule } from './redux-ng-rx/redux-ng-rx.module';
@@ -102,7 +103,8 @@ import { DynamicComponentsModule } from './dynamic-components/dynamic-components
     ReduxNgRxModule,
     ReduxEffectsModule,
     DynamicFormModule,
-    DynamicComponentsModule
+    DynamicComponentsModule,
+    DeteccionCambiosModule
   ],
   providers: [
     MockHeroeService,

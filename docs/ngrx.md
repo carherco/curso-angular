@@ -152,7 +152,7 @@ export function reducer(state = initialState, action:CarActions ):State {
 }
 ```
 
-### dispatch y select
+### dispatch y select
 
 ```ts
 constructor(private store: Store<RootState>) {
@@ -196,7 +196,7 @@ export class CarContainerComponent implements OnInit {
 }
 ```
 
-### Redux DevTools
+### Redux DevTools
 
 http://extension.remotedev.io/
 

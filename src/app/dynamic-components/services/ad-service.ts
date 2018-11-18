@@ -10,9 +10,9 @@ import { Ad4Component } from '../components/ad4/ad4.component';
 export class AdService {
   getAds() {
     return [
-      new AdItem(Ad1Component, {name: 'Bombasto', bio: 'Brave as they come'}),
+      new AdItem(Ad1Component, {headline: 'Bombasto', body: 'Brave as they come'}),
 
-      new AdItem(Ad2Component, {name: 'Dr IQ', bio: 'Smart as they come'}),
+      new AdItem(Ad2Component, {headline: 'Dr IQ', body: 'Smart as they come'}),
 
       new AdItem(Ad3Component,   {headline: 'Hiring for several positions',
                                         body: 'Submit your resume today!'}),

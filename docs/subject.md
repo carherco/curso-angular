@@ -97,7 +97,6 @@ Se le puede indicar el tamaño del buffer al instanciarlo:
 var subject = new Rx.ReplaySubject(2);  
 ```
 
-
 ## BehaviourSubject
 
 El contructor necesita un valor obligatorio que es el primero de los items emitidos. Los subscriptores recibirán, justo en el momento de la subscripción, el último de los valores que se haya emitido además de todos los valores que se emitan en el futuro.
@@ -217,6 +216,6 @@ El método hasObservers() devuelve *true* si el Subject tiene observdadores o *f
 
 El método toObservable() devuelve el Subject convertido en Observable.
 
-### To Use Subject Or Not To Use Subject
+### Cuándo utilizar Subject y cuándo no
 
 http://davesexton.com/blog/post/To-Use-Subject-Or-Not-To-Use-Subject.aspx

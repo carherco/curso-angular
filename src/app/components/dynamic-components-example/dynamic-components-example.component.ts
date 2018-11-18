@@ -1,5 +1,4 @@
-import { Component, OnInit, Input, ViewChild, ComponentFactoryResolver } from '@angular/core';
-import { AdDirective } from 'app/dynamic-components/directives/ad.directive';
+import { Component, OnInit } from '@angular/core';
 import { AdItem } from 'app/dynamic-components/model/AdItem';
 import { AdService } from 'app/dynamic-components/services/ad-service';
 

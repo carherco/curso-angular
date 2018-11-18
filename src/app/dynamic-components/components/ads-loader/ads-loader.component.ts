@@ -1,5 +1,4 @@
-import { Component, OnInit, Input, ViewChild, ComponentFactoryResolver } from '@angular/core';
-import { AdDirective } from 'app/dynamic-components/directives/ad.directive';
+import { Component, OnInit, Input, ViewChild, ComponentFactoryResolver, ViewContainerRef } from '@angular/core';
 import { AdItem } from 'app/dynamic-components/model/AdItem';
 import { AdComponent } from 'app/dynamic-components/model/AdComponent';
 
@@ -12,14 +11,18 @@ export class AdsLoaderComponent implements OnInit {
 
   @Input() ads: AdItem[];
   currentAdIndex = -1;
-  @ViewChild(AdDirective) adHost: AdDirective;
+  //@ViewChild('adhost') adHost: ElementRef; // Si adhost está aplicada a un elemento HTML, sería un ElementRef
+  //@ViewChild('adhost') adHost: XXXXXComponent; // Si adhost está aplicada a un componente, sería la instancia del componente
+  //@ViewChild('adhost', {read: ElementRef}) adHost: AdDirective; // Si adhost está aplicada a un componente, sería un ElementRef
+  //@ViewChild(AdDirective) adHost: AdDirective; // Es la instancia de la directiva
+  @ViewChild('adhost', {read: ViewContainerRef}) viewContainerRef: ViewContainerRef;
   interval: any;
 
   constructor(private componentFactoryResolver: ComponentFactoryResolver) { }
 
   ngOnInit() {
     this.loadComponent();
-    this.getAds();
+    this.getAd();
   }
 
   ngOnDestroy() {
@@ -32,14 +35,13 @@ export class AdsLoaderComponent implements OnInit {
 
     let componentFactory = this.componentFactoryResolver.resolveComponentFactory(adItem.component);
 
-    let viewContainerRef = this.adHost.viewContainerRef;
-    viewContainerRef.clear();
+    this.viewContainerRef.clear();
 
-    let componentRef = viewContainerRef.createComponent(componentFactory);
+    let componentRef = this.viewContainerRef.createComponent(componentFactory);
     (<AdComponent>componentRef.instance).data = adItem.data;
   }
 
-  getAds() {
+  getAd() {
     this.interval = setInterval(() => {
       this.loadComponent();
     }, 3000);

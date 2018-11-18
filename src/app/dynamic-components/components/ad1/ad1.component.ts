@@ -1,3 +1,4 @@
+import { AdComponent } from 'app/dynamic-components/model/AdComponent';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -5,8 +6,9 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './ad1.component.html',
   styleUrls: ['./ad1.component.css']
 })
-export class Ad1Component implements OnInit {
+export class Ad1Component implements AdComponent {
 
+  data: any
   constructor() { }
 
   ngOnInit() {

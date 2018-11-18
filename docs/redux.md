@@ -1,9 +1,6 @@
-Redux
-=====
-
+# Redux
 
 Redux no hace rápido lo simple, si no mantenible lo complejo.
-
 
 ## Principios de Redux
 
@@ -15,13 +12,13 @@ Redux no hace rápido lo simple, si no mantenible lo complejo.
   - Para especificar como el árbol de estado es transformado por las acciones, se utilizan funciones puras* (REDUCERS).
   - Los cambios tienen que poder ser replicados, cancelados y auditados.
 
-Funciones puras: 
- - Retornan el mismo resultado para la misma entrada.
- - No dependen del entorno ni de condiciones azarosas; sólo de sus argumentos.
- - Sin efectos colaterales ni modificaciones del valor de sus parámetros u otras variables del entorno.
- 
+Funciones puras:
 
-## Elementos de Redux:
+- Retornan el mismo resultado para la misma entrada.
+- No dependen del entorno ni de condiciones azarosas; sólo de sus argumentos.
+- Sin efectos colaterales ni modificaciones del valor de sus parámetros u otras variables del entorno.
+
+## Elementos de Redux
 
 - Store
   - Despacha acciones de mutado
@@ -39,4 +36,3 @@ Funciones puras:
   - Son funciones puras*, las únicas que pueden mutar el estado.
   - Reciben el estado actual (STATE) y una acción (ACTION).
   - Clonan el estado, realizan los cambios oportunos y devuelven el estado mutado.
-

@@ -1,0 +1,15 @@
+<h2>Change detection</h2>
+
+<p>{{objectp.name}}</p>
+<p>{{objectc1.name}}</p>
+<p>{{objectc2.name}}</p>
+<p>{{objectc3.name}}</p>
+
+<button (click)="onClick()">Parent click</button>
+
+
+<app-change-detection-child1 [object]="objectc1"></app-change-detection-child1>
+
+<app-change-detection-child2 [object]="objectc2"></app-change-detection-child2>
+
+<app-change-detection-child3 [object]="objectc3"></app-change-detection-child3>

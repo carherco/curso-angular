@@ -13,7 +13,7 @@ Una directiva tiene el mismo conjunto de *lifecycle hooks* excepto aquellos espe
 ## Sequencia del ciclo de vida
 
 - **ngOnChanges():** 
-Es llamado cuando Angular establece datos asociados a propiedades asociadas a @Input. El método recibe un objetco SimpleChanges con el valor actual y el valor anterior.
+Es llamado cuando Angular establece datos asociados a propiedades asociadas a @Input. El método recibe un objeto SimpleChanges con el valor actual y el valor anterior.
 Es llamado antes de ngOnInit() y cuando una o más variables @Input cambie.
 - **ngOnInit():**	
 Es llamado una única vez, después del primer ngOnChanges() cuando Angular ha renderizado las propiedades bindeadas y ha seteado las propiedades decoradas con @Input. En este momento es cuando se puede dar por **inicializado** el componente/directiva.
@@ -30,6 +30,7 @@ Sólo disponible para componentes.
 Responde después de que Angular inicialice la vista del componente y las vistas hijas.
 Es llamado una sola vez después del primer ngAfterContentChecked().
 Sólo disponible para componentes.
+Es el lugar seguro para trabajar con variables obtenidas con @ViewChild.
 - **ngAfterViewChecked():**	
 Responde después de que Angular compruebe la vista del componente y las vistas hijas.
 Es llamado después de ngAfterViewInit y de cada ngAfterContentChecked().
