@@ -11,7 +11,7 @@ import { By } from "@angular/platform-browser";
 })
 class TestComponent { }
 
-describe('TestComponent', () => {
+describe('HighlightDirective', () => {
   let component: TestComponent;
   let fixture:   ComponentFixture<TestComponent>;
   let des:       DebugElement;
@@ -52,7 +52,7 @@ describe('TestComponent', () => {
     expect(bgColor).toBe(dir.defaultColor);
   });
 
-  it('hovering over input', () => {
+  it('mouseleave', () => {
     this.des[0].triggerEventHandler('mouseenter', null);
     this.fixture.detectChanges();
     expect(this.des[0].nativeElement.style.backgroundColor).toBe('red');
@@ -60,6 +60,6 @@ describe('TestComponent', () => {
     this.des[0].triggerEventHandler('mouseleave', null);
     this.fixture.detectChanges();
     expect(this.des[0].nativeElement.style.backgroundColor).toBe('');
-});
+  });
 
 });

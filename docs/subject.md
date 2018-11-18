@@ -212,7 +212,7 @@ try {
 
 El método hasObservers() devuelve *true* si el Subject tiene observdadores o *false* si no los tiene.
 
-## El método toObservable()
+## El método toObservable()
 
 El método toObservable() devuelve el Subject convertido en Observable.
 

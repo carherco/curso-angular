@@ -32,7 +32,7 @@ describe('GaleriaComponent', () => {
     el = de.nativeElement;
 
     fixture.detectChanges();
-    expect(el.textContent).toContain('Galería');
+    expect(el.textContent).toContain('Galeria');
     expect(el.textContent).toContain(component.title);
   });
 
@@ -46,7 +46,7 @@ describe('GaleriaComponent', () => {
   });
 
   it('Hay 7 imágenes en la galería', () => {
-    expect(component.imagenes.length).toEqual(7);
+    expect(component.imagenes.length).toEqual(8);
   });
 
 });
