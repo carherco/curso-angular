@@ -1,3 +1,4 @@
+import { DynamicFormModule } from './dynamic-form/dynamic-form.module';
 import { ReduxEffectsModule } from './redux-effects/redux-effects.module';
 import { ReduxNgRxModule } from './redux-ng-rx/redux-ng-rx.module';
 import { ReduxModule } from './redux/redux.module';
@@ -51,6 +52,7 @@ import { CronoComponent } from './components/crono/crono.component';
 import { AnimationComponent } from './components/animation/animation.component';
 import { AnimationQueryStagerComponent } from './components/animation-query-stager/animation-query-stager.component';
 import { AnimationSearchComponent } from './components/animation-search/animation-search.component';
+import { DynamicFormExampleComponent } from './components/dynamic-form-example/dynamic-form-example.component';
 
 @NgModule({
   declarations: [
@@ -80,7 +82,8 @@ import { AnimationSearchComponent } from './components/animation-search/animatio
     CronoComponent,
     AnimationComponent,
     AnimationQueryStagerComponent,
-    AnimationSearchComponent
+    AnimationSearchComponent,
+    DynamicFormExampleComponent
   ],
   imports: [
     BrowserModule,
@@ -94,7 +97,8 @@ import { AnimationSearchComponent } from './components/animation-search/animatio
     FractalModule,
     ReduxModule,
     ReduxNgRxModule,
-    ReduxEffectsModule
+    ReduxEffectsModule,
+    DynamicFormModule
   ],
   providers: [
     MockHeroeService,

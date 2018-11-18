@@ -28,6 +28,7 @@ import { AnimationComponent } from 'app/components/animation/animation.component
 import { AnimationSearchComponent } from 'app/components/animation-search/animation-search.component';
 import { ReduxHeroesContainerComponent } from './redux/components/redux-heroes-container/redux-heroes-container.component';
 import { ReduxNgrxHeroesContainerComponent } from './redux-ng-rx/components/redux-heroes-container/redux-heroes-container.component';
+import { DynamicFormExampleComponent } from './components/dynamic-form-example/dynamic-form-example.component';
 
 
 const appRoutes: Routes = [
@@ -67,6 +68,7 @@ const appRoutes: Routes = [
       { path: 'redux', component: ReduxHeroesContainerComponent },
       { path: 'redux-ngrx', component: ReduxNgrxHeroesContainerComponent },
       { path: 'redux-effects', component: ReduxEffectsHeroesContainerComponent },
+      { path: 'dynamic-form', component: DynamicFormExampleComponent },
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: '**', redirectTo: '' }
     ];
