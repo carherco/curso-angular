@@ -53,6 +53,8 @@ import { AnimationComponent } from './components/animation/animation.component';
 import { AnimationQueryStagerComponent } from './components/animation-query-stager/animation-query-stager.component';
 import { AnimationSearchComponent } from './components/animation-search/animation-search.component';
 import { DynamicFormExampleComponent } from './components/dynamic-form-example/dynamic-form-example.component';
+import { DynamicComponentsExampleComponent } from './components/dynamic-components-example/dynamic-components-example.component';
+import { DynamicComponentsModule } from './dynamic-components/dynamic-components.module';
 
 @NgModule({
   declarations: [
@@ -83,7 +85,8 @@ import { DynamicFormExampleComponent } from './components/dynamic-form-example/d
     AnimationComponent,
     AnimationQueryStagerComponent,
     AnimationSearchComponent,
-    DynamicFormExampleComponent
+    DynamicFormExampleComponent,
+    DynamicComponentsExampleComponent
   ],
   imports: [
     BrowserModule,
@@ -98,7 +101,8 @@ import { DynamicFormExampleComponent } from './components/dynamic-form-example/d
     ReduxModule,
     ReduxNgRxModule,
     ReduxEffectsModule,
-    DynamicFormModule
+    DynamicFormModule,
+    DynamicComponentsModule
   ],
   providers: [
     MockHeroeService,
