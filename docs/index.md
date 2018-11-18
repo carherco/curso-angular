@@ -30,13 +30,14 @@ Segundo Bloque:
 
 Tercer bloque:
 
-- [Dynamic Component Loading](dynamic-components.md)
+- Formularios dinámicos
+- [Carga dinámica de componentes](dynamic-components.md)
 - [Ciclo de vida de un componente](lifecycle.md)
 - [Detección de cambios](deteccion-cambios.md)
 - [Subjects](subject.md)
 - [Patrón redux: Stores, actions y reducers](redux.md)
-- [Patrón redux: Librería NgRx]
-- [Patrón redux: Effects]
+- [Patrón redux: Librería NgRx](ngrx.md)
+- [Patrón redux: Effects](redux-effects.md)
 - Ejercicio: CRUD con API REST, pantalla de login y menú utilizando el patrón Redux en toda la aplicación.
 
 Cuarto bloque:
