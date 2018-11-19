@@ -19,65 +19,63 @@ import { AdDirective }          from './ad.directive';
 import { AdService }            from './ad.service';
 
 @NgModule({
-  imports: [ BrowserModule ],
-  providers: [AdService],
-  declarations: [ AppComponent,
-                  AdBannerComponent,
-                  HeroJobAdComponent,
-                  HeroProfileComponent,
-                  AdDirective ],
-  entryComponents: [ HeroJobAdComponent, HeroProfileComponent ],
-  bootstrap: [ AppComponent ]
+  imports: [
+    CommonModule
+  ],
+  declarations: [
+    AdsLoaderComponent,
+    Ad1Component,
+    Ad2Component,
+    Ad3Component,
+    Ad4Component,
+  ],
+  entryComponents: [
+    Ad1Component,
+    Ad2Component,
+    Ad3Component,
+    Ad4Component
+  ],
+  providers: [
+    AdService
+  ],
+  exports: [
+    AdsLoaderComponent
+  ]
 })
-export class AppModule {
+export class DynamicComponentsModule {
   constructor() {}
 }
 ```
 
-## Paso 1: Crear una directiva para indicar dónde cargar los componentes:
-
-```ts
-//src/app/ad.directive.ts
-import { Directive, ViewContainerRef } from '@angular/core';
-
-@Directive({
-  selector: '[ad-host]',
-})
-export class AdDirective {
-  constructor(public viewContainerRef: ViewContainerRef) { }
-}
-```
-
-Esta directiva tiene acceso al *view container* del elemento al que se aplique.
-
-## Paso 2: Incluir la directiva en algún html
+## Paso 1: Incluir ng-template con una template variable
 
 En src/app/ad-banner.component.html:
 
 ```html
 <div class="ad-banner">
   <h3>Advertisements</h3>
-  <ng-template ad-host></ng-template>
+  <ng-template #adhost></ng-template>
 </div>
 ```
 
 El elemento &lt;ng-template> es una buena elección para componentes dinámicos porque no renderiza nada por sí mismo.
 
-## Paso 3: Programar la carga dinámica
+## Paso 2: Programar la carga dinámica
 
 ```ts
 //src/app/ad-banner.component.ts
-export class AdBannerComponent implements OnInit, OnDestroy {
+export class AdsLoaderComponent implements OnInit {
+
   @Input() ads: AdItem[];
   currentAdIndex = -1;
-  @ViewChild(AdDirective) adHost: AdDirective;
+  @ViewChild('adhost', {read: ViewContainerRef}) viewContainerRef: ViewContainerRef;
   interval: any;
 
   constructor(private componentFactoryResolver: ComponentFactoryResolver) { }
 
   ngOnInit() {
     this.loadComponent();
-    this.getAds();
+    this.getAd();
   }
 
   ngOnDestroy() {
@@ -90,14 +88,13 @@ export class AdBannerComponent implements OnInit, OnDestroy {
 
     let componentFactory = this.componentFactoryResolver.resolveComponentFactory(adItem.component);
 
-    let viewContainerRef = this.adHost.viewContainerRef;
-    viewContainerRef.clear();
+    this.viewContainerRef.clear();
 
-    let componentRef = viewContainerRef.createComponent(componentFactory);
+    let componentRef = this.viewContainerRef.createComponent(componentFactory);
     (<AdComponent>componentRef.instance).data = adItem.data;
   }
 
-  getAds() {
+  getAd() {
     this.interval = setInterval(() => {
       this.loadComponent();
     }, 3000);
