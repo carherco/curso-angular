@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Hero } from '../../../model/hero';
-import { MockHeroService } from '../../../services/mock-hero.service';
+import { MockHeroeService } from '../../../services/mock-heroe.service';
 
 @Component({
   selector: 'app-heroes-container',
@@ -15,7 +15,7 @@ export class HeroesContainerComponent {
   newHero: Hero;
   selectedHero: Hero;
 
-  constructor(hs: MockHeroService) {
+  constructor(hs: MockHeroeService) {
     this.heroes = hs.get();
     this.newHero = new Hero(21, '');
   }
