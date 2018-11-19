@@ -1,0 +1,11 @@
+<div>
+  <h2>Detalle del héroe {{ hero?.name }}</h2>
+  <form>
+    <input id="name" name="name" [(ngModel)]="hero.name"/>
+    <select id="emotion" name="emotion" [(ngModel)]="hero.emotion">
+      <option *ngFor="let e of emotions" value="{{ e }}">{{ e }}</option>
+    </select>
+    <button (click)="update()">Eliminar</button>
+    <button (click)="delete()">Eliminar</button>
+  </form>
+</div>

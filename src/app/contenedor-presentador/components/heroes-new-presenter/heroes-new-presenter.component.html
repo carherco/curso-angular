@@ -1,0 +1,8 @@
+<h2>Formulario para añadir</h2>
+<form>
+  <input id="name" name="name" [(ngModel)]="hero.name"/>
+  <select id="emotion" name="emotion" [(ngModel)]="hero.emotion">
+    <option *ngFor="let e of emotions" value="{{ e }}">{{ e }}</option>
+  </select>
+  <button (click)="add()" >Añadir</button>
+</form>

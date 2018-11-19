@@ -1,0 +1,26 @@
+<h1>Componente Listado</h1>
+
+<div>
+  <app-heroes-new-presenter
+        [hero]="newHero"
+        (eventAddHero)="add($event)">
+  </app-heroes-new-presenter>
+</div>
+
+<div>
+  <app-heroes-list-presenter
+        [heroes]="heroes"
+        (eventSelectHero)="select($event)"
+        [selectedHero]="selectedHero"
+        (eventDeleteHero)="delete($event)">
+  </app-heroes-list-presenter>
+</div>
+
+<div>
+  <app-heroes-edit-presenter
+        *ngIf="selectedHero"
+        [hero]="selectedHero"
+        (eventUpdate)="update($event)"
+        (eventDelete)="delete($event)">
+  </app-heroes-edit-presenter>
+</div>

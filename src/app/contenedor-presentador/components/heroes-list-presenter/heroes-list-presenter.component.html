@@ -1,0 +1,20 @@
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Nombre</th>
+      <th>Emoción</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let hero of heroes"
+          (click)="select(hero)"
+          [class.selected]="hero==selectedHero">
+          <td>{{ hero.id }}</td>
+          <td>{{ hero.name }}</td>
+          <td>{{ hero.emotion }}</td>
+          <td><button (click)="delete(hero)">Eliminar</button></td>
+      </tr>
+  </tbody>
+</table>
