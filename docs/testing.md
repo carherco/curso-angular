@@ -172,12 +172,15 @@ spyOn(someObj, 'func').and.returnValue(42);
 someObj.func(1,2,3); // returns 42
 ```
 
-
-
 ```javascript
 spyOn(someObj, 'func').withArgs(4, 5, 6).and.returnValue(42);
 someObj.func(1, 2, 3); // returns 42
 ```
+
+```javascript
+tape = jasmine.createSpyObj('tape', ['play', 'pause', 'stop', 'rewind']);
+```
+
 
 ### javascript.any
 
