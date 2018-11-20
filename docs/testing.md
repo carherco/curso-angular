@@ -71,22 +71,36 @@ it("and can have a negative case", function() {
 
 Los matchers disponibles son:
 
+- not
+- nothing
 - toBe
-- toEqual
-- toMatch
-- toBeDefined
-- toBeUndefined
-- toBeNull
-- toBeTruthy
-- toBeFalsy
-- toContain
-- toBeLessThan
-- toBeGreaterThan
 - toBeCloseTo
+- toBeDefined
+- toBeFalsy
+- toBeGreaterThan
+- toBeGreaterThanOrEqual
+- toBeLessThan
+- toBeLessThanOrEqual
+- toBeNaN
+- toBeNegativeInfinity
+- toBeNull
+- toBePositiveInfinity
+- toBeTruthy
+- toBeUndefined
+- toContain
+- toEqual
+- toHaveBeenCalled
+- toHaveBeenCalledBefore
+- toHaveBeenCalledTimes
+- toHaveBeenCalledWith
+- toHaveClass
+- toMatch
 - toThrow
 - toThrowError
+- toThrowMatching
+- withContext
 
-https://jasmine.github.io/2.4/introduction.html
+https://jasmine.github.io/api/edge/matchers.html
 
 Todos los matchers adminten un segundo parámetro de tipo string que es el mensaje que Jasmine mostrará si la expectation no se cumple.
 
@@ -147,7 +161,57 @@ Se pueden anidar funciones describe.
 
 Las suites declaradas con xdescribe y las specs declaradas con xit no son ejecutadas por Jasmine y aparecen como pendientes.
 
-https://jasmine.github.io/2.4/introduction.html
+https://jasmine.github.io/tutorials/your_first_suite
+
+### Spy
+
+Los espías sirven para crear Stubs/Mocks
+
+```javascript
+spyOn(someObj, 'func').and.returnValue(42);
+someObj.func(1,2,3); // returns 42
+```
+
+
+
+```javascript
+spyOn(someObj, 'func').withArgs(4, 5, 6).and.returnValue(42);
+someObj.func(1, 2, 3); // returns 42
+```
+
+### javascript.any
+
+```javascript
+expect(myfunction).toHaveBeenCalledWith(jasmine.any(Number), jasmine.any(Function));
+```
+
+### javascript.anything
+
+Deveuelve true si el valor no es null ni undefined.
+
+```javascript
+expect(myfunction).toHaveBeenCalledWith(12, jasmine.anything());
+```
+
+### javascript.objectContaining
+
+```javascript
+expect(myfunction).not.toEqual(jasmine.objectContaining({
+  c: 37
+}));
+```
+
+### jasmine.arrayContaining
+
+```javascript
+expect(myfunction).toHaveBeenCalledWith(jasmine.arrayContaining([4, 2, 3]));
+```
+
+### jasmine.stringMatching
+
+```javascript
+expect({foo: 'bar'}).toEqual({foo: jasmine.stringMatching(/^bar$/)});
+```
 
 ## Karma
 
@@ -224,7 +288,7 @@ Por tanto, para llamar al método necesitamos añadir async en el beforeEach.
 
 ### detectChanges
 
-En producción y en desarrollo, la detección de cambios se produce automáticamente cuando Angular crea un componente o el usuario pulsa una tecla cuando se completa alguna operación asíncrona... 
+En producción y en desarrollo, la detección de cambios se produce automáticamente cuando Angular crea un componente o el usuario pulsa una tecla cuando se completa alguna operación asíncrona...
 
 Pero en los tests, no. Esto está hecho así de manera intencionada, para que el tester tenga la posibilidad de acceder al componente antes y después de que se produzcan cambios.
 
@@ -408,8 +472,76 @@ describe('Testeando una pipe', () => {
 
 ## Testeo de directivas
 
+Para testear una directiva, el mejor método es crear un componente ficticio en cuyo html aplicaremos la directiva. Luego crearemos un módulo con dicho componente y con la directiva y procederemos al testeo.
 
+```typescript
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { Component, DebugElement, NO_ERRORS_SCHEMA } from "@angular/core";
+import { HighlightDirective } from './highlight.directive';
+import { By } from "@angular/platform-browser";
 
-## Configurar jenkins con karma:
+@Component({
+  template: `
+  <h2 [appHighlight]="'red'">Something Red</h2>
+  <h2 appHighlight>The Default (yellow)</h2>
+  <h2>No Highlight</h2>`
+})
+class TestComponent { }
+
+describe('HighlightDirective', () => {
+  let component: TestComponent;
+  let fixture:   ComponentFixture<TestComponent>;
+  let des:       DebugElement;
+  let elH2:      HTMLElement;
+
+  beforeEach(() => {
+    this.fixture = TestBed.configureTestingModule({
+      declarations: [ HighlightDirective, TestComponent ]
+    })
+    .createComponent(TestComponent);
+
+    this.fixture.detectChanges(); // initial binding
+
+    // all elements with an attached HighlightDirective
+    this.des = this.fixture.debugElement.queryAll(By.directive(HighlightDirective));
+
+    // the h2 without the HighlightDirective
+    this.elH2 = this.fixture.debugElement.query(By.css('h2:not([appHighlight])'));
+  });
+
+  // color tests
+  it('should have 2 highlighted elements', () => {
+    expect(this.des.length).toBe(2);
+  });
+
+  it('should color 1st <h2> background be "red" on mouse enter', () => {
+    this.des[0].triggerEventHandler('mouseenter', null);
+    this.fixture.detectChanges();
+    const bgColor = this.des[0].nativeElement.style.backgroundColor;
+    expect(bgColor).toBe('red');
+  });
+
+  it('should color 2nd <h2> background w/ default color on mouse enter', () => {
+    const dir = this.des[1].injector.get(HighlightDirective) as HighlightDirective;
+    this.des[1].triggerEventHandler('mouseenter', null);
+    this.fixture.detectChanges();
+    const bgColor = this.des[1].nativeElement.style.backgroundColor;
+    expect(bgColor).toBe(dir.defaultColor);
+  });
+
+  it('mouseleave', () => {
+    this.des[0].triggerEventHandler('mouseenter', null);
+    this.fixture.detectChanges();
+    expect(this.des[0].nativeElement.style.backgroundColor).toBe('red');
+
+    this.des[0].triggerEventHandler('mouseleave', null);
+    this.fixture.detectChanges();
+    expect(this.des[0].nativeElement.style.backgroundColor).toBe('');
+  });
+
+});
+```
+
+## Configurar jenkins con karma
 
 https://karma-runner.github.io/1.0/plus/jenkins.html
