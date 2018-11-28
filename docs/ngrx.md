@@ -207,3 +207,5 @@ StoreDevtoolsModule.instrument()
 ## Ejercicio
 
 Realizar el ejercicio anterior utilizando la librería NgRx
+
+Ejercicio resuelto en el módulo *redux*.

@@ -30,10 +30,12 @@ Segundo Bloque:
 
 Tercer bloque:
 
-- Formularios dinámicos
+- [Formularios dinámicos](dynamic-forms.md)
+- [Controles personalizados](custom-form-controls.md)
 - [Carga dinámica de componentes](dynamic-components.md)
 - [Ciclo de vida de un componente](lifecycle.md)
 - [Detección de cambios](deteccion-cambios.md)
+- [Patrón Contenedor-Presentador (aka Smart-Dumb pattern)](contenedor-presentador.md)
 - [Subjects](subject.md)
 - [Patrón redux: Stores, actions y reducers](redux.md)
 - [Patrón redux: Librería NgRx](ngrx.md)

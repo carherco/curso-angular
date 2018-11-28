@@ -202,6 +202,15 @@ export class HighlightDirective {
 }
 ```
 
+Si queremos pasar datos a nuestro método, la forma de hacerlo es:
+
+```ts
+@HostListener("mouseenter", ['$event'])
+onMouseEnter(event) {
+    this.highlight("yellow");
+}
+```
+
 #### El decorador @Input
 
 El decorador @Input permite pasar variables a la directiva.
@@ -271,5 +280,7 @@ export class HighlightDirective {
   }
 }
 ```
+
+Ejercicio: Crear una directiva para rotar imágenes.
 
 [Índice](index.md)

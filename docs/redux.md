@@ -36,3 +36,5 @@ Funciones puras:
   - Son funciones puras*, las únicas que pueden mutar el estado.
   - Reciben el estado actual (STATE) y una acción (ACTION).
   - Clonan el estado, realizan los cambios oportunos y devuelven el estado mutado.
+
+Ejemplo resuelto en el módulo *redux*.

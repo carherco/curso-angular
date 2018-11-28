@@ -49,7 +49,6 @@ Ejemplo:
 
 [Documentación pipes](https://angular.io/api?type=pipe)
 
-
 ## Custom pipes
 
 Es posible programar pipes personalizadas.
@@ -90,7 +89,8 @@ Las pipes puras detectan cambios en las variables pero no detectan cambios dentr
 
 Las pipes impuras inspeccionan todo el contenido del array o de los objetos.
 
-Para crear una pipe impura hay que indicar en los metadatos del decorador *pure:false*
+Para crear una pipe impura hay que indicar en los metadatos del decorador *pure:false*.
+
 ```typescript
 @Pipe({
   name: 'exponentialStrength',
@@ -98,5 +98,14 @@ Para crear una pipe impura hay que indicar en los metadatos del decorador *pure:
 })
 ```
 
+Ejercicio: crear una pipe que filtre un array de usuarios por la propiedad *age* dejando únicamete aquellos usuarios que tengan una edad igual o superior a la indicada.
+
+Ejemplo:
+
+```html
+<li *ngFor="let user of users | minAge:18">
+  ...
+</li>
+```
 
 [Índice](index.md)

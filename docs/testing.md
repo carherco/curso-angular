@@ -173,22 +173,21 @@ someObj.func(1,2,3); // returns 42
 ```
 
 ```javascript
-spyOn(someObj, 'func').withArgs(4, 5, 6).and.returnValue(42);
-someObj.func(1, 2, 3); // returns 42
+spyOn(someObj, 'func').withArgs(4, 5, 6).and.returnValue(45);
+someObj.func(4, 5, 6); // returns 45
 ```
 
 ```javascript
 tape = jasmine.createSpyObj('tape', ['play', 'pause', 'stop', 'rewind']);
 ```
 
-
-### javascript.any
+### jasmine.any
 
 ```javascript
 expect(myfunction).toHaveBeenCalledWith(jasmine.any(Number), jasmine.any(Function));
 ```
 
-### javascript.anything
+### jasmine.anything
 
 Deveuelve true si el valor no es null ni undefined.
 
@@ -196,7 +195,7 @@ Deveuelve true si el valor no es null ni undefined.
 expect(myfunction).toHaveBeenCalledWith(12, jasmine.anything());
 ```
 
-### javascript.objectContaining
+### jasmine.objectContaining
 
 ```javascript
 expect(myfunction).not.toEqual(jasmine.objectContaining({

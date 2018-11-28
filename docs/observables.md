@@ -190,7 +190,7 @@ let o1 = Observable.create((emmiter) => {
     })
   ```
 
-Esta última manera nos permite crear un observable a partir de cualquier cosa que se nos ocurra. La función `create()` tiene como argumento una función de callback cuyo argumento es el `observer` que se haya suscrito a ella. Todo lo que tenemos que hacer es usar los métodos del `observer` (`next`, `error`, `complete`) para pasarle los datos que deseemos.
+Esta última manera nos permite crear un observable a partir de cualquier cosa que se nos ocurra. La función `create()` tiene como argumento una función de callback cuyo argumento es un `emmitter`. Todo lo que tenemos que hacer es usar los métodos del `emitter` (`next`, `error`, `complete`) para emitir nuevos datos, emitir un error o emitir la señal de fin.
   
 Hasta aquí solo hemos **declarado** observables. Esto es importante, los observables se definen declarativamente, lo que significa que **no se ejecutan** en el momento de definirlos.
 
@@ -256,11 +256,11 @@ la posición del ratón cuando este se encuentra en una zona determinada del ele
       filter(v => v[0] > 300 && v[1] > 350)
     )
 ```
+
  Y ahora solo se generan datos de las posiciones cuando el ratón pasa por el 
  cuarto inferior derecho del elemento HTMl.
 
-
- ### Tratamiento de los errores en el observable
+### Tratamiento de los errores en el observable
 
  Supongamos que en alguno de los operadores lanzamos una excepción
 
@@ -290,7 +290,7 @@ let o1 = from([0,1,2,3,4,5,6,7,8,9]).pipe(
           throw new Error('Oh no el 5!!!')
         }
         return v*v
-      }),     
+      }),
       catchError(err => of("cambio el 5 por este mensaje"))
     )
 ```
@@ -312,18 +312,15 @@ let o1 = from([0,1,2,3,4,5,6,7,8,9]).pipe(
           throw new Error('Oh no el 5!!!')
         }
         return v*v
-      }),     
+      }),
       catchError(err => of("cambio el 5 por este mensaje"))
     )
 ```
-
 
 ## Ejercicio
 
 - Cambiar los métodos logIn y logOut de AuthService para que devuelvan un Observable que emita un booleano en lugar de devolver directamente un booleano.
 
 - Simular que el proceso de login tarda 1 segundo en comprobar la validez de las credenciales aplicando el operador **delay** al observable.
-
-
 
 [Índice](index.md)
