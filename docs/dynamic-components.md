@@ -2,7 +2,7 @@
 
 En este tema veremos cómo utilizar **ComponentFactoryResolver** para añadir componentes a una vista dinámicamente.
 
-## Elementos previos
+## Elementos previos
 
 ### Los anuncios
 
