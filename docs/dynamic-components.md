@@ -173,3 +173,9 @@ El método createComponent() devuelve una referencia al componente recién carga
 ## Consejo
 
 Si hacemos que los componentes cargados dinámicamente cumplan un Interface, nos aseguramos que todos ellos tengan las propiedades y/o métodos que necesitemos.
+
+```typescript
+export interface AdComponent {
+  data: any;
+}
+```
