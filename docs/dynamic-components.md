@@ -2,6 +2,63 @@
 
 En este tema veremos cómo utilizar **ComponentFactoryResolver** para añadir componentes a una vista dinámicamente.
 
+## Elementos previos
+
+### Los anuncios
+
+```
+ng g c components/ad1
+ng g c components/ad2
+ng g c components/ad3
+ng g c components/ad4
+```
+
+```typescript
+export class Ad1Component implements AdComponent {
+
+  data: any
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}
+```
+
+```html
+<h2>{{data.headline}}</h2>
+<div>{{data.body}}</div>
+```
+
+```typescript
+import { Type } from '@angular/core';
+
+export class AdItem {
+  constructor(public component: Type<any>, public data: any) {}
+}
+```
+
+### El servicio
+
+```typescript
+@Injectable()
+export class AdService {
+  getAds() {
+    return [
+      new AdItem(Ad1Component, {headline: 'Bombasto', body: 'Brave as they come'}),
+
+      new AdItem(Ad2Component, {headline: 'Dr IQ', body: 'Smart as they come'}),
+
+      new AdItem(Ad3Component,   {headline: 'Hiring for several positions',
+                                        body: 'Submit your resume today!'}),
+
+      new AdItem(Ad4Component,   {headline: 'Openings in all departments',
+                                        body: 'Apply today'}),
+    ];
+  }
+}
+```
+
 ## EntryComponents
 
 Lo primero de todo es que hay que declarar los componentes dinámicos en la propiedad **entryComponents** de los metadatos del decoraddor *@NgModule* de nuestro módulo.
