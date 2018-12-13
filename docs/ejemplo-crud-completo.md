@@ -43,7 +43,7 @@ export class AuthService {
   usertoken: {username: string, token: string }
 
   simulacionPeticionHTTPLoginCorrecto: Observable<boolean>;
-  simulacionPeticionHTTPLoginInorrecto: Observable<boolean>;
+  simulacionPeticionHTTPLoginIncorrecto: Observable<boolean>;
 
   constructor(private http: HttpClient) {
     this.usertoken = {
@@ -55,7 +55,7 @@ export class AuthService {
       emmitter => {emmitter.next(true); emmitter.complete()}
     ).pipe(delay(1000));
 
-    this.simulacionPeticionHTTPLoginInorrecto = Observable.create(
+    this.simulacionPeticionHTTPLoginIncorrecto = Observable.create(
       emmitter => {emmitter.next(false); emmitter.complete()}
     ).pipe(delay(1000));
 
@@ -77,7 +77,7 @@ export class AuthService {
 
     } else {
 
-      return this.simulacionPeticionHTTPLoginCorrecto;
+      return this.simulacionPeticionHTTPLoginIncorrecto;
 
     }
 

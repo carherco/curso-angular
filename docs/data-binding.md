@@ -14,7 +14,6 @@ Se utiliza para:
 - Clases
 - Estilos
 
-
 ```jinja+html
   <h1>{{expression}}</h1>
   <img src="{{expression}}" />
@@ -63,17 +62,30 @@ Tampoco son válidos en expresiones de plantilla de angular los operadores | y &
 Por otro lado, angular tiene algunos operadores que no existen en JavaScript/TypeScript: |, ?, y !.
 
 Las expresiones en las plantillas pueden crear una gran aplicación, o romperla. LAs recomendaciones para generar expresiones son:
-  - No provoquen efectos colaterales
-  - Rápidas de evaluar
-  - Simples
-  - Idempotentes
+  
+- No provoquen efectos colaterales
+- Rápidas de evaluar
+- Simples
+- Idempotentes
+
+La sintaxis de la interpolación {{ }} se puede cambiar con la propiedad **interpolation** de los metadatos del componente:
+
+```typescript
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss'],
+  interpolation: ['%%','%%']
+})
+```
+
+https://angular.io/api/core/Component#interpolation
 
 ## One way data binding (de la template al componente)
 
 Se utiliza para:
 
 - Eventos
-
 
 ```jinja+html
   <button (click)="statement">Hello</button>
@@ -136,7 +148,6 @@ que internamente equivaldría más o menos a:
   <input [value]="variable" (keyup)="variable=$event.target.value"/>
 ```
 
-
 Nota: Para utilizar _ngModel_ necesitamos importar FormsModule.
 
 ```typescript
@@ -168,8 +179,7 @@ export class AppModule { }
 Ejemplos:
 
 - click-me
-- calculadora
-- incluir &lt;app-calculadora&gt; varias veces
+- incluir componente *click-me* varias veces
 
 https://blog.angular-university.io/how-does-angular-2-change-detection-really-work/
 

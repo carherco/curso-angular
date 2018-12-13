@@ -205,9 +205,11 @@ export class HighlightDirective {
 Si queremos pasar datos a nuestro método, la forma de hacerlo es:
 
 ```ts
-@HostListener("mouseenter", ['$event'])
-onMouseEnter(event) {
-    this.highlight("yellow");
+@HostListener("click", ['$event'])
+onClick(event: MouseEvent) {
+    if(event.shiftKey) {
+      ...
+    }
 }
 ```
 
@@ -281,6 +283,23 @@ export class HighlightDirective {
 }
 ```
 
-Ejercicio: Crear una directiva para rotar imágenes.
+## Ejercicio: Crear una directiva para rotar imágenes.
+
+El uso de la directiva sería el siguiente:
+
+```html
+<img rotate src="..."/>
+<img [rotate]="45" src="..."/>
+<img [rotate]="45" [step]="15" src="..."/>
+```
+
+- Al hacer click en una imagen que tenga el atributo *rotate*, la imagen deberá rotar los grados indicados en el atributo *step*.
+- Por defecto rotará en pasos de 10 grados
+- Se le podrá indicar una rotación inicial en el propio atributo *rotate*
+- Si se hace click en la imagen con la tecla mayúsculas pulsada, la imagen rotará hacia el lado contrario.
+
+Extra:
+
+- Limitar la directiva para que solamente pueda ser aplicada a imágenes.
 
 [Índice](index.md)

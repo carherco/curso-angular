@@ -76,8 +76,7 @@ Ejercicio: Crear dos componentes distintos e insertarlos dentro de la vista/comp
 
 Ejercicio: Insertar uno de los componentes dentro del otro.
 
-
-## CSS en los componentes
+## CSS en los componentes (encapsulación)
 
 Los estilos especificados en los metadatos de un componente, solamente aplican a dicho componente.
 
@@ -191,6 +190,27 @@ Si el proyecto está configurado para trabajar con .scss, .less o .styl, aplican
 
 En el proceso de compilación, angular compilará las CSS automáticamente.
 
+### Modos de encapsulación
+
+Hay varios tipos de encapsulación de componentes para css
+
+- Emulated (default)
+- Native
+- None
+- ShadowDom
+
+Se configuran con la propiedad **encapsulation** de los metadatos del componente.
+
+```typescript
+@Component({
+  ...
+  encapsulation: ViewEncapsulation.None
+})
+class MyComp {
+}
+```
+
+https://angular.io/api/core/ViewEncapsulation
 
 
 [Índice](index.md)

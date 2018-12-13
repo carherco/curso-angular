@@ -244,19 +244,16 @@ https://angular.io/guide/http#intercepting-requests-and-responses
 
 ## Ejercicio
 
-Programar un CRUD de usuarios con las siguientes especificaciones:
+Crear un servicio para el CRUD de usuarios con los siguientes métodos:
 
-- Una clase User con la definición de nuestro modelo
-- Un componente para el listado: UserList
-- Un componente para editar usuarios: UserEdit
-- Un componente para añadir usuarios: UserAdd
-- Un servicio UserService con los métodos:
-  - getAll()
-  - getOne(id: number)
-  - edit(id: number, user: User)
-  - add(user: User)
-  - delete(id: number)
+- getAll()
+- getOne(id: number)
+- edit(id: number, user: User)
+- add(user: User)
+- delete(id: number)
 
-- Los componetes NO utilizarán directamente el servicio HttpClient
+El servicio consumirá la api https://reqres.in/
+
+El compoente NO utilizarán directamente el servicio HttpClient. Deberá ser el servicio el que realice las peticiones.
 
 [Índice](index.md)

@@ -17,8 +17,8 @@ Angular espera a que el programador le diga que tiene que detectar cambios.
 Excepciones:
 
 - Un cambio en una REFERENCIA @Input. (cambio en la referencia, no en el valor, ya que angular considerará que los objetos son inmutables)
-- Un evento del DOM o asociado a un @Output
-- Un observable genere un evento ¿?
+- Un evento del DOM.
+- Un observable dispare un evento (@Output).
 
 Según comenta Victor Savkin (core contributor de Angular) en su blog:
 
