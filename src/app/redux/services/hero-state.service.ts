@@ -11,7 +11,7 @@ export class ReduxHeroStateService {
 
     private state: HeroState = initialHeroState;
     private state$ = new Subject<any>();
-    //private state$ = new BehaviorSubject<any>([]);
+    //private state$ = new BehaviorSubject<any>(this.state);
 
     constructor() {}
 

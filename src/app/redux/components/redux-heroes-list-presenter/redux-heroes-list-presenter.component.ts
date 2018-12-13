@@ -1,10 +1,11 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output, ChangeDetectionStrategy } from '@angular/core';
 import { Hero } from 'app/model/hero';
 
 @Component({
   selector: 'app-redux-heroes-list-presenter',
   templateUrl: './redux-heroes-list-presenter.component.html',
-  styleUrls: ['./redux-heroes-list-presenter.component.css']
+  styleUrls: ['./redux-heroes-list-presenter.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ReduxHeroesListPresenterComponent implements OnInit {
 

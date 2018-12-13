@@ -16,7 +16,7 @@ describe('curso App', () => {
     page.navigateTo();
     page.getLoginLink().click();
 
-    expect(page.getH2Text()).toEqual('Login')
+    expect(page.getH2Text()).toEqual('Login');
 
   });
 });

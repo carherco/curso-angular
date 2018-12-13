@@ -6,23 +6,24 @@ import { delay } from 'rxjs/operators';
   selector: 'app-change-detection-child2',
   templateUrl: './change-detection-child2.component.html',
   styleUrls: ['./change-detection-child2.component.css'],
-  //changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ChangeDetectionChild2Component implements OnInit {
 
   @Input() object;
   constructor() {
-    // setTimeout(() => {
-    //   console.log('timeout - child2');
-    //   this.object.name = 'child2 modified by timeout in child2';
-    // },10000);
+    console.log('child2 constructor');
+    setTimeout(() => {
+      console.log('timeout - child2');
+      this.object.name = 'child2 modified by timeout in child2';
+    },10000);
 
-    // of(true).pipe( delay(20000) ).subscribe(
-    //   x => {
-    //     console.log('observable - child2');
-    //     this.object.name = 'child2 modified by observable in child2';
-    //   }
-    // );
+    of(true).pipe( delay(20000) ).subscribe(
+      x => {
+        console.log('observable - child2');
+        this.object.name = 'child2 modified by observable in child2';
+      }
+    );
   }
 
   onClick() {

@@ -8,7 +8,9 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ChangeDetectionChild1Component implements OnInit {
 
   @Input() object;
-  constructor() { }
+  constructor() {
+    console.log('child1 constructor');
+  }
 
   onClick() {
     console.log('child1 (click)');
@@ -18,31 +20,31 @@ export class ChangeDetectionChild1Component implements OnInit {
   ngOnInit() {
     console.log('child1 ngOnInit');
   }
-  
+
   ngOnChanges() {
     console.log('child1 ngOnChanges');
   }
-  
+
   ngDoCheck() {
     console.log('child1 ngDoCheck');
   }
-  
+
   ngAfterContentInit() {
     console.log('child1 ngAfterContentInit');
   }
-  
+
   ngAfterContentChecked() {
     console.log('child1 ngAfterContentChecked');
   }
-  
+
   ngAfterViewInit() {
     console.log('child1 ngAfterViewInit');
   }
-  
+
   ngAfterViewChecked() {
     console.log('child1 ngAfterViewChecked');
   }
-  
+
   ngOnDestroy() {
     console.log('child1 ngOnDestroy');
   }

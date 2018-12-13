@@ -273,4 +273,10 @@ ngOnInit() {
 </div>
 ```
 
-Thanks to: https://blog.angularindepth.com/never-again-be-confused-when-implementing-controlvalueaccessor-in-angular-forms-93b9eee9ee83 and https://www.youtube.com/watch?v=CD_t3m2WMM8&index=15&list=PLAw7NFdKKYpGUpg7JJ8-PJNMdlrOnmZtN
+Gracias a: https://blog.angularindepth.com/never-again-be-confused-when-implementing-controlvalueaccessor-in-angular-forms-93b9eee9ee83 
+y a
+https://www.youtube.com/watch?v=CD_t3m2WMM8&index=15&list=PLAw7NFdKKYpGUpg7JJ8-PJNMdlrOnmZtN
+
+
+## Ejercicio: 
+https://alligator.io/angular/custom-form-control/

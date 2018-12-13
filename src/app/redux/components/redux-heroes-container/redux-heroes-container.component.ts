@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { HEROES } from 'app/data/mock-heroes';
 import { Hero } from 'app/model/hero';
 import { Observable } from 'rxjs';
@@ -10,7 +10,8 @@ import { ReduxHeroStateService } from '../../services/hero-state.service';
 @Component({
   selector: 'app-redux-heroes-container',
   templateUrl: './redux-heroes-container.component.html',
-  styleUrls: ['./redux-heroes-container.component.css']
+  styleUrls: ['./redux-heroes-container.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ReduxHeroesContainerComponent implements OnInit {
 

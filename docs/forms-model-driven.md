@@ -30,6 +30,7 @@ Utilizaremos el mismo formulario de partida de antes:
       </form>
   </div>
 ```
+
 El mismo componete de partida,
 
 ```typescript
@@ -175,6 +176,18 @@ También podemos resetear el formulario
 
 ```typescript
   this.heroForm.reset();
+```
+
+## FormControl.setValidators()
+
+También tenemos una función para establecer validadores dinámicamente:
+
+```typescript
+this.nameController.setValidators([Validators.required, Validators.minLength(5)]);
+```
+
+```typescript
+this.nameController.setValidators(null);
 ```
 
 ## FormArray

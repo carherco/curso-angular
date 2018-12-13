@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { of } from 'rxjs';
 import { delay } from 'rxjs/operators';
 
@@ -15,23 +15,24 @@ export class ChangeDetectionParentComponent implements OnInit {
   objectc2 = {name: 'child2'}
   objectc3 = {name: 'child3'}
   constructor() {
-    // setTimeout(() => {
-    //   console.log('timeout - parent');
-    //   this.objectp.name = 'parent modified by timeout';
-    //   this.objectc1.name = 'child1 modified by timeout';
-    //   this.objectc2.name = 'child2 modified by timeout';
-    //   this.objectc3 = {...this.objectc3, name: 'child3 modified by timeout'};
-    // },5000);
+    console.log('parent constructor');
+    setTimeout(() => {
+      console.log('timeout - parent');
+      this.objectp.name = 'parent modified by timeout';
+      this.objectc1.name = 'child1 modified by timeout';
+      this.objectc2.name = 'child2 modified by timeout';
+      this.objectc3 = {...this.objectc3, name: 'child3 modified by timeout'};
+    },5000);
 
-    // of(true).pipe( delay(15000) ).subscribe(
-    //   x => {
-    //     console.log('observable - parent');
-    //     this.objectp.name = 'parent modified by observable in parent';
-    //     this.objectc1.name = 'child1 modified by observable in parent';
-    //     this.objectc2.name = 'child2 modified by observable in parent';
-    //     this.objectc3 = {...this.objectc3, name: 'child3 modified by observable in parent'};
-    //   }
-    // );
+    of(true).pipe( delay(15000) ).subscribe(
+      x => {
+        console.log('observable - parent');
+        this.objectp.name = 'parent modified by observable in parent';
+        this.objectc1.name = 'child1 modified by observable in parent';
+        this.objectc2.name = 'child2 modified by observable in parent';
+        this.objectc3 = {...this.objectc3, name: 'child3 modified by observable in parent'};
+      }
+    );
   }
 
   onClick() {

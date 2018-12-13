@@ -13,12 +13,13 @@ export function reducer(state = initialHeroState, action: HeroAction): HeroState
       newstate.items = action.payload;
     break;
     case '[HERO]_Add':
+      newstate.items = newstate.items.slice(0); //Una forma de clonar arrays
       newstate.items.push(action.payload);
       newstate.lastId = newstate.lastId +1;
     break;
     case '[HERO]_Delete':
       let hero = action.payload;
-      newstate.items = newstate.items.filter(function(el) { return el.id != hero.id; }); 
+      newstate.items = newstate.items.filter(function(el) { return el.id != hero.id; });
     break;
     default:
       return state;

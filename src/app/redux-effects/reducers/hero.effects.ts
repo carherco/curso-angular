@@ -16,9 +16,9 @@ export class HeroEffects {
 
   @Effect()
   public loadHeroesEffect$: Observable<HeroActions> = this.actions$.pipe(
-    tap( x => console.log(x) ),
+    // tap( x => console.log(x) ),
     ofType('[HERO]_Load'),
-    tap( x => console.log('Efecto') ),
+    // tap( x => console.log('Efecto') ),
     mergeMap(() =>
       //Aquí es donde se programa la operación asíncrona, en nuestro caso his.heroService.getHeroes()
       this.heroService.getHeroes().pipe(

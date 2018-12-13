@@ -11,8 +11,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from 'app/material/material.module';
 import { AppRoutingModule } from './app-routing.module';
+import { LayoutModule } from '@angular/cdk/layout';
+import { DynamicComponentsModule } from './dynamic-components/dynamic-components.module';
 
 import { AppComponent } from './app.component';
+import { NavComponent } from './components/nav/nav.component';
 import { ChildCompComponent } from './components/child-comp/child-comp.component';
 import { ClickMeComponent } from './components/click-me/click-me.component';
 import { ColdObservablesComponent } from './components/cold-observables/cold-observables.component';
@@ -29,8 +32,20 @@ import { LifecycleComponent } from './components/lifecycle/lifecycle.component';
 import { LoginComponent } from './components/login/login.component';
 import { ParentCompComponent } from './components/parent-comp/parent-comp.component';
 import { ReactiveFormComponent } from './components/reactive-form/reactive-form.component';
+import { PipesComponent } from './components/pipes/pipes.component';
+import { CalculadoraComponent } from './components/calculadora/calculadora.component';
+import { RotateComponent } from './components/rotate/rotate.component';
+import { CronoComponent } from './components/crono/crono.component';
+import { AnimationComponent } from './components/animation/animation.component';
+import { AnimationQueryStagerComponent } from './components/animation-query-stager/animation-query-stager.component';
+import { AnimationSearchComponent } from './components/animation-search/animation-search.component';
+import { DynamicFormExampleComponent } from './components/dynamic-form-example/dynamic-form-example.component';
+import { DynamicComponentsExampleComponent } from './components/dynamic-components-example/dynamic-components-example.component';
 
 import { HighlightDirective } from './directives/highlight.directive';
+import { RotateDirective } from './directives/rotate.directive';
+
+import { FilterAgePipe } from './pipes/filter-age.pipe';
 
 import { AuthGuard } from './guards/auth.guard';
 import { ConfimarGuard } from './guards/confimar.guard';
@@ -42,20 +57,6 @@ import { HeroeService } from './services/heroe.service';
 import { MockHeroeService } from './services/mock-heroe.service';
 import { UserService } from './services/user.service';
 import { UsuarioService } from './services/usuario.service';
-import { NavComponent } from './components/nav/nav.component';
-
-import { LayoutModule } from '@angular/cdk/layout';
-import { PipesComponent } from './components/pipes/pipes.component';
-import { CalculadoraComponent } from './components/calculadora/calculadora.component';
-import { RotateDirective } from './directives/rotate.directive';
-import { RotateComponent } from './components/rotate/rotate.component';
-import { CronoComponent } from './components/crono/crono.component';
-import { AnimationComponent } from './components/animation/animation.component';
-import { AnimationQueryStagerComponent } from './components/animation-query-stager/animation-query-stager.component';
-import { AnimationSearchComponent } from './components/animation-search/animation-search.component';
-import { DynamicFormExampleComponent } from './components/dynamic-form-example/dynamic-form-example.component';
-import { DynamicComponentsExampleComponent } from './components/dynamic-components-example/dynamic-components-example.component';
-import { DynamicComponentsModule } from './dynamic-components/dynamic-components.module';
 
 @NgModule({
   declarations: [
@@ -87,7 +88,8 @@ import { DynamicComponentsModule } from './dynamic-components/dynamic-components
     AnimationQueryStagerComponent,
     AnimationSearchComponent,
     DynamicFormExampleComponent,
-    DynamicComponentsExampleComponent
+    DynamicComponentsExampleComponent,
+    FilterAgePipe
   ],
   imports: [
     BrowserModule,

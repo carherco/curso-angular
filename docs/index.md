@@ -44,6 +44,7 @@ Tercer bloque:
 
 Cuarto bloque:
 
+- [EventEmitters por dentro.md](https://netbasal.com/event-emitters-in-angular-13e84ee8d28c)
 - [Angular Material](angular-material.md)
 - [Testeo con Karma](testing.md)
 - [Testeo con Protractor](testing-e2e.md)
