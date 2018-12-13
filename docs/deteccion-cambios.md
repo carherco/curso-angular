@@ -14,6 +14,16 @@ Con esta estrategia, Angular asume que todos nuestros objetos son **Inmutables**
 
 Angular espera a que el programador le diga que tiene que detectar cambios.
 
+La detección del cambio manual se lanza:
+
+- Explícitamente por el programador mediante: ChangeDetectorRef.detectChanges()
+- Implícitamente al usar el pipe Async en la vista
+
+ Nota: La pipe Async:
+
+- Se desuscribe cuando el componente se destruye
+- Llama automáticamente a ChangeDetectorRef.detectChanges()
+
 Excepciones:
 
 - Un cambio en una REFERENCIA @Input. (cambio en la referencia, no en el valor, ya que angular considerará que los objetos son inmutables)
@@ -25,16 +35,6 @@ Según comenta Victor Savkin (core contributor de Angular) en su blog:
 ```
 When using OnPush detectors, then the framework will check an OnPush component when any of its input properties changes, when it fires an event, or when an Observable fires an event
 ```
-
-La detección del cambio manual se lanza:
-
-- Explícitamente por el programador mediante: ChangeDetectorRef.detectChanges()
-- Implícitamente al usar el pipe Async en la vista
-
- Nota: La pipe Async:
-
-- Se desuscribe cuando el componente se destruye
-- Llama automáticamente a ChangeDetectorRef.detectChanges()
 
 Implicaciones:
 
