@@ -1,4 +1,4 @@
 export class Geo {
-  lat: number;
-  lng: number;
+  lat: string;
+  lng: string;
 }
