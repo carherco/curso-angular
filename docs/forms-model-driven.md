@@ -335,3 +335,9 @@ this.formControl = new FormGroup({
     addresses: this.fb.array([]),
   }, { updateOn: 'submit' });
 ```
+
+```typescript
+const arr = new FormArray([
+  new FormControl('Nancy'),
+  new FormControl('Drew')
+], {validators: myValidator, asyncValidators: myAsyncValidator, updateOn: 'blur'});
