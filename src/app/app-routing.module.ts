@@ -31,6 +31,7 @@ import { ReduxNgrxHeroesContainerComponent } from './redux-ng-rx/components/redu
 import { DynamicFormExampleComponent } from './components/dynamic-form-example/dynamic-form-example.component';
 import { DynamicComponentsExampleComponent } from 'app/components/dynamic-components-example/dynamic-components-example.component';
 import { UserFormComponent } from 'app/components/user-form/user-form.component';
+import { UserFormReactiveComponent } from 'app/components/user-form-reactive/user-form-reactive.component';
 
 
 const appRoutes: Routes = [
@@ -44,6 +45,7 @@ const appRoutes: Routes = [
       { path: 'key-up', component: KeyUpComponent },
       { path: 'forms/template-driven', component: HeroFormComponent },
       { path: 'user/form', component: UserFormComponent },
+      { path: 'user/form-reactive', component: UserFormReactiveComponent },
       { path: 'observables', component: ColdObservablesComponent },
       { path: 'forms/model-driven', component: ReactiveFormComponent },
       { path: 'heroes-api', component: HeroListComponent },

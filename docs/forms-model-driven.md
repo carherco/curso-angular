@@ -5,49 +5,64 @@ El módulo de formularios reactivos ofrecen facilidad de utilizar patrones, test
 Utilizaremos el mismo formulario de partida de antes:
 
 ```html
-  <div class="container">
-      <h1>Hero Form</h1>
-      <form>
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input type="text" class="form-control" id="name" required>
-        </div>
-  
-        <div class="form-group">
-          <label for="alterEgo">Alter Ego</label>
-          <input type="text" class="form-control" id="alterEgo">
-        </div>
+<div>
+  <h1>User Form</h1>
+  <form>
+    <div>
+      <label for="name">Name: </label>
+      <input type="text" id="name" name="name" required>
+    </div>
 
-        <div class="form-group">
-          <label for="power">Hero Power</label>
-          <select class="form-control" id="power"  name="power" required>
-            <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
-          </select>
-        </div>
-  
-        <button type="submit" class="btn btn-success">Submit</button>
-  
-      </form>
-  </div>
+    <div>
+      <label for="username">Username: </label>
+      <input type="text" id="username" name="username" required>
+    </div>
+
+    <div>
+      <label for="email">Email: </label>
+      <input type="email" id="email" name="email">
+    </div>
+
+    <h4>Address</h4>
+    <div>
+      <div>
+        <label for="street">Street:
+          <input type="text" id="street" name="street">
+        </label>
+      </div>
+      <div>
+        <label for="city">City:
+          <input type="text" id="city" name="city">
+        </label>
+      </div>
+      <div>
+        <label for="zipcode">Zip Code:
+          <input type="text" id="zipcode" name="zipcode">
+        </label>
+      </div>
+    </div>
+
+    <button type="submit">Submit</button>
+
+  </form>
+</div>
 ```
 
 El mismo componete de partida,
 
 ```typescript
-  import { Component } from '@angular/core';
-  import { Hero }    from './hero';
+import { Component } from '@angular/core';
+import { USERS } from 'app/data/users';
+import { User } from 'app/model/TypicodeUser';
 
-  @Component({
-    selector: 'hero-form',
-    templateUrl: './hero-form.component.html'
-  })
-  export class ReactiveFormComponent {
+@Component({
+  selector: 'hero-form',
+  templateUrl: './hero-form.component.html'
+})
+export class ReactiveFormComponent {
 
-    powers = ['Really Smart', 'Super Flexible',
-              'Super Hot', 'Weather Changer'];
-
-    hero = new Hero(18, 'Dr IQ', this.powers[0], 'Chuck Overstreet');
-  }
+  user: User = USERS[0];
+}
 ```
 
 Y esta vez importamos el módulo ReactiveFormsModule de *@angular/forms*.
@@ -78,21 +93,20 @@ Conviene echar un vistazo a las clases que nos proporciona *ReactiveFormsModule*
 
 ```typescript
   export class ReactiveFormComponent {
-    heroForm: FormGroup;
+    userForm: FormGroup;
 
     constructor(private fb: FormBuilder) {
       this.createForm();
     }
 
     createForm() {
-      this.heroForm = this.fb.group({
-        name: ['', Validators.required ],
+      this.userForm = this.fb.group({
+        name: ['', [Validators.required] ],
+        username: ['', [Validators.required] ],
+        email: ['', [Validators.email] ],
         street: '',
         city: '',
-        state: '',
-        zip: '',
-        power: '',
-        sidekick: ''
+        zipcode: ''
       });
     }
   }
@@ -103,7 +117,7 @@ En este ejemplo, el formulario heroForm consta de un FormGroup con 7 FormControl
 Prácticamente lo único que tendremos que hacer en el html es asociar el form con el FormGroup heroForm
 
 ```html
-  <form [formGroup]="heroForm">
+  <form [formGroup]="userForm">
 ```
 
 y cada control HTML con su control correspondiente FormControl.
@@ -116,48 +130,72 @@ y cada control HTML con su control correspondiente FormControl.
 
 ```typescript
   createForm() {
-    this.heroForm = this.fb.group({ 
+    this.heroForm = this.fb.group({
       name: ['', Validators.required ],
-      address: this.fb.group({ 
+      username: ['', [Validators.required] ],
+      email: ['', [Validators.email] ],
+      address: this.fb.group({
         street: '',
         city: '',
-        state: '',
-        zip: ''
-      }),
-      power: '',
-      sidekick: ''
+        zipcode: ''
+      })
     });
 ```
 
-Y no hay que cambiar nada en el html
+Y en el html, una pequeña modificación
+
+```html
+<h4>Address</h4>
+<div formGroupName="address">
+```
+
+## AbstractControl
+
+Llegados hasta aquí, merece la pena echar un vistazo a las propiedades y los métodos de la clase AbstractControl: https://angular.io/api/forms/AbstractControl
 
 ## FormControl
 
 ```typescript
-  this.alterEgoControl = new FormControl('Alter Ego por defecto', Validators.required);
+  this.usernameControl = new FormControl('Valor por defecto', Validators.required);
 
-  this.heroForm = this.fb.group({
+  this.userForm = this.fb.group({
       name: 'Nombre por defecto',
-      alterEgo: this.alterEgoControl
+      username: this.usernameControl
   });
 ```
 
-## FormGroup.get()
+- setValue()
+- patchValue()
+- reset()
+- registerOnChange()
+- registerOnDisabledChange()
 
-Con el método get de FormGroup podemos acceder a un control concreto
+## FormGroup
 
-```html
-  <p>Name value: {{ heroForm.get('name').value }}</p>
-  <p>Street value: {{ heroForm.get('address.street').value}}</p>
+Con el método **get** de FormGroup (en realidad, de AbstractControl) podemos acceder a un control concreto
+
+```typescript
+const nameControl = this.userForm.get('name');
 ```
 
-Las propiedades de un FormControl son
+O en el html
 
-![Propiedades de FormControl](img/formcontrol_properties.png "Propiedades de FormControl")
+```html
+  <p>Name value: {{ userForm.get('name').value }}</p>
+  <p>Street value: {{ userForm.get('address.street').value}}</p>
+```
 
-## Validadores
+Métodos y propiedades específicos de FormGroup:
 
-https://angular.io/api/forms/Validators
+- controls
+- addControl(name: string, control: AbstractControl): void
+- removeControl(name: string): void
+- setControl(name: string, control: AbstractControl): void
+- contains(controlName: string): boolean
+- setValue(value: { [key: string]: any; }, options: { onlySelf?: boolean; emitEvent?: boolean; } = {}): void
+- patchValue(value: { [key: string]: any; }, options: { onlySelf?: boolean; emitEvent?: boolean; } = {}): void
+- reset(value: any = {}, options: { onlySelf?: boolean; emitEvent?: boolean; } = {}): void
+- getRawValue(): any
 
 ## FormGroup.setValue()
 
@@ -178,6 +216,13 @@ También podemos resetear el formulario
   this.heroForm.reset();
 ```
 
+O un control
+
+```typescript
+control.reset('Drew');
+control.reset({ value: 'Drew', disabled: true });
+```
+
 ## FormControl.setValidators()
 
 También tenemos una función para establecer validadores dinámicamente:
@@ -193,9 +238,9 @@ this.nameController.setValidators(null);
 ## FormArray
 
 ```typescript
-this.heroForm = this.fb.group({
+this.userForm = this.fb.group({
   name: ['', Validators.required ],
-  addresses: this.fb.array([]), 
+  addresses: this.fb.array([]),
   power: '',
   sidekick: ''
 });
@@ -219,9 +264,27 @@ Y se pueden añadir utilizando el método push como en un array normal y corrien
 
 ```typescript
 addAddress() {
-  this.heroForm.get('addresses').push(this.fb.group(new Address()));
+  this.userForm.get('addresses').push(this.fb.group(new Address()));
 }
 ```
+
+Métodos y propiedades específicos de FormArray
+
+- controls: AbstractControl[]
+- length: number
+- at(index: number): AbstractControl
+- push(control: AbstractControl): void
+- insert(index: number, control: AbstractControl): void
+- removeAt(index: number): void
+- setControl(index: number, control: AbstractControl): void
+- setValue(value: any[], options: { onlySelf?: boolean; emitEvent?: boolean; } = {}): void
+- patchValue(value: any[], options: { onlySelf?: boolean; emitEvent?: boolean; } = {}): void
+- reset(value: any = [], options: { onlySelf?: boolean; emitEvent?: boolean; } = {}): void
+- getRawValue(): any[]
+
+## Validadores
+
+https://angular.io/api/forms/Validators
 
 ## Observar cambios en un control
 
@@ -236,11 +299,39 @@ Los formularios reactivos tienen algunas características que funcionan con Obse
   }
 
   logNameChange() {
-    const nameControl = this.heroForm.get('name');
+    const nameControl = this.userForm.get('name');
     nameControl.valueChanges.subscribe(
       (value: string) => this.nameChangeLog.push(value)
     );
   }
 ```
 
+## updateOn
 
+El valor por defecto de updateOn es 'change' pero puede tomar uno de estos 3 valores:
+
+- 'change'
+- 'blur'
+- 'submit'
+
+En un control individual
+
+```typescript
+const control = new FormControl('Initial Value', { validators: Validators.required, updateOn: 'blur' });
+```
+
+O en un grupo entero o en un array
+
+```typescript
+this.formControl = new FormGroup({
+    name: ['', { validators: Validators.required }],
+    addresses: this.fb.array([]),
+  }, { updateOn: 'blur' });
+```
+
+```typescript
+this.formControl = new FormGroup({
+    name: ['', { validators: Validators.required }],
+    addresses: this.fb.array([]),
+  }, { updateOn: 'submit' });
+```

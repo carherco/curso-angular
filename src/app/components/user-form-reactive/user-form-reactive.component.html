@@ -1,0 +1,41 @@
+<div>
+  <h1>User Form</h1>
+  <form [formGroup]="userForm">
+    <div>
+      <label for="name">Name: </label>
+      <input type="text" id="name" name="name" required formControlName="name">
+    </div>
+
+    <div>
+      <label for="username">Username: </label>
+      <input type="text" id="username" name="username" required formControlName="username">
+    </div>
+
+    <div>
+      <label for="email">Email: </label>
+      <input type="email" id="email" name="email" email formControlName="email">
+    </div>
+
+    <h4>Address</h4>
+    <div formGroupName="address">
+      <div>
+        <label for="street">Street:
+          <input type="text" id="street" name="street" formControlName="street">
+        </label>
+      </div>
+      <div>
+        <label for="city">City:
+          <input type="text" id="city" name="city" formControlName="city">
+        </label>
+      </div>
+      <div>
+        <label for="zipcode">Zip Code:
+          <input type="text" id="zipcode" name="zipcode" formControlName="zipcode">
+        </label>
+      </div>
+    </div>
+
+    <button type="submit">Submit</button>
+
+  </form>
+</div>

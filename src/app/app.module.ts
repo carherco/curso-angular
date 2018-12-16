@@ -58,6 +58,7 @@ import { MockHeroeService } from './services/mock-heroe.service';
 import { UserService } from './services/user.service';
 import { UsuarioService } from './services/usuario.service';
 import { UserFormComponent } from './components/user-form/user-form.component';
+import { UserFormReactiveComponent } from './components/user-form-reactive/user-form-reactive.component';
 
 @NgModule({
   declarations: [
@@ -91,7 +92,8 @@ import { UserFormComponent } from './components/user-form/user-form.component';
     DynamicFormExampleComponent,
     DynamicComponentsExampleComponent,
     FilterAgePipe,
-    UserFormComponent
+    UserFormComponent,
+    UserFormReactiveComponent
   ],
   imports: [
     BrowserModule,

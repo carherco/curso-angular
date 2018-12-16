@@ -5,7 +5,7 @@ Es posible construir casi cualquier formulario con plantillas de Angular. Se pue
 Vamos a utilizar las potencia de los formularios de Angular al siguiente ejemplo: 
 
 ```html
-  <div>
+<div>
   <h1>User Form</h1>
   <form>
     <div>
