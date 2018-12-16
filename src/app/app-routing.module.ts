@@ -30,6 +30,7 @@ import { ReduxHeroesContainerComponent } from './redux/components/redux-heroes-c
 import { ReduxNgrxHeroesContainerComponent } from './redux-ng-rx/components/redux-heroes-container/redux-heroes-container.component';
 import { DynamicFormExampleComponent } from './components/dynamic-form-example/dynamic-form-example.component';
 import { DynamicComponentsExampleComponent } from 'app/components/dynamic-components-example/dynamic-components-example.component';
+import { UserFormComponent } from 'app/components/user-form/user-form.component';
 
 
 const appRoutes: Routes = [
@@ -42,6 +43,7 @@ const appRoutes: Routes = [
       { path: 'parent-child', component: ParentCompComponent },
       { path: 'key-up', component: KeyUpComponent },
       { path: 'forms/template-driven', component: HeroFormComponent },
+      { path: 'user/form', component: UserFormComponent },
       { path: 'observables', component: ColdObservablesComponent },
       { path: 'forms/model-driven', component: ReactiveFormComponent },
       { path: 'heroes-api', component: HeroListComponent },

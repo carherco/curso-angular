@@ -31,6 +31,7 @@ Segundo Bloque:
 Tercer bloque:
 
 - [Formularios dinámicos](dynamic-forms.md)
+- [Validadores personalizados](custom-validators.md)
 - [Controles personalizados](custom-form-controls.md)
 - [Carga dinámica de componentes](dynamic-components.md)
 - [Ciclo de vida de un componente](lifecycle.md)

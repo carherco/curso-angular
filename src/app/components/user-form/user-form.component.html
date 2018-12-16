@@ -1,0 +1,50 @@
+<div>
+  <h1>User Form</h1>
+  {{ user | json }}
+  <form (ngSubmit)="onSubmit(); userForm.reset()" #userForm="ngForm">
+    <div>
+      <label for="name">Name: </label>
+      <input type="text" id="name" name="name" required [(ngModel)]="user.name" #spy #name="ngModel">
+      <br>{{spy.className}}
+    </div>
+    <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+      Name is required
+    </div>
+
+    <div>
+      <label for="username">Username: </label>
+      <input type="text" id="username" name="username" required [(ngModel)]="user.username">
+    </div>
+
+    <div>
+      <label for="email">Email: </label>
+      <input type="email" id="email" name="email" email [(ngModel)]="user.email">
+    </div>
+
+    <h4>Address</h4>
+    <div>
+      <div>
+        <label for="street">Street:
+          <input type="text" id="street" name="street" [(ngModel)]="user.address.street">
+        </label>
+      </div>
+      <div>
+        <label for="city">City:
+          <input type="text" id="city" name="city" [(ngModel)]="user.address.city">
+        </label>
+      </div>
+      <div>
+        <label for="zipcode">Zip Code:
+          <input type="text" id="zipcode" name="zipcode" [(ngModel)]="user.address.zipcode">
+        </label>
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="!userForm.valid">Submit</button>
+
+  </form>
+</div>
+
+<div [hidden]="!userForm.submitted">
+  <h2>¡Gracias!</h2>
+</div>
