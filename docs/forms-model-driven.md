@@ -130,7 +130,7 @@ y cada control HTML con su control correspondiente FormControl.
 
 ```typescript
   createForm() {
-    this.heroForm = this.fb.group({
+    this.userForm = this.fb.group({
       name: ['', Validators.required ],
       username: ['', [Validators.required] ],
       email: ['', [Validators.email] ],
@@ -249,7 +249,7 @@ this.userForm = this.fb.group({
 El array se podrá recorrer mediante la propiedad .controls
 
 ```html
-<div formArrayName="addresses" class="well well-lg">
+<div formArrayName="addresses">
   <div *ngFor="let address of addresses.controls; let i=index" [formGroupName]="i" >
     <!-- The repeated address template -->
   </div>
