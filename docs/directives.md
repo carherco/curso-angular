@@ -283,7 +283,7 @@ export class HighlightDirective {
 }
 ```
 
-## Ejercicio: Crear una directiva para rotar imágenes.
+## Ejercicio: Crear una directiva para rotar imágenes.
 
 El uso de la directiva sería el siguiente:
 

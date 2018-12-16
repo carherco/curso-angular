@@ -5,7 +5,7 @@ Angular es un framework de JavaScript de código abierto, mantenido por Google, 
 ## Versiones
 
 - AngularJS (v1)
-- Angular (v2, v4, v5 y v6)
+- Angular (v2, v4, v5, v6 y v7)
 
 No existe la versión 3: https://www.infoq.com/news/2016/12/angular-4
 
