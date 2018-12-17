@@ -6,11 +6,10 @@ Todo debe de estar en un único componente.
 
 El ejemplo resuelto está en el componente crud-basico.
 
-## Ejercicio extra
+## Ejercicios extra
 
-Crear una pipe que filtre el array de personas y devuelva aquellas personas que tengan la edad indicada o superior.
+Poner un checkbox "Ocultar usuarios sin teléfono" el cual si se marca, no deben aparecer los usuarios que no tengan teléfono.
 
-
-
+Añadir un campo "age" a los usuarios y crear una pipe que filtre el array de usuarios y devuelva aquellos usuarios que tengan la edad indicada o superior.
 
 [Índice](index.md)

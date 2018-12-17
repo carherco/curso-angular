@@ -108,7 +108,6 @@ export const USERS: User[] = [
         "lng": "62.5342"
       }
     },
-    "phone": "(254)954-1289",
     "website": "demarco.info",
     "company": {
       "name": "Keebler LLC",
@@ -177,7 +176,6 @@ export const USERS: User[] = [
         "lng": "-120.7677"
       }
     },
-    "phone": "586.493.6943 x140",
     "website": "jacynthe.com",
     "company": {
       "name": "Abernathy Group",

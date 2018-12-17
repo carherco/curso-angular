@@ -32,6 +32,7 @@ import { DynamicFormExampleComponent } from './components/dynamic-form-example/d
 import { DynamicComponentsExampleComponent } from 'app/components/dynamic-components-example/dynamic-components-example.component';
 import { UserFormComponent } from 'app/components/user-form/user-form.component';
 import { UserFormReactiveComponent } from 'app/components/user-form-reactive/user-form-reactive.component';
+import { UserCrudBasicComponent } from 'app/components/user-crud-basic/user-crud-basic.component';
 
 
 const appRoutes: Routes = [
@@ -40,7 +41,8 @@ const appRoutes: Routes = [
       { path: 'highlight', component: HighlightComponent },
       { path: 'pipes', component: PipesComponent },
       { path: 'galeria', component: GaleriaComponent },
-      { path: 'crud-basico', component: CrudBasicoComponent },
+      { path: 'crud-basico-users', component: UserCrudBasicComponent },
+      { path: 'crud-basico-heroes', component: CrudBasicoComponent },
       { path: 'parent-child', component: ParentCompComponent },
       { path: 'key-up', component: KeyUpComponent },
       { path: 'forms/template-driven', component: HeroFormComponent },

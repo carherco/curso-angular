@@ -59,6 +59,7 @@ import { UserService } from './services/user.service';
 import { UsuarioService } from './services/usuario.service';
 import { UserFormComponent } from './components/user-form/user-form.component';
 import { UserFormReactiveComponent } from './components/user-form-reactive/user-form-reactive.component';
+import { UserCrudBasicComponent } from './components/user-crud-basic/user-crud-basic.component';
 
 @NgModule({
   declarations: [
@@ -93,7 +94,8 @@ import { UserFormReactiveComponent } from './components/user-form-reactive/user-
     DynamicComponentsExampleComponent,
     FilterAgePipe,
     UserFormComponent,
-    UserFormReactiveComponent
+    UserFormReactiveComponent,
+    UserCrudBasicComponent
   ],
   imports: [
     BrowserModule,
