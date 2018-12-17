@@ -1,11 +1,11 @@
 # Servicios
 
-> ng g s MockHero
+> ng g s MockUser
 
 ```
 installing service
-  create src/app/mock-hero.service.spec.ts
-  create src/app/mock-hero.service.ts
+  create src/app/mock-user.service.spec.ts
+  create src/app/mock-user.service.ts
   WARNING Service is generated but not provided, it must be provided to be used
 ```
 
@@ -15,7 +15,7 @@ el servicio no ha sido provisto. Hay que incluirlo en la sección *providers* de
 ```typescript
 providers: [
     ...
-    MockHeroService,
+    MockUserService,
     ...
   ],
 ```
@@ -31,15 +31,15 @@ Creamos al menos un método en en servicio. En este caso un método que nos devu
 ```typescript
 import { Injectable } from '@angular/core';
 import { Hero } from 'app/hero';
-import { HEROES } from 'app/mock-heroes';
+import { USERS } from 'app/mock-users';
 
 @Injectable()
-export class MockHeroService {
+export class MockUserService {
 
   constructor() { }
 
-  getHeroes(): Hero[] {
-    return HEROES;
+  getUsers(): User[] {
+    return USERS;
   }
 
 }
@@ -48,13 +48,13 @@ export class MockHeroService {
 Para utilizar el servicio en un componente hay que importarlo para poder hacer referencia a él
 
 ```typescript
-import { MockHeroService } from './mock-hero.service';
+import { MockUserService } from './mock-user.service';
 ```
 
 E inyectarlo en el constructor del componente
 
 ```typescript
-constructor(private heroService: MockHeroService) { }
+constructor(private userService: MockUserService) { }
 ```
 
 ## Provisión de servicios a partir de Angular 6
@@ -108,7 +108,7 @@ Programar un servicio de autenticación AuthService con las siguientes especific
   - logOut(): boolean
   - isLogged(): boolean
 
-El servicio de login dará por válidas las credenciales "test" / "test" y por inválidas el resto de combinaciones de usuario y password. 
+El servicio de login dará por válidas las credenciales "test" / "test" y por inválidas el resto de combinaciones de usuario y password.
 
 Si las credenciales son válidas, se almacenará la información del login y del usuario en el *localstorage*.
 

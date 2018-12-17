@@ -8,7 +8,7 @@ Brevemente y yendo al grano: La programación reactiva trata de la programación
 
  Cuando queremos trabajar utilizando programación reactiva con un tipo de dato concreto (por ejemplo, un array), habrá un método para poder transformar dicho dato en Observable y poder trabajar con él de esta manera.
 
-## Uso básico y terminología.
+## Uso básico y terminología
 
 ### Observables
 
