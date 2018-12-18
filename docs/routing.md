@@ -346,6 +346,36 @@ ngOnInit() {
 }
 ```
 
+## Rutas anidadas
+
+Las rutas se pueden anidar con la propiedad **children**:
+
+```typescript
+{ path: 'nested', component: NestedComponent, children: [
+  { path: '', component: NestedChildComponent },
+  { path: 'child2', component: NestedChild2Component },
+  { path: 'child3', component: NestedChild3Component }
+]},
+```
+
+Con la configuración anterior, el componente *NestedComponent* puede tener su propio *router-outlet* y cargar componentes en él.
+
+La ruta /nested cargaría el componente NestedComponent en el router-outlet de AppComponent y cargaría NestedChildComponent en el router outlet de NestedComponent.
+
+La ruta /nested/child2 cargaría el componente NestedComponent en el router-outlet de AppComponent y cargaría NestedChild2Component en el router outlet de NestedComponent.
+
+La ruta /nested/child3 cargaría el componente NestedComponent en el router-outlet de AppComponent y cargaría NestedChild2Component en el router outlet de NestedComponent.
+
+```html
+<h2>Componente Nested</h2>
+
+<a routerLink="./" routerLinkActive="active">Child</a>
+<a routerLink="./child2" routerLinkActive="active">Child2</a>
+<a routerLink="./child3" routerLinkActive="active">Child3</a>
+
+<router-outlet></router-outlet>
+```
+
 
 
 ## Outlets
