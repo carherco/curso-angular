@@ -33,6 +33,10 @@ import { DynamicComponentsExampleComponent } from 'app/components/dynamic-compon
 import { UserFormComponent } from 'app/components/user-form/user-form.component';
 import { UserFormReactiveComponent } from 'app/components/user-form-reactive/user-form-reactive.component';
 import { UserCrudBasicComponent } from 'app/components/user-crud-basic/user-crud-basic.component';
+import { NestedComponent } from 'app/components/nested/nested.component';
+import { NestedChildComponent } from 'app/components/nested-child/nested-child.component';
+import { NestedChild2Component } from 'app/components/nested-child2/nested-child2.component';
+import { NestedChild3Component } from 'app/components/nested-child3/nested-child3.component';
 
 
 const appRoutes: Routes = [
@@ -53,13 +57,14 @@ const appRoutes: Routes = [
       { path: 'heroes-api', component: HeroListComponent },
       { path: 'lifecycle', component: LifecycleComponent },
       { path: 'search', component: HeroSearchComponent },
-      { path: 'hero/:id',      component: ChildCompComponent },
-      {
-        path: 'heroes',
-        component: ParentCompComponent,
-        data: { title: 'Heroes List' }
-      },
+      { path: 'hero/:id', component: ChildCompComponent },
+      { path: 'heroes', component: ParentCompComponent, data: { title: 'Heroes List' } },
       { path: 'login', component: LoginComponent },
+      { path: 'nested', component: NestedComponent, children: [
+        { path: '', component: NestedChildComponent },
+        { path: 'child2', component: NestedChild2Component },
+        { path: 'child3', component: NestedChild3Component }
+      ]},
       { path: 'admin', loadChildren: 'app/admin/admin.module#AdminModule'},
       { path: 'fractal', loadChildren: 'app/fractal/fractal.module#FractalModule'},
       { path: 'rotate', component: RotateComponent },

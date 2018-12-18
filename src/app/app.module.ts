@@ -60,6 +60,10 @@ import { UsuarioService } from './services/usuario.service';
 import { UserFormComponent } from './components/user-form/user-form.component';
 import { UserFormReactiveComponent } from './components/user-form-reactive/user-form-reactive.component';
 import { UserCrudBasicComponent } from './components/user-crud-basic/user-crud-basic.component';
+import { NestedComponent } from './components/nested/nested.component';
+import { NestedChildComponent } from './components/nested-child/nested-child.component';
+import { NestedChild2Component } from './components/nested-child2/nested-child2.component';
+import { NestedChild3Component } from './components/nested-child3/nested-child3.component';
 
 @NgModule({
   declarations: [
@@ -95,7 +99,11 @@ import { UserCrudBasicComponent } from './components/user-crud-basic/user-crud-b
     FilterAgePipe,
     UserFormComponent,
     UserFormReactiveComponent,
-    UserCrudBasicComponent
+    UserCrudBasicComponent,
+    NestedComponent,
+    NestedChildComponent,
+    NestedChild2Component,
+    NestedChild3Component
   ],
   imports: [
     BrowserModule,
