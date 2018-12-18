@@ -249,6 +249,21 @@ La lista de eventos es la siguiente:
 - RouteConfigLoadStart: Se lanza antes de que el Router cargue de forma *lazy* una configuración de rutas.
 - RouteConfigLoadEnd: Se lanza después de que una configuración de rutas se haya cargado de forma *lazy*.
 
+### Cómo suscribirnos a un evento
+
+```typescript
+constructor(router:Router) {
+  router.events.subscribe(event => {
+    if(event instanceof NavigationStart) {
+    }
+    // NavigationEnd
+    // NavigationCancel
+    // NavigationError
+    // RoutesRecognized
+  }
+});
+```
+
 ## Route Guard
 
 En principio cualquier usuario puede navegar a cualquier lugar en cualquier momento. Pero ese no es siempre el comportamiento deseado:
