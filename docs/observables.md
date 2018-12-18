@@ -21,10 +21,9 @@ Los siguientes ejemplos ilustran y ayudan a coprender lo anterior.
 - Ejemplo: ObservablesComponent
 - Ejemplo: obtener usuarios con HttpClient
 
-
 ### Observadores
 
-Luego creas de manera similar un Observador, ese es el elemento que mirará y reaccionara a los cambios que sucedan.
+Un Observador es el elemento que mirará y reaccionara a los cambios que sucedan.
 
 ```javascript
   let observador = Rx.Observer.create(
