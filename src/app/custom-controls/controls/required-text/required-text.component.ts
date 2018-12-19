@@ -10,14 +10,14 @@ import { RequiredTextValidator } from '../../validators/required-text-validator/
 // };
 
 @Component({
-  selector: 'required-text',
+  selector: 'required-text-control',
   templateUrl: './required-text.component.html',
   styleUrls: ['./required-text.component.css'],
   // providers: [
   //   MY_CUSTOM_VALUE_ACCESSOR
   // ],
 })
-export class RequiredTextComponent implements ControlValueAccessor {
+export class RequiredTextControl implements ControlValueAccessor {
 
   @ViewChild('input') input: ElementRef;
   onChange: any;

@@ -277,6 +277,6 @@ Gracias a: https://blog.angularindepth.com/never-again-be-confused-when-implemen
 y a
 https://www.youtube.com/watch?v=CD_t3m2WMM8&index=15&list=PLAw7NFdKKYpGUpg7JJ8-PJNMdlrOnmZtN
 
+## Ejercicio
 
-## Ejercicio: 
-https://alligator.io/angular/custom-form-control/
+Programar un control de Rating de estrellas

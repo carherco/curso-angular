@@ -13,6 +13,7 @@ import { MaterialModule } from 'app/material/material.module';
 import { AppRoutingModule } from './app-routing.module';
 import { LayoutModule } from '@angular/cdk/layout';
 import { DynamicComponentsModule } from './dynamic-components/dynamic-components.module';
+import { CustomControlsModule } from './custom-controls/custom-controls.module';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './components/nav/nav.component';
@@ -64,6 +65,7 @@ import { NestedComponent } from './components/nested/nested.component';
 import { NestedChildComponent } from './components/nested-child/nested-child.component';
 import { NestedChild2Component } from './components/nested-child2/nested-child2.component';
 import { NestedChild3Component } from './components/nested-child3/nested-child3.component';
+import { CustomControlsComponent } from './components/custom-controls/custom-controls.component';
 
 @NgModule({
   declarations: [
@@ -103,7 +105,8 @@ import { NestedChild3Component } from './components/nested-child3/nested-child3.
     NestedComponent,
     NestedChildComponent,
     NestedChild2Component,
-    NestedChild3Component
+    NestedChild3Component,
+    CustomControlsComponent
   ],
   imports: [
     BrowserModule,
@@ -120,7 +123,8 @@ import { NestedChild3Component } from './components/nested-child3/nested-child3.
     ReduxEffectsModule,
     DynamicFormModule,
     DynamicComponentsModule,
-    DeteccionCambiosModule
+    DeteccionCambiosModule,
+    CustomControlsModule
   ],
   providers: [
     MockHeroeService,

@@ -1,0 +1,19 @@
+.tri-state-content {
+  margin-bottom: 5px;
+  width: 100%;
+  float:left;
+}
+
+.tri-state-label {
+  display: block;
+  width: 100%;
+}
+
+div {
+  display: block;
+}
+
+.tri-state-option {
+  width: 30%;
+  float:left;
+}

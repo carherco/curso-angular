@@ -3,8 +3,7 @@ import { AbstractControl, NG_VALIDATORS } from '@angular/forms';
 
 @Component({
   selector: 'required-text',
-  templateUrl: './required-text.component.html',
-  styleUrls: ['./required-text.component.css'],
+  templateUrl: './required-text-validator.component.html',
   providers: [
     {provide: NG_VALIDATORS, multi: true, useExisting: RequiredTextValidator}
   ]

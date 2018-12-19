@@ -37,6 +37,7 @@ import { NestedComponent } from 'app/components/nested/nested.component';
 import { NestedChildComponent } from 'app/components/nested-child/nested-child.component';
 import { NestedChild2Component } from 'app/components/nested-child2/nested-child2.component';
 import { NestedChild3Component } from 'app/components/nested-child3/nested-child3.component';
+import { CustomControlsComponent } from 'app/components/custom-controls/custom-controls.component';
 
 
 const appRoutes: Routes = [
@@ -82,6 +83,7 @@ const appRoutes: Routes = [
       { path: 'redux-effects', component: ReduxEffectsHeroesContainerComponent },
       { path: 'dynamic-form', component: DynamicFormExampleComponent },
       { path: 'dynamic-components', component: DynamicComponentsExampleComponent },
+      { path: 'custom-controls', component: CustomControlsComponent },
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: '**', redirectTo: '' }
     ];

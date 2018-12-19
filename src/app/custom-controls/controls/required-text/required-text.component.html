@@ -1,3 +1,9 @@
-<p>
-  required-text works!
-</p>
+<input type="text" #input
+  (input)="onChange($event.target.value)"
+  (blur)="onTouched()"
+  [disabled]="disabled">
+
+<div class="error"
+  *ngIf="controlDir && !controlDir.control.valid">
+  This field is invalid.
+</div>

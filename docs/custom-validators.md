@@ -35,7 +35,7 @@ this.heroForm = new FormGroup({
 });
 ```
 
-## Cómo utilizarlos en formularios temaplate driven
+## Cómo utilizarlos en formularios temaplate driven
 
 En los template forms no tenemos acceso directo a la instancia del FormControl. Lo que tenemos que hacer es construirnos una directiva para poder utilizarla en la plantilla.
 
@@ -72,6 +72,6 @@ Una vez programada la directiva, simplemente tenemos que aplicarla en los contro
       [(ngModel)]="user.name" #name="ngModel" >
 ```
 
-## Custom async validators
+## Custom async validators
 
 Los custom async validators son iguales que los sync validators excepto en que tienen que devolver **una Promesa o un Observable** que emitan/resuelvan o bien un null o bien un objeto de error de validación. En caso de observables, el observable tiene que emitir la señal de finalizado. En ese momento, el formulario utiliza para la validación el último valor emitido.

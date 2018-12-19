@@ -1,0 +1,22 @@
+<div class="tri-state-content">
+  <mat-chip-list class="tri-state-options">
+    <mat-chip class="tri-state-option"
+              (click)="seleccionarMenos()"
+              [selected]="value==-1"
+              color="warn">
+              Habría dedicado menos tiempo
+    </mat-chip>
+    <mat-chip class="tri-state-option"
+              (click)="seleccionarAdecuado()"
+              [selected]="value==0"
+              color="primary">
+              El tiempo dedicado es adecuado
+    </mat-chip>
+    <mat-chip class="tri-state-option"
+              (click)="seleccionarMas()"
+              [selected]="value==1"
+              color="warn">
+              Habría dedicado más tiempo
+    </mat-chip>
+  </mat-chip-list>
+</div>

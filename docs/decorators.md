@@ -24,7 +24,7 @@ Otros:
 - ContentChild  
 - ContentChildren  
 - Host  
-- HostBinding  
+- HostBinding
 - HostListener  
 - Inject  
 - Optional  
