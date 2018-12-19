@@ -184,7 +184,7 @@ También añadiremos un mensaje de error, que aparecera cuando el nombre esté v
   </div>
 ```
 
-## Validadores
+## Validadores
 
 Los validadores existentes en Angular son los siguientes: https://angular.io/api/forms/Validators
 

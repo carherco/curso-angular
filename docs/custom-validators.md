@@ -21,7 +21,7 @@ Así que la misión de nuestra función es **hacer un return de una función que
 
 En este ejemplo, a la función *forbiddenNameValidator* le llega una expresión regular. La función construida hace uso de la expresión regular para devolver o bien un null o bien el objeto {'forbiddenName': {value: control.value}}.
 
-## Cómo utilizarlos en formularios reactivos
+## Cómo utilizarlos en formularios reactivos
 
 ```typescript
 this.heroForm = new FormGroup({
