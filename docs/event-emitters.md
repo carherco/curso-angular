@@ -20,15 +20,15 @@ Al constructor podemos pasarle el modo de funcionamiento (síncrono o asíncrono
 Al ser un Subject, podemos aplicar operadores. Por ejemplo, podemos hacer que solamente se emita si tenemos un valor válido
 
 ```typescript
-export class ReduxHeroesAddPresenterComponent {
+export class ReduxUserAddPresenterComponent {
 
-  @Input() hero: Hero;
-  @Output() onAdd = new EventEmitter<Hero>().filter( h => !!h.name);
+  @Input() user: User;
+  @Output() onAdd = new EventEmitter<User>().filter( u => !!u.name);
 
   constructor() { }
 
   add() {
-    this.onAdd.emit(this.hero);
+    this.onAdd.emit(this.user);
   }
 
 }
@@ -37,15 +37,15 @@ export class ReduxHeroesAddPresenterComponent {
 O utilizar cualquier Subject en vez de EventEmitter
 
 ```typescript
-export class ReduxHeroesAddPresenterComponent {
+export class ReduxUserAddPresenterComponent {
 
-  @Input() hero: Hero;
-  @Output() onAdd = new Subject<Hero>().filter( h => !!h.name);
+  @Input() user: User;
+  @Output() onAdd = new Subject<User>().filter( u => !!u.name);
 
   constructor() { }
 
   add() {
-    this.onAdd.emit(this.hero);
+    this.onAdd.emit(this.user);
   }
 
 }
