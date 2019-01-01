@@ -15,7 +15,7 @@ export declare class EventEmitter<T> extends Subject<T> {
 
 Al constructor podemos pasarle el modo de funcionamiento (síncrono o asíncrono). Por defecto es síncrono.
 
-## El poder de Rx
+## El poder de Rx
 
 Al ser un Subject, podemos aplicar operadores. Por ejemplo, podemos hacer que solamente se emita si tenemos un valor válido
 
