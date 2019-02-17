@@ -1,6 +1,6 @@
-# Estructura de un proyecto Angular 6
+# Estructura de un proyecto Angular 7
 
-# Directorio raíz
+## Directorio raíz
 
 El directorio raíz de un proyecto angular contiene los siguientes elementos:
 

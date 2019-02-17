@@ -190,7 +190,7 @@ Si el proyecto está configurado para trabajar con .scss, .less o .styl, aplican
 
 En el proceso de compilación, angular compilará las CSS automáticamente.
 
-### Modos de encapsulación
+### Modos de encapsulación
 
 Hay varios tipos de encapsulación de componentes para css
 

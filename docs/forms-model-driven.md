@@ -306,7 +306,7 @@ Los formularios reactivos tienen algunas características que funcionan con Obse
   }
 ```
 
-## updateOn
+## updateOn
 
 El valor por defecto de updateOn es 'change' pero puede tomar uno de estos 3 valores:
 

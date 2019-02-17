@@ -382,7 +382,7 @@ Dos nuevos métodos en el objeto String para rellenar cadenas de texto.
 
 ## Características de ES2018
 
-### Mejoras en operador rest 
+### Mejoras en operador rest
 
 Utilización de rest para extraer solamente una parte de las propiedades
 
@@ -399,7 +399,7 @@ age; // 20
 remaining; // { lastName: 'smith', height: '5.10', race: 'martian' }
 ```
 
-### Mejoras en operador spread
+### Mejoras en operador spread
 
 ```js
 const person = { firstName: 'john', age: 20 };
@@ -443,8 +443,6 @@ async function test() {
 
 test(); //prints: 1  2  3
 ```
-
-
 
 ## Características de TypeScript
 
@@ -540,7 +538,7 @@ Equivale a definir un atributo y fijar su valor:
     }
 ```
 
-### Tipos unión 
+### Tipos unión
 
 La propiedad solamente podrá tomar uno de los valores definidos.
 
