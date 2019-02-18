@@ -289,8 +289,8 @@ El uso de la directiva sería el siguiente:
 
 ```html
 <img rotate src="..."/>
-<img [rotate]="45" src="..."/>
-<img [rotate]="45" [step]="15" src="..."/>
+<img rotate="45" src="..."/>
+<img rotate="45" step="15" src="..."/>
 ```
 
 - Al hacer click en una imagen que tenga el atributo *rotate*, la imagen deberá rotar los grados indicados en el atributo *step*.

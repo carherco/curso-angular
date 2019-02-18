@@ -38,6 +38,7 @@ import { NestedChildComponent } from 'app/components/nested-child/nested-child.c
 import { NestedChild2Component } from 'app/components/nested-child2/nested-child2.component';
 import { NestedChild3Component } from 'app/components/nested-child3/nested-child3.component';
 import { CustomControlsComponent } from 'app/components/custom-controls/custom-controls.component';
+import { ChangeDetectionParentComponent } from './deteccion-cambios/components/change-detection-parent/change-detection-parent.component';
 
 
 const appRoutes: Routes = [
@@ -78,6 +79,7 @@ const appRoutes: Routes = [
      // { path: 'lazy3', loadChildren: 'app/lazy3/lazy3.module#Lazy3Module', data: {preload: true}},
       { path: 'lazy4', loadChildren: 'app/lazy4/lazy4.module#Lazy4Module'},
       { path: 'lazy5', loadChildren: 'app/lazy5/lazy5.module#Lazy5Module'},
+      { path: 'changedetection', component: ChangeDetectionParentComponent },
       { path: 'redux', component: ReduxHeroesContainerComponent },
       { path: 'redux-ngrx', component: ReduxNgrxHeroesContainerComponent },
       { path: 'redux-effects', component: ReduxEffectsHeroesContainerComponent },

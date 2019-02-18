@@ -16,9 +16,9 @@ export class ChangeDetectionChild2Component implements OnInit {
     setTimeout(() => {
       console.log('timeout - child2');
       this.object.name = 'child2 modified by timeout in child2';
-    },10000);
+    },2000);
 
-    of(true).pipe( delay(20000) ).subscribe(
+    of(true).pipe( delay(4000) ).subscribe(
       x => {
         console.log('observable - child2');
         this.object.name = 'child2 modified by observable in child2';

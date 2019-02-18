@@ -486,7 +486,7 @@ boolean | number | string | arrays | enum (enumerados) | Any (cualquiera) | Void
 ```javascript
       let cadena: string;
       cadena = 'Hola';
-      cadena = 2: // ERROR!
+      cadena = 2; // ERROR!
 ```
 
 Con tipado gradual. Podemos no escribir un tipo y el compilador intentará inferirlo y hacer comprobaciones en tiempo compilación.
