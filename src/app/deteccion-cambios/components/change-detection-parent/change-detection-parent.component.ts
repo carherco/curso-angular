@@ -22,9 +22,9 @@ export class ChangeDetectionParentComponent implements OnInit {
       this.objectc1.name = 'child1 modified by timeout';
       this.objectc2.name = 'child2 modified by timeout';
       this.objectc3 = {...this.objectc3, name: 'child3 modified by timeout'};
-    },1000);
+    },5000);
 
-    of(true).pipe( delay(3000) ).subscribe(
+    of(true).pipe( delay(15000) ).subscribe(
       x => {
         console.log('observable - parent');
         this.objectp.name = 'parent modified by observable in parent';
