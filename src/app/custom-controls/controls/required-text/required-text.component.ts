@@ -2,11 +2,23 @@ import { Component, OnInit, ViewChild, ElementRef, Self } from '@angular/core';
 import { NgControl, ControlValueAccessor } from '@angular/forms';
 import { RequiredTextValidator } from '../../validators/required-text-validator/required-text-validator.component';
 
+// Si necesito desde este Componente acceso a la instancia formControl,
+// entonces no uso el providers sino que le pido a angular que me inyecte
+// la instancia en el contructor y a la propiedad .valueAccessor de esa instancia
+// le pongo como valor este componente:
+/*
+constructor(@Self() public controlDirective: NgControl) {
+  controlDirective.valueAccessor = this;
+}
+*/
+
+// Si no necesito desde este Componente acceso a la instancia formControl,
+// entonces simplemente me proveo con provide: NG_VALUE_ACCESOR:
 // const MY_CUSTOM_VALUE_ACCESSOR = {
 //   provide: NG_VALUE_ACCESSOR,
 //   multi: true,
-//   //useExisting: RequiredTextComponent
-//   useExisting: forwardRef(() => RequiredTextComponent),
+//   //useExisting: RequiredTextControl
+//   useExisting: forwardRef(() => RequiredTextControl),
 // };
 
 @Component({
