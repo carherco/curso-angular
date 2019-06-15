@@ -303,3 +303,9 @@ Extra:
 - Limitar la directiva para que solamente pueda ser aplicada a imágenes.
 
 [Índice](index.md)
+
+### Directivas estructurales personalizadas
+
+Es posible crear también directivas estructurales, aunque se necesitan conocimientos más avanzados.
+
+[Directivas estructurales personalizadas](custom-estructural-directives.md)

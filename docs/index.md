@@ -36,6 +36,7 @@ Tercer bloque:
 - [Carga dinámica de componentes](dynamic-components.md)
 - [Ciclo de vida de un componente](lifecycle.md)
 - [Detección de cambios](deteccion-cambios.md)
+- [Directivas estructurales personalizadas](custom-estructural-directives.md)
 - [Patrón Contenedor-Presentador (aka Smart-Dumb pattern)](contenedor-presentador.md)
 - [Subjects](subject.md)
 - [Patrón redux: Stores, actions y reducers](redux.md)
