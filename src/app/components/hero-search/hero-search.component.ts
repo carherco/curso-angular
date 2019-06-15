@@ -14,7 +14,7 @@ export class HeroSearchComponent implements OnInit {
   errorMessage: string;
   heroes: Hero[];
 
-  @ViewChild('email') email: ElementRef;
+  @ViewChild('email', {static: true}) email: ElementRef;
 
   constructor (private heroService: HeroeService) {
     this.getHeroes();

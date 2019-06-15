@@ -42,7 +42,7 @@ export class AnimationSearchComponent implements OnInit {
   errorMessage: string;
   heroes: Hero[];
 
-  @ViewChild('email') email: ElementRef;
+  @ViewChild('email', {static: true}) email: ElementRef;
 
   heroTotal = -1;
 

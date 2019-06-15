@@ -15,7 +15,7 @@ export class BusquedaComponent implements OnInit {
   usuarios: {id: number, name: string, email: string}[] = [];
   errorMessage: string;
 
-  @ViewChild('email') email: ElementRef;
+  @ViewChild('email', {static: true}) email: ElementRef;
 
 
   constructor(private usuarioService: UsuarioService) {

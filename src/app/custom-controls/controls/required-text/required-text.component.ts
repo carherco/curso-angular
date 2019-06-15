@@ -31,7 +31,7 @@ constructor(@Self() public controlDirective: NgControl) {
 })
 export class RequiredTextControl implements ControlValueAccessor {
 
-  @ViewChild('input') input: ElementRef;
+  @ViewChild('input', {static: true}) input: ElementRef;
   onChange: any;
   onTouched: any;
   disabled: boolean = false;

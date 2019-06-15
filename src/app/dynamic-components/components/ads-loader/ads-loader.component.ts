@@ -15,7 +15,7 @@ export class AdsLoaderComponent implements OnInit {
   //@ViewChild('adhost') adHost: XXXXXComponent; // Si adhost está aplicada a un componente, sería la instancia del componente
   //@ViewChild('adhost', {read: ElementRef}) adHost: AdDirective; // Si adhost está aplicada a un componente, sería un ElementRef
   //@ViewChild(AdDirective) adHost: AdDirective; // Es la instancia de la directiva
-  @ViewChild('adhost', {read: ViewContainerRef}) viewContainerRef: ViewContainerRef;
+  @ViewChild('adhost', {read: ViewContainerRef, static: false}) viewContainerRef: ViewContainerRef;
   interval: any;
 
   constructor(private componentFactoryResolver: ComponentFactoryResolver) { }
