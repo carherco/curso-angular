@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, Self } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Self, Optional } from '@angular/core';
 import { ControlValueAccessor, NgControl } from '@angular/forms';
 
 // const MY_CUSTOM_VALUE_ACCESSOR = {
@@ -23,7 +23,7 @@ export class TriStateControl implements OnInit, ControlValueAccessor {
   onChange: any;
   onTouched: any;
   disabled: boolean = false;
-  constructor(@Self() public controlDirective: NgControl) {
+  constructor(@Self() @Optional() public controlDirective: NgControl) {
     controlDirective.valueAccessor = this;
   }
 

@@ -70,25 +70,41 @@ import { CustomControlsComponent } from './components/custom-controls/custom-con
 import { ResizableDirective } from './directives/resizable.directive';
 import { UnlessDirective } from './directives/unless.directive';
 import { ImpurePipeComponent } from './components/impure-pipe/impure-pipe.component';
+import { TemplateFormComponent } from 'app/components/template-form/template-form.component';
+import { BusquedaComponent } from 'app/components/busqueda/busqueda.component';
+import { DetalleComponent } from 'app/components/detalle/detalle.component';
+import { MasterComponent } from 'app/components/master/master.component';
+import { MenuComponent } from 'app/components/menu/menu.component';
+import { ObservablesFriosComponent } from 'app/components/observables-frios/observables-frios.component';
+import { OtroComponent } from 'app/components/otro/otro.component';
+import { TemplateVariablesComponent } from 'app/components/template-variables/template-variables.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    OtroComponent,
     ClickMeComponent,
     PipesComponent,
     CalculadoraComponent,
     KeyUpComponent,
     HeroFormComponent,
     HeroListComponent,
+    TemplateVariablesComponent,
+    TemplateFormComponent,
     ColdObservablesComponent,
+    ObservablesFriosComponent,
     HeroSearchComponent,
     ReactiveFormComponent,
     CrudBasicoComponent,
     ChildCompComponent,
     ParentCompComponent,
     GaleriaComponent,
+    BusquedaComponent,
+    MasterComponent,
+    DetalleComponent,
     LoginComponent,
+    MenuComponent,
     HomeComponent,
     HomePageComponent,
     LifecycleComponent,
