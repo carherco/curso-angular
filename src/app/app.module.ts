@@ -46,6 +46,7 @@ import { DynamicComponentsExampleComponent } from './components/dynamic-componen
 import { HighlightDirective } from './directives/highlight.directive';
 import { RotateDirective } from './directives/rotate.directive';
 
+import { ExponentePipe } from 'app/pipes/exponente.pipe';
 import { FilterAgePipe } from './pipes/filter-age.pipe';
 
 import { AuthGuard } from './guards/auth.guard';
@@ -66,6 +67,10 @@ import { NestedChildComponent } from './components/nested-child/nested-child.com
 import { NestedChild2Component } from './components/nested-child2/nested-child2.component';
 import { NestedChild3Component } from './components/nested-child3/nested-child3.component';
 import { CustomControlsComponent } from './components/custom-controls/custom-controls.component';
+import { ResizableDirective } from './directives/resizable.directive';
+import { UnlessDirective } from './directives/unless.directive';
+import { ImpurePipeComponent } from './components/impure-pipe/impure-pipe.component';
+
 
 @NgModule({
   declarations: [
@@ -98,6 +103,7 @@ import { CustomControlsComponent } from './components/custom-controls/custom-con
     AnimationSearchComponent,
     DynamicFormExampleComponent,
     DynamicComponentsExampleComponent,
+    ExponentePipe,
     FilterAgePipe,
     UserFormComponent,
     UserFormReactiveComponent,
@@ -106,7 +112,10 @@ import { CustomControlsComponent } from './components/custom-controls/custom-con
     NestedChildComponent,
     NestedChild2Component,
     NestedChild3Component,
-    CustomControlsComponent
+    CustomControlsComponent,
+    ResizableDirective,
+    UnlessDirective,
+    ImpurePipeComponent
   ],
   imports: [
     BrowserModule,

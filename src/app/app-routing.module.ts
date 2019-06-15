@@ -39,6 +39,7 @@ import { NestedChild2Component } from 'app/components/nested-child2/nested-child
 import { NestedChild3Component } from 'app/components/nested-child3/nested-child3.component';
 import { CustomControlsComponent } from 'app/components/custom-controls/custom-controls.component';
 import { ChangeDetectionParentComponent } from './deteccion-cambios/components/change-detection-parent/change-detection-parent.component';
+import { ImpurePipeComponent } from 'app/components/impure-pipe/impure-pipe.component';
 
 
 const appRoutes: Routes = [
@@ -46,6 +47,7 @@ const appRoutes: Routes = [
       { path: 'calculadora', component: CalculadoraComponent },
       { path: 'highlight', component: HighlightComponent },
       { path: 'pipes', component: PipesComponent },
+      { path: 'pipes/impure', component: ImpurePipeComponent },
       { path: 'galeria', component: GaleriaComponent },
       { path: 'crud-basico-users', component: UserCrudBasicComponent },
       { path: 'crud-basico-heroes', component: CrudBasicoComponent },

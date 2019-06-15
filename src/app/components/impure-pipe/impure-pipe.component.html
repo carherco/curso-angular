@@ -1,0 +1,12 @@
+<h2>Pipes impuras</h2>
+
+<p>Base: {{ base }}<button (click)="aumentaBase()">+</button></p>
+<p>Exponente: {{ exponente }}<button (click)="aumentaExponente()">+</button></p>
+<p>Restultado: {{ base | exp:exponente }}</p>
+
+<p>Otro número: {{ otroNumero }} <button (click)="aumentaOtro()">+</button></p>
+
+{{ dataArray | json }}
+<p *ngFor="let person of dataArray | filterAge:18">{{ person.name }}</p>
+
+<p><button (click)="addPerson()">Añadir persona al array</button></p>
