@@ -213,7 +213,7 @@ Soporte de:
 - Llamadas a constructores padre ( super() )
 
 ```javascript
-    class AppComponent {
+class MyClass {
 
     atributo;
 
@@ -222,6 +222,28 @@ Soporte de:
 
     constructor() {
     }
+}
+```
+
+#### Accessors get y set
+
+```javascript
+class MyClass {
+
+    _atributo;
+
+    get atributo() {
+      return this._atributo;
+    }
+
+    set atributo(value) {
+      this._atributo = value;
+    }
+}
+
+let myObject = new MyClass();
+myObject.atributo = 27;
+console.log(myObject.atributo);
 ```
 
 ### Módulos
