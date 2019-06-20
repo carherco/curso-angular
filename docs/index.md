@@ -57,6 +57,7 @@ Extras:
 - [Validadores personalizados](custom-validators.md)
 - [Controles personalizados](custom-form-controls.md)
 - [Carga dinámica de componentes](dynamic-components.md)
+- [Configuración avanzada de servicios](providers.md)
 - [Directivas estructurales personalizadas](custom-estructural-directives.md)
 - [EventEmitters por dentro.md](event-emitters.md)
 - [Añadir librería JQuery a un proyecto Angular](jquery.md)
