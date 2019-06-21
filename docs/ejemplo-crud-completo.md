@@ -25,6 +25,10 @@ Un servicio AuthService con métodos:
 
 Un guard AuthGuard de tipo canActivate.
 
+> ng g application ejercicio-final
+
+> ng g c components/micomponente --project=ejercicio-final
+
 ## Código de ayuda
 
 ### Servicio Auth
