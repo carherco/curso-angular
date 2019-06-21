@@ -29,6 +29,8 @@ Un guard AuthGuard de tipo canActivate.
 
 > ng g c components/micomponente --project=ejercicio-final
 
+> ng serve ejercicio-final
+
 ## Código de ayuda
 
 ### Servicio Auth
