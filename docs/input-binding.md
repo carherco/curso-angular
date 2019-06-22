@@ -93,6 +93,8 @@ Cuando queramos lanzar el evento desde child-copm, llamaremos al método *emit*
   }
 ```
 
+Nota: El método *next* está obsoleto en favor de *emit*.
+
 El componente padre puede bindear el evento:
 
 ```html

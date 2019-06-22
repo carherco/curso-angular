@@ -65,11 +65,10 @@ Y en el routing padre
 ```typescript
 {
     path: 'admin',
-    loadChildren: 'app/admin/admin.module#AdminModule'
+    loadChildren: 'app/admin/admin.module#AdminModule' // Antes de Angular 8
+    loadChildren: () => import('app/admin/admin.module').then(mod => mod.AdminModule) }, // A partir de Angular 8
 },
 ```
-
-Ahora ya podemos en cualquier lugar de nuestro módulo raíz, llamar a la ruta "/admin" o al componente lt;&app-adminhomecomponent>lt;&/app-adminhomecomponent>
 
 Por ejemplo, en app.component.html añadimos un enlace al componente exportado (AdminHomeComponent)
 
@@ -132,6 +131,16 @@ Y a configurar el routing
 { path: 'lazy5', loadChildren: 'app/lazy5/lazy5.module#Lazy5Module'},
 ```
 
+(A paritr de Anguar 8)
+
+```typescript
+{ path: 'admin', loadChildren: () => import('app/admin/admin.module').then(mod => mod.AdminModule) },
+{ path: 'lazy1', loadChildren: () => import('app/lazy1/lazy1.module').then(mod => mod.Lazy1Module) },
+{ path: 'lazy2', loadChildren: () => import('app/lazy2/lazy2.module').then(mod => mod.Lazy2Module) },
+{ path: 'lazy3', loadChildren: () => import('app/lazy3/lazy3.module').then(mod => mod.Lazy3Module) },
+{ path: 'lazy4', loadChildren: () => import('app/lazy4/lazy4.module').then(mod => mod.Lazy4Module) },
+{ path: 'lazy5', loadChildren: () => import('app/lazy5/lazy5.module').then(mod => mod.Lazy5Module) },
+```
 
 Para activar el preloading basta configurar el método .forRoot() con la propiedad *preloadingStrategy*:
 
@@ -178,7 +187,9 @@ import { Injectable } from '@angular/core';
 import { PreloadingStrategy, Route } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class SelectivePreloadingStrategy implements PreloadingStrategy {
 
   preload(route: Route, load: () => Observable<any>): Observable<any> {
@@ -205,13 +216,10 @@ Ahora cambiamos el preloadingStrategy del módulo de routing por el nuestro.
     preloadingStrategy: SelectivePreloadingStrategy
   })],
   exports: [RouterModule],
-  providers: [SelectivePreloadingStrategy]
+  providers: []
 })
 export class AppRoutingModule { }
 ```
-
-¡¡No hay que olvidarse de proveer el servicio!!
-
 
 
 https://angular.io/guide/router#preloading-background-loading-of-feature-areas

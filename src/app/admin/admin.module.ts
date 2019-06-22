@@ -9,7 +9,7 @@ import { ClientesComponent } from './components/clientes/clientes.component';
 import { ProveedoresComponent } from './components/proveedores/proveedores.component';
 
 const routes: Routes = [
-  { path: 'home', component: AdminHomeComponent},
+  { path: '', component: AdminHomeComponent},
   { path: 'user', component: UserListComponent },
   { path: 'user/add', component: UserAddComponent },
   { path: 'user/:id', component: UserEditComponent },

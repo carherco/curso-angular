@@ -23,10 +23,16 @@ observable.subscribe(subject);
 El código anterior produce la misma salida que el código siguiente:
 
 ```ts
+// Código rxjs v5
 var observable = Rx.Observable.from([0, 1]).publish();
 observable.subscribe(v => console.log('consumer A: ' + v));
 observable.subscribe(v => console.log('consumer B: ' + v));
 observable.connect();
+
+// Código rxjs v6
+var observable = Rx.Observable.from([0, 1]).pipe(share());
+observable.subscribe(v => console.log('consumer A: ' + v));
+observable.subscribe(v => console.log('consumer B: ' + v));
 
 /* Prints */
 // Consumer A: 0
@@ -215,6 +221,10 @@ El método hasObservers() devuelve *true* si el Subject tiene observdadores o *f
 ## El método toObservable()
 
 El método toObservable() devuelve el Subject convertido en Observable.
+
+## Ejercicio
+
+Editar nombre de usuario (projects/ejercicio01)
 
 ### Cuándo utilizar Subject y cuándo no
 

@@ -69,18 +69,24 @@ const appRoutes: Routes = [
         { path: 'child2', component: NestedChild2Component },
         { path: 'child3', component: NestedChild3Component }
       ]},
-      { path: 'admin', loadChildren: 'app/admin/admin.module#AdminModule'},
-      { path: 'fractal', loadChildren: 'app/fractal/fractal.module#FractalModule'},
+      // { path: 'admin', loadChildren: 'app/admin/admin.module#AdminModule'}, // Antes de Angular 8
+      { path: 'admin', loadChildren: () => import('app/admin/admin.module').then(mod => mod.AdminModule) }, // A paritr de Angular 8
+      { path: 'fractal', loadChildren: () => import('app/fractal/fractal.module').then(mod => mod.FractalModule) },
       { path: 'rotate', component: RotateComponent },
       { path: 'crono', component: CronoComponent },
       { path: 'animation', component: AnimationComponent },
       { path: 'animation2', component: AnimationQueryStagerComponent },
       { path: 'animation-search', component: AnimationSearchComponent },
-      { path: 'lazy1', loadChildren: 'app/lazy1/lazy1.module#Lazy1Module'},
-      { path: 'lazy2', loadChildren: 'app/lazy2/lazy2.module#Lazy2Module'},
-     // { path: 'lazy3', loadChildren: 'app/lazy3/lazy3.module#Lazy3Module', data: {preload: true}},
-      { path: 'lazy4', loadChildren: 'app/lazy4/lazy4.module#Lazy4Module'},
-      { path: 'lazy5', loadChildren: 'app/lazy5/lazy5.module#Lazy5Module'},
+    //   { path: 'lazy1', loadChildren: 'app/lazy1/lazy1.module#Lazy1Module'},
+    //   { path: 'lazy2', loadChildren: 'app/lazy2/lazy2.module#Lazy2Module'},
+    //  // { path: 'lazy3', loadChildren: 'app/lazy3/lazy3.module#Lazy3Module', data: {preload: true}},
+    //   { path: 'lazy4', loadChildren: 'app/lazy4/lazy4.module#Lazy4Module'},
+    //   { path: 'lazy5', loadChildren: 'app/lazy5/lazy5.module#Lazy5Module'},
+      { path: 'lazy1', loadChildren: () => import('app/lazy1/lazy1.module').then(mod => mod.Lazy1Module) },
+      { path: 'lazy2', loadChildren: () => import('app/lazy2/lazy2.module').then(mod => mod.Lazy2Module) },
+      { path: 'lazy3', loadChildren: () => import('app/lazy3/lazy3.module').then(mod => mod.Lazy3Module), data: {preload: true} },
+      { path: 'lazy4', loadChildren: () => import('app/lazy4/lazy4.module').then(mod => mod.Lazy4Module) },
+      { path: 'lazy5', loadChildren: () => import('app/lazy5/lazy5.module').then(mod => mod.Lazy5Module) },
       { path: 'changedetection', component: ChangeDetectionParentComponent },
       { path: 'redux', component: ReduxHeroesContainerComponent },
       { path: 'redux-ngrx', component: ReduxNgrxHeroesContainerComponent },
@@ -92,19 +98,12 @@ const appRoutes: Routes = [
       { path: '**', redirectTo: '' }
     ];
 
-const appRoutes2: Routes = [
-      { path: 'login', component: LoginComponent },
-      { path: '', component: HomePageComponent, pathMatch: 'full' },
-      { path: '**', redirectTo: '' }
-    ];
-
-
 @NgModule({
   imports: [RouterModule.forRoot(appRoutes,{
     enableTracing: false, // <-- debugging purposes only
     preloadingStrategy: SelectivePreloadingStrategy
   })],
   exports: [RouterModule],
-  providers: [SelectivePreloadingStrategy]
+  providers: []
 })
 export class AppRoutingModule { }
