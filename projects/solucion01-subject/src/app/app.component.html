@@ -1,0 +1,9 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="container">
+
+  <app-public-header *ngIf="!(isLogged()|async)"></app-public-header>
+  <app-private-header *ngIf="isLogged()|async"></app-private-header>
+
+  <router-outlet></router-outlet>
+
+</div>
