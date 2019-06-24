@@ -64,12 +64,12 @@ export class LoadUsers implements UserAction {
   constructor(public readonly payload: User[]) {}
 }
 
-export class AddUser implements HeroAction {
+export class AddUser implements UserAction {
   readonly type = UserActionTypes:AddUser;
   constructor(public readonly payload: User) {}
 }
 
-export class DeleteUser implements HeroAction {
+export class DeleteUser implements UserAction {
   readonly type = UserActionTypes:DeleteUser;
   constructor(public readonly payload: User) {}
 }
@@ -126,9 +126,9 @@ export function reducer(state = initialUserState, action: UserAction): UserState
 ```ts
 import { Injectable } from '@angular/core';
 import { Subject, Observable, BehaviorSubject } from 'rxjs';
-import { HeroState } from '../reducers/hero.store';
-import { initialHeroState, reducer } from '../reducers/hero.reducer';
-import { HeroAction } from '../reducers/hero.actions';
+import { UserState } from '../reducers/user.store';
+import { initialUserState, reducer } from '../reducers/user.reducer';
+import { UserAction } from '../reducers/user.actions';
 
 @Injectable({
   providedIn: 'root'
