@@ -6,33 +6,20 @@ import { AuthService } from '../../../services/auth.service';
   templateUrl: './profile-edit.component.html',
   styleUrls: ['./profile-edit.component.css']
 })
-export class ClientesComponent {
-  
+export class ProfileEditComponent implements OnInit {
 
-}
+  username: string;
 
+  constructor(private authService: AuthService) {
+    this.username = this.authService.getUsername();
+  }
 
-export class ProveedoresComponent {
-  tiposVia: TiposVia[];
+  ngOnInit() {
+  }
 
-  constructor(private dataService: DataService) {
-
-    this.dataService.datos$.subscribe(
-      datos => {
-        this.provincias = datos.provincias;
-        this.paises = datos.paises;
-      }
-    );
-    this.dataService.load(['Provincias', 'Paises' ]);
+  saveProfile() {
+    this.authService.setUsername(this.username).subscribe();
   }
 }
 
 
-let sharedData = {
-  tiposVia: [...],
-  paises: [
-    {id: 1, nombre: 'España', provincias: null },
-    {id: 1, nombre: 'Francia', provincias: null },
-    {id: 1, nombre: 'Alemania', provincias: null },
-  ]
-}
