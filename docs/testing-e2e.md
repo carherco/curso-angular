@@ -116,7 +116,6 @@ La función *element()* toma un parámetro de entrada, un **Locator**, que descr
 
 - by.id('calc'): encuentra el elemento con *id="calc"*.
 - by.css('.myclass'): Encuentra elementos utilizando selectores de css
-- by.model('varA'): encuentra el elemento con *ng-model="varA"*.
 
 http://www.protractortest.org/#/api?view=ProtractorBy
 
@@ -124,12 +123,12 @@ http://www.protractortest.org/#/api?view=ProtractorBy
 describe('Protractor Demo App', function() {
   it('should add one and two', function() {
     browser.get('http://juliemr.github.io/protractor-demo/');
-    element(by.model('varA')).sendKeys(1);
-    element(by.model('varB')).sendKeys(2);
+    element(by.id('varA')).sendKeys(1);
+    element(by.id('varB')).sendKeys(2);
 
     element(by.id('calc')).click();
 
-    expect(element(by.model('result')).getText()).
+    expect(element(by.id('result')).getText()).
         toEqual('5'); // This is wrong!
   });
 });
