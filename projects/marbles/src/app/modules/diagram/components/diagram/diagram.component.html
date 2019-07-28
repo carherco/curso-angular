@@ -69,7 +69,7 @@
 
 
   <ng-container *ngFor="let row of data; let index=index;">
-      <svg:g *ngIf="row[0]==='+'" source-block attr.transform="translate(0.0,{{offset_y + step_y*(index)}})" [data]="row" [step_x]="step_x"></svg:g>
+      <svg:g *ngIf="row[0]==='+'" source-block attr.transform="translate(0.0,{{offset_y + step_y*(index)}})" [data]="row" [step_x]="step_x" [colors]="colors|shuffle"></svg:g>
       <svg:g *ngIf="row[0]!=='+'" operator-block attr.transform="translate(0.0,{{offset_y + step_y*(index)}})" ></svg:g>
   </ng-container>
 

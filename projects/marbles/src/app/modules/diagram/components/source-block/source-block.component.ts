@@ -11,6 +11,7 @@ export class SourceBlockComponent implements OnInit {
   @Input() y;
   @Input() data;
   @Input() step_x;
+  @Input() colors;
   offset_x = 10.0;
   constructor() { }
 

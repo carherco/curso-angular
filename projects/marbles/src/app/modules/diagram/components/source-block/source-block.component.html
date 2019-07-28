@@ -4,7 +4,7 @@
   inkscape:connector-curvature="0" />
 
 <ng-container *ngFor="let item of data | decodeSource; let index=index;">
-    <svg:g *ngIf="item !=='' " style="filter:url(#filter3443)" [marble]="item" y=0 [x]="offset_x + step_x*(index)" color="#a0c800"></svg:g>
+    <svg:g *ngIf="item !=='' " style="filter:url(#filter3443)" [marble]="item" y=0 [x]="offset_x + step_x*(index)" [color]="colors[index%colors.length] ? colors[index%colors.length] : '#a0c800'"></svg:g>
 </ng-container>
 
 <svg:g id="error" error></svg:g>

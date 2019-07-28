@@ -8,6 +8,7 @@ import { EndComponent } from './components/end/end.component';
 import { SourceBlockComponent } from './components/source-block/source-block.component';
 import { OperatorBlockComponent } from './components/operator-block/operator-block.component';
 import { DecodeSourcePipe } from './pipes/decode-source.pipe';
+import { ShufflePipe } from './pipes/shuffle.pipe';
 
 
 
@@ -20,7 +21,8 @@ import { DecodeSourcePipe } from './pipes/decode-source.pipe';
     EndComponent,
     SourceBlockComponent,
     OperatorBlockComponent,
-    DecodeSourcePipe
+    DecodeSourcePipe,
+    ShufflePipe
   ],
   imports: [
     CommonModule
