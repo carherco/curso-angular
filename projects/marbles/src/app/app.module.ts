@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { DiagramModule } from './modules/diagram/diagram.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 
@@ -10,7 +11,8 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    DiagramModule
+    DiagramModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

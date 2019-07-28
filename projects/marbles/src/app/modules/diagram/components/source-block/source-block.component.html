@@ -6,8 +6,8 @@
 <ng-container *ngFor="let item of data | decodeSource; let index=index;">
     <ng-container [ngSwitch]="item">
         <ng-container *ngSwitchCase="''" ></ng-container>
-        <svg:g *ngSwitchCase="'|'" end></svg:g>
-        <svg:g *ngSwitchCase="'#'" error></svg:g>
+        <svg:g *ngSwitchCase="'|'" end [x]="offset_x + step_x*(index)"></svg:g>
+        <svg:g *ngSwitchCase="'#'" error [x]="offset_x + step_x*(index)"></svg:g>
         <svg:g *ngSwitchDefault [marble]="item" y=0 [x]="offset_x + step_x*(index)" [color]="colors[index%colors.length] ? colors[index%colors.length] : '#a0c800'" style="filter:url(#filter3443)"></svg:g>
     </ng-container>
 </ng-container>

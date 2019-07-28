@@ -6,10 +6,12 @@
 </div>
 
 <div>
-    <textarea></textarea>
+  <form [formGroup]="form">
+    <textarea rows="10" cols="100" name="textarea" formControlName="textarea"></textarea>
+  </form>
 </div>
 
 <div>
-    <app-diagram></app-diagram>
+    <app-diagram [data]="data$ | async"></app-diagram>
 </div>
 
