@@ -61,6 +61,7 @@ Extras:
 - [Directivas estructurales personalizadas](custom-estructural-directives.md)
 - [EventEmitters por dentro.md](event-emitters.md)
 - [Añadir librería JQuery a un proyecto Angular](jquery.md)
+- [Eliminar elementos de un array](http://notasjs.blogspot.com/2013/06/javascript-borrar-elementos-de-un-array.html)
 
 Documentación oficial de Angular: https://angular.io/docs
 

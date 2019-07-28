@@ -33,6 +33,8 @@ var template = `
 - Multilínea
 - Interpolación con sintaxis ${variable}
 
+http://notasjs.blogspot.com/2013/04/strings-multi-linea-en-javascript.html
+
 ### let/const
 
 - Alternativas a *var* para declarar variables
