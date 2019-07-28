@@ -24,6 +24,24 @@ describe('DecodeSourcePipe', () => {
     expect(pipe.transform(input)).toEqual(expected_output);
   });
 
+  it('end', () => {
+    const pipe = new DecodeSourcePipe();
+
+    const input = '+---|';
+    const expected_output = ['', '', '', '|'];
+
+    expect(pipe.transform(input)).toEqual(expected_output);
+  });
+
+  it('error', () => {
+    const pipe = new DecodeSourcePipe();
+
+    const input = '+---#';
+    const expected_output = ['', '', '', '#'];
+
+    expect(pipe.transform(input)).toEqual(expected_output);
+  });
+
   it('some marbles', () => {
     const pipe = new DecodeSourcePipe();
 

@@ -10,8 +10,8 @@ export class DiagramComponent implements OnInit {
   @Input() circleRadius = 25;
 
   @Input() data = [
-    '+--A-B--C-->',
-    '+--(478)-{5,9,8}--(P3)-->',
+    '+--A-B--C--|',
+    '+--(478)-{5,9,8}--(P3)--#',
     'switchMap',
     '+-12345678>'
   ];

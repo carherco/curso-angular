@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class DecodeSourcePipe implements PipeTransform {
 
   transform(value: string): any[] {
-    const cleaned = value.substring(1, value.length - 1);
+    const cleaned = value.substring(1, value.length);
     let output = [];
     let output_index = 0;
     let is_parentheses_group = false;
@@ -29,6 +29,12 @@ export class DecodeSourcePipe implements PipeTransform {
         output.push(square_brackets_group.split(','));
         is_square_brackets_group = false;
         square_brackets_group = '';
+      } else if (char === '>') {
+        //doNothing
+      } else if (char === '#') {
+        output.push(char);
+      } else if (char === '#') {
+        output.push(char);
       } else {
         if (!is_parentheses_group && ! is_square_brackets_group) {
           output.push(char);
