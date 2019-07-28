@@ -742,6 +742,119 @@
           }
         }
       }
+    },
+    "marbles": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/marbles",
+      "sourceRoot": "projects/marbles/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/marbles",
+            "index": "projects/marbles/src/index.html",
+            "main": "projects/marbles/src/main.ts",
+            "polyfills": "projects/marbles/src/polyfills.ts",
+            "tsConfig": "projects/marbles/tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "projects/marbles/src/favicon.ico",
+              "projects/marbles/src/assets"
+            ],
+            "styles": [
+              "projects/marbles/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/marbles/src/environments/environment.ts",
+                  "with": "projects/marbles/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "marbles:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "marbles:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "marbles:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/marbles/src/test.ts",
+            "polyfills": "projects/marbles/src/polyfills.ts",
+            "tsConfig": "projects/marbles/tsconfig.spec.json",
+            "karmaConfig": "projects/marbles/karma.conf.js",
+            "assets": [
+              "projects/marbles/src/favicon.ico",
+              "projects/marbles/src/assets"
+            ],
+            "styles": [
+              "projects/marbles/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/marbles/tsconfig.app.json",
+              "projects/marbles/tsconfig.spec.json",
+              "projects/marbles/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/marbles/e2e/protractor.conf.js",
+            "devServerTarget": "marbles:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "marbles:serve:production"
+            }
+          }
+        }
+      }
     }
   },
   "defaultProject": "curso",

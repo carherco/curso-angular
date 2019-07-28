@@ -1,0 +1,10 @@
+svg:circle {
+  opacity:1;
+  fill-opacity:1;
+  stroke-width:1px;
+}
+
+svg:text {
+  font-family:sans-serif;
+  text-align:center;
+}

@@ -1,0 +1,10 @@
+<svg:path
+  style="fill:none;fill-rule:evenodd;stroke:#003080;stroke-width:2px;marker-end:url(#Arrow1Lend)"
+  d="m 0,0 547.0,0"
+  inkscape:connector-curvature="0" />
+
+<ng-container *ngFor="let item of data | decodeSource; let index=index;">
+    <svg:g *ngIf="item !=='' " style="filter:url(#filter3443)" [marble]="item" y=0 [x]="offset_x + step_x*(index)" color="#a0c800"></svg:g>
+</ng-container>
+
+<svg:g id="error" error></svg:g>

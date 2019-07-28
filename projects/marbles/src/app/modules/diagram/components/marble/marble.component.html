@@ -1,0 +1,20 @@
+<svg:circle
+     [attr.r]="circle.radius"
+     [attr.cy]="circle.cy"
+     [attr.cx]="circle.cx"
+     [style.fill]="circle.color"
+     [style.stroke]="'#003080'">
+  <title>{{ text.label | json }}</title>
+</svg:circle>
+
+<svg:text
+     [attr.y]="text.y"
+     [attr.x]="text.x"
+     [style.fill]="text.color"
+     [style.font-size]="text.size"
+     style="text-anchor:middle;"
+     xml:space="preserve">
+  <title>{{ text.label | json }}</title>
+  {{ text.label }}
+</text>
+
