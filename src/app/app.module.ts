@@ -78,6 +78,7 @@ import { MenuComponent } from 'app/components/menu/menu.component';
 import { ObservablesFriosComponent } from 'app/components/observables-frios/observables-frios.component';
 import { OtroComponent } from 'app/components/otro/otro.component';
 import { TemplateVariablesComponent } from 'app/components/template-variables/template-variables.component';
+import { AboutComponent } from './components/about/about.component';
 
 
 @NgModule({
@@ -131,7 +132,8 @@ import { TemplateVariablesComponent } from 'app/components/template-variables/te
     CustomControlsComponent,
     ResizableDirective,
     UnlessDirective,
-    ImpurePipeComponent
+    ImpurePipeComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

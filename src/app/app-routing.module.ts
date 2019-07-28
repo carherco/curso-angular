@@ -40,6 +40,7 @@ import { NestedChild3Component } from 'app/components/nested-child3/nested-child
 import { CustomControlsComponent } from 'app/components/custom-controls/custom-controls.component';
 import { ChangeDetectionParentComponent } from './deteccion-cambios/components/change-detection-parent/change-detection-parent.component';
 import { ImpurePipeComponent } from 'app/components/impure-pipe/impure-pipe.component';
+import { AboutComponent } from './components/about/about.component';
 
 
 const appRoutes: Routes = [
@@ -64,6 +65,7 @@ const appRoutes: Routes = [
       { path: 'hero/:id', component: ChildCompComponent },
       { path: 'heroes', component: ParentCompComponent, data: { title: 'Heroes List' } },
       { path: 'login', component: LoginComponent },
+      { path: 'about', component: AboutComponent },
       { path: 'nested', component: NestedComponent, children: [
         { path: '', component: NestedChildComponent },
         { path: 'child2', component: NestedChild2Component },
@@ -84,7 +86,7 @@ const appRoutes: Routes = [
     //   { path: 'lazy5', loadChildren: 'app/lazy5/lazy5.module#Lazy5Module'},
       { path: 'lazy1', loadChildren: () => import('app/lazy1/lazy1.module').then(mod => mod.Lazy1Module) },
       { path: 'lazy2', loadChildren: () => import('app/lazy2/lazy2.module').then(mod => mod.Lazy2Module) },
-      { path: 'lazy3', loadChildren: () => import('app/lazy3/lazy3.module').then(mod => mod.Lazy3Module), data: {preload: true} },
+      { path: 'lazy3', loadChildren: () => import('app/lazy3/lazy3.module').then(mod => mod.Lazy3Module) },
       { path: 'lazy4', loadChildren: () => import('app/lazy4/lazy4.module').then(mod => mod.Lazy4Module) },
       { path: 'lazy5', loadChildren: () => import('app/lazy5/lazy5.module').then(mod => mod.Lazy5Module) },
       { path: 'changedetection', component: ChangeDetectionParentComponent },
