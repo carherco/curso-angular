@@ -45,8 +45,14 @@ describe('GaleriaComponent', () => {
     expect(el.textContent).toContain('Test Title');
   });
 
-  it('Hay 7 imágenes en la galería', () => {
+  it('Hay 8 imágenes en la galería', () => {
     expect(component.imagenes.length).toEqual(8);
+    // component.addImagen('adsasdfasdafdasfd');
+    // expect(component.imagenes.length).toEqual(9);
+    // expect(component.imagenes[8]).toEqual('adsasdfasdafdasfd');
+
+    // fixture.detectChanges();
+
   });
 
 });
