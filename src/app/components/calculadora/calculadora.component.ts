@@ -9,40 +9,31 @@ export class CalculadoraComponent implements OnInit {
 
   title = 'Calculadora';
 
-  varA: number = 8;
-  varB: number = 7;
+  varA: number;
+  varB: number;
+  resultado: number;
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  suma1(a,b) {
-    return a+b;
-  }
-
-  suma2() {
-    return this.varA + this.varB;
+  suma() {
+    this.resultado = this.varA + this.varB;
   }
 
   resta() {
-    return this.varA - this.varB;
+    this.resultado = this.varA - this.varB;
   }
 
-  incrementaA(){
-    this.varA += 1;
+  multiplica() {
+    this.resultado = this.varA * this.varB;
   }
 
-  decrementaA(){
-    this.varA -= 1;
-  }
-
-  incrementaB(){
-    this.varB += 1;
-  }
-
-  decrementaB(){
-    this.varB -= 1;
+  divide() {
+    if(this.varB !== 0) {
+      this.resultado = this.varA / this.varB;
+    }
   }
 
 }
