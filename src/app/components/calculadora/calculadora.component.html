@@ -1,14 +1,14 @@
 <h2>Calculadora</h2>
 
 <div>
-  <div>A: <input type="number" [(ngModel)]="varA"></div>
-  <div>B: <input type="number" [(ngModel)]="varB"></div>
+  <div>A: <input type="number" [(ngModel)]="varA" ></div>
+  <div>B: <input type="number" [(ngModel)]="varB" ></div>
 
   <div>
-    <button (click)="suma()">+</button>
-    <button (click)="resta()">-</button>
-    <button (click)="multiplica()">*</button>
-    <button (click)="divide()">/</button>
+    <button (click)="suma()" mat-raised-button color="accent">+</button>
+    <button (click)="resta()" mat-raised-button color="accent">-</button>
+    <button (click)="multiplica()" mat-raised-button color="accent">*</button>
+    <button (click)="divide()" mat-raised-button color="accent">/</button>
   </div>
 
   <div>Resultado: {{ resultado }}</div>
