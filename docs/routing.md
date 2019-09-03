@@ -431,4 +431,6 @@ const routes: Routes = [
 
 ```
 
+https://blog.angularindepth.com/angular-router-series-secondary-outlets-primer-139206595e2
+
 [Índice](index.md)
