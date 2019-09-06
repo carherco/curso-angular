@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ejercicio-final';
+
+  constructor(public auth: AuthService){
+
+  }
+
+  isLogged(): Observable<boolean> {
+    return this.auth.isLogged();
+  }
 }

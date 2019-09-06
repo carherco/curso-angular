@@ -3,7 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  //api_url: 'https://reqres.in/api',
+  api_url: 'https://jsonplaceholder.typicode.com/'
+  //Url con filtro: https://jsonplaceholder.typicode.com/users?email=Sincere@april.biz
+  //private heroesUrl = 'https://reqres.in/api/users';
 };
 
 /*

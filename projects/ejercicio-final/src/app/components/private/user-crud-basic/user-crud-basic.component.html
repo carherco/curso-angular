@@ -1,0 +1,66 @@
+<h2>{{title}}</h2>
+
+<h3>Añade un usuario a la lista</h3>
+<form class="form-inline">
+  <div class="form-group">
+    <label for="nombre">Nombre:</label>
+    <input type="text" class="form-control" id="nombre" name="name" [(ngModel)]="newUser.name" placeholder="Escribe el nombre...">
+  </div>
+  <div class="form-group">
+    <label for="email">Email:</label>
+    <input type="text" class="form-control" id="email" name="email" [(ngModel)]="newUser.email" placeholder="Email...">
+  </div>
+  <div class="form-group">
+    <label for="phone">Phone:</label>
+    <input type="text" class="form-control" id="phone" name="phone" [(ngModel)]="newUser.phone" placeholder="Phone...">
+  </div>
+  <button type="button" class="btn btn-primary" (click)="add()">Añadir</button>
+</form>
+
+<div class="row">
+
+  <div class="col-md-6">
+    <h3>Lista de usuarios</h3>
+    <input type="checkbox" [(ngModel)]="hide_without_phone"> Ocultar usuarios sin teléfono
+    <table class="table table-striped">
+      <tr>
+        <th>Id</th>
+        <th resizable>Nombre</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th></th>
+      </tr>
+      <ng-container *ngFor="let user of users; let index=index; let odd=odd;">
+        <tr *ngIf="user.phone || !hide_without_phone"
+            [class.selected]="user === selectedUser"
+            [ngClass]="{'seleccionado': selectedUser == hero}"
+            [style.font-size]="(selectedUser == hero)?'20px':''"
+            (click)="onSelect(user)">
+          <td>{{user.id}}</td>
+          <td>{{user.name}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.phone}}</td>
+          <td><button class="btn btn-danger" (click)="delete(user)">X</button></td>
+        </tr>
+      </ng-container>
+    </table>
+  </div>
+
+  <div *ngIf="selectedUser" class="col-md-6">
+    <h3>Datos del usuario {{selectedUser.name}}</h3>
+    <div><label>Id: </label>{{selectedUser.id}}</div>
+    <div>
+      <label>Nombre: </label>
+      <input [(ngModel)]="selectedUser.name" placeholder="name"/>
+    </div>
+    <div>
+      <label>Email: </label>
+      <input [(ngModel)]="selectedUser.email" placeholder="email"/>
+    </div>
+    <div>
+      <label>Phone: </label>
+      <input [(ngModel)]="selectedUser.phone" placeholder="phone"/>
+    </div>
+  </div>
+
+</div>
