@@ -41,6 +41,7 @@ import { CustomControlsComponent } from 'app/components/custom-controls/custom-c
 import { ChangeDetectionParentComponent } from './deteccion-cambios/components/change-detection-parent/change-detection-parent.component';
 import { ImpurePipeComponent } from 'app/components/impure-pipe/impure-pipe.component';
 import { AboutComponent } from './components/about/about.component';
+import { SearchComponent } from './components/search/search.component';
 
 
 const appRoutes: Routes = [
@@ -61,7 +62,7 @@ const appRoutes: Routes = [
       { path: 'forms/model-driven', component: ReactiveFormComponent },
       { path: 'heroes-api', component: HeroListComponent },
       { path: 'lifecycle', component: LifecycleComponent },
-      { path: 'search', component: HeroSearchComponent },
+      { path: 'search', component: SearchComponent },
       { path: 'hero/:id', component: ChildCompComponent },
       { path: 'heroes', component: ParentCompComponent, data: { title: 'Heroes List' } },
       { path: 'login', component: LoginComponent },
@@ -101,7 +102,8 @@ const appRoutes: Routes = [
     ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(appRoutes,{
+  imports: [RouterModule.forRoot(appRoutes, {
+    useHash: true,
     enableTracing: false, // <-- debugging purposes only
     preloadingStrategy: SelectivePreloadingStrategy
   })],

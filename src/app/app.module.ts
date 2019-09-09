@@ -79,6 +79,7 @@ import { ObservablesFriosComponent } from 'app/components/observables-frios/obse
 import { OtroComponent } from 'app/components/otro/otro.component';
 import { TemplateVariablesComponent } from 'app/components/template-variables/template-variables.component';
 import { AboutComponent } from './components/about/about.component';
+import { SearchComponent } from './components/search/search.component';
 
 
 @NgModule({
@@ -133,7 +134,8 @@ import { AboutComponent } from './components/about/about.component';
     ResizableDirective,
     UnlessDirective,
     ImpurePipeComponent,
-    AboutComponent
+    AboutComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { environment } from "environments/environment";
 import { User } from '../model/user';
+import { retry } from 'rxjs/operators';
 
 @Injectable()
 export class UserService {
@@ -14,6 +15,13 @@ export class UserService {
 
   getAll(): Observable<User[]> {
     return this.http.get<User[]>(this.url_api);
+  }
+
+  getFiltered(filter = ''): Observable<any> {
+    return this.http.get(this.url_api + '?' + filter)
+    .pipe(
+      retry(1)
+    );
   }
 
   getOne(id): Observable<any> {
