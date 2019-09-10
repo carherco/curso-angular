@@ -264,6 +264,8 @@ constructor(router:Router) {
 });
 ```
 
+https://blog.angularindepth.com/angular-router-series-pillar-2-navigation-d050286bf4fa
+
 ## Route Guard
 
 En principio cualquier usuario puede navegar a cualquier lugar en cualquier momento. Pero ese no es siempre el comportamiento deseado:
@@ -281,14 +283,12 @@ Un *guard* devuelve un valor que controla el comportamiento del router
 - Si devuelve *true* la navegación continúa su curso.
 - Si devuelve false, el proceso se cancela y el usuario se queda donde está.
 
-## Acceso a Router, ActivatedRoute y ParamMap
+## Acceso a Router
 
 ```typescript
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import 'rxjs/add/operator/switchMap';
 
 constructor(
-  private route: ActivatedRoute,
   private router: Router
 ) {}
 
@@ -305,29 +305,48 @@ localhost:3000/heroes;id=15;otro=otro
 
 Esa URL es muy rara y quizás no la hayamos visto nunca. Se llama notación *Matrix URL*. Esta idea se introdujo en en una propuesta de 1996 por el fundador de la web, Tim Berners-Lee. Y aunque nunca se llegó a convertir en un estándar de HTML, es legal (válido) y está adoptado por todos los navegadores
 
+## Acceso a ActivatedRoute y ParamMap
 
 Para obtener el valor de los parámetros, accedemos al paramMap de ActivatedRoute.
 
 ```typescript
-export class HeroListComponent implements OnInit {
-  heroes$: Observable<Hero[]>;
+export class UserEditComponent implements OnInit {
+  user: User;
 
   private selectedId: number;
 
   constructor(
-    private service: HeroService,
+    private service: UserService,
     private route: ActivatedRoute
   ) {}
 
   ngOnInit() {
-    this.heroes$ = this.route.paramMap
-      .switchMap((params: ParamMap) => {
-        // (+) before `params.get()` turns the string into a number
-        this.selectedId = +params.get('id');
-        return this.service.getHeroes();
-      });
+    this.route.paramMap
+      .pipe(
+        switchMap((params: ParamMap) => {
+          // (+) before `params.get()` turns the string into a number
+          this.selectedId = +params.get('id');
+          return this.service.getUser(this.selectedId);
+        })
+      )
+      .subscribe( u => this.user = u);
   }
 }
+```
+
+O el equivalente sin switchMap
+
+```typescript
+  ngOnInit() {
+    this.route.paramMap
+      .subscribe((params: ParamMap) => {
+        // (+) before `params.get()` turns the string into a number
+        this.selectedId = +params.get('id');
+        this.service.getUser(this.selectedId).subscribe(
+          u => this.user = u
+        );
+      });
+  }
 ```
 
 Recordemos que ParamMap es un Observable. Todavía no sabemos qué son ni cómo utilizarlos, pero ya llegaremos a ellos en futuras lecciones. 
@@ -338,8 +357,6 @@ Recordemos que ParamMap es un Observable. Todavía no sabemos qué son ni cómo 
 - get(name): Devuelve el valor (siempre un string) del parámetro *name* o *null* si el parámetro no existe. Si el parámetro es un array de valores, devuelve solamente el primer elemento.
 - getAll(name): Devuelve un array de strings con los valores del parámetro *name* o un array vacío si el parámetro no existe. Se usa getAll cuando un único parámetro puede tener múltiples valores.
 - keys: Devuelve un array de strings con todos los nombres de los parámetros.
-
-
 
 NOTA: se puede obtener también el parámetro sin utilizar observables:
 
