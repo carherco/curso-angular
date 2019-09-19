@@ -36,7 +36,7 @@ Y del mismo modo, para hacer un build, lo haremos indicando el nombre de la apli
 
 Si no indicamos ningún nombre de aplicación los comandos afectarán a la aplicación/proyecto raíz (la aplicación que está fuera del directorio projects).
 
-Para generar elementos (componentes, directivas, servicios...) en una aplicación/proyecto concreto, el comando generate se utiliza de la siguiente manera:
+Para generar elementos (componentes, directivas, servicios...) en una aplicación/proyecto concreto, el comando generate se utiliza con la opción **--project**:
 
 > ng generate component ruta/nombrecomponente --project=nombreapp [resto de opciones]
 
