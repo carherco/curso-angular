@@ -13,7 +13,6 @@ Estos *project items* se generan con el comando *ng generate*
 
 ## Creación de una librería
 
-https://medium.com/@tomsu/how-to-build-a-library-for-angular-apps-4f9b38b0ed11
 Como de costumbre, el comando generate nos informa de los archivos creados y modificados.
 
 > ng g lib mylib
@@ -29,6 +28,7 @@ En el fichero angular.json podemos ver que se ha dado de alta un nuevo item dent
 ![Resultado del comando ng g lib](img/lib-angularjson.png "Resultado del comando ng g lib")
 
 
+https://medium.com/@tomsu/how-to-build-a-library-for-angular-apps-4f9b38b0ed11
 
 ## Incluir una aplicación dentro de otra
 
