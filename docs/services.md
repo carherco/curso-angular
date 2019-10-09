@@ -103,10 +103,11 @@ export class UserService {
 
 Programar un servicio de autenticación AuthService con las siguientes especificaciones:
 
-- 3 métodos:
+- 4 métodos:
   - logIn(username: string, password: string): boolean
   - logOut(): boolean
   - isLogged(): boolean
+  - getUsername(): string
 
 El servicio de login dará por válidas las credenciales "test" / "test" y por inválidas el resto de combinaciones de usuario y password.
 
