@@ -2,6 +2,4 @@
 
 La documentación del curso está en [docs/index.md](./docs/index.md)
 
-Mis datos de contacto:
-
-- Email: carherco@gmail.com
+Dudas y consultas: cursos@cleformacion.com
