@@ -1,7 +1,6 @@
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { CustomValidators } from 'src/app/validators/spanishIbanValidator';
-
+import { spanishIbanValidator } from '../../validators/spanishIbanValidator';
 
 @Component({
   selector: 'app-iban-validator-example',
@@ -11,11 +10,11 @@ import { CustomValidators } from 'src/app/validators/spanishIbanValidator';
 export class IbanValidatorExampleComponent implements OnInit {
 
   userForm: FormGroup;
-  user: {name: string, iban: string}
+  user: {name: string, iban: string} = {name: '', iban: ''};
   constructor() {
     this.userForm = new FormGroup({
-      'name': new FormControl(this.user.name, [Validators.required]),
-      'iban': new FormControl(this.user.iban, [Validators.required, CustomValidators.spanishIbanValidator])
+      name: new FormControl(this.user.name, [Validators.required]),
+      iban: new FormControl(this.user.iban, [Validators.required, spanishIbanValidator()])
     });
   }
 
