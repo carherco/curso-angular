@@ -163,7 +163,7 @@ import { ValidatorFn } from '@angular/forms';
 
 myValidatorFn: {[key: string]: any} | null = (control: AbstractControl) => {
   let validationErrorObject = {
-    'spanishIban': true
+    spanishIban: true
   };
 
   return validationErrorObject;
@@ -181,7 +181,7 @@ import { ValidatorFn } from '@angular/forms';
 
 myValidatorFn: {[key: string]: any} | null = (control: AbstractControl) => {
   let validationErrorObject = {
-    'spanishIban': true
+    spanishIban: true
   };
 
   const value = control.value;
@@ -204,7 +204,7 @@ import { ValidatorFn } from '@angular/forms';
 
 myValidatorFn: {[key: string]: any} | null = (control: AbstractControl) => {
   let validationErrorObject = {
-    'spanishIban': true
+    spanishIban: true
   };
 
   const value = control.value;
@@ -228,7 +228,7 @@ import { ValidatorFn } from '@angular/forms';
 export function spanishIbanValidator(): ValidatorFn {
   return (control: AbstractControl): {[key: string]: any} | null => {
     let validationErrorObject = {
-      'spanishIban': true
+      spanishIban: true
     };
 
     const value = control.value;
@@ -245,8 +245,111 @@ Nuestro validador está listo para utilizarse en formularios reactivos:
 
 ```typescript
 this.userForm = new FormGroup({
-  'name': new FormControl(this.user.name, [Validators.required]),
-  'iban': new FormControl(this.user.iban, [Validators.required, spanishIbanValidator])
+  name: new FormControl(this.user.name, [Validators.required]),
+  iban: new FormControl(this.user.iban, [Validators.required, spanishIbanValidator()])
 });
 ```
 
+## Ejemplo: Validador de IBAN genérico
+
+En este ejemplo, vamos a generalizar el validador de IBAN español, para poder configurarlo para que dé por válidos cuentas IBAN de los países que queramos.
+
+1) Partimos del mismo código anterior, pero cambiamos el nombre del validador de spanishIbanValidator() a countriesIbanValidator(). Y la clave del objeto de validación de error la cambiamos de spanishIban a iban a secas o a countriesIban.
+
+```ts
+import { ValidatorFn } from '@angular/forms';
+
+export function countriesIbanValidator(): ValidatorFn {
+  return (control: AbstractControl): {[key: string]: any} | null => {
+    let validationErrorObject = {
+      countriesIban: true
+    };
+
+    const value = control.value;
+    if (value && value[0] === 'E' && value[1] === 'S') {
+        let validationErrorObject = null;
+    }
+
+    return validationErrorObject;
+  };
+}
+```
+
+2) Necesitaremos un argumento de entrada en countriesIbanValidator() para indicar los países que queremos que sean válidos:
+
+```ts
+// ...
+export function countriesIbanValidator(validCountries: string[]): ValidatorFn {
+// ...
+```
+
+El argumento de entrada será un array de esta forma:
+
+```ts
+validCountries = ['ES', 'FR'];
+```
+
+3) Adaptamos la función que realiza la validación para que compruebe cualquiera de los países que vengan en el array
+
+```ts
+import { ValidatorFn } from '@angular/forms';
+
+export function countriesIbanValidator(): ValidatorFn {
+  return (control: AbstractControl): {[key: string]: any} | null => {
+
+    const value = control.value;
+    const country = control.value.substring(0, 2);
+
+    let validationErrorObject = {
+      countriesIban: true
+    };
+
+    if (value && validCountries.includes(country)) {
+      validationErrorObject = null;
+    }
+
+    return validationErrorObject;
+  };
+}
+```
+
+4) Y por último, no es obligatorio, pero podemos mejorar el objeto de error de validación para dar más información de lo que está pasando.
+
+```ts
+import { ValidatorFn, AbstractControl } from '@angular/forms';
+
+export function countriesIbanValidator(validCountries: string[]): ValidatorFn {
+
+  return (control: AbstractControl): {[key: string]: any} | null => {
+
+    const value = control.value;
+    const country = control.value.substring(0, 2);
+
+    let validationErrorObject = {
+      countriesIban: {
+        currentCountry: country,
+        validCountries: validCountries
+      }
+    };
+
+    if (value && validCountries.includes(country)) {
+      validationErrorObject = null;
+    }
+
+    return validationErrorObject;
+  };
+}
+```
+
+Nuestro validador ya está listo para utilizarse en formularios reactivos:
+
+```typescript
+this.userForm = new FormGroup({
+  name: new FormControl(this.user.name, [Validators.required]),
+  iban: new FormControl(this.user.iban, [Validators.required, countriesIbanValidator(['ES', 'FR'])])
+});
+```
+
+- Código de los ejemplos resueltos en el componente iban-validator-example
+
+- Demo en: http://carherco.es/curso-angular/#/iban-validator

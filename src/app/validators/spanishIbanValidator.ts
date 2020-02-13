@@ -3,7 +3,7 @@ import { ValidatorFn, AbstractControl } from '@angular/forms';
 export function spanishIbanValidator(): ValidatorFn {
   return (control: AbstractControl): {[key: string]: any} | null => {
     let validationErrorObject = {
-      'spanishIban': true
+      spanishIban: true
     };
 
     const value = control.value;

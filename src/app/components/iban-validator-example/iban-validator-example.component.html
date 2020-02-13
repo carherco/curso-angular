@@ -1,7 +1,7 @@
 <h2>Ejemplo de validador personalizado: Validador de IBAN</h2>
 
 <div>
-  <h1>User Form</h1>
+  <h1>Validación Iban Español</h1>
   <form [formGroup]="userForm">
     <div>
       <label for="name">Name: </label>
@@ -19,6 +19,32 @@
     </div>
 
     <div>{{ userForm.get('iban').errors | json }}</div>
+
+    <button type="submit">Submit</button>
+
+  </form>
+</div>
+
+
+<div>
+  <h1>Validación Iban Genérica</h1>
+  <form [formGroup]="userForm2">
+    <div>
+      <label for="name">Name: </label>
+      <input type="text" id="name2" name="name" required formControlName="name">
+      <span *ngIf="userForm2.get('name').errors?.required">Campo obligatorio</span>
+    </div>
+
+    <div>{{ userForm.get('name').errors | json }}</div>
+
+    <div>
+      <label for="iban">IBAN: </label>
+      <input type="text" id="iban2" name="iban" required formControlName="iban">
+      <span *ngIf="userForm2.get('iban').errors?.required">Campo obligatorio</span>
+      <span *ngIf="userForm2.get('iban').errors?.countriesIban">El iban tiene que ser español</span>
+    </div>
+
+    <div>{{ userForm2.get('iban').errors | json }}</div>
 
     <button type="submit">Submit</button>
 
