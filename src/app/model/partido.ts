@@ -1,3 +1,5 @@
+import { ThemePalette } from '@angular/material/core';
+
 export class Partido {
 
     constructor(
@@ -9,8 +11,8 @@ export class Partido {
         public duracion?: number,
         public hora?: string,
         public terminado?: string,
-        public color_local?: string,
-        public color_visitante?:string,
+        public color_local?: ThemePalette,
+        public color_visitante?: ThemePalette,
         public infocrono?: any,
     ) {
 

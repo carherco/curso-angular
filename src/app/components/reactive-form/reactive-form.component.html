@@ -24,7 +24,7 @@
       </div>
 
       <div formArrayName="addresses" class="well well-lg">
-        <div *ngFor="let address of addresses.controls; let i=index" [formGroupName]="i" >
+        <div *ngFor="let address of addresses.controls; let i=index" [formGroupName]="i.toString()" >
           <!-- The repeated address template -->
           <h4>Address #{{i + 1}}</h4>
           <div style="margin-left: 1em;">

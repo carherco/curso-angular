@@ -8,15 +8,24 @@ import { ReduxNgrxHeroesContainerComponent } from './components/redux-heroes-con
 import { StoreModule } from '@ngrx/store';
 //import { StoreDevtoolsModule } from '@ngrx/store‐devtools';
 import { metaReducers, reducers } from './reducers';
-import { environment } from 'environments/environment';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     StoreModule.forRoot(reducers, { metaReducers }),
-    //StoreRouterConnectingModule.forRoot({ stateKey: 'router' }),
-    //!environment.production ? StoreDevtoolsModule.instrument() : []
+    StoreModule.forRoot(
+      {},
+      {
+        metaReducers: [],
+        runtimeChecks: {
+          strictActionImmutability: true,
+          strictStateImmutability: true
+        }
+      }
+    ),
+    //StoreRouterConnectingModule.forRoot({ routerState: RouterState.Minimal }),
+    //!environment.production ? StoreDevtoolsModule.instrument() : [],
   ],
   declarations: [
     ReduxNgrxHeroesContainerComponent,

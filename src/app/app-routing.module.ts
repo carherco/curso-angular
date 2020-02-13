@@ -42,6 +42,7 @@ import { ChangeDetectionParentComponent } from './deteccion-cambios/components/c
 import { ImpurePipeComponent } from 'app/components/impure-pipe/impure-pipe.component';
 import { AboutComponent } from './components/about/about.component';
 import { SearchComponent } from './components/search/search.component';
+import { IbanValidatorExampleComponent } from './components/iban-validator-example/iban-validator-example.component';
 
 
 const appRoutes: Routes = [
@@ -97,6 +98,7 @@ const appRoutes: Routes = [
       { path: 'dynamic-form', component: DynamicFormExampleComponent },
       { path: 'dynamic-components', component: DynamicComponentsExampleComponent },
       { path: 'custom-controls', component: CustomControlsComponent },
+      { path: 'iban-validator', component: IbanValidatorExampleComponent },
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: '**', redirectTo: '' }
     ];

@@ -33,8 +33,8 @@
       <ng-container *ngFor="let user of users; let index=index; let odd=odd;">
         <tr *ngIf="user.phone || !hide_without_phone"
             [class.selected]="user === selectedUser"
-            [ngClass]="{'seleccionado': selectedUser == hero}"
-            [style.font-size]="(selectedUser == hero)?'20px':''"
+            [ngClass]="{'seleccionado': selectedUser == user}"
+            [style.font-size]="(selectedUser == user)?'20px':''"
             (click)="onSelect(user)">
           <td>{{user.id}}</td>
           <td>{{user.name}}</td>

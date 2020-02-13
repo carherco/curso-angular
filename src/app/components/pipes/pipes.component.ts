@@ -7,10 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PipesComponent implements OnInit {
 
-  cadenadetexto: String;
+  cadenadetexto: string;
   fecha: Date;
-  numero: Number;
-  numero2: Number;
+  numero: number;
+  numero2: number;
   objeto = null;
 
   constructor() {

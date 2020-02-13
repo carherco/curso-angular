@@ -16,6 +16,7 @@
             "main": "src/main.ts",
             "tsConfig": "src/tsconfig.app.json",
             "polyfills": "src/polyfills.ts",
+            "aot": true,
             "assets": [
               "src/assets",
               "src/favicon.ico"
@@ -852,6 +853,46 @@
             "production": {
               "devServerTarget": "marbles:serve:production"
             }
+          }
+        }
+      }
+    },
+    "mylib": {
+      "projectType": "library",
+      "root": "projects/mylib",
+      "sourceRoot": "projects/mylib/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/mylib/tsconfig.lib.json",
+            "project": "projects/mylib/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/mylib/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/mylib/src/test.ts",
+            "tsConfig": "projects/mylib/tsconfig.spec.json",
+            "karmaConfig": "projects/mylib/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/mylib/tsconfig.lib.json",
+              "projects/mylib/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         }
       }

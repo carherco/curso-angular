@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Crono } from 'app/model/crono';
+import { Crono } from '../model/crono';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CronoService {
 
-  crono_id: number; // Identificador del cronómetro (podría ser el id del partido)
+  crono_id; // Identificador del cronómetro (podría ser el id del partido)
   duracion: number; //(en minutos) Este dato hay que configurarlo desde fuera
   precision: number = 100;  // Cada cuántos milisegundos se recalcula el crono
 

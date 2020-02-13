@@ -1,0 +1,19 @@
+<h2>Ejemplo de validador personalizado: Validador de IBAN</h2>
+
+<div>
+  <h1>User Form</h1>
+  <form [formGroup]="userForm">
+    <div>
+      <label for="name">Name: </label>
+      <input type="text" id="name" name="name" required formControlName="name">
+    </div>
+
+    <div>
+      <label for="iban">IBAN: </label>
+      <input type="text" id="iban" name="iban" required formControlName="iban">
+    </div>
+
+    <button type="submit">Submit</button>
+
+  </form>
+</div>

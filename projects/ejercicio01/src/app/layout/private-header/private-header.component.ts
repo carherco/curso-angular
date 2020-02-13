@@ -15,7 +15,9 @@ export class PrivateHeaderComponent implements OnInit {
     private router: Router,
     private authService: AuthService
   ) {
-    this.username = this.authService.getUsername();
+    this.authService.getUsername$().subscribe(
+      username => this.username = username
+    );
   }
 
   ngOnInit() {
@@ -25,6 +27,15 @@ export class PrivateHeaderComponent implements OnInit {
     this.authService.logout().subscribe(
       x => this.router.navigate(['/home'])
     );
+  }
+
+  // getUsername() {
+  //   return this.authService.getUsername();
+  // }
+
+  ngDoCheck() {
+    // this.username = this.authService.getUsername();
+    // console.log('ngDoCheck de private header');
   }
 
 }

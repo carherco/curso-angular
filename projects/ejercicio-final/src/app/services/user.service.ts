@@ -4,7 +4,9 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'environments/environment';
 import { User } from '../model/user';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class UserService {
 
   url_api: string;

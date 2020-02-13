@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, of, timer } from "rxjs";
+import { Observable, of, timer, Subject, BehaviorSubject } from "rxjs";
 import { delay, tap, map } from "rxjs/operators";
 
 const respuestaSimuladaOk = {
@@ -14,6 +14,7 @@ export class AuthService {
 
   // usertoken: {username: string, token: string };
 
+  username$: BehaviorSubject<string> = new BehaviorSubject(localStorage.getItem('username'));
   constructor() {
 
     // this.usertoken = {
@@ -64,8 +65,12 @@ export class AuthService {
     }
   }
 
-  getUsername() {
+  getUsername(): string {
     return localStorage.getItem('username');
+  }
+
+  getUsername$(): Observable<string> {
+    return this.username$.asObservable();
   }
 
   getToken() {
@@ -76,7 +81,8 @@ export class AuthService {
     return of(true).pipe(
       delay(1000),
       tap( () => {
-        localStorage.setItem('username',username);
+        localStorage.setItem('username', username);
+        this.username$.next(username);
         // this.usertoken.username = username;
       })
     );

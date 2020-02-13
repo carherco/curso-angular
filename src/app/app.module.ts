@@ -9,7 +9,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from 'app/material/material.module';
+import { MaterialModule } from './material/material.module';
 import { AppRoutingModule } from './app-routing.module';
 import { LayoutModule } from '@angular/cdk/layout';
 import { DynamicComponentsModule } from './dynamic-components/dynamic-components.module';
@@ -46,7 +46,7 @@ import { DynamicComponentsExampleComponent } from './components/dynamic-componen
 import { HighlightDirective } from './directives/highlight.directive';
 import { RotateDirective } from './directives/rotate.directive';
 
-import { ExponentePipe } from 'app/pipes/exponente.pipe';
+import { ExponentePipe } from './pipes/exponente.pipe';
 import { FilterAgePipe } from './pipes/filter-age.pipe';
 
 import { AuthGuard } from './guards/auth.guard';
@@ -70,16 +70,18 @@ import { CustomControlsComponent } from './components/custom-controls/custom-con
 import { ResizableDirective } from './directives/resizable.directive';
 import { UnlessDirective } from './directives/unless.directive';
 import { ImpurePipeComponent } from './components/impure-pipe/impure-pipe.component';
-import { TemplateFormComponent } from 'app/components/template-form/template-form.component';
-import { BusquedaComponent } from 'app/components/busqueda/busqueda.component';
-import { DetalleComponent } from 'app/components/detalle/detalle.component';
-import { MasterComponent } from 'app/components/master/master.component';
-import { MenuComponent } from 'app/components/menu/menu.component';
-import { ObservablesFriosComponent } from 'app/components/observables-frios/observables-frios.component';
-import { OtroComponent } from 'app/components/otro/otro.component';
-import { TemplateVariablesComponent } from 'app/components/template-variables/template-variables.component';
 import { AboutComponent } from './components/about/about.component';
 import { SearchComponent } from './components/search/search.component';
+import { UsuariosCrudEsqueletoComponent } from './components/usuarios-crud-esqueleto/usuarios-crud-esqueleto.component';
+import { OtroComponent } from './components/otro/otro.component';
+import { TemplateVariablesComponent } from './components/template-variables/template-variables.component';
+import { TemplateFormComponent } from './components/template-form/template-form.component';
+import { ObservablesFriosComponent } from './components/observables-frios/observables-frios.component';
+import { BusquedaComponent } from './components/busqueda/busqueda.component';
+import { MasterComponent } from './components/master/master.component';
+import { DetalleComponent } from './components/detalle/detalle.component';
+import { MenuComponent } from './components/menu/menu.component';
+import { IbanValidatorExampleComponent } from './components/iban-validator-example/iban-validator-example.component';
 
 
 @NgModule({
@@ -135,7 +137,9 @@ import { SearchComponent } from './components/search/search.component';
     UnlessDirective,
     ImpurePipeComponent,
     AboutComponent,
-    SearchComponent
+    SearchComponent,
+    UsuariosCrudEsqueletoComponent,
+    IbanValidatorExampleComponent
   ],
   imports: [
     BrowserModule,

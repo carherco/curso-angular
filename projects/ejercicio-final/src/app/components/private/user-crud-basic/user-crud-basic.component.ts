@@ -1,6 +1,6 @@
 import { User } from 'app/model/TypicodeUser';
 import { Component, OnInit } from '@angular/core';
-import { USERS } from 'app/data/users';
+import { UserService } from '../../../services/user.service';
 
 @Component({
   selector: 'user-crud-basic',
@@ -10,17 +10,21 @@ import { USERS } from 'app/data/users';
 export class UserCrudBasicComponent implements OnInit {
 
   title = 'CRUD BÁSICO';
-  users = USERS;
+  users = [];
   lastId = 10;
   newUser: User;
   selectedUser: User;
   hide_without_phone: boolean = false;
 
-  constructor() {
+  constructor(private userService: UserService) {
     this.newUser = {
       id: this.lastId + 1,
       name: ''
     };
+
+    this.userService.getAll().subscribe(
+      users => this.users = users
+    );
   }
 
   ngOnInit() {
