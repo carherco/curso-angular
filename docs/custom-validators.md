@@ -76,7 +76,7 @@ Una vez programada la directiva, simplemente tenemos que aplicarla en los contro
 
 Los custom async validators son iguales que los sync validators excepto en que tienen que devolver **una Promesa o un Observable** que emitan/resuelvan o bien un null o bien un objeto de error de validación. En caso de observables, el observable tiene que emitir la señal de finalizado. En ese momento, el formulario utiliza para la validación el último valor emitido.
 
-## Ejemplo: Validador de IBAN español
+## Ejemplo: Validador de IBAN español
 
 Vamos a crear un validador que compruebe si un determinado IBAN bancario es español.
 
@@ -250,7 +250,7 @@ this.userForm = new FormGroup({
 });
 ```
 
-## Ejemplo: Validador de IBAN genérico
+## Ejemplo: Validador de IBAN genérico
 
 En este ejemplo, vamos a generalizar el validador de IBAN español, para poder configurarlo para que dé por válidos cuentas IBAN de los países que queramos.
 
