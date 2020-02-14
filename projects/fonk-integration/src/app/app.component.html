@@ -1,0 +1,27 @@
+<h1>Integración con la librería Fonk</h1>
+
+<div>
+  <h1>Validación con Fonk</h1>
+  <form [formGroup]="userForm">
+    <div>
+      <label for="name">Name: </label>
+      <input type="text" id="name" name="name" required formControlName="name">
+      <span *ngIf="userForm.get('name').errors?.fonkRequired">Campo obligatorio</span>
+      <span *ngIf="userForm.get('name').errors?.fonkMaxLength">El texto es demasiado largo</span>
+    </div>
+
+    <div>{{ userForm.get('name').errors | json }}</div>
+
+    <div>
+      <label for="email">Email: </label>
+      <input type="text" id="email" name="email" required formControlName="email">
+      <span *ngIf="userForm.get('email').errors?.fonkRequired">Campo obligatorio</span>
+      <span *ngIf="userForm.get('email').errors?.fonkEmail">No es un correo válido</span>
+    </div>
+
+    <div>{{ userForm.get('email').errors | json }}</div>
+
+    <button type="submit">Submit</button>
+
+  </form>
+</div>
