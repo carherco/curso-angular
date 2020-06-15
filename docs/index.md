@@ -50,7 +50,7 @@ Cuarto bloque: Testing y Deployment
 - Introducción a Ionic - nativeScript
 - Introducción a las PWA
 
-Extras: 
+Extras:
 
 - Workspace de Angular: [aplicaciones](applications.md) y [librerías](libraries.md)
 - [Angular Material](angular-material.md)
