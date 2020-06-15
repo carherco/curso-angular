@@ -63,6 +63,8 @@ Extras:
 - [EventEmitters por dentro.md](event-emitters.md)
 - [Añadir librería JQuery a un proyecto Angular](jquery.md)
 - [Eliminar elementos de un array](http://notasjs.blogspot.com/2013/06/javascript-borrar-elementos-de-un-array.html)
+- [La directiva ngNativeValidate](ngNativeValidate.md)
+- [Instalar una versión antigua de Angular CLI](old-version-md)
 
 Documentación oficial de Angular: https://angular.io/docs
 

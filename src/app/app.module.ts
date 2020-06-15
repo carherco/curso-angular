@@ -82,6 +82,8 @@ import { MasterComponent } from './components/master/master.component';
 import { DetalleComponent } from './components/detalle/detalle.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { IbanValidatorExampleComponent } from './components/iban-validator-example/iban-validator-example.component';
+import { ToSlugPipe } from './pipes/to-slug.pipe';
+import { TruncatePipe } from './pipes/truncate.pipe';
 
 
 @NgModule({
@@ -139,7 +141,9 @@ import { IbanValidatorExampleComponent } from './components/iban-validator-examp
     AboutComponent,
     SearchComponent,
     UsuariosCrudEsqueletoComponent,
-    IbanValidatorExampleComponent
+    IbanValidatorExampleComponent,
+    ToSlugPipe,
+    TruncatePipe
   ],
   imports: [
     BrowserModule,
