@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Observer } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Component({
@@ -13,36 +13,37 @@ export class ColdObservablesComponent implements OnInit {
 
   ngOnInit() {
 
-    // Creación de observable básico
-    const Obs1 = Observable.create(function (emmiter) {
-      emmiter.next('Hello');
-      emmiter.next('World');
-      emmiter.complete();
+    const Obs1$: Observable<string> = new Observable( (observer: Observer<string>) => {
+      observer.next('Hello');
+      observer.next('World');
+      observer.complete();
     });
 
-    Obs1.subscribe(
-      function (x) { console.log('Emisión:', x); },
-      function (e) { console.log('Error:', e); },
-      function () { console.log('Fin'); }
-    );
+    // const Obs1$ = from(['Hello', 'World']);
+
+    Obs1$.subscribe({
+      next: (x:string) => { console.log('Emisión:', x) },
+      error: (e: string) => { console.log('Error:', e); },
+      complete: () => { console.log('Fin'); }
+    });
 
     //Creación de observable "infinito"
-    const Obs2 = Observable.create(function(emmiter) {
+    const Obs2$ = new Observable((observer: Observer<number>) => {
       let value = 0;
       const interval = setInterval(() => {
         if (value % 2 === 0) {
-          emmiter.next(value);
+          observer.next(value);
         }
         value++;
       }, 1000);
 
       return () => {
-         clearInterval(interval);
-          console.log('Me he quedado sin observador');
+        clearInterval(interval);
+        console.log('Me he quedado sin observador');
        }
      });
 
-    const subs2 = Obs2.subscribe(x => console.log('subs2:',x));
+    const subs2 = Obs2$.subscribe(x => console.log('subs2:',x));
 
     // unsubscribe after 10 seconds
     setTimeout(() => {
@@ -50,7 +51,7 @@ export class ColdObservablesComponent implements OnInit {
     }, 10000);
 
     setTimeout(() => {
-      const subs3 = Obs2.subscribe(x => console.log('subs3:',x));
+      Obs2$.subscribe(x => console.log('subs3:',x));
     }, 5000);
 
     // Son Observables fríos:
@@ -60,24 +61,24 @@ export class ColdObservablesComponent implements OnInit {
 
 
     // Introducción a los operadores
-    Obs1.pipe(
-      map((x:string)=>x.toUpperCase())
+    Obs1$.pipe(
+      map( (x:string) => x.toUpperCase() )
     )
-    .subscribe(
-      function (x) { console.log('Emisión:', x); },
-      function (e) { console.log('Error:', e); },
-      function () { console.log('Fin'); }
-    );
+    .subscribe({
+      next: (x:string) => { console.log('Emisión:', x) },
+      error: (e: string) => { console.log('Error:', e); },
+      complete: () => { console.log('Fin'); }
+    });
 
-     Obs1.pipe(
-      map((x:string)=>x.toUpperCase()),
-      map((x:string)=>x.split("").reverse().join(""))
+     Obs1$.pipe(
+      map( (x:string) => x.toUpperCase() ),
+      map( (x:string) => x.split("").reverse().join("") )
      )
-    .subscribe(
-      function (x) { console.log('Emisión:', x); },
-      function (e) { console.log('Error:', e); },
-      function () { console.log('Fin'); }
-    );
+    .subscribe({
+      next: (x:string) => { console.log('Emisión:', x) },
+      error: (e: string) => { console.log('Error:', e); },
+      complete: () => { console.log('Fin'); }
+    });
 
   }
 
