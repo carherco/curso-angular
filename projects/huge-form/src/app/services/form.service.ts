@@ -71,9 +71,11 @@ export class FormService {
     this.mapForm.set('role', 1);
     this.mapForm.set('gender', 1);
     this.mapForm.set('username', 1);
+
     this.mapForm.set('DNI', 2);
     this.mapForm.set('ANUSS', 2);
     this.mapForm.set('AD', 2);
+
     this.mapForm.set('Alegre', 3);
     this.mapForm.set('Activo', 3);
     this.mapForm.set('Timido', 3);
