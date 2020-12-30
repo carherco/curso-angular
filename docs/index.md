@@ -42,8 +42,8 @@ Tercer bloque: Eficiencia y escalabilidad
 
 Cuarto bloque: Testing y Deployment
 
-- [Testeo con Karma](testing.md)
-- [Testeo con Protractor](testing-e2e.md)
+- [Testeo unitario con Karma](testing.md)
+- [Testeo e2e con Protractor](testing-e2e.md)
 - [Separar app en Módulos y Lazy loading](lazy-loading.md)
 - [Deployment](deployment.md)
 - [Angular CLI](angular-cli.md)
@@ -62,16 +62,13 @@ Extras:
 - [Directivas estructurales personalizadas](custom-estructural-directives.md)
 - [EventEmitters por dentro.md](event-emitters.md)
 - [Añadir librería JQuery a un proyecto Angular](jquery.md)
-- [Eliminar elementos de un array](http://notasjs.blogspot.com/2013/06/javascript-borrar-elementos-de-un-array.html)
+- [Eliminar elementos de un array](https://dev.to/ip127001/5-ways-to-delete-an-element-from-an-array-in-javascript-jm9)
 - [La directiva ngNativeValidate](ngNativeValidate.md)
 - [Instalar una versión antigua de Angular CLI](old-version-md)
+- [Editor WYSIWYG para Angular](https://github.com/stevermeister/ngx-wig)
 
 Documentación oficial de Angular: https://angular.io/docs
 
 Mis datos de contacto:
 
 - Email: carherco@gmail.com
-
-Con la colaboración de:
-
-- Juanda Rodríguez (juanda@juandarodriguez.com)

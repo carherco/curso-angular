@@ -562,6 +562,27 @@ Equivale a definir un atributo y fijar su valor:
     }
 ```
 
+### Sobrecarga de métodos
+
+TypeScript soporta sobrecarga de métodos siempre que el número de argumentos de la función sobrecargada sea siempre igual:
+
+```ts
+function reverse(string: string): string;
+function reverse<T>(array: T[]): T[];
+function reverse<T>(
+  stringOrArray: string | T[]
+): string | T[] {
+  return typeof stringOrArray === "string"
+    ? stringOrArray
+        .split("")
+        .reverse()
+        .join("")
+    : stringOrArray.slice().reverse();
+}
+```
+
+Las dos primeras son las posibles combinaciones aceptadas por typescript. La última debe ser la implementación de la función.
+
 ### Tipos unión
 
 La propiedad solamente podrá tomar uno de los valores definidos.
@@ -591,5 +612,8 @@ function identity<T>(arg: T): T {
     return arg
 }
 ```
+
+https://www.typescriptlang.org/docs/handbook/generics.html
+
 
 [Índice](index.md)
