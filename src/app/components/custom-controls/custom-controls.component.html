@@ -3,7 +3,11 @@
 <form [formGroup]="form">
   <tri-state-control formControlName="tri_state"></tri-state-control>
   <rating-stars-control formControlName="rating"></rating-stars-control>
-  <required-text-control  formControlName="title"></required-text-control>
+  <required-text-control formControlName="title"></required-text-control>
 </form>
 
 {{form.value | json}}
+
+{{form.errors | json}}
+
+{{form.invalid | json}}

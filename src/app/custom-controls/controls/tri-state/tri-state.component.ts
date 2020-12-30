@@ -20,8 +20,8 @@ export class TriStateControl implements OnInit, ControlValueAccessor {
 
   // @ViewChild('input') input: ElementRef;
   value: number;
-  onChange: any;
-  onTouched: any;
+  onChange: (value: number) => void;
+  onTouched: () => void;
   disabled: boolean = false;
   constructor(@Self() @Optional() public controlDirective: NgControl) {
     controlDirective.valueAccessor = this;
@@ -51,7 +51,7 @@ export class TriStateControl implements OnInit, ControlValueAccessor {
     }
   }
 
-  registerOnChange(fn: (value: any) => void) {
+  registerOnChange(fn: (value: number) => void) {
     this.onChange = fn;
   }
 
