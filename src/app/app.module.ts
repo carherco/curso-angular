@@ -161,7 +161,11 @@ import { TruncatePipe } from './pipes/truncate.pipe';
     DynamicFormModule,
     DynamicComponentsModule,
     DeteccionCambiosModule,
-    CustomControlsModule
+    CustomControlsModule,
+    // StoreModule.forRoot({}, {}),
+    // StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    // EffectsModule.forRoot([]),
+    // StoreRouterConnectingModule.forRoot(),
   ],
   providers: [
     MockHeroeService,
