@@ -150,3 +150,15 @@ addPerson() {
 
 Y de esta forma, el problema también se soluciona, porque ahora al añadir una persona al array, el primer argumento de filterAge sí que ha cambiado, con lo que Angular vuelve a ejectuar el método transform.
 
+## Resumen
+
+Pipes puras:
+
+- Una única instancia de la pipe en toda la aplicación
+- Se presupone inmutabilidad en los datos
+- Solamente se ejecuta el método transform si ha cambiado algún argumento de entrada de la pipe.
+
+Pipes impuras:
+
+- Una instancia para cada uso de la pipe
+- Se ejecuta el método transform en cada ciclo de detección de cambios.
