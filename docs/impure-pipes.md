@@ -17,7 +17,9 @@ Todas las pipes del core de Angular son puras excepto *AsyncPipe*, *JsonPipe* y 
 
 ## Ejemplo
 
-Programamos una pipe que filtra un array de usuarios para quedarse con los que tienen una edad superior o igual a la indicada.
+El código del ejemplo se puede probar aquí: https://stackblitz.com/edit/angular-playground-4u6unz?file=app/exp.pipe.ts
+
+Supongamos que programamos una pipe que filtra un array de usuarios para quedarse con los que tienen una edad superior o igual a la indicada.
 
 ```ts
 import { Pipe, PipeTransform } from '@angular/core';
