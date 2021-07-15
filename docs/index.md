@@ -52,6 +52,7 @@ Cuarto bloque: Testing y Deployment
 
 Extras:
 
+- [Actualizar Angular CLI a la última versión](https://stackoverflow.com/questions/43931986/how-to-upgrade-angular-cli-to-the-latest-version)
 - Workspace de Angular: [aplicaciones](applications.md) y [librerías](libraries.md)
 - [Angular Material](angular-material.md)
 - [Formularios dinámicos](dynamic-forms.md)
