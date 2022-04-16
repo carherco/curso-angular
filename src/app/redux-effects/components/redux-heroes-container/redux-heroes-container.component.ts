@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HEROES } from 'app/data/mock-heroes';
-import { Hero } from 'app/model/hero';
+import { Hero } from '../../../model/hero';
 import { Observable } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
 import { HeroState } from '../../reducers/hero.store';
 import { LoadHeroes, DeleteHero, AddHero } from '../../reducers/hero.actions';
 import { Store } from '@ngrx/store';
@@ -38,7 +36,7 @@ export class ReduxEffectsHeroesContainerComponent implements OnInit {
       console.log('new state received');
     });
 
-    this.store.dispatch(new LoadHeroes(HEROES));
+    this.store.dispatch(new LoadHeroes());
   }
 
   onSelect(hero: Hero): void {
