@@ -1,4 +1,12 @@
 <div>
+
+{{ userForm.value | json }}
+
+<br><br><br>
+{{ user | json }}
+
+
+
   <h1>User Form</h1>
   <form [formGroup]="userForm">
     <div>
@@ -35,7 +43,7 @@
       </div>
     </div>
 
-    <button type="submit">Submit</button>
+    <button type="submit" (click)="submit()">Submit</button>
 
   </form>
 </div>

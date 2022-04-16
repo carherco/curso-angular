@@ -25,6 +25,6 @@ export class HeroEffects {
         map((heroes: Hero[]) => new LoadHeroesOk(heroes)),
         catchError(err => of(new LoadHeroesERROR('Error loading cars')))
       )
-    )
+    ),
   );
 }

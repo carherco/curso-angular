@@ -13,7 +13,7 @@ export interface HeroAction {
 
 export class LoadHeroes implements HeroAction {
   readonly type = '[HERO]_Load';
-  constructor(public readonly payload: Hero[]) {}
+  constructor() {}
 }
 
 export class LoadHeroesOk implements HeroAction {

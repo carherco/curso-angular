@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Autor } from 'app/model/autor';
+import { Autor } from '../../../model/autor';
+
 
 @Component({
   selector: 'about',

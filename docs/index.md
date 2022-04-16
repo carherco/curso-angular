@@ -53,6 +53,7 @@ Cuarto bloque: Testing y Deployment
 Extras:
 
 - Workspace de Angular: [aplicaciones](applications.md) y [librerías](libraries.md)
+- [Resolvers](resolvers.md)
 - [Angular Material](angular-material.md)
 - [Formularios dinámicos](dynamic-forms.md)
 - [Validadores personalizados](custom-validators.md)
