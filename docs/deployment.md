@@ -44,7 +44,6 @@ Podemos crear otros entornos siguiendo estos 2 pasos:
     "optimization": true,
     "outputHashing": "all",
     "sourceMap": false,
-    "extractCss": true,
     "namedChunks": false,
     "aot": true,
     "extractLicenses": true,
