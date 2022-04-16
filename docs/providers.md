@@ -166,4 +166,8 @@ Los proveedores de @Component y de @NgModule son independientes uno del otro. Pr
 
 Por supuesto, varios componentes podrían proveerse el mismo servicio, y obtendrían instancias distintas del mismo.
 
-https://angular.io/guide/dependency-injection
+## Enlaces de interés
+
+- https://angular.io/guide/dependency-injection
+- https://dev.to/christiankohler/improved-dependeny-injection-with-the-new-providedin-scopes-any-and-platform-30bb
+- https://indepth.dev/posts/1090/angulars-root-and-any-provider-scopes

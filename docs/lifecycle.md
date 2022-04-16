@@ -75,5 +75,10 @@ ngOnDestroy() {
 }
 ```
 
+## Enlaces de interés
+
+- https://www.freecodecamp.org/news/angular-lifecycle-hooks/
+
+
 
 [Índice](index.md)
