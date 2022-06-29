@@ -28,7 +28,7 @@ console.log('final');
 
 Dado que las promesas van a la cola de micro tasks y los setTimeout a la cola de macro tasks, el orden de aparición de los mensajes en la consola es el siguiente:
 
-{imagen}
+![Imagen de la consola](img/schedulers-inicio.png "Imagen de la consola")
 
 Nada nuevo bajo el sol. 
 
@@ -57,7 +57,7 @@ console.log('final');
 
 ¿Cuál será ahora el orden de aparición de los mensajes en la consola?
 
-{imagen}
+![Imagen de la consola](img/schedulers-timer.png "Imagen de la consola")
 
 Parece pues que los observables van a la cola de macro tasks, junto con los setTimeout().
 
@@ -86,13 +86,13 @@ console.log('final');
 
 ¿Cuál será ahora el orden de aparición de los mensajes en la consola? La respuesta puede que sorprenda.
 
-{imagen}
+![Imagen de la consola](img/schedulers-of.png "Imagen de la consola")
 
 Estos observables se están ejecutando de forma síncrona. Sin embargo los creados con timer() se están ejecutando en la cola de macro tasks.
 
-Esto se debe a los Schedulers.
+Esto se debe a los **Schedulers**.
 
-A Scheduler lets you define in what execution context will an Observable deliver notifications to its Observer.
+> A Scheduler lets you define in what execution context will an Observable deliver notifications to its Observer.
 
 Con los schedulers podemos cambiar el comportamiento del observable creado con of() para que entregue la notificación en un momento que sea más adecuado para nuestros intereses.
 
@@ -121,7 +121,7 @@ console.log('final');
 
 El orden de ejecución sería el siguiente:
 
-{imagen}
+![Imagen de la consola](img/schedulers-async.png "Imagen de la consola")
 
 ## Scheduler Types
 
@@ -136,13 +136,13 @@ El orden de ejecución sería el siguiente:
 
 - **animationFrameScheduler**: Schedules task that will happen just before next browser content repaint. Can be used to create smooth browser animations.
 
-Orden de ejecución conanimationFrameScheduler
+Orden de ejecución con animationFrameScheduler
 
-{imagen}
+![Imagen de la consola](img/schedulers-animationFrame.png "Imagen de la consola")
 
 Orden de ejecución con asapScheduler
 
-{imagen}
+![Imagen de la consola](img/schedulers-asap.png "Imagen de la consola")
  
 
 ## Utilización de Schedulers
