@@ -35,6 +35,7 @@ Tercer bloque: Eficiencia y escalabilidad
 - [Detección de cambios](deteccion-cambios.md)
 - [Patrón Contenedor-Presentador (aka Smart-Dumb pattern)](contenedor-presentador.md)
 - [Subjects](subject.md)
+- [Schedulers](schedulers.md)
 - [Patrón redux: Stores, actions y reducers](redux.md)
 - [Patrón redux: Librería NgRx](ngrx.md)
 - [Patrón redux: Effects](redux-effects.md)
