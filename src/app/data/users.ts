@@ -1,4 +1,4 @@
-import { User } from 'app/model/TypicodeUser';
+import { User } from 'src/app/model/TypicodeUser';
 
 export const USERS: User[] = [
   {

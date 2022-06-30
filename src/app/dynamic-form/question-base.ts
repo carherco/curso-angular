@@ -4,7 +4,7 @@ export class QuestionBase<T>{
   label: string;
   required: boolean;
   controlType: string;
-  type: string;
+  type!: string;
   price?: number
   options?: any;
 
@@ -16,11 +16,11 @@ export class QuestionBase<T>{
       price?: number,
       controlType?: string
     } = {}) {
-    this.value = options.value;
+    this.value = options.value!;
     this.key = options.key || '';
     this.label = options.label || '';
     this.required = !!options.required;
-    this.price = options.price || null;
+    this.price = options.price;
     this.controlType = options.controlType || '';
   }
 }

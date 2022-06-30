@@ -10,7 +10,7 @@ interface UserCredentials {
 })
 export class AuthSimpleService {
 
-  private lastLoginErrorMessage: string;
+  private lastLoginerrorMessage: string = '';
 
   constructor() {}
 

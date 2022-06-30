@@ -1,8 +1,8 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { Observable, fromEvent } from 'rxjs';
 import { tap, map, filter, switchMap, distinctUntilChanged, debounceTime } from 'rxjs/operators';
-import { UserService } from 'app/services/user.service';
-import { User } from 'app/model/TypicodeUser';
+import { UserService } from 'src/app/services/user.service';
+import { User } from 'src/app/model/TypicodeUser';
 
 
 @Component({
@@ -12,10 +12,10 @@ import { User } from 'app/model/TypicodeUser';
 })
 export class SearchComponent implements OnInit {
 
-  errorMessage: string;
-  users: User[];
+  errorMessage: string = '';
+  users: User[] = [];
 
-  @ViewChild('email', {static: true}) email: ElementRef;
+  @ViewChild('email', {static: true}) email!: ElementRef;
 
   constructor (private userService: UserService) {
     this.getUsers().subscribe(users => this.users = users);

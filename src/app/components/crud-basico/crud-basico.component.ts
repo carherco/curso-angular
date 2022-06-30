@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HEROES } from '../../data/mock-heroes';
-import { Hero } from '../../model/hero';
+import { Hero } from 'src/app/model/Hero';
 
 @Component({
   selector: 'app-crud-basico',
@@ -15,7 +15,7 @@ export class CrudBasicoComponent implements OnInit {
   lastId = 20;
   hide_sad: boolean = false;
   newHero: Hero;
-  selectedHero: Hero;
+  selectedHero?: Hero;
 
   constructor() {
     this.newHero = {
@@ -49,7 +49,7 @@ export class CrudBasicoComponent implements OnInit {
    * Función delete recibiendo el índice del héroe que se quiere eliminar
    * @param index
    */
-  delete(index) {
+  delete(index: number) {
     this.heroes.splice(index, 1);
   }
 

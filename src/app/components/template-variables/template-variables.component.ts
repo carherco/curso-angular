@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'exce-template-variables',
   template: `
-      <input (keyup)="onKeyUp($event.target.value)" >
+      <input (keyup)="onKeyUp($any($event.target).value)" >
       <p>{{ value }}</p>
 
       <input (keyup)="onKeyUp(valor.value)" #valor >

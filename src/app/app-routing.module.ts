@@ -24,22 +24,22 @@ import { PipesComponent } from './components/pipes/pipes.component';
 import { ColdObservablesComponent } from './components/cold-observables/cold-observables.component';
 import { RotateComponent } from './components/rotate/rotate.component';
 import { CronoComponent } from './components/crono/crono.component';
-import { AnimationComponent } from 'app/components/animation/animation.component';
-import { AnimationSearchComponent } from 'app/components/animation-search/animation-search.component';
+import { AnimationComponent } from './components/animation/animation.component';
+import { AnimationSearchComponent } from './components/animation-search/animation-search.component';
 import { ReduxHeroesContainerComponent } from './redux/components/redux-heroes-container/redux-heroes-container.component';
 import { ReduxNgrxHeroesContainerComponent } from './redux-ng-rx/components/redux-heroes-container/redux-heroes-container.component';
 import { DynamicFormExampleComponent } from './components/dynamic-form-example/dynamic-form-example.component';
-import { DynamicComponentsExampleComponent } from 'app/components/dynamic-components-example/dynamic-components-example.component';
-import { UserFormComponent } from 'app/components/user-form/user-form.component';
-import { UserFormReactiveComponent } from 'app/components/user-form-reactive/user-form-reactive.component';
-import { UserCrudBasicComponent } from 'app/components/user-crud-basic/user-crud-basic.component';
-import { NestedComponent } from 'app/components/nested/nested.component';
-import { NestedChildComponent } from 'app/components/nested-child/nested-child.component';
-import { NestedChild2Component } from 'app/components/nested-child2/nested-child2.component';
-import { NestedChild3Component } from 'app/components/nested-child3/nested-child3.component';
-import { CustomControlsComponent } from 'app/components/custom-controls/custom-controls.component';
+import { DynamicComponentsExampleComponent } from './components/dynamic-components-example/dynamic-components-example.component';
+import { UserFormComponent } from './components/user-form/user-form.component';
+import { UserFormReactiveComponent } from './components/user-form-reactive/user-form-reactive.component';
+import { UserCrudBasicComponent } from './components/user-crud-basic/user-crud-basic.component';
+import { NestedComponent } from './components/nested/nested.component';
+import { NestedChildComponent } from './components/nested-child/nested-child.component';
+import { NestedChild2Component } from './components/nested-child2/nested-child2.component';
+import { NestedChild3Component } from './components/nested-child3/nested-child3.component';
+import { CustomControlsComponent } from './components/custom-controls/custom-controls.component';
 import { ChangeDetectionParentComponent } from './deteccion-cambios/components/change-detection-parent/change-detection-parent.component';
-import { ImpurePipeComponent } from 'app/components/impure-pipe/impure-pipe.component';
+import { ImpurePipeComponent } from './components/impure-pipe/impure-pipe.component';
 import { AboutComponent } from './components/about/about.component';
 import { SearchComponent } from './components/search/search.component';
 import { IbanValidatorExampleComponent } from './components/iban-validator-example/iban-validator-example.component';
@@ -74,8 +74,8 @@ const appRoutes: Routes = [
         { path: 'child3', component: NestedChild3Component }
       ]},
       // { path: 'admin', loadChildren: 'app/admin/admin.module#AdminModule'}, // Antes de Angular 8
-      { path: 'admin', loadChildren: () => import('app/admin/admin.module').then(mod => mod.AdminModule) }, // A paritr de Angular 8
-      { path: 'fractal', loadChildren: () => import('app/fractal/fractal.module').then(mod => mod.FractalModule) },
+      { path: 'admin', loadChildren: () => import('./admin/admin.module').then(mod => mod.AdminModule) }, // A paritr de Angular 8
+      { path: 'fractal', loadChildren: () => import('./fractal/fractal.module').then(mod => mod.FractalModule) },
       { path: 'rotate', component: RotateComponent },
       { path: 'crono', component: CronoComponent },
       { path: 'animation', component: AnimationComponent },
@@ -86,11 +86,11 @@ const appRoutes: Routes = [
     //  // { path: 'lazy3', loadChildren: 'app/lazy3/lazy3.module#Lazy3Module', data: {preload: true}},
     //   { path: 'lazy4', loadChildren: 'app/lazy4/lazy4.module#Lazy4Module'},
     //   { path: 'lazy5', loadChildren: 'app/lazy5/lazy5.module#Lazy5Module'},
-      { path: 'lazy1', loadChildren: () => import('app/lazy1/lazy1.module').then(mod => mod.Lazy1Module) },
-      { path: 'lazy2', loadChildren: () => import('app/lazy2/lazy2.module').then(mod => mod.Lazy2Module) },
-      { path: 'lazy3', loadChildren: () => import('app/lazy3/lazy3.module').then(mod => mod.Lazy3Module) },
-      { path: 'lazy4', loadChildren: () => import('app/lazy4/lazy4.module').then(mod => mod.Lazy4Module) },
-      { path: 'lazy5', loadChildren: () => import('app/lazy5/lazy5.module').then(mod => mod.Lazy5Module) },
+      { path: 'lazy1', loadChildren: () => import('./lazy1/lazy1.module').then(mod => mod.Lazy1Module) },
+      { path: 'lazy2', loadChildren: () => import('./lazy2/lazy2.module').then(mod => mod.Lazy2Module) },
+      { path: 'lazy3', loadChildren: () => import('./lazy3/lazy3.module').then(mod => mod.Lazy3Module) },
+      { path: 'lazy4', loadChildren: () => import('./lazy4/lazy4.module').then(mod => mod.Lazy4Module) },
+      { path: 'lazy5', loadChildren: () => import('./lazy5/lazy5.module').then(mod => mod.Lazy5Module) },
       { path: 'changedetection', component: ChangeDetectionParentComponent },
       { path: 'redux', component: ReduxHeroesContainerComponent },
       { path: 'redux-ngrx', component: ReduxNgrxHeroesContainerComponent },

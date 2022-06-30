@@ -151,7 +151,7 @@ Y se aplica así:
 ## Código para árbol fractal
 
 ```javascript
-draw(startX, startY, len, angle) {
+draw(startX: number, startY: number, len: number, angle: number) {
     this.ctx.beginPath();
     this.ctx.save();
 

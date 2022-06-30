@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AdItem } from 'app/dynamic-components/model/AdItem';
-import { AdService } from 'app/dynamic-components/services/ad-service';
+import { AdItem } from 'src/app/dynamic-components/model/AdItem';
+import { AdService } from 'src/app/dynamic-components/services/ad-service';
 
 @Component({
   selector: 'dynamic-components-example',
@@ -9,7 +9,7 @@ import { AdService } from 'app/dynamic-components/services/ad-service';
 })
 export class DynamicComponentsExampleComponent implements OnInit {
 
-  ads: AdItem[];
+  ads: AdItem[] = [];
 
   constructor(private adService: AdService) {}
 

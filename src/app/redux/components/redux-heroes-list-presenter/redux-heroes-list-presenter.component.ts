@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, EventEmitter, Output, ChangeDetectionStrategy } from '@angular/core';
-import { Hero } from 'app/model/hero';
+import { Hero } from 'src/app/model/Hero';
 
 @Component({
   selector: 'app-redux-heroes-list-presenter',
@@ -9,8 +9,8 @@ import { Hero } from 'app/model/hero';
 })
 export class ReduxHeroesListPresenterComponent implements OnInit {
 
-  @Input() heroes;
-  @Input() selectedHero: Hero;
+  @Input() heroes: Hero[] = [];
+  @Input() selectedHero!: Hero;
   @Output() onSelect= new EventEmitter<Hero>();
   @Output() onDelete= new EventEmitter<Hero>();
 

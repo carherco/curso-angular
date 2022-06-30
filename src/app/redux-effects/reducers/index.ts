@@ -1,4 +1,4 @@
-import { Hero } from 'app/model/hero';
+import { Hero } from 'src/app/model/Hero';
 import { globalreducer, heroreducer } from './hero.reducer';
 import {
   ActionReducer,
@@ -7,7 +7,7 @@ import {
   createSelector,
   MetaReducer
 } from '@ngrx/store';
-import { environment } from 'environments/environment';
+import { environment } from 'src/environments/environment';
 
 export interface State {
   global: GlobalState,

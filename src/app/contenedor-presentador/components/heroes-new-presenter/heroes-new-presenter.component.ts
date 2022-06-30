@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { Hero } from '../../../model/hero';
+import { Hero } from '../src/app/model/Hero';
 
 @Component({
   selector: 'app-heroes-new-presenter',
@@ -8,7 +8,7 @@ import { Hero } from '../../../model/hero';
 })
 export class HeroesNewPresenterComponent implements OnInit {
 
-  @Input() hero: Hero;
+  @Input() hero!: Hero;
   @Output() eventAddHero: EventEmitter<Hero> = new EventEmitter();
   emotions: string[] = ['','happy','sad','confused'];
   constructor() { }

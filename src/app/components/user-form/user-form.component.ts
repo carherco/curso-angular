@@ -1,6 +1,6 @@
-import { User } from 'app/model/TypicodeUser';
+import { User } from 'src/app/model/TypicodeUser';
 import { Component } from '@angular/core';
-import { USERS } from 'app/data/users';
+import { USERS } from 'src/app/data/users';
 
 @Component({
   selector: 'user-form',

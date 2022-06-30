@@ -19,16 +19,16 @@ import { ControlValueAccessor, NgControl } from '@angular/forms';
 export class TriStateControl implements OnInit, ControlValueAccessor {
 
   // @ViewChild('input') input: ElementRef;
-  value: number;
-  onChange: (value: number) => void;
-  onTouched: () => void;
+  value!: number;
+  onChange!: (value: number) => void;
+  onTouched!: () => void;
   disabled: boolean = false;
   constructor(@Self() @Optional() public controlDirective: NgControl) {
     controlDirective.valueAccessor = this;
   }
 
   ngOnInit() {
-    const control = this.controlDirective.control;
+    const control = this.controlDirective.control!;
     // let validators = control.validator ? [control.validator, RequiredTextValidator.validate] :RequiredTextValidator.validate;
     // control.setValidators(validators);
     control.updateValueAndValidity();

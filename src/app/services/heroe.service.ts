@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
-import { Hero } from '../model/hero';
 import { map, retry } from 'rxjs/operators';
 
 @Injectable({

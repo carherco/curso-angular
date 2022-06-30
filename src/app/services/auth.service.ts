@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, from } from "rxjs";
+import { Observable, from, of } from "rxjs";
 import { delay, tap, map } from "rxjs/operators";
 
 interface Usertoken {
@@ -8,7 +8,7 @@ interface Usertoken {
   token: string
 }
 interface SimulatedResponse {
-  loginStatus: 'OK' | 'ERROR',
+  loginStatus: 'OK' | 'ERROR',
   usertoken?: Usertoken,
   errorMessage?: string
 }
@@ -27,13 +27,13 @@ const BodySimulatedResponseLoginERROR: SimulatedResponse = {
   errorMessage: 'Invalid Credentials'
 };
 
-const ResponseLoginOk$: Observable<SimulatedResponse> = Observable.create(
-  emmitter => {emmitter.next(BodySimulatedResponseLoginOK); emmitter.complete()}
-).pipe(delay(1000));
+const ResponseLoginOk$: Observable<SimulatedResponse> = new Observable(
+  emitter => {emitter.next(BodySimulatedResponseLoginOK); emitter.complete()}
+);
 
-const ResponseLoginERROR$: Observable<SimulatedResponse> = Observable.create(
-  emmitter => {emmitter.next(BodySimulatedResponseLoginERROR); emmitter.complete()}
-).pipe(delay(1000));
+const ResponseLoginERROR$: Observable<SimulatedResponse> = new Observable(
+  emitter => {emitter.next(BodySimulatedResponseLoginERROR); emitter.complete()}
+);
 // --- Fin de simulación de respuestas ---//
 
 @Injectable({
@@ -42,7 +42,7 @@ const ResponseLoginERROR$: Observable<SimulatedResponse> = Observable.create(
 export class AuthService {
 
   private usertoken: Usertoken;
-  private lastLoginErrorMessage: string;
+  private lastLoginErrorMessage: string | null;
 
   constructor(private http: HttpClient) {
     this.usertoken = {
@@ -66,10 +66,10 @@ export class AuthService {
       return ResponseLoginOk$.pipe(
         map(
           respuesta => {
-            this.usertoken = respuesta.usertoken;
+            this.usertoken = respuesta.usertoken!;
             this.lastLoginErrorMessage = null;
-            localStorage.setItem('username',respuesta.usertoken.username);
-            localStorage.setItem('token', respuesta.usertoken.token);
+            localStorage.setItem('username', respuesta.usertoken!.username);
+            localStorage.setItem('token', respuesta.usertoken!.token);
             return true;
           })
       );
@@ -79,7 +79,7 @@ export class AuthService {
       return ResponseLoginERROR$.pipe(
         map(
           respuesta => {
-            this.lastLoginErrorMessage = respuesta.errorMessage;
+            this.lastLoginErrorMessage = respuesta.errorMessage!;
             return false;
           }
         )
@@ -104,7 +104,7 @@ export class AuthService {
     }
   }
 
-  getLastLoginErrorMessage(): string {
+  getLastLoginErrorMessage(): string | null {
     return this.lastLoginErrorMessage;
   }
 

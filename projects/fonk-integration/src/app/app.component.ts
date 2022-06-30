@@ -17,16 +17,16 @@ export class AppComponent {
     });
 
     console.log(this.userForm.valid);
-    console.log(this.userForm.get('name').errors);
-    console.log(this.userForm.get('email').errors);
+    console.log(this.userForm.get('name')!.errors);
+    console.log(this.userForm.get('email')!.errors);
 
-    this.userForm.get('name').setValue('Un nombre demasiado largo');
+    this.userForm.get('name')!.setValue('Un nombre demasiado largo');
     console.log(this.userForm.valid);
-    console.log(this.userForm.get('name').errors);
+    console.log(this.userForm.get('name')!.errors);
 
-    this.userForm.get('email').setValue('Un email no valido@fonk');
+    this.userForm.get('email')!.setValue('Un email no valido@fonk');
     console.log(this.userForm.valid);
-    console.log(this.userForm.get('email').errors);
+    console.log(this.userForm.get('email')!.errors);
 
     console.log(this.userForm.errors);
   }

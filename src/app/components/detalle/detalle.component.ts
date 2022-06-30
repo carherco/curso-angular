@@ -1,7 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import { EventEmitter } from "@angular/core";
-import { Output } from "@angular/core";
-import { Hero } from '../../model/hero';
+import { Hero } from 'src/app/model/Hero';
 
 @Component({
   selector: 'exce-detalle',
@@ -10,7 +9,7 @@ import { Hero } from '../../model/hero';
 })
 export class DetalleComponent implements OnInit {
 
-  @Input() heroe: Hero;
+  @Input() heroe!: Hero;
   emociones = ['','happy','sad','confused'];
   @Output() onEliminarEvento: EventEmitter<Hero> = new EventEmitter<Hero>();
 

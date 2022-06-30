@@ -11,7 +11,7 @@ export class PipesComponent implements OnInit {
   fecha: Date;
   numero: number;
   numero2: number;
-  objeto = null;
+  objeto: any = null;
 
   constructor() {
     this.cadenadetexto = "Una cadena de texto";

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Hero } from '../../../model/hero';
+import { Hero } from '../src/app/model/Hero';
 import { MockHeroeService } from '../../../services/mock-heroe.service';
 
 @Component({
@@ -9,18 +9,18 @@ import { MockHeroeService } from '../../../services/mock-heroe.service';
 })
 export class HeroesContainerComponent {
 
-  heroes: Hero[];
+  heroes: Hero[] = [];
   emotions: string[] = ['','happy','sad','confused'];
 
   newHero: Hero;
-  selectedHero: Hero;
+  selectedHero?: Hero;
 
   constructor(hs: MockHeroeService) {
     this.heroes = hs.get();
     this.newHero = new Hero(21, '');
   }
 
-  add(hero) {
+  add(hero: Hero) {
     this.heroes.push(hero);
     this.newHero = new Hero(22, '');
   }

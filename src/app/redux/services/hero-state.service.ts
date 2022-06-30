@@ -10,13 +10,13 @@ import { Store } from '@ngrx/store';
 })
 export class ReduxHeroStateService {
 
-    private state;
+    private state: any;
     private state$ = new Subject<any>();
     //private state$ = new BehaviorSubject<any>(this.state);
 
     constructor() {}
 
-    public dispatch = (action) => {
+    public dispatch = (action: any) => {
       this.state = reducer(this.state, action);
       this.state$.next(this.getSnapshot());
     };

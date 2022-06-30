@@ -11,7 +11,7 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 //import { StoreDevtoolsModule } from '@ngrx/store‐devtools';
 import { metaReducers, reducers } from './reducers';
-import { environment } from 'environments/environment';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   imports: [

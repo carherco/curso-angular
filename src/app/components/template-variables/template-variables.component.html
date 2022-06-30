@@ -1,4 +1,4 @@
 
-<input (keyup)="onKeyUp($event.target.value)" >
+<input (keyup)="onKeyUp($any($event.target).value)" >
 
 <p>{{ value }}</p>

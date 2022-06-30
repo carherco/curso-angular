@@ -1,4 +1,4 @@
-import { AdComponent } from 'app/dynamic-components/model/AdComponent';
+import { AdComponent } from 'src/app/dynamic-components/model/AdComponent';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

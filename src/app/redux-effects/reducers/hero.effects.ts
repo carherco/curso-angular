@@ -1,4 +1,4 @@
-import { Hero } from 'app/model/hero';
+import { Hero } from 'src/app/model/Hero';
 import { HeroActions, LoadHeroes, LoadHeroesOk, LoadHeroesERROR } from './hero.actions';
 import { HeroService } from './../services/hero.service';
 import { HttpErrorResponse } from '@angular/common/http';

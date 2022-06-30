@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Hero } from 'app/model/hero';
+import { Hero } from 'src/app/model/Hero';
 
 @Component({
   selector: 'app-redux-heroes-edit-presenter',
@@ -8,9 +8,9 @@ import { Hero } from 'app/model/hero';
 })
 export class ReduxHeroesEditPresenterComponent implements OnInit {
 
-  @Input() hero: Hero;
+  @Input() hero!: Hero;
   @Output() onDeleted = new EventEmitter<Hero>();
-  
+
   constructor() { }
 
   ngOnInit() { }

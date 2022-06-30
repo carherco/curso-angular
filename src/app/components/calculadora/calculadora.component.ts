@@ -9,9 +9,9 @@ export class CalculadoraComponent implements OnInit {
 
   title = 'Calculadora';
 
-  varA: number;
-  varB: number;
-  resultado: number;
+  varA!: number;
+  varB!: number;
+  resultado!: number;
 
   constructor() { }
 

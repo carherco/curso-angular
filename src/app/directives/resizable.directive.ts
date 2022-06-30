@@ -6,7 +6,7 @@ import { Directive, ElementRef, HostListener } from '@angular/core';
 export class ResizableDirective {
 
   initialwidth: number;
-  initialMouseX: number;
+  initialMouseX!: number;
   resizing: boolean = false;
 
   constructor(private el: ElementRef) {
@@ -18,7 +18,7 @@ export class ResizableDirective {
   }
 
   @HostListener('mousedown',['$event'])
-  initResize(event) {
+  initResize(event: MouseEvent) {
     this.initialwidth = +this.el.nativeElement.width;
     this.initialMouseX = event.x;
     this.el.nativeElement.style.cursor = 'col-resize';
@@ -26,13 +26,13 @@ export class ResizableDirective {
   }
 
   @HostListener('mouseup',['$event'])
-  finishResize(event) {
+  finishResize(event: MouseEvent) {
     this.resizing = false;
     this.el.nativeElement.style.cursor = '';
   }
 
   @HostListener('mousemove',['$event'])
-  resize(event) {
+  resize(event: MouseEvent) {
     if(this.resizing) {
       let width = this.initialwidth + (event.x - this.initialMouseX);
       this.el.nativeElement.width = ''+ width;

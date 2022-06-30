@@ -31,16 +31,16 @@ constructor(@Self() public controlDirective: NgControl) {
 })
 export class RequiredTextControl implements ControlValueAccessor {
 
-  @ViewChild('input', {static: true}) input: ElementRef;
-  onChange: any;
-  onTouched: any;
+  @ViewChild('input', {static: true}) input!: ElementRef;
+  onChange!: (value: number) => void;
+  onTouched!: () => void;
   disabled: boolean = false;
   constructor(@Self() @Optional() public controlDirective: NgControl) {
     controlDirective.valueAccessor = this;
   }
 
   ngOnInit() {
-    const control = this.controlDirective.control;
+    const control = this.controlDirective.control!;
     let validators = control.validator ? [control.validator, RequiredTextValidator.validate] :RequiredTextValidator.validate;
     control.setValidators(validators);
     control.updateValueAndValidity();

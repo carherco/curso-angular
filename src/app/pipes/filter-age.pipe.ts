@@ -8,7 +8,7 @@ export class FilterAgePipe implements PipeTransform {
 
   transform(value: User[], minage: number): User[] {
     console.log('método trasnform de la pipe filterAge');
-    return value.filter( u => u.age >= minage);
+    return value.filter( u => u.age! >= minage);
   }
 
 }

@@ -1,6 +1,6 @@
-import { User } from 'app/model/TypicodeUser';
+import { User } from 'src/app/model/TypicodeUser';
 import { Component, OnInit } from '@angular/core';
-import { USERS } from 'app/data/users';
+import { USERS } from 'src/app/data/users';
 
 @Component({
   selector: 'user-crud-basic',
@@ -10,10 +10,10 @@ import { USERS } from 'app/data/users';
 export class UserCrudBasicComponent implements OnInit {
 
   title = 'CRUD BÁSICO';
-  users = USERS;
+  users: User[] = USERS;
   lastId = 10;
   newUser: User;
-  selectedUser: User;
+  selectedUser!: User;
   hide_without_phone: boolean = false;
 
   constructor() {
@@ -48,7 +48,7 @@ export class UserCrudBasicComponent implements OnInit {
    * Función delete recibiendo el índice del usuario que se quiere eliminar
    * @param index
    */
-  deleteX(index) {
+  deleteX(index: number) {
     this.users.splice(index, 1);
   }
 

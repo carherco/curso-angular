@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, ViewChild, ComponentFactoryResolver, ViewContainerRef } from '@angular/core';
-import { AdItem } from 'app/dynamic-components/model/AdItem';
-import { AdComponent } from 'app/dynamic-components/model/AdComponent';
+import { AdItem } from 'src/app/dynamic-components/model/AdItem';
+import { AdComponent } from 'src/app/dynamic-components/model/AdComponent';
 
 @Component({
   selector: 'ads-loader',
@@ -9,13 +9,13 @@ import { AdComponent } from 'app/dynamic-components/model/AdComponent';
 })
 export class AdsLoaderComponent implements OnInit {
 
-  @Input() ads: AdItem[];
+  @Input() ads!: AdItem[];
   currentAdIndex = -1;
   //@ViewChild('adhost') adHost: ElementRef; // Si adhost está aplicada a un elemento HTML, sería un ElementRef
   //@ViewChild('adhost') adHost: XXXXXComponent; // Si adhost está aplicada a un componente, sería la instancia del componente
   //@ViewChild('adhost', {read: ElementRef}) adHost: AdDirective; // Si adhost está aplicada a un componente, sería un ElementRef
   //@ViewChild(AdDirective) adHost: AdDirective; // Es la instancia de la directiva
-  @ViewChild('adhost', {read: ViewContainerRef, static: false}) viewContainerRef: ViewContainerRef;
+  @ViewChild('adhost', {read: ViewContainerRef, static: false}) viewContainerRef!: ViewContainerRef;
   interval: any;
 
   constructor(private componentFactoryResolver: ComponentFactoryResolver) { }

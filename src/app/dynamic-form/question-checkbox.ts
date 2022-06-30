@@ -1,10 +1,10 @@
 import { QuestionBase } from './question-base';
 
 export class CheckboxQuestion extends QuestionBase<string> {
-  controlType = 'checkbox';
-  type: string;
+  override controlType = 'checkbox';
+  override type: string;
 
-  constructor(options: {} = {}) {
+  constructor(options: any = {}) {
     super(options);
     this.type = options['type'] || '';
   }

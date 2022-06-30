@@ -6,8 +6,8 @@ import { Crono } from '../model/crono';
 })
 export class CronoService {
 
-  crono_id; // Identificador del cronómetro (podría ser el id del partido)
-  duracion: number; //(en minutos) Este dato hay que configurarlo desde fuera
+  crono_id!: any; // Identificador del cronómetro (podría ser el id del partido)
+  duracion!: number; //(en minutos) Este dato hay que configurarlo desde fuera
   precision: number = 100;  // Cada cuántos milisegundos se recalcula el crono
 
   crono: Crono
@@ -28,7 +28,7 @@ export class CronoService {
 
   }
 
-  setDuracion(minutos) {
+  setDuracion(minutos: number) {
     this.duracion = minutos;
   }
 

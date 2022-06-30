@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HEROES } from '../../data/mock-heroes';
-import { Hero } from '../../model/hero';
+import { Hero } from 'src/app/model/Hero';
 
 @Component({
   selector: 'app-parent-comp',
@@ -12,7 +12,7 @@ export class ParentCompComponent implements OnInit {
   heroes = HEROES;
   lastId = 20;
   newHero: Hero;
-  selectedHero: Hero;
+  selectedHero?: Hero;
 
   constructor() {
     this.newHero = {
@@ -42,7 +42,7 @@ export class ParentCompComponent implements OnInit {
     };
   }
 
-  delete(index) {
+  delete(index: number) {
     this.heroes.splice(index, 1);
   }
 

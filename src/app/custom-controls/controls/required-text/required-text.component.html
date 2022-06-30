@@ -1,9 +1,9 @@
 <input type="text" #input
-  (input)="onChange($event.target.value)"
+  (input)="onChange($any($event.target).value)"
   (blur)="onTouched()"
   [disabled]="disabled">
 
 <div class="error"
-  *ngIf="controlDirective && !controlDirective.control.valid">
+  *ngIf="controlDirective && !controlDirective.control!.valid">
   This field is invalid.
 </div>

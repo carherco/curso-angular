@@ -1,7 +1,7 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { Observable, fromEvent } from 'rxjs';
 import { tap, map, filter, switchMap, distinctUntilChanged, debounceTime } from 'rxjs/operators';
-import { Hero } from '../../model/hero';
+import { Hero } from 'src/app/model/Hero';
 import { HeroeService } from '../../services/heroe.service';
 
 @Component({
@@ -11,10 +11,10 @@ import { HeroeService } from '../../services/heroe.service';
 })
 export class HeroSearchComponent implements OnInit {
 
-  errorMessage: string;
-  heroes: Hero[];
+  errorMessage: string = '';
+  heroes: Hero[] = [];
 
-  @ViewChild('email', {static: true}) email: ElementRef;
+  @ViewChild('email', {static: true}) email!: ElementRef;
 
   constructor (private heroService: HeroeService) {
     this.getHeroes();

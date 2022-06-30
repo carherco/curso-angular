@@ -6,19 +6,19 @@
     <div>
       <label for="name">Name: </label>
       <input type="text" id="name" name="name" required formControlName="name">
-      <span *ngIf="userForm.get('name').errors?.required">Campo obligatorio</span>
+      <span *ngIf="userForm.get('name')!.errors!['required']">Campo obligatorio</span>
     </div>
 
-    <div>{{ userForm.get('name').errors | json }}</div>
+    <div>{{ userForm.get('name')!.errors | json }}</div>
 
     <div>
       <label for="iban">IBAN: </label>
       <input type="text" id="iban" name="iban" required formControlName="iban">
-      <span *ngIf="userForm.get('iban').errors?.required">Campo obligatorio</span>
-      <span *ngIf="userForm.get('iban').errors?.spanishIban">El iban tiene que ser español</span>
+      <span *ngIf="userForm.get('iban')!.errors!['required']">Campo obligatorio</span>
+      <span *ngIf="userForm.get('iban')!.errors!['spanishIban']">El iban tiene que ser español</span>
     </div>
 
-    <div>{{ userForm.get('iban').errors | json }}</div>
+    <div>{{ userForm.get('iban')!.errors | json }}</div>
 
     <button type="submit">Submit</button>
 
@@ -32,19 +32,19 @@
     <div>
       <label for="name">Name: </label>
       <input type="text" id="name2" name="name" required formControlName="name">
-      <span *ngIf="userForm2.get('name').errors?.required">Campo obligatorio</span>
+      <span *ngIf="userForm2.get('name')!.errors!['required']">Campo obligatorio</span>
     </div>
 
-    <div>{{ userForm.get('name').errors | json }}</div>
+    <div>{{ userForm.get('name')!.errors | json }}</div>
 
     <div>
       <label for="iban">IBAN: </label>
       <input type="text" id="iban2" name="iban" required formControlName="iban">
-      <span *ngIf="userForm2.get('iban').errors?.required">Campo obligatorio</span>
-      <span *ngIf="userForm2.get('iban').errors?.countriesIban">El iban tiene que ser español</span>
+      <span *ngIf="userForm2.get('iban')!.errors!['required']">Campo obligatorio</span>
+      <span *ngIf="userForm2.get('iban')!.errors!['countriesIban']">El iban tiene que ser español</span>
     </div>
 
-    <div>{{ userForm2.get('iban').errors | json }}</div>
+    <div>{{ userForm2.get('iban')!.errors | json }}</div>
 
     <button type="submit">Submit</button>
 

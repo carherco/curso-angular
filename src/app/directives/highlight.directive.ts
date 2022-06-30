@@ -5,7 +5,7 @@ import { Directive, ElementRef, HostListener, Input } from '@angular/core';
 })
 export class HighlightDirective {
 
-  @Input('appHighlight') highlightColor: string;
+  @Input('appHighlight') highlightColor: string | undefined;
   defaultColor: string = 'yellow';
 
   constructor(private el: ElementRef) {
@@ -20,7 +20,7 @@ export class HighlightDirective {
     this.highlight(null);
   }
 
-  private highlight(color: string) {
+  private highlight(color: string | null) {
     this.el.nativeElement.style.backgroundColor = color;
   }
 }

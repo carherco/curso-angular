@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Hero } from '../../../model/hero';
+import { Hero } from '../src/app/model/Hero';
 
 @Component({
   selector: 'app-heroes-edit-presenter',
@@ -8,7 +8,7 @@ import { Hero } from '../../../model/hero';
 })
 export class HeroesEditPresenterComponent {
 
-  @Input() hero: Hero;
+  @Input() hero!: Hero;
   @Output() eventDelete = new EventEmitter<Hero>();
   @Output() eventUpdate = new EventEmitter<Hero>();
   emotions: string[] = ['','happy','sad','confused'];

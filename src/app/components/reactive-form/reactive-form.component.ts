@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
-import { Hero } from '../../model/hero';
+import { Hero } from 'src/app/model/Hero';
 import { Address } from '../../model/address';
 
 @Component({
@@ -17,9 +17,9 @@ export class ReactiveFormComponent implements OnInit {
 
   hero = new Hero(18, 'Dr IQ', this.powers[0], 'Chuck Overstreet');
 
-  heroForm: FormGroup;
+  heroForm!: FormGroup;
   alterEgoControl: FormControl;
-  addresses: FormArray;
+  addresses!: FormArray;
 
   constructor(private fb: FormBuilder) {
 

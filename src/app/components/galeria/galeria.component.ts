@@ -18,7 +18,7 @@ export class GaleriaComponent implements OnInit {
     'https://mmtstock.com/wp-content/uploads/2017/11/P9031121.jpg',
     'https://mmtstock.com/wp-content/uploads/2018/02/P7041396.jpg'
   ];
-  imagenActual: String;
+  imagenActual: string;
   indice = 0;
 
   ini:number = 0;
@@ -27,7 +27,7 @@ export class GaleriaComponent implements OnInit {
 
   tamano = 500;
   interval: any;
-  playing: boolean;
+  playing: boolean = false;
 
   constructor() {
     this.imagenActual = this.imagenes[this.indice];
@@ -47,7 +47,7 @@ export class GaleriaComponent implements OnInit {
     this.imagenActual = this.imagenes[this.indice];
   }
 
-  seleccionarImagen(i){
+  seleccionarImagen(i: number){
     this.indice = i;
     this.imagenActual = this.imagenes[this.indice];
   }

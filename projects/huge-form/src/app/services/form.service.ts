@@ -8,8 +8,8 @@ import { DbService } from './db.service';
 export class FormService {
 
   size = 9;
-  registerForm: FormGroup;
-  mapForm: Map<string, number>;
+  registerForm!: FormGroup;
+  mapForm!: Map<string, number>;
 
   constructor(private fb: FormBuilder, private db: DbService) { }
 

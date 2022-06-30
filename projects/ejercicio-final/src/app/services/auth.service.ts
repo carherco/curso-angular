@@ -42,7 +42,7 @@ const ResponseLoginERROR$: Observable<SimulatedResponse> = Observable.create(
 export class AuthService {
 
   private usertoken: Usertoken;
-  private lastLoginErrorMessage: string;
+  private lastLoginerrorMessage: string = '';
 
   constructor(private http: HttpClient) {
     this.usertoken = {

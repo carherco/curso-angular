@@ -4,5 +4,5 @@
 <div>Nombre completo: {{ miAutor.nombre + ' ' + miAutor.apellido }}</div>
 <div>Nombre completo: {{ nombreCompleto() }}</div>
 
-Un input: <input [value]="miAutor.nombre" (keyup)="alertaNombre($event.target.value)">
+Un input: <input [value]="miAutor.nombre" (keyup)="alertaNombre($any($event.target).value)">
 Otro input: <input value="{{ miAutor.nombre }}">

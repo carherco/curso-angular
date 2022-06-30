@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { Hero } from '../../model/hero';
+import { Hero } from 'src/app/model/Hero';
 import { HeroService } from '../../services/hero.service';
 //import {switchMap} 'rxjs/operators';
 
@@ -11,8 +11,8 @@ import { HeroService } from '../../services/hero.service';
 })
 export class ChildCompComponent implements OnInit {
 
-  private hero_id;
-  @Input('variable_para_child')  hero: Hero;
+  private hero_id!: number;
+  @Input('variable_para_child')  hero!: Hero;
   @Output() onChildDeleted = new EventEmitter<Hero>();
   constructor(private route: ActivatedRoute,
               private router: Router,

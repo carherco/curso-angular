@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
-import { UserService } from 'app/services/user.service';
-import { AuthService } from 'app/services/auth.service';
+import { UserService } from 'src/app/services/user.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 
 @Component({
@@ -11,8 +11,8 @@ import { AuthService } from 'app/services/auth.service';
 })
 export class UserListComponent implements OnInit {
 
-  errorMessage: String;
-  users: any[];
+  errorMessage: string = '';
+  users: any[] = [];
   constructor(private userService: UserService,
               private authService: AuthService,
               private router: Router

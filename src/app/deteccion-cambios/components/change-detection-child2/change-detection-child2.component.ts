@@ -10,7 +10,7 @@ import { delay } from 'rxjs/operators';
 })
 export class ChangeDetectionChild2Component implements OnInit {
 
-  @Input() object;
+  @Input() object!: {name: string};
   constructor() {
     console.log('child2 constructor');
     setTimeout(() => {

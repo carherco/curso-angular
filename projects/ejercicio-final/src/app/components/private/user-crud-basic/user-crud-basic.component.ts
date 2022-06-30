@@ -10,10 +10,10 @@ import { UserService } from '../../../services/user.service';
 export class UserCrudBasicComponent implements OnInit {
 
   title = 'CRUD BÁSICO';
-  users = [];
+  users: User[] = [];
   lastId = 10;
   newUser: User;
-  selectedUser: User;
+  selectedUser!: User;
   hide_without_phone: boolean = false;
 
   constructor(private userService: UserService) {
@@ -52,7 +52,7 @@ export class UserCrudBasicComponent implements OnInit {
    * Función delete recibiendo el índice del usuario que se quiere eliminar
    * @param index
    */
-  deleteX(index) {
+  deleteX(index: number) {
     this.users.splice(index, 1);
   }
 

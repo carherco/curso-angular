@@ -106,17 +106,17 @@ También interpolaremos el objeto user en la plantilla para comprobar que efecti
     <div>
       <div>
         <label for="street">Street:
-          <input type="text" id="street" name="street" [(ngModel)]="user.address.street">
+          <input type="text" id="street" name="street" [(ngModel)]="user.address!.street">
         </label>
       </div>
       <div>
         <label for="city">City:
-          <input type="text" id="city" name="city" [(ngModel)]="user.address.city">
+          <input type="text" id="city" name="city" [(ngModel)]="user.address!.city">
         </label>
       </div>
       <div>
         <label for="zipcode">Zip Code:
-          <input type="text" id="zipcode" name="zipcode" [(ngModel)]="user.address.zipcode">
+          <input type="text" id="zipcode" name="zipcode" [(ngModel)]="user.address!.zipcode">
         </label>
       </div>
     </div>

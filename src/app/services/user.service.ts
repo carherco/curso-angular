@@ -1,7 +1,7 @@
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
-import { environment } from "environments/environment";
+import { environment } from 'src/environments/environment';
 import { User } from '../model/user';
 import { retry } from 'rxjs/operators';
 
@@ -24,7 +24,7 @@ export class UserService {
     );
   }
 
-  getOne(id): Observable<any> {
+  getOne(id: number): Observable<any> {
     return this.http.get<User>(this.url_api+'/'+id);
   }
 
@@ -36,7 +36,7 @@ export class UserService {
     return this.http.put(this.url_api+'/'+user.id, user);
   }
 
-  delete(id) {
+  delete(id: number) {
     return this.http.delete(this.url_api+'/'+id);
   }
 

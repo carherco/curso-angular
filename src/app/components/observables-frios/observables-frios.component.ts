@@ -12,7 +12,7 @@ export class ObservablesFriosComponent implements OnInit {
 
   ngOnInit() {
     // Creación de observable básico
-    const Obs1 = Observable.create(function (emmiter) {
+    const Obs1 = new Observable(function (emmiter) {
       emmiter.next('Hello');
       emmiter.next('World');
       emmiter.complete();
@@ -25,7 +25,7 @@ export class ObservablesFriosComponent implements OnInit {
     );
 
     // Creación de observable "infinito"
-    const Obs2 = Observable.create(function(emmiter) {
+    const Obs2 = new Observable(function(emmiter) {
       let value = 0;
       const interval = setInterval(() => {
         if (value % 2 === 0) {

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Partido } from 'app/model/partido';
-import { CronoService } from 'app/services/crono.service';
-import { PARTIDOS } from 'app/data/partidos';
+import { Partido } from 'src/app/model/partido';
+import { CronoService } from 'src/app/services/crono.service';
+import { PARTIDOS } from 'src/app/data/partidos';
+import { Equipo } from 'src/app/model/equipo';
 
 @Component({
   selector: 'app-crono',
@@ -11,8 +12,8 @@ import { PARTIDOS } from 'app/data/partidos';
 export class CronoComponent implements OnInit {
 
     partido: Partido;
-    inicio: Date;
-    tiempoactual: Date;
+    inicio!: Date;
+    tiempoactual!: Date;
     minuto: any;
 
     navCtrl: any;
@@ -26,7 +27,7 @@ export class CronoComponent implements OnInit {
         this.partido = PARTIDOS[0];
         this.partido.marcador_local = 0;
         this.partido.marcador_visitante = 0;
-        this.cronoService.setDuracion(this.partido.duracion);
+        this.cronoService.setDuracion(this.partido.duracion!);
     }
 
     ngOnInit() {
@@ -34,7 +35,7 @@ export class CronoComponent implements OnInit {
     }
 
 
-    openAnotarGol(equipo, equiporival) {
+    openAnotarGol(equipo: Equipo, equiporival: Equipo) {
 
             this.navCtrl.push('AnotarGolPage', {
                 partido: this.partido,
@@ -43,7 +44,7 @@ export class CronoComponent implements OnInit {
             });
     }
 
-    openAnotarTarjetaAmarilla(equipo) {
+    openAnotarTarjetaAmarilla(equipo: Equipo) {
 
             this.navCtrl.push('AnotarTarjetaAmarillaPage', {
                 partido: this.partido,
@@ -51,7 +52,7 @@ export class CronoComponent implements OnInit {
             });
     }
 
-    openAnotarTarjetaRoja(equipo) {
+    openAnotarTarjetaRoja(equipo: Equipo) {
 
             this.navCtrl.push('AnotarTarjetaRojaPage', {
                 partido: this.partido,

@@ -12,9 +12,9 @@ import { USERS } from '../../data/users';
 export class UserFormReactiveComponent implements OnInit {
 
   user: User = USERS[0];
-  userForm: FormGroup;
-  nameControl: FormControl;
-  arrayControl: FormArray;
+  userForm!: FormGroup;
+  nameControl!: FormControl;
+  arrayControl!: FormArray;
 
   constructor(private fb: FormBuilder) {
     this.buildForm2();
@@ -48,13 +48,13 @@ export class UserFormReactiveComponent implements OnInit {
       username: [this.user.username, [Validators.required] ],
       email: [this.user.email, [Validators.email, Validators.required] ],
       address: this.fb.group({
-        street: this.user.address.street,
+        street: this.user.address!.street,
         city: 'Benalmádena',
         zipcode: ''
       })
     }, { updateOn: 'blur' });
 
-    this.userForm.get('address').valueChanges.subscribe(
+    this.userForm.get('address')!.valueChanges.subscribe(
       newValue => console.log(newValue)
     );
   }

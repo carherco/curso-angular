@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Hero } from '../../../model/hero';
+import { Hero } from 'src/app/model/Hero';
 import { Observable } from 'rxjs';
 import { HeroState } from '../../reducers/hero.store';
 import { LoadHeroes, DeleteHero, AddHero } from '../../reducers/hero.actions';
@@ -13,11 +13,11 @@ import { State } from './../../reducers/index';
 })
 export class ReduxEffectsHeroesContainerComponent implements OnInit {
 
-  heroes$: Observable<any>;
+  heroes$!: Observable<any>;
   heroes: Hero[] = [];
   lastId = 20;
   newHero: Hero;
-  selectedHero: Hero;
+  selectedHero!: Hero;
 
   constructor(private store: Store<State>) {
     this.newHero = {
@@ -43,7 +43,7 @@ export class ReduxEffectsHeroesContainerComponent implements OnInit {
     this.selectedHero = hero;
   }
 
-  add(newHero): void {
+  add(newHero: Hero): void {
     //console.log(newHero);
     //this.heroes.push(newHero);
     this.store.dispatch(new AddHero(newHero));

@@ -1,6 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { HEROES } from 'app/data/mock-heroes';
-import { Hero } from 'app/model/hero';
+import { HEROES } from 'src/app/data/mock-heroes';
+import { Hero } from 'src/app/model/Hero';
 import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import { HeroState } from '../../reducers/hero.store';
@@ -15,11 +15,11 @@ import { ReduxHeroStateService } from '../../services/hero-state.service';
 })
 export class ReduxHeroesContainerComponent implements OnInit {
 
-  heroes$: Observable<any>;
+  heroes$!: Observable<any>;
   heroes: Hero[] = [];
   lastId = 20;
   newHero: Hero;
-  selectedHero: Hero;
+  selectedHero!: Hero;
 
   constructor(private heroStateService: ReduxHeroStateService) {
     this.newHero = {
@@ -42,7 +42,7 @@ export class ReduxHeroesContainerComponent implements OnInit {
     this.selectedHero = hero;
   }
 
-  add(newHero): void {
+  add(newHero: Hero): void {
     //console.log(newHero);
     //this.heroes.push(newHero);
     this.heroStateService.dispatch(new AddHero(newHero));

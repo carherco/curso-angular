@@ -1,8 +1,8 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { Observable, fromEvent } from 'rxjs';
 import { tap, map, filter, switchMap, distinctUntilChanged, debounceTime } from 'rxjs/operators';
-import { Hero } from '../../model/hero';
 import { HeroeService } from '../../services/heroe.service';
+import { Hero } from 'src/app/model/Hero';
 import {
   trigger,
   style,
@@ -11,6 +11,7 @@ import {
   query,
   stagger
 } from '@angular/animations';
+
 
 @Component({
   selector: 'app-animation-search',
@@ -39,10 +40,10 @@ import {
 })
 export class AnimationSearchComponent implements OnInit {
 
-  errorMessage: string;
-  heroes: Hero[];
+  errorMessage: string = '';
+  heroes: Hero[] = [];
 
-  @ViewChild('email', {static: true}) email: ElementRef;
+  @ViewChild('email', {static: true}) email!: ElementRef;
 
   heroTotal = -1;
 

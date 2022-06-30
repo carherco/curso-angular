@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Hero } from '../../model/hero';
+import { Hero } from 'src/app/model/Hero';
 import { MockHeroeService } from '../../services/mock-heroe.service';
 
 
@@ -10,11 +10,11 @@ import { MockHeroeService } from '../../services/mock-heroe.service';
 })
 export class MasterComponent implements OnInit {
 
-  heroes: Hero[];
+  heroes: Hero[] = [];
   emociones = ['','happy','sad','confused'];
 
   nuevoHeroe: Hero;
-  heroeSeleccionado: Hero;
+  heroeSeleccionado!: Hero;
 
   ultimoId = 20;
 

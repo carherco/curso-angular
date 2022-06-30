@@ -13,9 +13,9 @@ import { UsuarioService } from '../../services/usuario.service';
 export class BusquedaComponent implements OnInit {
 
   usuarios: {id: number, name: string, email: string}[] = [];
-  errorMessage: string;
+  errorMessage: string = '';
 
-  @ViewChild('email', {static: true}) email: ElementRef;
+  @ViewChild('email', {static: true}) email!: ElementRef;
 
 
   constructor(private usuarioService: UsuarioService) {

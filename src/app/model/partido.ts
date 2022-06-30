@@ -1,11 +1,12 @@
 import { ThemePalette } from '@angular/material/core';
+import { Equipo } from './equipo';
 
 export class Partido {
 
     constructor(
         public id: number,
-        public equipo_local: string,
-        public equipo_visitante: string,
+        public equipo_local: Equipo,
+        public equipo_visitante: Equipo,
         public marcador_local?: number,
         public marcador_visitante?: number,
         public duracion?: number,

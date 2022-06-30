@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 import { ParamMap } from "@angular/router";
-import { Hero } from '../../model/hero';
+import { Hero } from 'src/app/model/Hero';
 
 @Component({
   selector: 'exce-template-form',
@@ -22,7 +22,7 @@ export class TemplateFormComponent implements OnInit {
 
     this.route.paramMap.subscribe(
       (param: ParamMap) => {
-        this.id = +param.get('id');
+        this.id = +param.get('id')!;
         this.hero = new Hero(this.id, 'Dr IQ', this.powers[0], 'Chuck Overstreet');
       }
     );

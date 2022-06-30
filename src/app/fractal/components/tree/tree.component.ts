@@ -16,12 +16,12 @@ export class TreeComponent implements OnInit {
     this.canvas = document.createElement("canvas");
     this.canvas.width = 700;
     this.canvas.height = 600;
-    document.getElementById("canvas").appendChild(this.canvas);
+    document.getElementById("canvas")!.appendChild(this.canvas);
     this.ctx = this.canvas.getContext("2d");
     this.draw(350, 600, 120, 0);
   }
 
-  draw(startX, startY, len, angle) {
+  draw(startX: number, startY: number, len: number, angle: number) {
     this.ctx.beginPath();
     this.ctx.save();
 

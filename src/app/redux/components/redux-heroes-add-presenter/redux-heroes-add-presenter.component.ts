@@ -1,5 +1,5 @@
 import { Component, OnInit, EventEmitter, Output, Input, ChangeDetectionStrategy } from '@angular/core';
-import { Hero } from 'app/model/hero';
+import { Hero } from 'src/app/model/Hero';
 
 @Component({
   selector: 'app-redux-heroes-add-presenter',
@@ -9,7 +9,7 @@ import { Hero } from 'app/model/hero';
 })
 export class ReduxHeroesAddPresenterComponent implements OnInit {
 
-  @Input() hero: Hero;
+  @Input() hero!: Hero;
   @Output() onAdd = new EventEmitter<Hero>();
 
   constructor() { }

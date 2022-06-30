@@ -8,7 +8,7 @@ import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core
 })
 export class ChangeDetectionChild3Component implements OnInit {
 
-  @Input() object;
+  @Input() object!: {name: string};
   constructor() {
     console.log('child3 constructor');
   }

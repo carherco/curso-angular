@@ -29,7 +29,7 @@ export class AppComponent {
     this.data$ = this.dataCtrl.valueChanges.pipe(
       startWith(this.data),
       debounceTime(500),
-      map( data => data.split("\n").map(line => line.trim()) )
+      map( data => data.split("\n").map((line: string) => line.trim()) )
       //distinctUntilChanged(), // No funciona porque el .map de javascript crea un NUEVO array
       //tap (x => console.log(x))
     );
